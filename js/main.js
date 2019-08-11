@@ -63,6 +63,18 @@ const game = {
 
 /*
 Sources:
+https://en.wikipedia.org/wiki/Tanis
+https://www.ancient.eu/amun/
+https://en.wikipedia.org/wiki/Leontopolis
+https://ancientegyptonline.co.uk/maahes/
+https://en.wikipedia.org/wiki/Lettuce#History
+https://religion.wikia.org/wiki/Leontopolis
+https://en.wikipedia.org/wiki/Memphis,_Egypt
+
+https://www.honey.com/about-honey/how-honey-is-made
+https://sciencing.com/do-flowers-bees-other-5796565.html
+https://www.lexico.com/en/definition/pollen
+
 https://www.ducksters.com/history/ancient_egypt/cities_of_ancient_egypt.php
 
 https://www.britannica.com/place/Egypt/Plant-and-animal-life

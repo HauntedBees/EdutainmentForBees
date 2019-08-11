@@ -53,73 +53,8 @@ let player = {
         time -= minutes * 60;
         return (hours < 10 ? "0" : "") + hours + ":" + (minutes < 10 ? "0" : "") + minutes + ":" + (time < 10 ? "0" : "") + time;
     },
-    //inventory: [],
     hasQuest: q => player.activeQuests[q] !== undefined,
     hasQuestState: (q, state) => player.activeQuests[q] !== undefined && state === player.activeQuests[q],
     completedQuest: q => player.questsCleared.indexOf(q) >= 0,
     hasOrHasHadQuest: q => player.questsCleared.indexOf(q) >= 0 || player.activeQuests[q] !== undefined,
-    /*hasItem: function(item, amount) {
-        amount = amount || 1;
-        for(var i = 0; i < player.inventory.length; i++) {
-            if(player.inventory[i][0] === item && player.inventory[i][1] >= amount) { return true; }
-        }
-        return false;
-    },
-    getItemAmount: function(item) {
-        for(var i = 0; i < player.inventory.length; i++) {
-            if(player.inventory[i][0] === item) { return player.inventory[i][1]; }
-        }
-        return 0;
-    },
-    decreaseItem: function(name, amount) {
-        var idx = -1;
-        for(var i = 0; i < player.inventory.length; i++) {
-            if(player.inventory[i][0] === name) {
-                player.inventory[i][1] -= (amount || 1);
-                idx = i;
-                break;
-            }
-        }
-        if(idx < 0) { return false; }
-        if(player.inventory[idx][1] <= 0) {
-            player.inventory.splice(idx, 1);
-            return false;
-        }
-        return true;
-    },
-    clearItemIfEmpty: function(name) {
-        for(let i = player.inventory.length - 1; i >= 0; i--) {
-            if(player.inventory[i][0] !== name) { continue; }
-            if(player.inventory[i][1] <= 0) {
-                player.inventory.splice(i, 1);
-                return true;
-            }
-            return false;
-        }
-        return false;
-    },
-    increaseItem: function(name, amount) {
-        if(name === "_beehive" && player.clearedEntities.indexOf("FarmHive") >= 0
-                                && player.clearedEntities.indexOf("BelowHive") >= 0
-                                && player.clearedEntities.indexOf("ForestHive") >= 0
-                                && player.clearedEntities.indexOf("KelpBeehive") >= 0
-                                && player.clearedEntities.indexOf("OfficeHive") >= 0) {
-            AddAchievementIfMissing("beeKing");
-        }
-        if(amount === undefined) { amount = 1; }
-        let numOfType = 0;
-        const type = name[0] === "!" ? "!" : (name[0] === "_" ? "_" : "C");
-        for(var i = 0; i < player.inventory.length; i++) {
-            if(player.inventory[i][0] === name) {
-                player.inventory[i][1] += amount;
-                return true;
-            }
-            const front = player.inventory[i][0][0];
-            if(front !== "!" && front !== "_" && type === "C") { numOfType++; }
-        }
-        if(numOfType === 36) { return false; }
-        if(amount === 0) { return true; }
-        player.inventory.push([name, amount]);
-        return true;
-    }*/
 };

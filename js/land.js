@@ -127,7 +127,6 @@ const land = {
             textHandler.ShowText(land.target.name, land.target.text);
         } else if(land.target.type === "boat") {
             game.SwitchTo(boat);
-            //textHandler.ShowText("", "boat");
         }
     },
     rightclick: function() {

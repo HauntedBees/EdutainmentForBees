@@ -1,6 +1,5 @@
 const positions = [ // name, x, y, distance from previous
     ["Tanis", 505, 115], 
-    ["Avaris", 515, 135, 1], 
     ["Leontopolis", 495, 155, 2], // Taremu (Land of Fish) near Heliopolis 
     ["Memphis", 475, 180, 1], 
     ["Crocodilopolis", 445, 214, 2], // Shedet
@@ -15,9 +14,9 @@ const positions = [ // name, x, y, distance from previous
 ];
 const boat = {
     animIdx: 0, yPos: 650, btnPos: 444,//gameIdx: 0, 
-    selectingLocation: true, currentPos: 8, nextPos: 8, 
+    selectingLocation: true, currentPos: 7, nextPos: 7, 
     inDialogue: false, inChoice: false, 
-    playerX: 555, playerDir: 1, 
+    playerX: 555, playerDir: 1, honeyCache: [], 
     Setup: function() {
         boat.selectingLocation = false;
         boat.InitialDraw();
@@ -80,6 +79,9 @@ const boat = {
         }
         return distance;//Math.ceil(distance / 1.5);
     },
+    SetSailForAdventure: function() {
+
+    },
     mouseMove: function() { },
     click: function() {
         if(boat.inDialogue) {
@@ -121,7 +123,19 @@ const boat = {
                 textHandler.ShowText("", "inventory");
             } else if(boat.playerX >= 620) { // Smoke
                 if(player.HasItem("incense")) {
-                    
+                    if(boat.honeyCache.length === 0) {
+                        let nectarCount = 0;
+                        for(const key in player.nectarCache) {
+                            nectarCount += player.nectarCache[key];
+                        }
+                        gfx.clearSome(["menuA", "menutext"]);
+                        if(nectarCount === 0) {
+                            textHandler.ShowText("", "noNectar");
+                        } else {
+                            textHandler.ShowText("", "noHoney");
+                        }
+                        return;
+                    }
                 } else {
                     gfx.clearSome(["menuA", "menutext"]);
                     textHandler.ShowText("", "noIncense");
