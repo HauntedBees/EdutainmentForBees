@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            @font-face { font-family: "NewAthenaUnicode"; src: url("styles/newathu5_5.ttf") }
+            @font-face { font-family: "PressStart2P"; src: url("styles/PressStart2P.ttf") }
+            @font-face { font-family: "OpenDyslexic"; src: url("styles/OpenDyslexic3-Regular.ttf") }
+            @font-face { font-family: "Mariana"; src: url("styles/MARIANA.ttf") } /*https://www.fontspace.com/mariano-mart%C3%ADnez-vila/mariana*/
+            @font-face { font-family: "Orkney"; src: url("styles/OrkneyRegular.ttf") }
+            body {
+				font-family: "NewAthenaUnicode";
+				text-align: center;
+				border: 0 !important;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+            canvas {
+                border: 1px solid black;
+                image-rendering: pixelated; /*crisp-edges*/
+                left: 0;
+                margin: 0 auto;
+                position: absolute;
+                right: 0; 
+                text-align: center;
+                top: 2%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="canvasContainer"> <!-- 16 x 14 (256x224) formerly 15 x 10 (240x160) -->
+            <canvas id="background" width="1024" height="896"></canvas>
+            <canvas id="crap" width="1024" height="896"></canvas>
+            <canvas id="characters" width="1024" height="896"></canvas>
+            <canvas id="foreground" width="1024" height="896"></canvas>
+            <canvas id="menuA" width="1024" height="896"></canvas>
+            <canvas id="menuB" width="1024" height="896"></canvas>
+            <canvas id="menucursor" width="1024" height="896"></canvas>
+            <canvas id="menutext" width="1024" height="896"></canvas>
+        </div>
+        <div id="fontLoader">
+            <div style="font-family:PressStart2P">&nbsp;</div>
+            <div style="font-family:NewAthenaUnicode">&nbsp;</div>
+            <div style="font-family:Mariana">&nbsp;</div>
+            <div style="font-family:Orkney">&nbsp;</div>
+            <div style="font-family:OpenDyslexic">&nbsp;</div>
+        </div>
+        <script src="js/textHandler.js"></script>
+        <script src="js/text.js"></script>
+        <script src="js/input.js"></script>
+        <script src="js/player.js"></script>
+        <script src="js/places.js"></script>
+        <script src="js/things.js"></script>
+        <script src="js/jraphics.js"></script>
+        <script src="js/land.js"></script>
+        <script src="js/boat.js"></script>
+        <script src="js/main.js"></script>
+        <script type="text/javascript">document.addEventListener("DOMContentLoaded", game.fullInit);</script>
+    </body>
+</html>
