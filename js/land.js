@@ -1,7 +1,7 @@
 const land = {
-    animIdx: 0, gameIdx: 0, 
+    animIdx: 0, gameIdx: 0, freeMovement: true, 
     yPos: 780, btnPos: 444, xOffset: 500, 
-    playerX: 500, playerDir: 1,  
+    playerX: 500, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), 
     entities: [], target: null,
     inDialogue: false, inChoice: false, 
     bgMoved: true, // max x ~= 7678
@@ -30,7 +30,7 @@ const land = {
             land.bgMoved = false;
             gfx.clearLayer("background");
             for(let i = 0; i <= 4; i++) {
-                gfx.DrawBG("bg" + i, -land.playerX / (3 * (5 - i)));
+                gfx.DrawBG("bg" + i, -land.playerX / (1 + 3 * (4 - i)));
             }
         }
         land.target = null;
@@ -69,7 +69,7 @@ const land = {
                 closestPos = dist;
             }
         }
-        gfx.DrawSprite("prot", land.playerDir, 0, land.xOffset, land.yPos, "characters");
+        gfx.DrawSprite2("player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.yPos, "characters");
         return potentialTarget;
     },
     mouseMove: function() { },
@@ -145,14 +145,16 @@ const land = {
             return;
         } else if(key === player.controls.right) {
             if(land.playerDir === 1) { 
-                land.playerX += 20;
+                land.playerX += 5;
+                land.playerAnim.SetMoving();
             } else {
                 land.playerDir = 1;
             }
             if(land.playerX > 7678) { land.playerX = 7678; }
         } else if (key === player.controls.left) {
             if(land.playerDir === 0) {
-                land.playerX -= 20;
+                land.playerX -= 5;
+                land.playerAnim.SetMoving();
             } else {
                 land.playerDir = 0;
             }

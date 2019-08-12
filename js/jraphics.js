@@ -1,5 +1,6 @@
 const sheetInfo = {
-    "prot": { w: 125, h: 225 },
+    "player": { w: 200, h: 260 },
+    "pers2tiny": { w: 150, h: 195 },
     "buttons": { w: 50, h: 50 },
     "headico": { w: 45, h: 45 },
     "circle": { w: 15, h: 15 },
@@ -78,12 +79,15 @@ const gfx = {
         const dims = sheetInfo[sheetpath];
         gfx.DrawImage(gfx.ctx[layer || "background"], sheet, 0, 0, dims.w, dims.h, x, 0, dims.w, dims.h);
     },
+    DrawSprite2: function(sheetpath, sxy, x, y, layer, size, noShift) {
+        gfx.DrawSprite(sheetpath, sxy[0], sxy[1], x, y, layer, size, noShift);
+    },
     DrawSprite: function(sheetpath, sx, sy, x, y, layer, size, noShift) {
         size = size || 1;
         const sheet = gfx.spritesheets[sheetpath];
         const dims = sheetInfo[sheetpath];
-        const startX = sx * dims.w + sx * 2 + 1;
-        const startY = sy * dims.h + sy * 2 + 1;
+        const startX = sx * dims.w;// + sx * 2 + 1;
+        const startY = sy * dims.h;// + sy * 2 + 1;
         gfx.DrawImage(gfx.ctx[layer], sheet, startX, startY, dims.w, dims.h, x - (noShift ? 0 : (dims.w / 2)), y - (noShift ? 0 : dims.h), dims.w * size, dims.h * size);
     },
     DrawImage: function(ctx, image, srcX, srcY, srcW, srcH, dstX, dstY, dstW, dstH) {

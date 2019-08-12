@@ -13,10 +13,10 @@ const positions = [ // name, x, y, distance from previous
     ["Napata", 495, 650, 10]
 ];
 const boat = {
-    animIdx: 0, yPos: 650, btnPos: 444,//gameIdx: 0, 
+    animIdx: 0, freeMovement: true, yPos: 650, btnPos: 444,//gameIdx: 0, 
     selectingLocation: true, currentPos: 7, nextPos: 7, 
     inDialogue: false, inChoice: false, 
-    playerX: 555, playerDir: 1, honeyCache: [], 
+    playerX: 555, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), honeyCache: [], 
     Setup: function() {
         boat.selectingLocation = false;
         boat.InitialDraw();
@@ -25,8 +25,10 @@ const boat = {
     InitialDraw: function() {
         gfx.clearAll();
         if(boat.selectingLocation) {
+            boat.freeMovement = false;
             gfx.DrawBG("map", 0);
         } else {
+            boat.freeMovement = true;
             gfx.DrawBG("boatOuter", 0);
             gfx.DrawBG("boatCover", 0, "menuB");
             const numFullBeehives = player.inventory["full beehive"];
@@ -59,14 +61,14 @@ const boat = {
             gfx.DrawText(nextText, cursor[1] + 30, cursor[2], false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize);
         } else {
             gfx.clearSome(["characters", "menuA", "menutext"]);
-            gfx.DrawSprite("prot", boat.playerDir, 0, boat.playerX, boat.yPos, "characters");
+            gfx.DrawSprite2("player", boat.playerAnim.GetFrame(boat.playerDir), boat.playerX, boat.yPos, "characters");
             if(boat.playerX <= 265) {
                 textHandler.DrawButton(true, "Set Sail", boat.playerX, boat.btnPos, 1);
             } else if(boat.playerX <= 470) {
                 textHandler.DrawButton(true, "Check Storage", boat.playerX, boat.btnPos, 1);
             } else if(boat.playerX >= 620) {
                 textHandler.DrawButton(true, "Smoke Bees", boat.playerX, boat.btnPos, 1);
-            } else if(boat.playerX <= 580 && boat.playerX >= 550) {
+            } else if(boat.playerX <= 590 && boat.playerX >= 520) {
                 textHandler.DrawButton(true, "Leave Ship", boat.playerX, boat.btnPos, 1);
             }
         }
@@ -77,7 +79,7 @@ const boat = {
         for(let i = lower + 1; i <= higher; i++) {
             distance += positions[i][3];
         }
-        return distance;//Math.ceil(distance / 1.5);
+        return distance;
     },
     SetSailForAdventure: function() {
 
@@ -140,7 +142,7 @@ const boat = {
                     gfx.clearSome(["menuA", "menutext"]);
                     textHandler.ShowText("", "noIncense");
                 }
-            } else if(boat.playerX <= 580 && boat.playerX >= 550) { // Leave
+            } else if(boat.playerX <= 590 && boat.playerX >= 520) { // Leave
                 game.SwitchTo(land, positions[boat.currentPos][0]);
             }
         }
@@ -166,19 +168,21 @@ const boat = {
             }
         } else {
             if(key === player.controls.right) {
-                if(boat.playerDir === 1) { 
-                    boat.playerX += 10;
+                if(boat.playerDir === 1) {
+                    boat.playerX += 2;
+                    boat.playerAnim.SetMoving();
                 } else {
                     boat.playerDir = 1;
                 }
-                if(boat.playerX > 890) { boat.playerX = 890; }
+                if(boat.playerX > 860) { boat.playerX = 860; }
             } else if (key === player.controls.left) {
                 if(boat.playerDir === 0) {
-                    boat.playerX -= 10;
+                    boat.playerX -= 2;
+                    boat.playerAnim.SetMoving();
                 } else {
                     boat.playerDir = 0;
                 }
-                if(boat.playerX < 125) { boat.playerX = 125; }
+                if(boat.playerX < 150) { boat.playerX = 150; }
             }
         }
     }
