@@ -5,6 +5,15 @@ Peret: OCT-FEB: planting crops
 Shemu: MAR-MAY: harvesting crops
 */
 const things = {
+    /* --- OPENING --- */
+    "prompt1": { type: "auto", speaker: "Protagonny", text: "intro1", sprite: "" },
+    "prompt2": { type: "auto", speaker: "Protagonny", text: "intro2", sprite: "" },
+    "coffin": { type: "observable", speaker: "Protagonny", sprite: "coffin", dir: 0, name: "Sarcophagus", text: "intro3" },
+    "beejar": { type: "bg", sprite: "beejar", dir: 0 },
+    "helpser": { type: "bg", sprite: "pers2tiny", anim: "helpser", dir: 1 },
+    "amenhotep": { type: "bg", sprite: "amenhotep", dir: 0 },
+    "amenhotepTalk": { type: "person", sprite: "", dir: 0, name: "Amenhotep III", text: "intro8" },
+    
     /* --- PLANTS --- */
     "corn": { type: "observable" }, // not pollinated
     "wheat": { type: "observable" }, // not pollinated
@@ -25,5 +34,5 @@ const things = {
     "acacia": { type: "beeable" },
     "onion": { type: "beeable" },
     /* --- PEOPLE --- */
-    "biff": { type: "person", sprite: "pers", dir: 0, name: "Amenken", text: "amenken1" }
+    "biff": { type: "person", sprite: "pers2tiny", dir: 1, name: "Amenken", text: "amenken1" }
 };

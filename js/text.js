@@ -1,4 +1,29 @@
 const texts = {
+    // Opening Cutscene
+    "intro0": "I can't believe I've discovered a new Ancient Egyptian tomb! | I should probably go tell the others, but it wouldn't hurt if I explored on my own a little bit first, right?",
+    "intro1": "Judging from the condition of the tomb and the design, this seems like a tomb from the New Kingdom. | The New Kingdom lasted almost 500 years and spanned three dynasties. | The famous pharaoh Tutankhamun reigned during the 18th dynasty, and his tomb was rediscovered back in 1922!", 
+    "intro2": "Oh! What's that up ahead?",
+    "intro3": "A sarcophagus! Jackpot! | Maybe this is the tomb of a pharaoh or some other important historical figure! I can't lift this thing open on my own, so I'll have to go back and get some help. | Hm, what's this? | ~start1", 
+    "intro4": "This is jar has some heiroglyphs on it... some sort of insect... | Ah! | This is a jar full of honey! | That's right, Northern Africans were collecting honey from bees 9,000 years ago! | And Ancient Egyptians were domesticating them since before the 20th century BC! | This honey still looks as fresh as it must have been back then; due to its chemistry, honey can be preserved for tens to hundreds of years! | ...Maybe even thousands? | ~start2",
+    "intro5": "Ugh... what happened? | ~start4",
+    "intro6": "Where am I? | ~start5",
+    "intro7": [
+        "@Why does everything look so... painty? | @Who are you? | I am Intef. I found you here unconscious next to this jar of honey.",
+        "@Honey...? That's right! I was in the tomb... you aren't with my excavation crew. Are you a villager? | You're not from around here, are you?",
+        "@Where is here? | You're in Thebes, and just a short walk away from our great pharaoh Amenhotep the Magnificent's throne! | @Amenhotep... this must be a bad dream. Amenhotep III ruled Egypt in the 14th century BC!",
+        "I don't know what any of those words mean. Are you a beekeeper? That's a pretty big jar of honey for someone to be carrying around. | @Uh, sure. I'm a beekeeper, kid.",
+        "Very strange! Usually the oil in hair attracts bees, so beekeepers shave their heads! | Female beekeepers aren't very common, either. You must be a very good beekeeper!",
+        "@Yep, that's me. Very special beekeeper. That's why I was just collapsed on the ground with a jar of honey right by the Nile river.",
+        "Oh! Oh no! Were you robbed?? Is that why you don't have any of your other beekeeping supplies? | @Uh... | Oh dear! For such a professional to be robbed in our kingdom's capital is a disgrace!",
+        "Follow me, I'll explain the situation to Amenhotep and he'll know what to do! | @Wait I don't think that's necessary-- | ~start6"
+    ].join(" | "),
+    "intro8": ["Is this the beekeeper you were telling me about, Intef? | Intef: Yes, your highness. | Greetings, traveller. I have been told that you were robbed of your beekeeping tools, yes?",
+        "@(It's probably easier to just say yes to that than to try explaining what actually happened.) | Yup! Er, I mean, that is correct, your highness. | I tried some of the honey Intef brought; it seems like you know your way around a beehive!",
+        "I've sent one of my servants to gather what he could to help you. | It may not be much, but it will certainly be enough to get you back on your feet. | @You have my eternal gratitude, your highness.",
+        "No need for that! This is the least I can do after you were attacked inside my very city. | However, I certainly will not turn down any offerings of honey the next time you're in the area, ha ha!",
+        "Head back to the Nile, my servant will be waiting for you there. | ~start7"
+    ].join(" | "),
+
     // Pollinating plants
     "nobees": "I don't have any bees with me right now.",
     "nohives": "I don't have any empty beehives with me right now. I'll need to empty one of my full ones out, or trade for a new one.",
@@ -10,7 +35,7 @@ const texts = {
     "goToPlace": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey. | ?sail",
     // Specific Place Fun Facts
     "factTanis0": "In 1866, the Decree of Canopus was discovered in the ruins of Tanis. This decree was a record of priests attending an assembly in 238 BC. | Its most notable feature is that it was written in Egyptian heiroglyphs, Demotic Egyptian, and Greek, making it one of the most important discoveries to help decipher ancient Egyptian, much like the Rosetta Stone.",
-    "factTanis1": "The Finding of Moses is said to have happened near Tanis. This story from the Hebrew Bible tells how baby Moses was hidden in a papyrus basket by his mother in the Nile, then found by the Pharoah's daughter.", 
+    "factTanis1": "The Finding of Moses is said to have happened near Tanis. This story from the Hebrew Bible tells how baby Moses was hidden in a papyrus basket by his mother in the Nile, then found by the pharaoh's daughter.", 
     "factTanis2": "Tanis had three chief dieties. Amun, the god of sun and air, his consort Mut, a goddess whose name meant \"mother\", and their child Khonsu, a god associated with the moon.", 
     "factLeontopolis0": "Leontopolis got its Greek name (the city of lions) due to its temples dedicated to the lion gods Bastet, Sekhmet, and Maahes.", 
     "factLeontopolis1": "During the twenty-third Dynasty, Leontopolis was a district capital of Lower Egypt.", 
@@ -120,4 +145,172 @@ const choices = {
             }
         }
     ]
+};
+
+const cutscenes = {
+    "~start1": function() {
+        land.inDialogue = false;
+        land.cutscene = { 
+            active: true, state: 0, frame: 0, iter: 0, frames: [ [0, 0], [1, 0], [2, 0], [3, 0], [0, 1], [1, 1] ],
+            Process: function() {
+                if(this.state === 0) {
+                    land.playerX -= 2;
+                    land.bgMoved = true;
+                    land.playerAnim.SetMoving();
+                    gfx.DrawSprite2("playerModern", land.playerAnim.GetFrame(0), land.xOffset, land.yPos, "characters");
+                    if(land.playerX <= 2220) {
+                        land.playerX = 2220;
+                        this.state = 1;
+                    }
+                } else if(this.state === 1) {
+                    gfx.DrawSprite2("playerScene1", this.frames[this.frame], land.xOffset, land.yPos, "characters");
+                    if(++this.iter >= 3) {
+                        this.iter = 0;
+                        this.frame++;
+                        if(this.frame === 3) {
+                            const beeIndex = land.entities.findIndex(e => e.sprite === "beejar");
+                            land.entities.splice(beeIndex, 1);
+                        }
+                    }
+                    if(this.frame === this.frames.length) {
+                        this.frame--;
+                        this.state = 2;
+                    }
+                } else if(this.state === 2) {
+                    gfx.DrawSprite2("playerScene1", this.frames[this.frame], land.xOffset, land.yPos, "characters");
+                    textHandler.ShowText("Protagonny", "intro4");
+                    this.state = 3;
+                } else {
+                    gfx.DrawSprite2("playerScene1", this.frames[this.frame], land.xOffset, land.yPos, "characters");
+                }
+            }
+        }
+    },
+    "~start2": function() {
+        land.inDialogue = false;
+        land.cutscene = {
+            active: true, state: 0, frame: 1, iter: 0, frames: [ [1, 1], [2, 1], [3, 1], [0, 2] ],
+            Process: function() {
+                if(this.state === 0) {
+                    if(++this.iter > 10) {
+                        this.state = 1;
+                        this.iter = 0;
+                    }
+                    gfx.DrawSprite2("playerScene1", this.frames[0], land.xOffset, land.yPos, "characters");
+                } else if(this.state === 1) {
+                    gfx.DrawSprite2("playerScene1", this.frames[this.frame], land.xOffset, land.yPos, "characters");
+                    if(++this.iter >= 2) {
+                        this.iter = 0;
+                        this.frame++;
+                    }
+                    if(this.frame === this.frames.length) {
+                        this.frame--;
+                        this.state = 2;
+                    }
+                } else if(this.state === 2) {
+                    if(++this.iter > 40) {
+                        this.state = 3;
+                        this.iter = 0;
+                    }
+                    gfx.DrawSprite2("playerScene1", this.frames[this.frame], land.xOffset, land.yPos, "characters");
+                } else if(this.state === 3) {
+                    if(++this.iter > 70) {
+                        this.state = 4;
+                        this.iter = 0;
+                    }
+                    gfx.DrawSprite2("playerScene1", [1, 2], land.xOffset - 100, land.yPos, "characters");
+                    gfx.DrawSprite2("playerScene1", [2, 2], land.xOffset + 100, land.yPos, "characters");
+                } else {
+                    game.SwitchTo(land, "CutsceneThebes");
+                }
+            }
+        };
+    },
+    "~start3": function() {
+        land.cutscene = {
+            active: true, Process: function() {
+                gfx.DrawSprite2("playerScene1", [1, 3], land.xOffset - 100, land.yPos, "characters");
+                gfx.DrawSprite2("playerScene1", [2, 3], land.xOffset + 100, land.yPos, "characters");
+            }
+        };
+        land.Animate();
+        textHandler.ShowText("Protagonny", "intro5");
+    },
+    "~start4": function() {
+        land.inDialogue = false;
+        land.cutscene = {
+            active: true, Process: function() {
+                gfx.DrawSprite2("playerScene1", [1, 4], land.xOffset - 100, land.yPos, "characters");
+                gfx.DrawSprite2("playerScene1", [2, 4], land.xOffset + 100, land.yPos, "characters");
+            }
+        };
+        land.Animate();
+        textHandler.ShowText("Protagonny", "intro6");
+    },
+    "~start5": function() {
+        land.inDialogue = false;
+        land.cutscene = {
+            active: true, state: 0, frame: 0, iter: 0, frames: [ [3, 2], [3, 3], [3, 4], [0, 3] ],
+            Process: function() {
+                if(this.state === 0) {
+                    gfx.DrawSprite2("playerScene1", this.frames[this.frame], land.xOffset, land.yPos, "characters");
+                    if(++this.iter >= 3) {
+                        this.iter = 0;
+                        this.frame++;
+                    }
+                    if(this.frame === this.frames.length) {
+                        this.state = 1;
+                    }
+                } else if(this.state === 1) {
+                    land.cutscene = { active: false };
+                    land.playerDir = -1;
+                    land.Animate();
+                    textHandler.ShowText("Intef", "intro7");
+                }
+            }
+        };
+    },
+    "~start6": function() {
+        land.inDialogue = false;
+        const intef = land.entities.filter(e => e.id === "helpser")[0];
+        land.cutscene = {
+            active: true, state: 0, iter: 0, intef: intef, 
+            Process: function() {
+                if(this.state === 0) {
+                    gfx.DrawSprite2("player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.yPos, "characters");
+                    intef.x += 7;
+                    intef.anim.SetMoving();
+                    if(intef.x >= 350) {
+                        const beeIndex = land.entities.findIndex(e => e.sprite === "beejar");
+                        land.entities.splice(beeIndex, 1);
+                        this.state = 1;
+                    }
+                } else if(this.state === 1) {
+                    gfx.DrawSprite2("player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.yPos, "characters");
+                    intef.x += 7;
+                    intef.anim.SetMoving();
+                    if(intef.x >= 550) {
+                        land.playerDir = 1;
+                        this.state = 2;
+                    }
+                } else if(this.state === 2) {
+                    gfx.DrawSprite2("player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.yPos, "characters");
+                    intef.x += 7;
+                    intef.anim.SetMoving();
+                    if(intef.x >= 1100) {
+                        this.active = false;
+                        intef.x = 6200;
+                    }
+                }
+            }
+        };
+    },
+    "~start7": function() {
+        land.inDialogue = false;
+        land.target.type = "bg";
+        land.entities.push({ type: "bg", sprite: "boat", dir: 0, x: 50, y: 75 });
+        land.entities.push({ type: "boat", sprite: "", x: 400 });
+        // push the mid-walk thought processese
+        // push the servant
+    }
 };

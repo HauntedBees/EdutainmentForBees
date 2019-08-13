@@ -26,5 +26,8 @@ const animHelpers = {
     changeRate: 2, 
     GetPlayerAnim: function() {
         return new Animation(4, [0, 0], [[1, 1], [0, 2], [1, 2], [0, 3], [1, 3], [0, 4], [1, 0], [0, 1]]);
+    },
+    GetAnim: function(name) {
+        return new Animation(4, [0, 0], [[1, 1], [0, 2], [1, 2], [0, 3], [1, 3], [0, 4], [1, 0], [0, 1]]);
     }
 };

@@ -1,9 +1,14 @@
 const sheetInfo = {
     "player": { w: 200, h: 260 },
+    "playerModern": { w: 200, h: 260 },
+    "playerScene1": { w: 200, h: 260 },
     "pers2tiny": { w: 150, h: 195 },
     "buttons": { w: 50, h: 50 },
     "headico": { w: 45, h: 45 },
     "circle": { w: 15, h: 15 },
+    "coffin": { w: 267, h: 111 },
+    "beejar": { w: 61, h: 71 },
+    "amenhotep": { w: 164, h: 226 }, // https://www.metmuseum.org/toah/works-of-art/15.5.1/ 
     "pappy": { w: 1024, h: 300 }, // https://pixabay.com/illustrations/parchment-papyrus-dirty-old-dirt-880314/
     "pers": { w: 100, h: 225 }, // https://smarthistory.org/ancient-egypt/
     "boat": { w: 717, h: 527 }, // https://egypt.mrdonn.org/afterlife.html
@@ -23,6 +28,7 @@ const sheetInfo = {
     "g": { w: 0, h: 0 }*/
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers
+for(let i = 0; i <= 3; i++) { sheetInfo["bgM" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/classical-ruin-tiles-0
 const fontMults = {
     "OpenDyslexic": {
         space: 1.5,
@@ -54,7 +60,6 @@ const gfx = {
         count = 0; source = source || "img";
         const plen = Object.keys(paths).length;
         for(const path in paths) {
-        //paths.forEach(function(path) {
             const f = function(path, len) {
                 const img = new Image();
                 img.onload = function() {
@@ -65,7 +70,7 @@ const gfx = {
                 img.src = `${source}/${path}.png`;
             };
             f(path, plen);
-        }//);
+        }
     },
     GetFont: () => "Orkney", //"Mariana",//player.options.font === 1 ? "OpenDyslexic" : "PressStart2P",
     //GetFont: () => "Mariana", //"Mariana",//player.options.font === 1 ? "OpenDyslexic" : "PressStart2P",
@@ -86,8 +91,8 @@ const gfx = {
         size = size || 1;
         const sheet = gfx.spritesheets[sheetpath];
         const dims = sheetInfo[sheetpath];
-        const startX = sx * dims.w;// + sx * 2 + 1;
-        const startY = sy * dims.h;// + sy * 2 + 1;
+        const startX = sx * dims.w;
+        const startY = sy * dims.h;
         gfx.DrawImage(gfx.ctx[layer], sheet, startX, startY, dims.w, dims.h, x - (noShift ? 0 : (dims.w / 2)), y - (noShift ? 0 : dims.h), dims.w * size, dims.h * size);
     },
     DrawImage: function(ctx, image, srcX, srcY, srcW, srcH, dstX, dstY, dstW, dstH) {
@@ -105,6 +110,7 @@ const gfx = {
         ctx.fillText(t, x, y);
         if(centerText) { ctx.textAlign = "start"; }
     },
+    tempSpeaker: "", 
     DrawWrappedText: function(speaker, ts, i0, x, y, maxWidth, color, layer, size, maxHeight) {
         layer = layer || "menutext";
         const ctx = gfx.ctx[layer];
@@ -113,11 +119,22 @@ const gfx = {
         const space = fontInfo.space;
         ctx.font = size + "px " + gfx.GetFont();
         const ddy = size * space;
-        let row = speaker, dy = 0;
+        let row = gfx.tempSpeaker === "" ? speaker : gfx.tempSpeaker, dy = 0;
         if(ts[i0][0] === "!") {
-            row = "FUN FACT";
+            gfx.tempSpeaker = "FUN FACT";
+            row = gfx.tempSpeaker;
             gfx.DrawSpeakerBorder(ctx, row, x, y + fontInfo.borderTop * size, ddy);
             row +=  ": " + ts[i0].substring(1);
+        } else if(ts[i0][0] === "@") {
+            gfx.tempSpeaker = "Protagonny";
+            row = gfx.tempSpeaker;
+            gfx.DrawSpeakerBorder(ctx, row, x, y + fontInfo.borderTop * size, ddy);
+            row +=  ": " + ts[i0].substring(1);
+        } else if(ts[i0].indexOf(":") > 0) {
+            gfx.tempSpeaker = ts[i0].split(":")[0];
+            row = gfx.tempSpeaker;
+            gfx.DrawSpeakerBorder(ctx, row, x, y + fontInfo.borderTop * size, ddy);
+            row +=  ": " + ts[i0].substring(ts[i0].indexOf(":") + 1);
         } else if(speaker !== "") {
             gfx.DrawSpeakerBorder(ctx, row, x, y + fontInfo.borderTop * size, ddy);
             row +=  ": " + ts[i0];
@@ -129,6 +146,7 @@ const gfx = {
         for(let i = i0 + 1; i < ts.length; i++) {
             if(ts[i] === "|") {
                 ctx.fillText(row, x, (y + dy));
+                gfx.tempSpeaker = "";
                 return i + 1;
             }
             const textInfo = ctx.measureText(row + " " + ts[i]);

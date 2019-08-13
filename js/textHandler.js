@@ -4,6 +4,7 @@ const textHandler = {
     currentChoice: null, 
     ShowText: function(speaker, key, arg, secondArg) {
         gfx.DrawBG("pappy", 0, "menuA");
+        gfx.tempSpeaker = "";
         this.speaker = speaker;
         if(arg !== undefined) {
             if(secondArg !== undefined) {
@@ -45,7 +46,10 @@ const textHandler = {
             gfx.clearLayer("menuA");
             game.currentInputHandler.inDialogue = false;
         } else {
-            if(this.currentText[this.remainder][0] === "?") {
+            const prefix = this.currentText[this.remainder][0];
+            if(prefix === "~") {
+                cutscenes[this.currentText[this.remainder]]();
+            } else if(prefix === "?") {
                 textHandler.currentChoice = choices[this.currentText[this.remainder]];
                 textHandler.DrawButton(true, textHandler.currentChoice[0].choice, 0, 0, -0.25, true);
                 textHandler.DrawButton(false, textHandler.currentChoice[1].choice, 0, textHandler.HUDfontSize * player.fontSize, -1, true);

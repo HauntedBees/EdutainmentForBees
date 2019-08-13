@@ -2,6 +2,7 @@ const GetCopy = function(objKey, x) {
     const obj = Object.assign({}, things[objKey]);
     obj.id = objKey;
     if(x !== undefined) { obj.x = x; }
+    if(obj.anim !== undefined) { obj.anim = animHelpers.GetAnim(obj.anim); }
     return obj;
 }
 const game = {
@@ -56,8 +57,11 @@ const game = {
     incrementTime: () => player.playTime++,
     sheetsLoaded: function() {
         game.initListeners();
-        game.currentInputHandler = boat;//land;
-        game.currentInputHandler.Setup();
+        game.currentInputHandler = land;
+        game.currentInputHandler.Setup("CutsceneThebes");
+        //game.currentInputHandler.Setup("ModernCoffin");
+        //game.currentInputHandler = boat;//land;
+        //game.currentInputHandler.Setup();
     }
 };
 
