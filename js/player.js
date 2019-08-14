@@ -1,11 +1,11 @@
 let player = {
     fontSize: 1,
     inventory: {
-        "full beehive": 14,
-        "empty beehive": 7,
-        "incense": 1
+        "full beehive": 5,
+        "empty beehive": 0,
+        "incense": 5
     }, 
-    honeys: [], 
+    honeys: [], revealedFunFacts: [],
     nectarCache: {}, 
     HasItem: function(item, amount) {
         amount = amount || 1;

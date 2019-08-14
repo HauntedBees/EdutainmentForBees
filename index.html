@@ -1,4 +1,9 @@
 <html>
+    <!--
+        TODO: 
+            put background behind text (especially on map)
+            colorblind mode
+    -->
     <head>
         <style>
             @font-face { font-family: "NewAthenaUnicode"; src: url("styles/newathu5_5.ttf") }
@@ -23,6 +28,7 @@
                 text-align: center;
                 top: 2%;
             }
+            #foreground, #paintbaby { mix-blend-mode: multiply }
         </style>
     </head>
     <body>
@@ -33,8 +39,9 @@
             <canvas id="foreground" width="1024" height="896"></canvas>
             <canvas id="menuA" width="1024" height="896"></canvas>
             <canvas id="menuB" width="1024" height="896"></canvas>
-            <canvas id="menucursor" width="1024" height="896"></canvas>
+            <canvas id="menuC" width="1024" height="896"></canvas>
             <canvas id="menutext" width="1024" height="896"></canvas>
+            <canvas id="paintbaby" width="1024" height="896"></canvas>
         </div>
         <div id="fontLoader">
             <div style="font-family:PressStart2P">&nbsp;</div>
@@ -44,6 +51,7 @@
             <div style="font-family:OpenDyslexic">&nbsp;</div>
         </div>
         <script src="js/anim.js"></script>
+        <script src="js/seasons.js"></script>
         <script src="js/boat.js"></script>
         <script src="js/textHandler.js"></script>
         <script src="js/text.js"></script>

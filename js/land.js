@@ -1,6 +1,6 @@
 const land = {
     animIdx: 0, gameIdx: 0, modernTimes: false, freeMovement: true, cutscene: { active: false }, 
-    yPos: 780, btnPos: 444, xOffset: 500, maxX: 7678, 
+    yPos: 780, btnPos: 444, xOffset: 500, maxX: 7678,
     playerX: 0, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), 
     entities: [], target: null,
     inDialogue: false, inChoice: false, 
@@ -14,7 +14,7 @@ const land = {
         land.target = null;
         land.inDialogue = false;
         land.inChoice = false;
-        land.playerX = land.modernTimes ? 2240 : 0;
+        land.playerX = 0;
         land.playerDir = 1;
         land.cutscene = { active: false };
         land.maxX = maxX[location] || 7678;
@@ -22,6 +22,7 @@ const land = {
             land.Animate();
             autoPlays[location]();
         }
+        if(!land.modernTimes) { gfx.DrawSprite("paint", 0, 0, 0, 0, "paintbaby", 1, true); }
     },
     RunGame: function() {
         for(let i = 0; i < land.entities.length; i++) {
@@ -48,7 +49,7 @@ const land = {
             }
         }
         land.target = null;
-        gfx.clearSome(["menuA", "menutext"]);
+        gfx.clearSome(["menuA", "menuC", "menutext"]);
         land.target = land.DrawEntitiesAndGetTarget();
         if(land.target !== null && !land.cutscene.active) {
             switch(land.target.type) {
@@ -74,6 +75,9 @@ const land = {
                     break;
             }
         }
+        land.waterIdx = (land.waterIdx + 0.5) % 1920;
+        gfx.DrawSprite("water", 0, 0, -1600 - land.playerX, 735, "menuC", 1, true);
+        gfx.DrawSprite("shore2", 0, 0, 205 - land.playerX, 775, "menuC", 1, true);
     },
     DrawEntitiesAndGetTarget: function() {
         let potentialTarget = null, closestPos = 150;

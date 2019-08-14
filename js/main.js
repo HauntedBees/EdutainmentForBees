@@ -8,7 +8,7 @@ const GetCopy = function(objKey, x) {
 const game = {
     numSaveSlots: 10, w: 1024, h: 896, tilew: 16, tileh: 14,
     currentInputHandler: null, target: null, language: "en-us",
-    canvasLayers: ["background", "crap", "characters", "foreground", "menuA", "menuB", "menucursor", "menutext"], 
+    canvasLayers: ["background", "crap", "characters", "foreground", "menuA", "menuB", "menuC", "menutext", "paintbaby"], 
     fullInit: function() {
         let canvasObj = {};
         for(let i = 0; i < game.canvasLayers.length; i++) {
@@ -42,9 +42,9 @@ const game = {
 
     initListeners: function() {
         if(game.type !== 2) {
-            gfx.canvas["menutext"].addEventListener("mousemove", input.moveMouse);
-            gfx.canvas["menutext"].addEventListener("click", input.click);
-            gfx.canvas["menutext"].addEventListener("contextmenu", input.rightclick);
+            gfx.canvas["paintbaby"].addEventListener("mousemove", input.moveMouse);
+            gfx.canvas["paintbaby"].addEventListener("click", input.click);
+            gfx.canvas["paintbaby"].addEventListener("contextmenu", input.rightclick);
             document.addEventListener("keypress", input.keyPress);
             document.addEventListener("keydown", input.keyDown);
             document.addEventListener("keyup", input.keyUp);
@@ -58,10 +58,9 @@ const game = {
     sheetsLoaded: function() {
         game.initListeners();
         game.currentInputHandler = land;
-        game.currentInputHandler.Setup("CutsceneThebes");
+        game.currentInputHandler.Setup("Thebes");
+        //game.currentInputHandler.Setup("CutsceneThebes");
         //game.currentInputHandler.Setup("ModernCoffin");
-        //game.currentInputHandler = boat;//land;
-        //game.currentInputHandler.Setup();
     }
 };
 

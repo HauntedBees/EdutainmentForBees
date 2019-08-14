@@ -4,28 +4,28 @@ const sheetInfo = {
     "playerScene1": { w: 200, h: 260 },
     "pers2tiny": { w: 150, h: 195 },
     "buttons": { w: 50, h: 50 },
-    "headico": { w: 45, h: 45 },
+    "headico": { w: 45, h: 38 },
     "circle": { w: 15, h: 15 },
     "coffin": { w: 267, h: 111 },
     "beejar": { w: 61, h: 71 },
+    "boatboat": { w: 1024, h: 350 }, // https://commons.wikimedia.org/wiki/File:EgyptTombOarboat.jpg
     "amenhotep": { w: 164, h: 226 }, // https://www.metmuseum.org/toah/works-of-art/15.5.1/ 
     "pappy": { w: 1024, h: 300 }, // https://pixabay.com/illustrations/parchment-papyrus-dirty-old-dirt-880314/
+    "water": { w: 1920, h: 347 }, // https://opengameart.org/content/painted-backdrop-sea-and-sky-1920-x-1200
+    "shore": { w: 610, h: 225 }, 
+    "shore2": { w: 161, h: 122 }, 
+    "oar": { w: 308, h: 162 }, 
+    "row": { w: 424, h: 294 }, 
+    "paint": { w: 1024, h: 896 }, // https://commons.wikimedia.org/wiki/File:2011-02-11_Stucco_paint_texture.jpg
+
     "pers": { w: 100, h: 225 }, // https://smarthistory.org/ancient-egypt/
-    "boat": { w: 717, h: 527 }, // https://egypt.mrdonn.org/afterlife.html
     "date": { w: 241, h: 337 }, // https://en.wikipedia.org/wiki/File:Emblem_of_Saudi_Arabia.svg
-    "map": { w: 1024, h: 896 }, // https://en.wikipedia.org/wiki/File:Egypt_1450_BC.svg
-    "boatOuter": { w: 1024, h: 734 }, // http://www.runasimi.net/farao-UK.htm
-    "boatCover": { w: 1024, h: 734 },
+    "map": { w: 1024, h: 896 }, // https://en.wikipedia.org/wiki/File:Egypt_1450_BC.svg https://pixabay.com/photos/paper-old-texture-parchment-1074131/
     "hive": { w: 100, h: 100 }, // https://www.beeculture.com/catch-buzz-worlds-oldest-beehives-farmed-israel-time-prophet-elisha/
-    "honeypot": { w: 94, h: 100 }, // https://www.liveauctioneers.com/item/59846752_egyptian-alabaster-vessel-with-decorative-rim
     "honeycomb": { w: 100, h: 54 }, // https://www.flickr.com/photos/30478819@N08/47933160963
     "beeswax": { w: 100, h: 77 }, // https://www.flickr.com/photos/64636759@N07/8511157727
     "justabox": { w: 200, h: 141 }, // https://www.nms.ac.uk/explore-our-collections/stories/world-cultures/ancient-egyptian-collection/ancient-egyptian-collection/box-of-amenhotep-ii
     "ladder": { w: 66, h: 200 } // https://www.fixfastusa.com/news-blog/history-of-the-ladder/
-    /*,
-    "e": { w: 0, h: 0 },
-    "f": { w: 0, h: 0 },
-    "g": { w: 0, h: 0 }*/
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers
 for(let i = 0; i <= 3; i++) { sheetInfo["bgM" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/classical-ruin-tiles-0

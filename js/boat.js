@@ -14,23 +14,32 @@ const positions = [ // name, x, y, distance from previous
 ];
 const boat = {
     animIdx: 0, freeMovement: true, yPos: 650, btnPos: 444,//gameIdx: 0, 
-    selectingLocation: true, currentPos: 7, nextPos: 7, 
-    inDialogue: false, inChoice: false, 
-    playerX: 555, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), honeyCache: [], 
+    selectingLocation: true, currentPos: 7, nextPos: 7, waterIdx: 0, 
+    inDialogue: false, inChoice: false, isRowing: false, 
+    playerX: 500, playerDir: 0, honeyCache: [], 
+    playerAnim: animHelpers.GetPlayerAnim(), rowAnim: animHelpers.GetAnim("row"), 
     Setup: function() {
         boat.selectingLocation = false;
+        boat.playerX = 500;
+        boat.playerDir = 0;
         boat.InitialDraw();
         boat.animIdx = setInterval(boat.Animate, 30);
     },
-    InitialDraw: function() {
+    InitialDraw: function(isRowing) {
         gfx.clearAll();
+        gfx.DrawSprite("paint", 0, 0, 0, 0, "paintbaby", 1, true);
+        boat.waterIdx = 0;
+        boat.isRowing = isRowing || false;
         if(boat.selectingLocation) {
             boat.freeMovement = false;
             gfx.DrawBG("map", 0);
         } else {
             boat.freeMovement = true;
-            gfx.DrawBG("boatOuter", 0);
-            gfx.DrawBG("boatCover", 0, "menuB");
+            for(let i = 0; i < 4; i++) {
+                gfx.DrawBG("bg" + i, 0);
+            }
+            gfx.DrawSprite("boatboat", 0, 0, 0, 400, "background", 1, true);
+            gfx.DrawSprite("boatboat", 0, 1, 0, 400, "menuB", 1, true);
             const numFullBeehives = player.inventory["full beehive"];
             for(let i = 0; i < numFullBeehives; i++) {
                 gfx.DrawSprite("hive", 0, 0, 700 + 45 * (i % 5), boat.yPos + 20 - Math.floor(i / 5) * 45, "background", 0.5);
@@ -39,12 +48,17 @@ const boat = {
             for(let i = numFullBeehives; i < numTotalBeehives; i++) {
                 gfx.DrawSprite("hive", 1, 0, 700 + 45 * (i % 5), boat.yPos + 20 - Math.floor(i / 5) * 45, "background", 0.5);
             }
-            gfx.DrawSprite("justabox", 0, 0, 350, boat.yPos + 20, "background");
-            gfx.DrawSprite("ladder", 0, 0, 550, boat.yPos + 100, "menuB");
+            gfx.DrawSprite("justabox", 0, 0, 360, boat.yPos + 20, "background");
+            if(boat.isRowing) {
+                boat.playerX = 0;
+            } else {
+                gfx.DrawSprite("oar", 0, 0, 200, boat.yPos + 50, "menuB");
+                gfx.DrawSprite("ladder", 0, 0, 550, boat.yPos + 100, "menuB");
+            }
         }
     },
     Animate: function() {
-        if(boat.inDialogue) { return; }
+        if(boat.inDialogue && !boat.isRowing) { return; }
         if(boat.selectingLocation) {
             gfx.clearSome(["menuA", "menutext"]);
             for(let i = 0; i < positions.length; i++) {
@@ -57,23 +71,46 @@ const boat = {
             gfx.DrawSprite("headico", 0, 0, cursor[1], cursor[2], "menuA");
             gfx.DrawText(cursor[0], cursor[1] + 30, cursor[2] - textHandler.HUDfontSize * player.fontSize * 2.2, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize * 1.5);
             let nextText = "Current Location";
-            if(boat.currentPos !== boat.nextPos) { nextText = boat.GetDistance(boat.currentPos, boat.nextPos) + " days away"; }
+            const dist = boat.GetDistance(boat.currentPos, boat.nextPos);
+            if(boat.currentPos !== boat.nextPos) { nextText = dist + " days away"; }
+            seasonHandler.DrawSeasons(dist);
             gfx.DrawText(nextText, cursor[1] + 30, cursor[2], false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize);
+            if(seasonHandler.IsInSeason(dist, boat.nextPos)) {
+                gfx.DrawText("Flowering Season", cursor[1] + 30, cursor[2] + textHandler.HUDfontSize * player.fontSize * 1.5, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize);
+            }
         } else {
-            gfx.clearSome(["characters", "menuA", "menutext"]);
-            gfx.DrawSprite2("player", boat.playerAnim.GetFrame(boat.playerDir), boat.playerX, boat.yPos, "characters");
-            if(boat.playerX <= 265) {
-                textHandler.DrawButton(true, "Set Sail", boat.playerX, boat.btnPos, 1);
-            } else if(boat.playerX <= 470) {
-                textHandler.DrawButton(true, "Check Storage", boat.playerX, boat.btnPos, 1);
-            } else if(boat.playerX >= 620) {
-                textHandler.DrawButton(true, "Smoke Bees", boat.playerX, boat.btnPos, 1);
-            } else if(boat.playerX <= 590 && boat.playerX >= 520) {
-                textHandler.DrawButton(true, "Leave Ship", boat.playerX, boat.btnPos, 1);
+            if(boat.isRowing) {
+                if(!boat.inDialogue) { // this shouldn't be in an animation handler but ehhhhhhhhh
+                    game.SwitchTo(land, positions[boat.nextPos][0]);
+                }
+                gfx.clearSome(["characters", "menuC"]);
+                boat.rowAnim.SetMoving();
+                boat.playerX -= 30;
+                gfx.DrawSprite("water", 0, 0, (boat.waterIdx + boat.playerX) % 1920, 650, "menuC", 1, true);
+                gfx.DrawSprite("water", 0, 0, (boat.waterIdx + boat.playerX) % 1920 + 1920, 650, "menuC", 1, true);
+                gfx.DrawSprite2("row", boat.rowAnim.GetFrame(0), 333, 799, "menuC");
+                gfx.DrawSprite("shore", 0, 0, boat.playerX, 680, "menuC", 1, true);
+            } else {
+                gfx.clearSome(["characters", "menuA", "menuC", "menutext"]);
+                if(boat.playerX <= 265) {
+                    textHandler.DrawButton(true, "Set Sail", boat.playerX, boat.btnPos, 1);
+                } else if(boat.playerX <= 470) {
+                    textHandler.DrawButton(true, "Check Storage", boat.playerX, boat.btnPos, 1);
+                } else if(boat.playerX >= 620) {
+                    textHandler.DrawButton(true, "Smoke Bees", boat.playerX, boat.btnPos, 1);
+                } else if(boat.playerX <= 590 && boat.playerX >= 520) {
+                    textHandler.DrawButton(true, "Leave Ship", boat.playerX, boat.btnPos, 1);
+                }
+                boat.waterIdx = (boat.waterIdx + 0.5) % 1920;
+                gfx.DrawSprite("water", 0, 0, boat.waterIdx, 650, "menuC", 1, true);
+                gfx.DrawSprite("water", 0, 0, boat.waterIdx - 1920, 650, "menuC", 1, true);
+                gfx.DrawSprite2("player", boat.playerAnim.GetFrame(boat.playerDir), boat.playerX, boat.yPos, "characters");
+                gfx.DrawSprite("shore", 0, 0, 0, 680, "menuC", 1, true);
             }
         }
     },
     GetDistance: function(a, b) {
+        if(a === b) { return 0; }
         const lower = Math.min(a, b), higher = Math.max(a, b);
         let distance = 0;
         for(let i = lower + 1; i <= higher; i++) {
@@ -82,7 +119,36 @@ const boat = {
         return distance;
     },
     SetSailForAdventure: function() {
-
+        boat.inDialogue = false;
+        boat.inChoice = false;
+        boat.selectingLocation = false;
+        boat.currentPos = boat.nextPos;
+        const potentialFunFacts = [];
+        const nextPosName = positions[boat.nextPos][0];
+        for(let i = 0; i < 2; i++) {
+            const entryName = "fact" + nextPosName + i;
+            if(player.revealedFunFacts.indexOf(entryName) < 0) {
+                potentialFunFacts.push(entryName); // local fun facts are weighted
+                potentialFunFacts.push(entryName);
+                potentialFunFacts.push(entryName);
+                potentialFunFacts.push(entryName);
+                potentialFunFacts.push(entryName);
+            }
+        }
+        for(let i = 0; i < 30; i++) {
+            const entryName = "factMisc" + i;
+            if(player.revealedFunFacts.indexOf(entryName) < 0) { potentialFunFacts.push(entryName); }
+        }
+        if(potentialFunFacts.length === 0) {
+            player.revealedFunFacts = [];
+            boat.SetSailForAdventure();
+            return;
+        }
+        const funFactIdx = Math.floor(Math.random() * potentialFunFacts.length);
+        const funFact = potentialFunFacts[funFactIdx];
+        player.revealedFunFacts.push(funFact);
+        boat.InitialDraw(true);
+        textHandler.ShowText("FUN FACT", funFact);
     },
     mouseMove: function() { },
     click: function() {
@@ -98,13 +164,18 @@ const boat = {
                 boat.selectingLocation = false;
                 boat.InitialDraw();
             } else {
-                textHandler.ShowText("", "goToPlace", boat.GetDistance(boat.currentPos, boat.nextPos), positions[boat.nextPos][0]);
+                const dist = boat.GetDistance(boat.currentPos, boat.nextPos);
+                if(seasonHandler.IsInSeason(dist, boat.nextPos)) {
+                    textHandler.ShowText("", "goToPlace", dist, positions[boat.nextPos][0]);
+                } else {
+                    textHandler.ShowText("", "goToPlaceNo", dist, positions[boat.nextPos][0]);
+                }
             }
         } else {
-            if(boat.playerX <= 265) { // Sail
+            if(boat.playerX <= 275) { // Sail
                 boat.selectingLocation = true;
                 boat.InitialDraw();
-            } else if(boat.playerX <= 470) { // Storage
+            } else if(boat.playerX <= 480) { // Storage
                 gfx.clearSome(["menuA", "menutext"]);
                 texts["inventory"] = "I have ";
                 const things = [];
@@ -151,6 +222,10 @@ const boat = {
         if(boat.inChoice) {
             textHandler.MakeChoice(false);
             return;
+        } else if(boat.selectingLocation && !boat.inDialogue) {
+            boat.selectingLocation = false;
+            boat.nextPos = boat.currentPos;
+            boat.InitialDraw();
         }
     },
     keyPress: function(key, shift) { 
@@ -174,7 +249,7 @@ const boat = {
                 } else {
                     boat.playerDir = 1;
                 }
-                if(boat.playerX > 860) { boat.playerX = 860; }
+                if(boat.playerX > 835) { boat.playerX = 835; }
             } else if (key === player.controls.left) {
                 if(boat.playerDir === 0) {
                     boat.playerX -= 2;
@@ -182,7 +257,7 @@ const boat = {
                 } else {
                     boat.playerDir = 0;
                 }
-                if(boat.playerX < 150) { boat.playerX = 150; }
+                if(boat.playerX < 240) { boat.playerX = 240; }
             }
         }
     }

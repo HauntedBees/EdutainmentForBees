@@ -1,9 +1,3 @@
-/*
-Seasons:
-Akhet: JUN-SEP: no crops, flooding
-Peret: OCT-FEB: planting crops
-Shemu: MAR-MAY: harvesting crops
-*/
 const things = {
     /* --- OPENING --- */
     "prompt1": { type: "auto", speaker: "Protagonny", text: "intro1", sprite: "" },
@@ -13,7 +7,8 @@ const things = {
     "helpser": { type: "bg", sprite: "pers2tiny", anim: "helpser", dir: 1 },
     "amenhotep": { type: "bg", sprite: "amenhotep", dir: 0 },
     "amenhotepTalk": { type: "person", sprite: "", dir: 0, name: "Amenhotep III", text: "intro8" },
-    
+    "tutServant": { type: "person", sprite: "pers2tiny", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },
+
     /* --- PLANTS --- */
     "corn": { type: "observable" }, // not pollinated
     "wheat": { type: "observable" }, // not pollinated

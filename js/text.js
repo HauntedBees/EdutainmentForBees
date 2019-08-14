@@ -23,6 +23,14 @@ const texts = {
         "No need for that! This is the least I can do after you were attacked inside my very city. | However, I certainly will not turn down any offerings of honey the next time you're in the area, ha ha!",
         "Head back to the Nile, my servant will be waiting for you there. | ~start7"
     ].join(" | "),
+    "intro9": ["You must be the beekeeper. I can tell from how you look nothing like a beekeeper and have no beekeeping supplies! | @Yep, that's me. The real beekeeper of Ancient Egypt. | \"Ancient?\"",
+        "@I mean, uh, Current Egypt. The real beekeeper of Right Now Egypt. | Excellent. As requested by our wonderful leader Amenhotep, I have some supplies here for you, such as this raft! | @A whole raft??",
+        "Yes, of course. How else would you do your job? | As I'm sure you know, beekeepers ride special rafts loaded up with beehives down the Nile river. | By arriving in different parts of Egypt, beekeepers can catch the native plants there in their flowering stage so their bees can pollinate them.",
+        "Then, when those flowers have been pollinated, they ride off to the next area that needs pollinating. | @Yes, of course. That is a thing I knew. | The raft is equipped with 5 beehives, already full of bees, and a supply crate.",
+        "Inside the supply crate is a smoker and some sticks of incense. | @That sounds lovely! I love the smell of incense! | The incense isn't for you! After putting the incense in the smoker and lighting it, you can aim the smoke at the beehives. | Beekeepers use smoke to calm bees before removing the honeycomb from their hives. | If the bees aren't calmed first, trying to remove the honey will result in a lot of nasty stings.",
+        "But, you're a real beekeeper, so you knew all of that, of course. Right? | @Absolutely. One hundred percent. | What is a \"percent?\" | @Uh, it's a beekeeper thing. You wouldn't understand. | Ah, of course! Well, everything is ready here for you now, so I'll be off.",
+        "The plants aren't flowering here in Thebes yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very for your help. | ~start8"
+    ].join(" | "),
 
     // Pollinating plants
     "nobees": "I don't have any bees with me right now.",
@@ -33,6 +41,8 @@ const texts = {
 
     // Travelling
     "goToPlace": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey. | ?sail",
+    "goToPlaceNo": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey, but the plants there will not be flowering when you arrive. | ?sail",
+
     // Specific Place Fun Facts
     "factTanis0": "In 1866, the Decree of Canopus was discovered in the ruins of Tanis. This decree was a record of priests attending an assembly in 238 BC. | Its most notable feature is that it was written in Egyptian heiroglyphs, Demotic Egyptian, and Greek, making it one of the most important discoveries to help decipher ancient Egyptian, much like the Rosetta Stone.",
     "factTanis1": "The Finding of Moses is said to have happened near Tanis. This story from the Hebrew Bible tells how baby Moses was hidden in a papyrus basket by his mother in the Nile, then found by the pharaoh's daughter.", 
@@ -274,7 +284,7 @@ const cutscenes = {
         land.inDialogue = false;
         const intef = land.entities.filter(e => e.id === "helpser")[0];
         land.cutscene = {
-            active: true, state: 0, iter: 0, intef: intef, 
+            active: true, state: 0, iter: 0,  
             Process: function() {
                 if(this.state === 0) {
                     gfx.DrawSprite2("player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.yPos, "characters");
@@ -309,8 +319,25 @@ const cutscenes = {
         land.inDialogue = false;
         land.target.type = "bg";
         land.entities.push({ type: "bg", sprite: "boat", dir: 0, x: 50, y: 75 });
-        land.entities.push({ type: "boat", sprite: "", x: 400 });
-        // push the mid-walk thought processese
-        // push the servant
+        // TODO: push the mid-walk thought processese
+        land.entities.push(GetCopy("tutServant", 450));
+    },
+    "~start8": function() {
+        land.inDialogue = false;
+        const servant = land.entities.filter(e => e.id === "tutServant")[0];
+        land.cutscene = {
+            active: true, 
+            Process: function() {
+                gfx.DrawSprite2("player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.yPos, "characters");
+                servant.x += 6;
+                servant.anim.SetMoving();
+                if(servant.x >= 1200) {
+                    this.active = false;
+                    const meIndex = land.entities.findIndex(e => e.id === "tutServant");
+                    land.entities.splice(meIndex, 1);
+                    land.entities.push({ type: "boat", sprite: "", x: 400 });
+                }
+            }
+        };
     }
 };
