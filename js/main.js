@@ -35,7 +35,7 @@ const game = {
     SwitchTo: function(handler, arg) {
         clearInterval(game.currentInputHandler.animIdx);
         clearInterval(game.currentInputHandler.gameIdx);
-        gfx.clearAll();
+        gfx.ClearAllLayers();
         game.currentInputHandler = handler;
         game.currentInputHandler.Setup(arg);
     },

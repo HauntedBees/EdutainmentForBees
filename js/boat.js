@@ -26,7 +26,7 @@ const boat = {
         boat.animIdx = setInterval(boat.Animate, 30);
     },
     InitialDraw: function(isRowing) {
-        gfx.clearAll();
+        gfx.ClearAllLayers();
         gfx.DrawSprite("paint", 0, 0, 0, 0, "paintbaby", 1, true);
         boat.waterIdx = 0;
         boat.isRowing = isRowing || false;
@@ -60,7 +60,7 @@ const boat = {
     Animate: function() {
         if(boat.inDialogue && !boat.isRowing) { return; }
         if(boat.selectingLocation) {
-            gfx.clearSome(["menuA", "menutext"]);
+            gfx.ClearLayers(["menuA", "menutext"]);
             for(let i = 0; i < positions.length; i++) {
                 const pos = positions[i];
                 gfx.DrawSprite("circle", 0, 0, pos[1], pos[2], "menuA");
@@ -83,7 +83,7 @@ const boat = {
                 if(!boat.inDialogue) { // this shouldn't be in an animation handler but ehhhhhhhhh
                     game.SwitchTo(land, positions[boat.nextPos][0]);
                 }
-                gfx.clearSome(["characters", "menuC"]);
+                gfx.ClearLayers(["characters", "menuC"]);
                 boat.rowAnim.SetMoving();
                 boat.playerX -= 30;
                 gfx.DrawSprite("water", 0, 0, (boat.waterIdx + boat.playerX) % 1920, 650, "menuC", 1, true);
@@ -91,7 +91,7 @@ const boat = {
                 gfx.DrawSprite2("row", boat.rowAnim.GetFrame(0), 333, 799, "menuC");
                 gfx.DrawSprite("shore", 0, 0, boat.playerX, 680, "menuC", 1, true);
             } else {
-                gfx.clearSome(["characters", "menuA", "menuC", "menutext"]);
+                gfx.ClearLayers(["characters", "menuA", "menuC", "menutext"]);
                 if(boat.playerX <= 265) {
                     textHandler.DrawButton(true, "Set Sail", boat.playerX, boat.btnPos, 1);
                 } else if(boat.playerX <= 470) {
@@ -159,7 +159,7 @@ const boat = {
                 textHandler.Advance();
             }
         } else if(boat.selectingLocation) {
-            gfx.clearSome(["menuA", "menutext"]);
+            gfx.ClearLayers(["menuA", "menutext"]);
             if(boat.nextPos === boat.currentPos) {
                 boat.selectingLocation = false;
                 boat.InitialDraw();
@@ -176,7 +176,7 @@ const boat = {
                 boat.selectingLocation = true;
                 boat.InitialDraw();
             } else if(boat.playerX <= 480) { // Storage
-                gfx.clearSome(["menuA", "menutext"]);
+                gfx.ClearLayers(["menuA", "menutext"]);
                 texts["inventory"] = "I have ";
                 const things = [];
                 for(const key in player.inventory) {
@@ -201,7 +201,7 @@ const boat = {
                         for(const key in player.nectarCache) {
                             nectarCount += player.nectarCache[key];
                         }
-                        gfx.clearSome(["menuA", "menutext"]);
+                        gfx.ClearLayers(["menuA", "menutext"]);
                         if(nectarCount === 0) {
                             textHandler.ShowText("", "noNectar");
                         } else {
@@ -210,7 +210,7 @@ const boat = {
                         return;
                     }
                 } else {
-                    gfx.clearSome(["menuA", "menutext"]);
+                    gfx.ClearLayers(["menuA", "menutext"]);
                     textHandler.ShowText("", "noIncense");
                 }
             } else if(boat.playerX <= 590 && boat.playerX >= 520) { // Leave

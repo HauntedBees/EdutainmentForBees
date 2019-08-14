@@ -13,7 +13,7 @@ const seasonHandler = {
         { spot: 5, speed: 4, radius: 10 }
     ], 
     DrawSeasons: function(projection) {
-        gfx.clearLayer("foreground");
+        gfx.ClearLayer("foreground");
         const ctx = gfx.ctx["foreground"];
         for(let i = 0; i < seasonHandler.seasonBlobs.length; i++) {
             const me = seasonHandler.seasonBlobs[i];

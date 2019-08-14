@@ -31,19 +31,19 @@ const textHandler = {
         choiceMade.action();
     },
     MoveToNewText: function(text) {
-        gfx.clearSome(["menuA", "menutext"]);
+        gfx.ClearLayers(["menuA", "menutext"]);
         game.currentInputHandler.inChoice = false;
         textHandler.ShowText(textHandler.speaker, text);
     },
     EndDialog: function() { 
-        gfx.clearSome(["menuA", "menutext"]);
+        gfx.ClearLayers(["menuA", "menutext"]);
         game.currentInputHandler.inChoice = false;
         game.currentInputHandler.inDialogue = false;
     },
     Advance: function() {
-        gfx.clearLayer("menutext");
+        gfx.ClearLayer("menutext");
         if(this.remainder < 0) {
-            gfx.clearLayer("menuA");
+            gfx.ClearLayer("menuA");
             game.currentInputHandler.inDialogue = false;
         } else {
             const prefix = this.currentText[this.remainder][0];

@@ -36,7 +36,7 @@ const land = {
         if(land.inDialogue) { return; }
         if(land.bgMoved) {
             land.bgMoved = false;
-            gfx.clearLayer("background");
+            gfx.ClearLayer("background");
             if(land.modernTimes) {
                 for(let i = 0; i <= 3; i++) {
                     gfx.DrawBG("bgM" + i, -land.playerX / (1 + 0.5 * (3 - i)));
@@ -49,7 +49,7 @@ const land = {
             }
         }
         land.target = null;
-        gfx.clearSome(["menuA", "menuC", "menutext"]);
+        gfx.ClearLayers(["menuA", "menuC", "menutext"]);
         land.target = land.DrawEntitiesAndGetTarget();
         if(land.target !== null && !land.cutscene.active) {
             switch(land.target.type) {
@@ -81,7 +81,7 @@ const land = {
     },
     DrawEntitiesAndGetTarget: function() {
         let potentialTarget = null, closestPos = 150;
-        gfx.clearLayer("characters");
+        gfx.ClearLayer("characters");
         for(let i = 0; i < land.entities.length; i++) {
             const e = land.entities[i];
             if(e.anim !== undefined) {
@@ -148,7 +148,7 @@ const land = {
                 }
             }
         } else if(land.target.type === "person") {
-            gfx.clearSome(["menuA", "menutext"]);
+            gfx.ClearLayers(["menuA", "menutext"]);
             if((land.target.x - land.playerX - land.xOffset) < 0) {
                 land.target.dir = 1;
             } else {
@@ -157,7 +157,7 @@ const land = {
             land.DrawEntitiesAndGetTarget();
             textHandler.ShowText(land.target.name, land.target.text);
         } else if(land.target.type === "observable") {
-            gfx.clearSome(["menuA", "menutext"]);
+            gfx.ClearLayers(["menuA", "menutext"]);
             land.DrawEntitiesAndGetTarget();
             textHandler.ShowText(land.target.speaker, land.target.text);
         } else if(land.target.type === "boat") {
