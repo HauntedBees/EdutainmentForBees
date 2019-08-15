@@ -13,13 +13,15 @@ const sheetInfo = {
     "pappy": { w: 1024, h: 300 }, // https://pixabay.com/illustrations/parchment-papyrus-dirty-old-dirt-880314/
     "water": { w: 1920, h: 347 }, // https://opengameart.org/content/painted-backdrop-sea-and-sky-1920-x-1200
     "shore": { w: 610, h: 225 }, 
-    "shore2": { w: 161, h: 122 }, 
+    "shore2": { w: 1659, h: 122 }, 
     "oar": { w: 308, h: 162 }, 
     "row": { w: 424, h: 294 }, 
     "paint": { w: 1024, h: 896 }, // https://commons.wikimedia.org/wiki/File:2011-02-11_Stucco_paint_texture.jpg
-
+    "plants": { w: 100, h: 200 },
+    "plantsSmall": { w: 100, h: 100 },
+    "plantsBig": { w: 200, h: 400 }, // https://en.wikipedia.org/wiki/File:Emblem_of_Saudi_Arabia.svg
+    
     "pers": { w: 100, h: 225 }, // https://smarthistory.org/ancient-egypt/
-    "date": { w: 241, h: 337 }, // https://en.wikipedia.org/wiki/File:Emblem_of_Saudi_Arabia.svg
     "map": { w: 1024, h: 896 }, // https://en.wikipedia.org/wiki/File:Egypt_1450_BC.svg https://pixabay.com/photos/paper-old-texture-parchment-1074131/
     "hive": { w: 100, h: 100 }, // https://www.beeculture.com/catch-buzz-worlds-oldest-beehives-farmed-israel-time-prophet-elisha/
     "honeycomb": { w: 100, h: 54 }, // https://www.flickr.com/photos/30478819@N08/47933160963
@@ -56,7 +58,7 @@ const gfx = {
     canvasHeight: 0, canvasWidth: 0,
     tileWidth: 0, tileHeight: 0, scale: 4,
     spritesheets: [],
-    loadSpriteSheets: function(source, paths, callback) {
+    LoadSpriteSheets: function(source, paths, callback) {
         count = 0; source = source || "img";
         const plen = Object.keys(paths).length;
         for(const path in paths) {
@@ -175,7 +177,7 @@ const gfx = {
             gfx.ClearLayer(key);
         }
     },
-    
+
     GetFontSize: function(size, justNum) {
         size = size || 22;
         switch(player.options.fontSize) {

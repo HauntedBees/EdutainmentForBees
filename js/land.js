@@ -2,10 +2,10 @@ const land = {
     animIdx: 0, gameIdx: 0, modernTimes: false, freeMovement: true, cutscene: { active: false }, 
     yPos: 780, btnPos: 444, xOffset: 500, maxX: 7678,
     playerX: 0, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), 
-    entities: [], target: null,
+    entities: [], target: null, flowering: false, 
     inDialogue: false, inChoice: false, 
     bgMoved: true, // max x ~= 7678
-    Setup: function(location) {
+    Setup: function(location, inSeason) {
         land.modernTimes = location.indexOf("Modern") === 0;
         land.animIdx = setInterval(land.Animate, 30);
         land.gameIdx = setInterval(land.RunGame, 1000);
@@ -16,6 +16,7 @@ const land = {
         land.inChoice = false;
         land.playerX = 0;
         land.playerDir = 1;
+        land.flowering = inSeason || false;
         land.cutscene = { active: false };
         land.maxX = maxX[location] || 7678;
         if(autoPlays[location] !== undefined) {
@@ -50,6 +51,9 @@ const land = {
         }
         land.target = null;
         gfx.ClearLayers(["menuA", "menuC", "menutext"]);
+        land.waterIdx = (land.waterIdx + 0.5) % 1920;
+        gfx.DrawSprite("water", 0, 0, -250 - land.playerX, 735, "menuC", 1, true);
+        gfx.DrawSprite("shore2", 0, 0, 205 - land.playerX, 775, "menuC", 1, true);
         land.target = land.DrawEntitiesAndGetTarget();
         if(land.target !== null && !land.cutscene.active) {
             switch(land.target.type) {
@@ -58,7 +62,9 @@ const land = {
                     land.target.type = "bg";
                     break;
                 case "beeable":
-                    if(land.target.hasBees) {
+                    if(!land.flowering) {
+                        textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnPos, 1);
+                    } else if(land.target.hasBees) {
                         textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(land.target.beeTime) + ")", 525, land.btnPos, 1);
                     } else {
                         textHandler.DrawButton(true, "Release Bees (" + land.target.name + ")", 525, land.btnPos, 1);
@@ -75,9 +81,6 @@ const land = {
                     break;
             }
         }
-        land.waterIdx = (land.waterIdx + 0.5) % 1920;
-        gfx.DrawSprite("water", 0, 0, -1600 - land.playerX, 735, "menuC", 1, true);
-        gfx.DrawSprite("shore2", 0, 0, 205 - land.playerX, 775, "menuC", 1, true);
     },
     DrawEntitiesAndGetTarget: function() {
         let potentialTarget = null, closestPos = 150;
@@ -87,7 +90,8 @@ const land = {
             if(e.anim !== undefined) {
                 gfx.DrawSprite2(e.sprite, e.anim.GetFrame(e.dir), e.x - land.playerX, land.yPos + (e.y ? e.y : 0), "characters");
             } else if(e.sprite !== "") {
-                gfx.DrawSprite(e.sprite, e.dir, 0, e.x - land.playerX, land.yPos + (e.y ? e.y : 0), "characters");
+                const sx = !land.flowering && e.rawsx !== undefined ? e.rawsx : (e.sx || e.dir);
+                gfx.DrawSprite(e.sprite, sx, e.sy || 0, e.x - land.playerX, land.yPos + (e.y ? e.y : 0), e.foreground === true ? "menuC" : "characters");
                 // TODO: draw bees if they have bees on them
             }
             const dist = Math.abs(e.x - land.playerX - land.xOffset);
@@ -115,7 +119,16 @@ const land = {
         }
         if(land.cutscene.active || land.target === null) { return; }
         if(land.target.type === "beeable") {
-            if(land.target.hasBees) {
+            if(!land.flowering) {
+                gfx.ClearLayers(["menuA", "menutext"]);
+                land.DrawEntitiesAndGetTarget();
+                if(land.target.textRange) {
+                    const id = land.target.id + Math.floor(Math.random() * land.target.textRange);
+                    textHandler.ShowText("Protagonny", id);
+                } else {
+                    textHandler.ShowText(land.target.speaker, land.target.text);
+                }
+            } else if(land.target.hasBees) {
                 if(player.HasItem("empty beehive")) {
                     player.RemoveItem("empty beehive");
                     player.AddItem("full beehive");
@@ -159,7 +172,12 @@ const land = {
         } else if(land.target.type === "observable") {
             gfx.ClearLayers(["menuA", "menutext"]);
             land.DrawEntitiesAndGetTarget();
-            textHandler.ShowText(land.target.speaker, land.target.text);
+            if(land.target.textRange) {
+                const id = land.target.id + Math.floor(Math.random() * land.target.textRange);
+                textHandler.ShowText("Protagonny", id);
+            } else {
+                textHandler.ShowText(land.target.speaker, land.target.text);
+            }
         } else if(land.target.type === "boat") {
             game.SwitchTo(boat);
         }

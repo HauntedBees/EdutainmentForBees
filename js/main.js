@@ -29,7 +29,7 @@ const game = {
         gfx.canvasHeight = height;
         gfx.tileWidth = tilewidth;
         gfx.tileHeight = tileheight;
-        gfx.loadSpriteSheets("img", sheetInfo, this.sheetsLoaded);
+        gfx.LoadSpriteSheets("img", sheetInfo, this.sheetsLoaded);
     },
 
     SwitchTo: function(handler, arg) {
@@ -58,7 +58,7 @@ const game = {
     sheetsLoaded: function() {
         game.initListeners();
         game.currentInputHandler = land;
-        game.currentInputHandler.Setup("Thebes");
+        game.currentInputHandler.Setup("Testbench");
         //game.currentInputHandler.Setup("CutsceneThebes");
         //game.currentInputHandler.Setup("ModernCoffin");
     }
@@ -73,6 +73,10 @@ https://ancientegyptonline.co.uk/maahes/
 https://en.wikipedia.org/wiki/Lettuce#History
 https://religion.wikia.org/wiki/Leontopolis
 https://en.wikipedia.org/wiki/Memphis,_Egypt
+
+https://en.wikipedia.org/wiki/Pomegranate
+https://en.wikipedia.org/wiki/Nymphaea_caerulea
+https://en.wikipedia.org/wiki/Nymphaea_lotus
 
 https://www.honey.com/about-honey/how-honey-is-made
 https://sciencing.com/do-flowers-bees-other-5796565.html

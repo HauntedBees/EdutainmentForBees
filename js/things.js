@@ -10,18 +10,20 @@ const things = {
     "tutServant": { type: "person", sprite: "pers2tiny", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },
 
     /* --- PLANTS --- */
-    "corn": { type: "observable" }, // not pollinated
-    "wheat": { type: "observable" }, // not pollinated
-    "barley": { type: "observable" }, // not pollinated
-    "papyrus": { type: "observable" }, // not pollinated
+    "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1 },
+    "wheat": { type: "observable", sprite: "plants", sx: 3, rawsx: 1, name: "Wheat", textRange: 2 },
+    "barley": { type: "observable", sprite: "plants", sx: 4, rawsx: 0, name: "Barley", textRange: 1 },
+    "papyrus": { type: "observable", sprite: "plants", sx: 5, rawsx: 1, name: "Papyrus", textRange: 3 },
+    
+    "flax": { type: "beeable", sprite: "plants", sx: 1, rawsx: 0, sy: 1, name: "Flax", textRange: 2 },
+    "date": { type: "beeable", sprite: "plantsBig", rawsx: 0, sx: 1, name: "Date Palm", textRange: 2 },
+    "pomegranate": { type: "beeable", sprite: "plantsBig", rawsx: 2, sx: 3, name: "Pomegranate Shrub", textRange: 2 },
+    "bluelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 1, name: "Blue Lotus", textRange: 2, foreground: true },
+    "whitelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 2, name: "White Lotus", textRange: 3, foreground: true },
+    
     "fig": { type: "observable" }, // fig wasps
     "garlic": { type: "observable" }, // BAD FOR BEES!!!
-    "pomegranate": { type: "beeable" },
     "melon": { type: "beeable" },
-    "flax": { type: "beeable" },
-    "date": { type: "beeable", sprite: "date", dir: 0, name: "Date Palm" },
-    "bluelotus": { type: "beeable" }, // Nymphaea coerulea
-    "whitelotus": { type: "beeable" }, // Nymphaea lotus
     "chrysanthemum": { type: "beeable" },
     "chamomile": { type: "beeable" },
     "cornflower": { type: "beeable" }, // Centaurea depressa, imported
