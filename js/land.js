@@ -3,7 +3,8 @@ const land = {
     yPos: 780, btnPos: 444, xOffset: 500, maxX: 7678,
     playerX: 0, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), 
     entities: [], target: null, flowering: false, 
-    inDialogue: false, inChoice: false, 
+    inDialogue: false, inChoice: false,
+    sawDropoff: false, sawGet: false, 
     bgMoved: true, // max x ~= 7678
     Setup: function(location, inSeason) {
         land.modernTimes = location.indexOf("Modern") === 0;
@@ -16,6 +17,8 @@ const land = {
         land.inChoice = false;
         land.playerX = 0;
         land.playerDir = 1;
+        land.sawDropoff = false;
+        land.sawGet = false;
         land.flowering = inSeason || false;
         land.cutscene = { active: false };
         land.maxX = maxX[location] || 7678;
@@ -92,7 +95,19 @@ const land = {
             } else if(e.sprite !== "") {
                 const sx = !land.flowering && e.rawsx !== undefined ? e.rawsx : (e.sx || e.dir);
                 gfx.DrawSprite(e.sprite, sx, e.sy || 0, e.x - land.playerX, land.yPos + (e.y ? e.y : 0), e.foreground === true ? "menuC" : "characters");
-                // TODO: draw bees if they have bees on them
+                if(e.hasBees && e.bees !== undefined) {
+                    for(let i = 0; i < e.bees.length; i++) {
+                        const b = e.bees[i];
+                        gfx.DrawSprite("bee", 0, 0, e.x + b.x - land.playerX, land.yPos + (e.y ? e.y : 0) + b.y, e.foreground === true ? "menuC" : "characters", 0.5);
+                        switch(b.i) {
+                            case 0: b.y--; break;
+                            case 1: b.x++; break;
+                            case 2: b.y++; break;
+                            case 3: b.x--; break;
+                        }
+                        b.i = (b.i + 1) % 4;
+                    }
+                }
             }
             const dist = Math.abs(e.x - land.playerX - land.xOffset);
             if(dist <= closestPos) { // if something's in range, make it interactable
@@ -140,7 +155,10 @@ const land = {
                         } else {
                             player.nectarCache[plantType] += nectar;
                         }
-                        textHandler.ShowText("", "beesCollected");
+                        if(!land.sawGet) {
+                            textHandler.ShowText("", "beesCollected");
+                            land.sawGet = true;
+                        }
                     } else {
                         textHandler.ShowText("", "beesTooSoon");
                     }
@@ -154,8 +172,12 @@ const land = {
                     player.RemoveItem("full beehive");
                     player.AddItem("empty beehive");
                     land.target.hasBees = true;
+                    land.InitializeBees(land.target);
                     land.target.beeTime = 0;
-                    textHandler.ShowText("", "beelease", land.target.name);
+                    if(!land.sawDropoff) {
+                        textHandler.ShowText("", "beelease", land.target.name);
+                        land.sawDropoff = true;
+                    }
                 } else {
                     textHandler.ShowText("", "nobees");
                 }
@@ -180,6 +202,20 @@ const land = {
             }
         } else if(land.target.type === "boat") {
             game.SwitchTo(boat);
+        }
+    },
+    InitializeBees: function(target) {
+        const beeY = target.beeY || 0;
+        const beeRadius = target.beeRadius || 25;
+        const beeDiameter = beeRadius * 2;
+        const numBees = Math.ceil(5 + Math.random() * beeRadius / 6);
+        target.bees = [];
+        for(let i = 0; i < numBees; i++) {
+            target.bees.push({
+                i: 0,
+                x: Math.round(beeRadius - beeDiameter * Math.random()),
+                y: beeY + Math.round(beeRadius - beeDiameter * Math.random())
+            });
         }
     },
     rightclick: function() {

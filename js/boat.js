@@ -16,12 +16,23 @@ const boat = {
     animIdx: 0, freeMovement: true, yPos: 650, btnPos: 444,//gameIdx: 0, 
     selectingLocation: true, currentPos: 7, nextPos: 7, waterIdx: 0, 
     inDialogue: false, inChoice: false, isRowing: false, 
-    playerX: 500, playerDir: 0, honeyCache: [], 
+    isSmoking: false, smonkAnim: null, honeyCache: [], daysTravelled: 0, 
+    playerX: 500, playerDir: 0, 
     playerAnim: animHelpers.GetPlayerAnim(), rowAnim: animHelpers.GetAnim("row"), 
-    Setup: function() {
+    Setup: function(justSailed) {
         boat.selectingLocation = false;
-        boat.playerX = 500;
-        boat.playerDir = 0;
+        if(justSailed === true) {
+            boat.playerX = 450;
+            boat.playerDir = 1;
+            boat.Beeify(boat.daysTravelled);
+            player.currentDay += boat.daysTravelled;
+        } else {
+            boat.playerX = 500;
+            boat.playerDir = 0;
+        }
+        boat.isSmoking = false;
+        boat.daysTravelled = 0;
+        boat.smonkAnim = null;
         boat.InitialDraw();
         boat.animIdx = setInterval(boat.Animate, 30);
     },
@@ -58,7 +69,7 @@ const boat = {
         }
     },
     Animate: function() {
-        if(boat.inDialogue && !boat.isRowing) { return; }
+        if(boat.inDialogue && !(boat.isRowing || boat.isSmoking)) { return; }
         if(boat.selectingLocation) {
             gfx.ClearLayers(["menuA", "menutext"]);
             for(let i = 0; i < positions.length; i++) {
@@ -81,7 +92,8 @@ const boat = {
         } else {
             if(boat.isRowing) {
                 if(!boat.inDialogue) { // this shouldn't be in an animation handler but ehhhhhhhhh
-                    game.SwitchTo(land, positions[boat.nextPos][0]);
+                    // THIS IS WHAT HAPPENS WHEN YOU FINISH BOATING
+                    game.SwitchTo(boat, true);
                 }
                 gfx.ClearLayers(["characters", "menuC"]);
                 boat.rowAnim.SetMoving();
@@ -90,6 +102,25 @@ const boat = {
                 gfx.DrawSprite("water", 0, 0, (boat.waterIdx + boat.playerX) % 1920 + 1920, 650, "menuC", 1, true);
                 gfx.DrawSprite2("row", boat.rowAnim.GetFrame(0), 333, 799, "menuC");
                 gfx.DrawSprite("shore", 0, 0, boat.playerX, 680, "menuC", 1, true);
+            } else if(boat.isSmoking) {
+                if(!boat.inDialogue) { // im a rebel
+                    // THIS IS WHAT HAPPENS WHEN YOU FINISH SMOKING
+                    boat.isSmoking = false;
+                    boat.smonkAnim = null;
+                } else {
+                    gfx.ClearLayers(["characters", "menuC"]);
+                    gfx.DrawSprite("player", 3, 4, boat.playerX, boat.yPos, "characters");
+                    const honeyAmount = Math.round(2 * Math.random());
+                    for(let i = 0; i < honeyAmount; i++) {
+                        gfx.DrawSprite("honeycomb", 0, 0, 810 - Math.floor(80 * Math.random()), boat.yPos - 90 + Math.floor(80 * Math.random()), "characters", 0.5);
+                    }
+                    boat.smonkAnim.SetMoving();
+                    gfx.DrawSprite2("smoke", boat.smonkAnim.GetFrame(0), 760, boat.yPos - 10, "menuC");
+                    boat.waterIdx = (boat.waterIdx + 0.5) % 1920;
+                    gfx.DrawSprite("water", 0, 0, boat.waterIdx, 650, "menuC", 1, true);
+                    gfx.DrawSprite("water", 0, 0, boat.waterIdx - 1920, 650, "menuC", 1, true);
+                    gfx.DrawSprite("shore", 0, 0, 0, 680, "menuC", 1, true);
+                }
             } else {
                 gfx.ClearLayers(["characters", "menuA", "menuC", "menutext"]);
                 if(boat.playerX <= 265) {
@@ -150,6 +181,41 @@ const boat = {
         boat.InitialDraw(true);
         textHandler.ShowText("FUN FACT", funFact);
     },
+    Beeify: function(daysTravelled) {
+        let beeswaxCount = 0;
+        for(const nectar in player.nectarCache) {
+            let maxHoneys = daysTravelled / 3;
+            if(player.nectarCache[nectar] > 5) {
+                beeswaxCount++;
+                while(player.nectarCache[nectar] > 0 && maxHoneys > 0) {
+                    const amount = 5 + Math.ceil(15 * Math.random());
+                    if(player.nectarCache[nectar] >= 200 && Math.random() > 0.8) {
+                        player.nectarCache[nectar] -= 200;
+                        boat.honeyCache.push({ type: nectar, grade: 6 });
+                        maxHoneys -= 2;
+                        beeswaxCount += Math.ceil(5 * Math.random());
+                    } else if(player.nectarCache[nectar] >= amount) {
+                        player.nectarCache[nectar] -= amount;
+                        boat.honeyCache.push({ type: nectar, grade: 3 + Math.round(amount / 10) });
+                        maxHoneys--;
+                        beeswaxCount += Math.ceil(3 * Math.random());
+                    } else {
+                        if(player.nectarCache[nectar] >= 15) {
+                            boat.honeyCache.push({ type: nectar, grade: 3 });
+                        } else {
+                            boat.honeyCache.push({ type: nectar, grade: 2 });
+                        }
+                        player.nectarCache[nectar] = 0;
+                        beeswaxCount += Math.floor(2 * Math.random());
+                    }
+                }
+            } else {
+                player.nectarCache[nectar] = 0;
+                boat.honeyCache.push({ type: nectar, grade: 1 });
+            }
+        }
+        boat.honeyCache.push({ beeswax: true, amount: beeswaxCount });
+    },
     mouseMove: function() { },
     click: function() {
         if(boat.inDialogue) {
@@ -165,6 +231,7 @@ const boat = {
                 boat.InitialDraw();
             } else {
                 const dist = boat.GetDistance(boat.currentPos, boat.nextPos);
+                boat.daysTravelled = dist;
                 if(seasonHandler.IsInSeason(dist, boat.nextPos)) {
                     textHandler.ShowText("", "goToPlace", dist, positions[boat.nextPos][0]);
                 } else {
@@ -196,7 +263,25 @@ const boat = {
                 textHandler.ShowText("", "inventory");
             } else if(boat.playerX >= 620) { // Smoke
                 if(player.HasItem("incense")) {
-                    if(boat.honeyCache.length === 0) {
+                    if(boat.honeyCache.length > 0) {
+                        player.RemoveItem("incense");
+                        boat.isSmoking = true;
+                        boat.smokeIdx = 0;
+                        boat.smonkAnim = animHelpers.GetAnim("smonk");
+                        let honeyCount = 0, waxCount = 0;
+                        for(let i = 0; i < boat.honeyCache.length; i++) {
+                            const honey = boat.honeyCache[i];
+                            if(honey.beeswax === true) {
+                                waxCount += honey.amount;
+                                player.AddItem("beeswax", honey.amount);
+                            } else {
+                                honeyCount += 1;
+                                player.AddHoney(honey);
+                            }
+                        }
+                        textHandler.ShowText("", "smonk", honeyCount, waxCount);
+                        boat.honeyCache = [];
+                    } else {
                         let nectarCount = 0;
                         for(const key in player.nectarCache) {
                             nectarCount += player.nectarCache[key];
@@ -241,7 +326,7 @@ const boat = {
                 case player.controls.up: boat.nextPos = Math.max(0, boat.nextPos - 1); break;
                 case player.controls.down: boat.nextPos = Math.min(positions.length - 1, boat.nextPos + 1); break;
             }
-        } else {
+        } else if(!boat.isSmoking && !boat.inDialogue) {
             if(key === player.controls.right) {
                 if(boat.playerDir === 1) {
                     boat.playerX += 2;

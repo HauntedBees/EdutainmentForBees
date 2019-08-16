@@ -6,7 +6,15 @@ let player = {
         "incense": 5
     }, 
     honeys: [], revealedFunFacts: [],
-    nectarCache: {}, 
+    nectarCache: {}, currentDay: 1,
+    AddItem: function(item, amount) {
+        amount = amount || 1;
+        if(player.inventory[item] === undefined) {
+            player.inventory[item] = amount;
+        } else {
+            player.inventory[item] += amount;
+        }
+    },
     HasItem: function(item, amount) {
         amount = amount || 1;
         if(player.inventory[item] === undefined) { return false; }
@@ -20,12 +28,32 @@ let player = {
             player.inventory[item] -= amount;
         }
     },
-    AddItem: function(item, amount) {
+    AddHoney: function(honey) {
+        player.honeys.push(honey);
+        player.AddItem("honey", 1);
+    },
+    HasHoney: function(type, grade, amount) {
         amount = amount || 1;
-        if(player.inventory[item] === undefined) {
-            player.inventory[item] = amount;
+        if(type === "any" && grade === 0) { return player.HasItem("honey", amount); }
+        return player.honeys.filter(e => (type === "any" || e.type === type) && e.grade >= grade).length >= amount;
+    },
+    RemoveHoney: function(type, grade, amount) {
+        amount = amount || 1;
+        player.RemoveItem("honey", amount);
+        if(type === "any" && grade === 0) {
+            for(let i = 0; i < amount; i++) {
+                player.honeys.pop();
+            }
         } else {
-            player.inventory[item] += amount;
+            let i = player.honeys.length - 1, remaining = amount;
+            while(i > 0 && remaining > 0) {
+                const honey = player.honeys[i];
+                if(honey.type === type && honey.grade >= grade) {
+                    player.honeys.splice(i, 1);
+                    remaining -= 1;
+                }
+                i -= 1;
+            }
         }
     },
 

@@ -58,7 +58,7 @@ const game = {
     sheetsLoaded: function() {
         game.initListeners();
         game.currentInputHandler = land;
-        game.currentInputHandler.Setup("Testbench");
+        game.currentInputHandler.Setup("Testbench", true);
         //game.currentInputHandler.Setup("CutsceneThebes");
         //game.currentInputHandler.Setup("ModernCoffin");
     }
