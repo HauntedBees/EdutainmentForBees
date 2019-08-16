@@ -59,6 +59,7 @@ const places = {
         { x: 1200, id: "papyrus" },
         { x: 1300, id: "date" },
         { x: 1400, id: "flax" },
-        { x: 1500, id: "pomegranate" }
+        { x: 1500, id: "pomegranate" },
+        { x: 1600, id: "boff" }
     ]
 };

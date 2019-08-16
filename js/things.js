@@ -32,5 +32,6 @@ const things = {
     "acacia": { type: "beeable" },
     "onion": { type: "beeable" },
     /* --- PEOPLE --- */
-    "biff": { type: "person", sprite: "pers2tiny", dir: 1, name: "Amenken", text: "amenken1" }
+    "biff": { type: "person", sprite: "pers2tiny", dir: 1, name: "Amenken", text: "amenken1" },
+    "boff": { type: "person", sprite: "farmboy", anim: "regular", dir: 0, name: "Parennefer", text: "amenken1" }
 };
