@@ -4,6 +4,15 @@ const sheetInfo = {
     "playerScene1": { w: 200, h: 260 },
     "farmboy": { w: 196, h: 255 },
     "pers2tiny": { w: 150, h: 195 },
+    "peopleMisc": { w: 200, h: 260 },
+    "slappy": { w: 200, h: 260 },
+    "shopkeeps": { w: 150, h: 200 },
+    "cat1": { w: 100, h: 75 },
+    "cat2": { w: 100, h: 75 },
+    "cat3": { w: 100, h: 75 },
+    "cat4": { w: 100, h: 75 },
+    "cat5": { w: 100, h: 75 },
+    "cat6": { w: 100, h: 75 },
     "buttons": { w: 50, h: 50 },
     "headico": { w: 45, h: 38 },
     "circle": { w: 15, h: 15 },
@@ -13,6 +22,7 @@ const sheetInfo = {
     "amenhotep": { w: 164, h: 226 }, // https://www.metmuseum.org/toah/works-of-art/15.5.1/ 
     "pappy": { w: 1024, h: 300 }, // https://pixabay.com/illustrations/parchment-papyrus-dirty-old-dirt-880314/
     "water": { w: 1920, h: 347 }, // https://opengameart.org/content/painted-backdrop-sea-and-sky-1920-x-1200
+    "puddle": { w: 263, h: 26 },
     "shore": { w: 610, h: 225 }, 
     "shore2": { w: 1659, h: 122 }, 
     "oar": { w: 308, h: 162 }, 
@@ -24,12 +34,17 @@ const sheetInfo = {
     "plantsBig": { w: 200, h: 400 }, // https://en.wikipedia.org/wiki/File:Emblem_of_Saudi_Arabia.svg
     "smoke": { w: 256, h: 256 }, // https://opengameart.org/content/smoke-aura
     "honeycomb": { w: 100, h: 54 }, // https://www.flickr.com/photos/30478819@N08/47933160963
+    "justabox": { w: 120, h: 120 }, 
+
+    "templeWall": { w: 288, h: 704 },
+    "templeStairL": { w: 66, h: 30 },
+    "templeStairR": { w: 66, h: 30 },
+    "altar": { w: 96, h: 92 },
 
     "pers": { w: 100, h: 225 }, // https://smarthistory.org/ancient-egypt/
     "map": { w: 1024, h: 896 }, // https://en.wikipedia.org/wiki/File:Egypt_1450_BC.svg https://pixabay.com/photos/paper-old-texture-parchment-1074131/
     "hive": { w: 100, h: 100 }, // https://www.beeculture.com/catch-buzz-worlds-oldest-beehives-farmed-israel-time-prophet-elisha/
     "beeswax": { w: 100, h: 77 }, // https://www.flickr.com/photos/64636759@N07/8511157727
-    "justabox": { w: 200, h: 141 }, // https://www.nms.ac.uk/explore-our-collections/stories/world-cultures/ancient-egyptian-collection/ancient-egyptian-collection/box-of-amenhotep-ii
     "ladder": { w: 66, h: 200 } // https://www.fixfastusa.com/news-blog/history-of-the-ladder/
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers

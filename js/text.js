@@ -39,6 +39,23 @@ const texts = {
     "beesTooSoon": "The bees are back in their hive, but they didn't have enough time to collect any nectar!",
     "beesCollected": "The bees are back in their hive, and they got some nectar, too!",
 
+    // Cats
+    "cat0": "Mao.",
+    "cat1": "Muwaaaoo.",
+    "cat2": "Mew mew mew. Meaow.",
+    "cat3": "Prrrrrr. Prrrrrr.",
+    "cat4": "Mew? Mao!",
+    "cat5": "Vrrrrrrrrrrrr...",
+    "cat6": "Miu!",
+    "cat7": "Mao mao mao!",
+    "cat8": "Myaoooo!",
+    "cat9": "Snff-chu! Chu! Chu! Chu! Chu! Chu! | @She keeps sneezing. Poor kitty. | Chu! Chu! Snff! Meu?",
+
+    // Gods
+    "bastet": "Bastet was a goddess originally celebrated as a lioness warrior of the sun, but eventually became the protector cat goddess. | Her parents were Ra the sun god and the goddess Isis, and with the craftsman god Ptah, she birthed Maahes the lion warrior.",
+    "maahes": "Maahes was a lion-headed god of war and son of the god Ptah and either Bastet or Sekhmet, depending on the mythology. | It was said that as the sun god Ra went on his nightly voyages, Maahes would fight off Apep, the serpent god of chaos. | The duality of chaos against order was an important part of Ancient Egyptian beliefs; one could not exist without the other. | Chaos was called Isfet and order was called Ma'at. The dead needed to be purified of Isfet before they could be reborn in the afterlife.", 
+    "sekhmet": "Sekhmet was a lioness goddess of healing. She was also the fiercest hunter in Ancient Egypt. | Some said that the desert was created from her breath, and other stories told that Ra created her when his eye looked upon the earth. | With her husband Ptah, the craftsmang god, she birthed Maahes the lion warrior.", 
+
     // Crops
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
             "!Some early English texts mentioned \"corn\" in Egypt, but back then, the word \"corn\" was just a word to describe any grain, like wheat.",
@@ -72,12 +89,9 @@ const texts = {
     "goToPlaceNo": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey, but the plants there will not be flowering when you arrive. | ?sail",
 
     // Specific Place Fun Facts
-    "factTanis0": "In 1866, the Decree of Canopus was discovered in the ruins of Tanis. This decree was a record of priests attending an assembly in 238 BC. | Its most notable feature is that it was written in Egyptian heiroglyphs, Demotic Egyptian, and Greek, making it one of the most important discoveries to help decipher ancient Egyptian, much like the Rosetta Stone.",
-    "factTanis1": "The Finding of Moses is said to have happened near Tanis. This story from the Hebrew Bible tells how baby Moses was hidden in a papyrus basket by his mother in the Nile, then found by the pharaoh's daughter.", 
-    "factTanis2": "Tanis had three chief dieties. Amun, the god of sun and air, his consort Mut, a goddess whose name meant \"mother\", and their child Khonsu, a god associated with the moon.", 
-    "factLeontopolis0": "Leontopolis got its Greek name (the city of lions) due to its temples dedicated to the lion gods Bastet, Sekhmet, and Maahes.", 
-    "factLeontopolis1": "During the twenty-third Dynasty, Leontopolis was a district capital of Lower Egypt.", 
-    "factLeontopolis2": "A Jewish temple was built in Leontopolis by the priest Onias IV in the second century BC. This temple operated for three centuries, until it was eventually closed during after the Jewish War started.", 
+    "factTaremu0": "Taremu got its Greek name (Leontopolis, the city of lions) due to its temples dedicated to the lion gods Bastet, Sekhmet, and Maahes.", 
+    "factTaremu1": "During the twenty-third Dynasty, Taremu was a district capital of Lower Egypt.", 
+    "factTaremu2": "A Jewish temple was built in Taremu by the priest Onias IV in the second century BC. This temple operated for three centuries, until it was eventually closed during after the Jewish War started.", 
     "factMemphis0": "Memphis was the capital of Egypt during the age of the Old Kingdom, but remained an important city throughout Egyptian history until Muslim rule began in the 7th century AD.",
     "factMemphis1": "Ptah, the god of architects and craftsmen, was honored in the Hut-ka-Ptah temple in Memphis. This temple's Greek name - Aigyptos - may be the orgin of the name \"Egypt.\"",
     "factMemphis2": "During the New Kingdom, Memphis was an education center for princes and other nobility.",
@@ -152,7 +166,9 @@ const texts = {
     "amenkenLack": "Oh, it seems you don't have enough beeswax. That's okay, I'll check with the other beekeepers.",
     "amenkenGive": "Great! Thank you! This will help out a lot! | !In Ancient Egypt, beeswax was used for many things, like making candles, medicine, and sealants (things that keep water out)!",
     "amenken1b": "Can you provide me with 10 beeswax? I can give you 2 gold for it! | ?amenken1",
-    "amenken2": "Thanks for that beeswax! It will surely come in handy!"
+    "amenken2": "Thanks for that beeswax! It will surely come in handy!",
+
+    "fishboy": "Taremu is the land of fish, but some foreigners call it the city of lions, because of our temples to the lion goddesses. | But why do you think the goddesses like this city in the first place? Because of all the fish we got here, ya dingdong! | The lions came to the fish, not the other way around, obviously!"
 };
 
 const choices = {

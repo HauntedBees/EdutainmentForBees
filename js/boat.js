@@ -1,6 +1,5 @@
 const positions = [ // name, x, y, distance from previous
-    ["Tanis", 505, 115], 
-    ["Leontopolis", 495, 155, 2], // Taremu (Land of Fish) near Heliopolis 
+    ["Taremu", 495, 155, 2], // Taremu (Land of Fish) near Heliopolis  Leontopolis
     ["Memphis", 475, 180, 1], 
     ["Crocodilopolis", 445, 214, 2], // Shedet
     ["Herakleopolis", 455, 245, 1], 
@@ -14,7 +13,7 @@ const positions = [ // name, x, y, distance from previous
 ];
 const boat = {
     animIdx: 0, freeMovement: true, yPos: 650, btnPos: 444,//gameIdx: 0, 
-    selectingLocation: true, currentPos: 7, nextPos: 7, waterIdx: 0, 
+    selectingLocation: true, currentPos: 6, nextPos: 6, waterIdx: 0, 
     inDialogue: false, inChoice: false, isRowing: false, 
     isSmoking: false, smonkAnim: null, honeyCache: [], daysTravelled: 0, 
     playerX: 500, playerDir: 0, 
@@ -59,7 +58,7 @@ const boat = {
             for(let i = numFullBeehives; i < numTotalBeehives; i++) {
                 gfx.DrawSprite("hive", 1, 0, 700 + 45 * (i % 5), boat.yPos + 20 - Math.floor(i / 5) * 45, "background", 0.5);
             }
-            gfx.DrawSprite("justabox", 0, 0, 360, boat.yPos + 20, "background");
+            gfx.DrawSprite("justabox", 0, 0, 400, boat.yPos - 20, "background");
             if(boat.isRowing) {
                 boat.playerX = 0;
             } else {
@@ -123,12 +122,12 @@ const boat = {
                 }
             } else {
                 gfx.ClearLayers(["characters", "menuA", "menuC", "menutext"]);
-                if(boat.playerX <= 265) {
+                if(boat.playerX <= 320) {
                     textHandler.DrawButton(true, "Set Sail", boat.playerX, boat.btnPos, 1);
                 } else if(boat.playerX <= 470) {
                     textHandler.DrawButton(true, "Check Storage", boat.playerX, boat.btnPos, 1);
                 } else if(boat.playerX >= 620) {
-                    textHandler.DrawButton(true, "Smoke Bees", boat.playerX, boat.btnPos, 1);
+                    textHandler.DrawButton(true, "Smoke Hive", boat.playerX, boat.btnPos, 1);
                 } else if(boat.playerX <= 590 && boat.playerX >= 520) {
                     textHandler.DrawButton(true, "Leave Ship", boat.playerX, boat.btnPos, 1);
                 }
@@ -239,7 +238,7 @@ const boat = {
                 }
             }
         } else {
-            if(boat.playerX <= 275) { // Sail
+            if(boat.playerX <= 320) { // Sail
                 boat.selectingLocation = true;
                 boat.InitialDraw();
             } else if(boat.playerX <= 480) { // Storage

@@ -6,6 +6,7 @@ const textHandler = {
         gfx.DrawBG("pappy", 0, "menuA");
         gfx.tempSpeaker = "";
         this.speaker = speaker;
+        if(key === "cat") { key += Math.floor(Math.random() * 10) }
         if(arg !== undefined) {
             if(secondArg !== undefined) {
                 this.currentText = texts[key].replace("@arg", arg).replace("@arg2", secondArg).split(" ");

@@ -8,7 +8,7 @@ const GetCopy = function(objKey, x) {
 const game = {
     numSaveSlots: 10, w: 1024, h: 896, tilew: 16, tileh: 14,
     currentInputHandler: null, target: null, language: "en-us",
-    canvasLayers: ["background", "crap", "characters", "foreground", "menuA", "menuB", "menuC", "menutext", "paintbaby"], 
+    canvasLayers: ["background", "background2", "characters", "foreground", "menuA", "menuB", "menuC", "menutext", "paintbaby"], 
     fullInit: function() {
         let canvasObj = {};
         for(let i = 0; i < game.canvasLayers.length; i++) {
@@ -58,7 +58,8 @@ const game = {
     sheetsLoaded: function() {
         game.initListeners();
         game.currentInputHandler = land;
-        game.currentInputHandler.Setup("Testbench", true);
+        game.currentInputHandler.Setup("Taremu", true);
+        //game.currentInputHandler.Setup("Testbench", true);
         //game.currentInputHandler.Setup("CutsceneThebes");
         //game.currentInputHandler.Setup("ModernCoffin");
     }
@@ -66,13 +67,20 @@ const game = {
 
 /*
 Sources:
-https://en.wikipedia.org/wiki/Tanis
+http://hieroglyphs.net/cgi/dictionary_lookup_free.pl
+https://www.britannica.com/place/Nile-River/Plant-and-animal-life
+
 https://www.ancient.eu/amun/
+https://en.wikipedia.org/wiki/Lettuce#History
+https://en.wikipedia.org/wiki/Memphis,_Egypt
+
+http://www.virtualkemet.com/market/index.htm
+
 https://en.wikipedia.org/wiki/Leontopolis
 https://ancientegyptonline.co.uk/maahes/
-https://en.wikipedia.org/wiki/Lettuce#History
 https://religion.wikia.org/wiki/Leontopolis
-https://en.wikipedia.org/wiki/Memphis,_Egypt
+http://egyptian-gods.org/egyptian-gods-sekhmet/
+https://en.wikipedia.org/wiki/Apep
 
 https://en.wikipedia.org/wiki/Pomegranate
 https://en.wikipedia.org/wiki/Nymphaea_caerulea

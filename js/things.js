@@ -31,7 +31,59 @@ const things = {
     "redpoppy": { type: "beeable" }, // Papaver rhoeas, imported
     "acacia": { type: "beeable" },
     "onion": { type: "beeable" },
+
+    /* --- MISC --- */
+    "puddle": { type: "bg", sprite: "puddle", foreground: true, y: 15 },
+    "templeL": { type: "bg", sprite: "templeStairL", background: true },
+    "templeM": { type: "bg", sprite: "templeWall", background: true, isTemple: true },
+    "templeR": { type: "bg", sprite: "templeStairR", background: true },
+
+    /* --- CATS --- */
+    "cat1": { type: "person", sprite: "cat1", anim: "cat", dir: 1, name: "Cat", text: "cat" },
+    "cat2": { type: "bg", sprite: "cat3", anim: "cat", dir: 1, movement: "cat1" },
+    "cat3": { type: "bg", sprite: "cat2", anim: "cat", dir: 1, movement: "cat2" },
+    "cat4": { type: "person", sprite: "cat4", anim: "cat", dir: 1, movement: "cat3", name: "Cat", text: "cat" },
+    "cat5": { type: "bg", sprite: "cat5", anim: "cat", dir: 1, movement: "cat4" },
+
     /* --- PEOPLE --- */
     "biff": { type: "person", sprite: "pers2tiny", dir: 1, name: "Amenken", text: "amenken1" },
-    "boff": { type: "person", sprite: "farmboy", anim: "regular", dir: 0, name: "Parennefer", text: "amenken1" }
+    "fishboy": { type: "person", sprite: "peopleMisc", sx: 0, noDir: true, name: "Nenwef", text: "fishboy" },
+    "slappy": { type: "person", sprite: "slappy", anim: "slappy", dir: 0, name: "Ahmose", text: "fishboy" },
+    "boff": { type: "person", sprite: "farmboy", anim: "regular", dir: 0, name: "Parennefer", text: "amenken1" },
+    "shop1": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "fishboy" },
+    "shop2": { type: "person", sprite: "shopkeeps", sx: 2, dir: 0, name: "Tener", text: "fishboy" },
+
+    /* --- GODS --- */
+    "bastet": { type: "bg", sprite: "peopleMisc", sx: 1, y: -400 },
+    "bastetAltar": { type: "observable", sprite: "altar", name: "Bastet", text: "bastet" },
+    "sekhmet": { type: "bg", sprite: "peopleMisc", sx: 2, y: -400 },
+    "sekhmetAltar": { type: "observable", sprite: "altar", name: "Sekhmet", text: "sekhmet" },
+    "maahes": { type: "bg", sprite: "peopleMisc", sx: 3, y: -400 },
+    "maahesAltar": { type: "observable", sprite: "altar", name: "Maahes", text: "maahes" }
+};
+
+const movements = {
+    "cat1": function(me) { commonMovements.cat(me, 7, 20, 50, 0); },
+    "cat2": function(me) { commonMovements.cat(me, 6, 45, 30, 2); },
+    "cat3": function(me) { commonMovements.cat(me, 7, 30, 65, 0); },
+    "cat4": function(me) { commonMovements.cat(me, 8, 100, 10, 2); },
+};
+const commonMovements = {
+    "cat": function(me, speed, pausetime, walktime, initialState) {
+        if(me.moveData === undefined) { me.moveData = { state: initialState, idx: 0 }; }
+        const mD = me.moveData;
+        if(mD.state === 0) {
+            if(++mD.idx > pausetime) { me.dir = 0; me.anim.ForceMove(); mD.state++; mD.idx = 0; }
+        } else if(mD.state === 1) {
+            me.x -= speed;
+            me.dir = 0;
+            if(++mD.idx > walktime) { mD.state++; me.anim.ForceStop(); mD.idx = 0; }
+        } else if(mD.state === 2) {
+            if(++mD.idx > pausetime) { me.dir = 1; me.anim.ForceMove(); mD.state++; mD.idx = 0; }
+        } else if(mD.state === 3) {
+            me.x += speed;
+            me.dir = 1;
+            if(++mD.idx > walktime) { mD.state = 0; me.anim.ForceStop(); mD.idx = 0; }
+        }
+    }
 };

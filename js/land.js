@@ -5,12 +5,24 @@ const land = {
     entities: [], target: null, flowering: false, 
     inDialogue: false, inChoice: false,
     sawDropoff: false, sawGet: false, 
-    bgMoved: true, // max x ~= 7678
+    bgMoved: true, templeRanges: [], // max x ~= 7678
     Setup: function(location, inSeason) {
         land.modernTimes = location.indexOf("Modern") === 0;
         land.animIdx = setInterval(land.Animate, 30);
-        land.gameIdx = setInterval(land.RunGame, 1000);
+        land.gameIdx = setInterval(land.RunGame, 100);
         land.entities = GetPlaceEntities(location, land.modernTimes);
+        land.templeRanges = [];
+        for(let i = 0; i < land.entities.length; i++) {
+            const e = land.entities[i];
+            if(!e.isTemple) { continue; }
+            const tRlen = land.templeRanges.length - 1;
+            const left = e.x - 144, right = e.x + 144;
+            if(land.templeRanges.length > 0 && land.templeRanges[tRlen][1] === left) {
+                land.templeRanges[tRlen][1] = right;
+            } else {
+                land.templeRanges.push([left, right]);
+            }
+        }
         land.bgMoved = true;
         land.target = null;
         land.inDialogue = false;
@@ -31,9 +43,8 @@ const land = {
     RunGame: function() {
         for(let i = 0; i < land.entities.length; i++) {
             const e = land.entities[i];
-            if(e.hasBees) {
-                e.beeTime++;
-            }
+            if(e.hasBees) { e.beeTime += 0.1; }
+            if(e.movement && !land.inDialogue) { movements[e.movement](e); }
         }
     },
     Animate: function() {
@@ -68,7 +79,7 @@ const land = {
                     if(!land.flowering) {
                         textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnPos, 1);
                     } else if(land.target.hasBees) {
-                        textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(land.target.beeTime) + ")", 525, land.btnPos, 1);
+                        textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(Math.floor(land.target.beeTime)) + ")", 525, land.btnPos, 1);
                     } else {
                         textHandler.DrawButton(true, "Release Bees (" + land.target.name + ")", 525, land.btnPos, 1);
                     }
@@ -87,18 +98,21 @@ const land = {
     },
     DrawEntitiesAndGetTarget: function() {
         let potentialTarget = null, closestPos = 150;
-        gfx.ClearLayer("characters");
+        gfx.ClearLayers(["characters", "background2"]);
         for(let i = 0; i < land.entities.length; i++) {
             const e = land.entities[i];
             if(e.anim !== undefined) {
-                gfx.DrawSprite2(e.sprite, e.anim.GetFrame(e.dir), e.x - land.playerX, land.yPos + (e.y ? e.y : 0), "characters");
+                gfx.DrawSprite2(e.sprite, e.anim.GetFrame(e.dir), e.x - land.playerX, land.GetYPos(e.x, e.y), "characters");
             } else if(e.sprite !== "") {
-                const sx = !land.flowering && e.rawsx !== undefined ? e.rawsx : (e.sx || e.dir);
-                gfx.DrawSprite(e.sprite, sx, e.sy || 0, e.x - land.playerX, land.yPos + (e.y ? e.y : 0), e.foreground === true ? "menuC" : "characters");
+                const sx = (!land.flowering && e.rawsx !== undefined) ? e.rawsx : ((e.sx !== undefined ? e.sx : 0) + (e.noDir === true ? 0 : (e.dir || 0)));
+                let layer = "characters";
+                if(e.foreground === true) { layer = "menuC" }
+                else if(e.background === true) { layer = "background2"; }
+                gfx.DrawSprite(e.sprite, sx, e.sy || 0, e.x - land.playerX,  land.GetYPos(e.x, e.y, e), layer);
                 if(e.hasBees && e.bees !== undefined) {
                     for(let i = 0; i < e.bees.length; i++) {
                         const b = e.bees[i];
-                        gfx.DrawSprite("bee", 0, 0, e.x + b.x - land.playerX, land.yPos + (e.y ? e.y : 0) + b.y, e.foreground === true ? "menuC" : "characters", 0.5);
+                        gfx.DrawSprite("bee", 0, 0, e.x + b.x - land.playerX,  land.GetYPos(e.x, e.y) + b.y, e.foreground === true ? "menuC" : "characters", 0.5);
                         switch(b.i) {
                             case 0: b.y--; break;
                             case 1: b.x++; break;
@@ -110,7 +124,7 @@ const land = {
                 }
             }
             const dist = Math.abs(e.x - land.playerX - land.xOffset);
-            if(dist <= closestPos) { // if something's in range, make it interactable
+            if(dist <= closestPos && e.type !== "bg") { // if something's in range, make it interactable
                 potentialTarget = e;
                 closestPos = dist;
             }
@@ -118,9 +132,20 @@ const land = {
         if(land.cutscene.active) {
             land.cutscene.Process();
         } else {
-            gfx.DrawSprite2(land.modernTimes ? "playerModern" : "player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.yPos, "characters");
+            gfx.DrawSprite2(land.modernTimes ? "playerModern" : "player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.GetYPos(land.playerX + land.xOffset), "characters");
         }
         return potentialTarget;
+    },
+    GetYPos: function(x, yOffset, e) {
+        if(e !== undefined && e.isTemple === true) { return land.yPos; }
+        yOffset = yOffset || 0;
+        for(let i = 0; i < land.templeRanges.length; i++) {
+            const tr = land.templeRanges[i];
+            if(x >= tr[0] && x <= tr[1]) {
+                return land.yPos - 20 + yOffset;
+            }
+        }
+        return land.yPos + yOffset;
     },
     mouseMove: function() { },
     click: function() {
@@ -148,7 +173,8 @@ const land = {
                     player.RemoveItem("empty beehive");
                     player.AddItem("full beehive");
                     if(land.target.beeTime >= 15) {
-                        const nectar = Math.ceil(0.75 * land.target.beeTime + 0.35 * land.target.beeTime * Math.random()); // 0.75 - 1.10x of the time
+                        const bt = Math.floor(land.target.beeTime);
+                        const nectar = Math.ceil(0.75 * bt + 0.35 * bt * Math.random()); // 0.75 - 1.10x of the time
                         const plantType = land.target.id;
                         if(player.nectarCache[plantType] === undefined) {
                             player.nectarCache[plantType] = nectar;
@@ -198,7 +224,7 @@ const land = {
                 const id = land.target.id + Math.floor(Math.random() * land.target.textRange);
                 textHandler.ShowText("Protagonny", id);
             } else {
-                textHandler.ShowText(land.target.speaker, land.target.text);
+                textHandler.ShowText("Protagonny", land.target.text);
             }
         } else if(land.target.type === "boat") {
             game.SwitchTo(boat);
