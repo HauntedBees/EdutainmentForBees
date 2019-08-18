@@ -187,7 +187,6 @@ const choices = {
         { choice: "Set Sail", action: boat.SetSailForAdventure },
         { choice: "Nevermind", action: textHandler.EndDialog }
     ],
-    
     "?breadLady": [
         {
             choice: "Give 4 jars of honey.",

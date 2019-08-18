@@ -12,11 +12,11 @@ const positions = [ // name, x, y, distance from previous
     ["Napata", 495, 650, 10]
 ];
 const boat = {
-    animIdx: 0, freeMovement: true, yPos: 650, btnPos: 444,//gameIdx: 0, 
+    animIdx: 0, freeMovement: true, yPos: 650, btnY: 350,//gameIdx: 0, 
     selectingLocation: true, currentPos: 6, nextPos: 6, waterIdx: 0, 
     inDialogue: false, inChoice: false, isRowing: false, 
     isSmoking: false, smonkAnim: null, honeyCache: [], daysTravelled: 0, 
-    playerX: 500, playerDir: 0, 
+    playerX: 500, playerDir: 0, bees: [], 
     playerAnim: animHelpers.GetPlayerAnim(), rowAnim: animHelpers.GetAnim("row"), 
     Setup: function(justSailed) {
         boat.selectingLocation = false;
@@ -29,6 +29,7 @@ const boat = {
             boat.playerX = 500;
             boat.playerDir = 0;
         }
+        boat.bees = [];
         boat.isSmoking = false;
         boat.daysTravelled = 0;
         boat.smonkAnim = null;
@@ -56,7 +57,9 @@ const boat = {
             gfx.DrawSprite("boatboat", 0, 1, 0, 400, "menuB", 1, true);
             const numFullBeehives = player.inventory["full beehive"];
             for(let i = 0; i < numFullBeehives; i++) {
-                gfx.DrawSprite("hive", 0, 0, 700 + 52 * (i % 5), boat.yPos + 30 - Math.floor(i / 5) * 52, "background", 0.5);
+                const x = 700 + 52 * (i % 5), y = boat.yPos + 30 - Math.floor(i / 5) * 52;
+                gfx.DrawSprite("hive", 0, 0, x, y, "background", 0.5);
+                boat.InitializeBees(x, y);
             }
             const numTotalBeehives = numFullBeehives + player.inventory["empty beehive"];
             for(let i = numFullBeehives; i < numTotalBeehives; i++) {
@@ -69,6 +72,18 @@ const boat = {
                 gfx.DrawSprite("oar", 0, 0, 200, boat.yPos + 50, "menuB");
                 gfx.DrawSprite("ladder", 0, 0, 550, boat.yPos + 100, "menuB");
             }
+        }
+    },
+    InitializeBees: function(x, y) {
+        const beeRadius = 20;
+        const beeDiameter = beeRadius * 2;
+        const numBees = Math.floor(5 + Math.random() * beeRadius / 6);
+        for(let i = 0; i < numBees; i++) {
+            boat.bees.push({
+                i: 0,
+                x: x - 25 + Math.round(beeRadius - beeDiameter * Math.random()),
+                y: y - 60 + Math.round(beeRadius - beeDiameter * Math.random())
+            });
         }
     },
     Animate: function() {
@@ -102,6 +117,7 @@ const boat = {
                 gfx.ClearLayers(["characters", "menuC"]);
                 boat.rowAnim.SetMoving();
                 boat.playerX -= 30;
+                boat.AnimateBees();
                 gfx.DrawSprite("water", 0, 0, (boat.waterIdx + boat.playerX) % 1920, 650, "menuC", 1, true);
                 gfx.DrawSprite("water", 0, 0, (boat.waterIdx + boat.playerX) % 1920 + 1920, 650, "menuC", 1, true);
                 gfx.DrawSprite2("row", boat.rowAnim.GetFrame(0), 333, 799, "menuC");
@@ -113,6 +129,7 @@ const boat = {
                     boat.smonkAnim = null;
                 } else {
                     gfx.ClearLayers(["characters", "menuC"]);
+                    boat.AnimateBees();
                     gfx.DrawSprite("player", 3, 4, boat.playerX, boat.yPos, "characters");
                     const honeyAmount = Math.round(2 * Math.random());
                     for(let i = 0; i < honeyAmount; i++) {
@@ -128,20 +145,34 @@ const boat = {
             } else {
                 gfx.ClearLayers(["characters", "menuA", "menuC", "menutext"]);
                 if(boat.playerX <= 320) {
-                    textHandler.DrawButton(true, "Set Sail", boat.playerX, boat.btnPos, 1);
+                    textHandler.DrawButton(true, "Set Sail", boat.playerX, boat.btnY, 1);
                 } else if(boat.playerX <= 470) {
-                    textHandler.DrawButton(true, "Check Storage", boat.playerX, boat.btnPos, 1);
+                    textHandler.DrawButton(true, "Check Storage", boat.playerX, boat.btnY, 1);
                 } else if(boat.playerX >= 620) {
-                    textHandler.DrawButton(true, "Smoke Hive", boat.playerX, boat.btnPos, 1);
+                    textHandler.DrawButton(true, "Smoke Hive", boat.playerX, boat.btnY, 1);
                 } else if(boat.playerX <= 590 && boat.playerX >= 520) {
-                    textHandler.DrawButton(true, "Leave Ship", boat.playerX, boat.btnPos, 1);
+                    textHandler.DrawButton(true, "Leave Ship", boat.playerX, boat.btnY, 1);
                 }
                 boat.waterIdx = (boat.waterIdx + 0.5) % 1920;
+                boat.AnimateBees();
                 gfx.DrawSprite("water", 0, 0, boat.waterIdx, 650, "menuC", 1, true);
                 gfx.DrawSprite("water", 0, 0, boat.waterIdx - 1920, 650, "menuC", 1, true);
                 gfx.DrawSprite2("player", boat.playerAnim.GetFrame(boat.playerDir), boat.playerX, boat.yPos, "characters");
                 gfx.DrawSprite("shore", 0, 0, 0, 680, "menuC", 1, true);
             }
+        }
+    },
+    AnimateBees: function() {
+        for(let i = 0; i < boat.bees.length; i++) {
+            const b = boat.bees[i];
+            gfx.DrawSprite("bee", 0, 0, b.x, b.y, "characters", 0.5);
+            switch(b.i) {
+                case 0: b.y--; break;
+                case 1: b.x++; break;
+                case 2: b.y++; break;
+                case 3: b.x--; break;
+            }
+            b.i = (b.i + 1) % 4;
         }
     },
     GetDistance: function(a, b) {

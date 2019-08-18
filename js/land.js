@@ -1,6 +1,5 @@
 const land = {
     animIdx: 0, gameIdx: 0, modernTimes: false, freeMovement: true, cutscene: { active: false }, 
-    yPos: 780, btnPos: 444, xOffset: 500, maxX: 7678,
     playerX: 0, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), 
     entities: [], target: null, flowering: false, 
     inDialogue: false, inChoice: false,
@@ -83,21 +82,21 @@ const land = {
                     break;
                 case "beeable":
                     if(!land.flowering) {
-                        textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnPos, 1);
+                        textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnY, 1);
                     } else if(land.target.hasBees) {
-                        textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(Math.floor(land.target.beeTime)) + ")", 525, land.btnPos, 1);
+                        textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(Math.floor(land.target.beeTime)) + ")", 525, land.btnY, 1);
                     } else {
-                        textHandler.DrawButton(true, "Release Bees (" + land.target.name + ")", 525, land.btnPos, 1);
+                        textHandler.DrawButton(true, "Release Bees (" + land.target.name + ")", 525, land.btnY, 1);
                     }
                     break;
                 case "observable":
-                    textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnPos, 1);
+                    textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnY, 1);
                     break;
                 case "person":
-                    textHandler.DrawButton(true, "Talk (" + land.target.name + ")", 525, land.btnPos, 1);
+                    textHandler.DrawButton(true, "Talk (" + land.target.name + ")", 525, land.btnY, 1);
                     break;
                 case "boat":
-                    textHandler.DrawButton(true, "Board Ship", 525, land.btnPos, 1);
+                    textHandler.DrawButton(true, "Board Ship", 525, land.btnY, 1);
                     break;
             }
         }
