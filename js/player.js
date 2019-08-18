@@ -16,6 +16,7 @@ let player = {
     easterEggs: {
         catDog: false
     },
+    beedFlowers: [], 
     clearedChievos: [], 
     chievos: {
         "Taremu": ["shop2", "bastetAltar", "sekhmetAltar", "maahesAltar"]

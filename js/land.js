@@ -183,6 +183,7 @@ const land = {
                         const bt = Math.floor(land.target.beeTime);
                         const nectar = Math.ceil(0.75 * bt + 0.35 * bt * Math.random()); // 0.75 - 1.10x of the time
                         const plantType = land.target.id;
+                        if(player.beedFlowers.indexOf(plantType) < 0) { player.beedFlowers.push(plantType); }
                         if(player.nectarCache[plantType] === undefined) {
                             player.nectarCache[plantType] = nectar;
                         } else {
