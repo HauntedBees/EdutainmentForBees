@@ -20,3 +20,11 @@ Development started on August 9, 2019. Development will end on or before August 
 **pappy.png** is modified from [Parchment Papyrus Dirty Old Dirt](https://pixabay.com/illustrations/parchment-papyrus-dirty-old-dirt-880314/) by [Gerd Altmann](https://pixabay.com/users/geralt-9301/), which is licensed under the [Pixabay License](https://pixabay.com/service/license/).
 
 **smoke.png** is modified from [Smoke Aura](https://opengameart.org/content/smoke-aura) by [Beast](https://opengameart.org/users/beast), which is licensed under the [CC0 Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/).
+
+The font [**Mariana**](https://www.fontspace.com/mariano-mart%C3%ADnez-vila/mariana) by [Mariano Martínez Vila](https://www.fontspace.com/mariano-mart%C3%ADnez-vila) is licensed under the Public Domain.
+
+The font [**OpenDyslexic**](https://opendyslexic.org/) by [Abbie Gonzalez](https://gumroad.com/antijingoist) is licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+
+The Font [**New Athena Unicode**](https://www.fontsquirrel.com/fonts/new-athena-unicode) by the [Society for Classical Studies](https://classicalstudies.org/) is licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+
+The font [**Ornkey**](https://www.behance.net/gallery/34855701/Orkney-Open-Source-Typeface) by [Samuel Oakes](http://oakes.co/), [Alfredo Marco Pradil](https://hanken.co/), and [Cristiano Sobral](https://www.behance.net/cssobral20f492/appreciated) is licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
