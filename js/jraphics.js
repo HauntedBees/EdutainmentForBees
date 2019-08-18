@@ -41,9 +41,8 @@ const sheetInfo = {
     "templeStairR": { w: 66, h: 30 },
     "altar": { w: 96, h: 92 },
     "map": { w: 1024, h: 896 }, // https://en.wikipedia.org/wiki/File:Egypt_1450_BC.svg https://pixabay.com/photos/paper-old-texture-parchment-1074131/
-
-    "hive": { w: 100, h: 100 }, // https://www.beeculture.com/catch-buzz-worlds-oldest-beehives-farmed-israel-time-prophet-elisha/
-    "ladder": { w: 66, h: 200 } // https://www.fixfastusa.com/news-blog/history-of-the-ladder/
+    "hive": { w: 110, h: 109 },
+    "ladder": { w: 121, h: 204 }
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers
 for(let i = 0; i <= 3; i++) { sheetInfo["bgM" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/classical-ruin-tiles-0

@@ -1,9 +1,7 @@
 # Edutainment, For Bees!
-An Ancient History themed Edutainment game for "Summer Slow Jams August 2019: Edutainment Games."
+An Ancient History themed Edutainment game for "[Summer Slow Jams August 2019: Edutainment Games](https://itch.io/jam/ssjedutainment)."
 
-Development started on August 9, 2019.
-
-Currently excluding various assets since I'm using ~~media shamelessly stolen from Google Image Search~~ placeholder assets that will be replaced once I move on to that stage of development.
+Development started on August 9, 2019. Development will end on or before August 23, 2019.
 
 ## Credits
 

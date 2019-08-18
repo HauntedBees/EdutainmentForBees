@@ -56,11 +56,11 @@ const boat = {
             gfx.DrawSprite("boatboat", 0, 1, 0, 400, "menuB", 1, true);
             const numFullBeehives = player.inventory["full beehive"];
             for(let i = 0; i < numFullBeehives; i++) {
-                gfx.DrawSprite("hive", 0, 0, 700 + 45 * (i % 5), boat.yPos + 20 - Math.floor(i / 5) * 45, "background", 0.5);
+                gfx.DrawSprite("hive", 0, 0, 700 + 52 * (i % 5), boat.yPos + 30 - Math.floor(i / 5) * 52, "background", 0.5);
             }
             const numTotalBeehives = numFullBeehives + player.inventory["empty beehive"];
             for(let i = numFullBeehives; i < numTotalBeehives; i++) {
-                gfx.DrawSprite("hive", 1, 0, 700 + 45 * (i % 5), boat.yPos + 20 - Math.floor(i / 5) * 45, "background", 0.5);
+                gfx.DrawSprite("hive", 1, 0, 700 + 52 * (i % 5), boat.yPos + 30 - Math.floor(i / 5) * 52, "background", 0.5);
             }
             gfx.DrawSprite("justabox", 0, 0, 400, boat.yPos - 20, "background");
             if(boat.isRowing) {
