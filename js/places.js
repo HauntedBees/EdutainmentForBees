@@ -7,6 +7,9 @@ const GetPlaceEntities = function(place, modern) {
     for(let i = 0; i < placeObj.length; i++) {
         const obj = placeObj[i];
         const entity = GetCopy(obj.id, obj.x);
+        if(player.clearedChievos.indexOf[obj.id]) {
+            entity.text = entity.textAlt;
+        }
         if(obj.x <= 600) {
             alert("object " + obj.id + " needs an X value higher than 600!");
         }
@@ -20,7 +23,8 @@ const autoPlays = {
 };
 const maxX = {
     "ModernCoffin": 2290,
-    "CutsceneThebes": 5800
+    "CutsceneThebes": 5800,
+    "Taremu": 5565,
 };
 function AddTemple(arr, x, w) {
     arr.push({ x: x, id: "templeL" });

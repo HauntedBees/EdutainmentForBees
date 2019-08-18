@@ -77,7 +77,8 @@ const boat = {
             gfx.ClearLayers(["menuA", "menutext"]);
             for(let i = 0; i < positions.length; i++) {
                 const pos = positions[i];
-                gfx.DrawSprite("circle", 0, 0, pos[1], pos[2], "menuA");
+                const sx = (player.chievos[pos[0]] || ["TODO: remove me sean"]).length === 0 ? 1 : 0;
+                gfx.DrawSprite("circle", sx, 0, pos[1], pos[2], "menuA");
             }
             const oldCursor = positions[boat.currentPos];
             gfx.DrawSprite("headico", 1, 0, oldCursor[1], oldCursor[2], "menuA");

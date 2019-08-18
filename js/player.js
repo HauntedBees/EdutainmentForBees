@@ -1,12 +1,11 @@
 let player = {
     font: 0, fontSize: 1, colorblind: false, 
     usingGamepad: false, usingMouse: false, 
-    controls: { up: "w", left: "a", down: "s", right: "d", confirm: " ", cancel: "x", pause: "Enter" },
-    keyboardcontrols: { up: "w", left: "a", down: "s", right: "d", confirm: " ", cancel: "x", pause: "Enter" },
+    controls: { up: "w", left: "a", down: "s", right: "d", confirm: "z", cancel: "x", pause: "Enter" },
+    keyboardcontrols: { up: "w", left: "a", down: "s", right: "d", confirm: "z", cancel: "x", pause: "Enter" },
     gamepadcontrols: { defaultMovement: true, up: "Gamepad12", left: "Gamepad14", down: "Gamepad13", right: "Gamepad15", 
                        up2: "GamepadA1", left2: "GamepadA0", down2: "GamepadA5", right2: "GamepadA4", confirm: "Gamepad0", cancel: "Gamepad1", pause: "Gamepad9" },
     swapMouseClicks: false, 
-
     inventory: {
         "full beehive": 5,
         "empty beehive": 0,
@@ -16,6 +15,15 @@ let player = {
     nectarCache: {}, currentDay: 1,
     easterEggs: {
         catDog: false
+    },
+    clearedChievos: [], 
+    chievos: {
+        "Taremu": ["shop2", "bastetAltar", "sekhmetAltar", "maahesAltar"]
+    },
+    ClearChievo: function(place, id) {
+        player.clearedChievos.push(id);
+        const idx = player.chievos[place].indexOf(id);
+        player.chievos[place].splice(idx, 1);
     },
     AddItem: function(item, amount) {
         amount = amount || 1;

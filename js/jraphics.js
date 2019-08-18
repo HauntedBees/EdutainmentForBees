@@ -36,16 +36,13 @@ const sheetInfo = {
     "honeycomb": { w: 100, h: 54 }, // https://www.flickr.com/photos/30478819@N08/47933160963
     "justabox": { w: 120, h: 120 }, 
     "horus": { w: 110, h: 80 }, 
-
     "templeWall": { w: 288, h: 704 },
     "templeStairL": { w: 66, h: 30 },
     "templeStairR": { w: 66, h: 30 },
     "altar": { w: 96, h: 92 },
-
-    "pers": { w: 100, h: 225 }, // https://smarthistory.org/ancient-egypt/
     "map": { w: 1024, h: 896 }, // https://en.wikipedia.org/wiki/File:Egypt_1450_BC.svg https://pixabay.com/photos/paper-old-texture-parchment-1074131/
+
     "hive": { w: 100, h: 100 }, // https://www.beeculture.com/catch-buzz-worlds-oldest-beehives-farmed-israel-time-prophet-elisha/
-    "beeswax": { w: 100, h: 77 }, // https://www.flickr.com/photos/64636759@N07/8511157727
     "ladder": { w: 66, h: 200 } // https://www.fixfastusa.com/news-blog/history-of-the-ladder/
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers

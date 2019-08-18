@@ -198,13 +198,13 @@ const choices = {
                     player.AddItem("bread", 4);
                     textHandler.MoveToNewText("breadgirlGive");
                     land.target.text = "breadgirlDone";
+                    player.ClearChievo("Taremu", "shop2");
                 } else {
                     land.target.text = "breadgirlB";
                     textHandler.MoveToNewText("breadgirlLack");
                 }
             }
-        },
-        {
+        }, {
             choice: "Do not give honey.",
             action: function() {
                 land.target.text = "breadgirlB";

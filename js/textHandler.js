@@ -113,10 +113,10 @@ const textHandler = {
                 case "GAMEPADA6": res.text = "R>"; res.sx = 1; res.sy = 2; break;
                 case "GAMEPADA7": res.text = "Rv"; res.sx = 1; res.sy = 2; break;
             }
-        } else if(player.usingMouse && (btn === player.controls.confirm || btn === player.controls.cancel)) {
+        } else if(player.usingMouse && (btn === player.controls.confirm.toUpperCase() || btn === player.controls.cancel.toUpperCase())) {
             res.text = "";
             res.sx = 2;
-            if(btn === player.controls.confirm) {
+            if(btn === player.controls.confirm.toUpperCase()) {
                 res.sy = player.swapMouseClicks ? 1 : 2;
             } else {
                 res.sy = player.swapMouseClicks ? 2 : 1;
