@@ -40,6 +40,12 @@ const land = {
         }
         if(!land.modernTimes) { gfx.DrawSprite("paint", 0, 0, 0, 0, "paintbaby", 1, true); }
     },
+    PartialSetup: function() {
+        land.animIdx = setInterval(land.Animate, 30);
+        land.gameIdx = setInterval(land.RunGame, 100);
+        land.bgMoved = true;
+        land.target = null;
+    },
     RunGame: function() {
         for(let i = 0; i < land.entities.length; i++) {
             const e = land.entities[i];
@@ -147,8 +153,9 @@ const land = {
         }
         return land.yPos + yOffset;
     },
-    mouseMove: function() { },
-    click: function() {
+    mouseMove: function() { player.usingMouse = true; },
+    click: function(fromKeyboard) {
+        if(!fromKeyboard) { player.usingMouse = true; }
         if(land.inDialogue) {
             if(land.inChoice) {
                 textHandler.MakeChoice(true);
@@ -244,7 +251,8 @@ const land = {
             });
         }
     },
-    rightclick: function() {
+    rightclick: function(fromKeyboard) {
+        if(!fromKeyboard) { player.usingMouse = true; }
         if(land.cutscene.active) { return; }
         if(land.target === null) { return; }
         if(land.inChoice) {
@@ -253,11 +261,17 @@ const land = {
         }
     },
     keyPress: function(key) {
+        if(key === player.controls.pause && !land.inDialogue) {
+            optionsMenu.Show();
+            return;
+        }
         if(key === player.controls.confirm) {
-            land.click();
+            player.usingMouse = false;
+            land.click(true);
             return;
         } else if(key === player.controls.cancel) {
-            land.rightclick();
+            player.usingMouse = false;
+            land.rightclick(true);
             return;
         }
         if(land.cutscene.active) { return; }
@@ -277,7 +291,7 @@ const land = {
                 land.playerDir = 0;
             }
             if(land.playerX < 0) { land.playerX = 0; }
-        }
+        } else { player.usingMouse = false; }
         land.bgMoved = true;
     }
 };

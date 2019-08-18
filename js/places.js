@@ -57,8 +57,11 @@ const places = {
             { x: 3200, id: "bastet" }, { x: 3200, id: "bastetAltar" },
             { x: 3600, id: "maahes" }, { x: 3600, id: "maahesAltar" },
             { x: 4000, id: "sekhmet" }, { x: 4000, id: "sekhmetAltar" },
-            { x: 4500, id: "shop1" },
-            { x: 5000, id: "slappy" },
+            { x: 4554, id: "shop1" },
+            { x: 4444, id: "boxFish" },
+            { x: 5000, id: "slappy1" },
+            { x: 5090, id: "boxFruit" },
+            { x: 5500, id: "boxBread" },
             { x: 5600, id: "shop2" }
         ];
         AddTemple(res, 3000, 4);

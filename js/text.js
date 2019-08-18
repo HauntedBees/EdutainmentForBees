@@ -50,6 +50,7 @@ const texts = {
     "cat7": "Mao mao mao!",
     "cat8": "Myaoooo!",
     "cat9": "Snff-chu! Chu! Chu! Chu! Chu! Chu! | @She keeps sneezing. Poor kitty. | Chu! Chu! Snff! Meu?",
+    "dog": "Bark bark! | @Wait... bark? | Yeah, I barked. What're you gonna do about it? Nobody will believe you! | @Did you just TALK!? | Mew?",
 
     // Gods
     "bastet": "Bastet was a goddess originally celebrated as a lioness warrior of the sun, but eventually became the protector cat goddess. | Her parents were Ra the sun god and the goddess Isis, and with the craftsman god Ptah, she birthed Maahes the lion warrior.",
@@ -168,7 +169,17 @@ const texts = {
     "amenken1b": "Can you provide me with 10 beeswax? I can give you 2 gold for it! | ?amenken1",
     "amenken2": "Thanks for that beeswax! It will surely come in handy!",
 
-    "fishboy": "Taremu is the land of fish, but some foreigners call it the city of lions, because of our temples to the lion goddesses. | But why do you think the goddesses like this city in the first place? Because of all the fish we got here, ya dingdong! | The lions came to the fish, not the other way around, obviously!"
+    // People - Taremu
+    "fishboy": "Taremu is the land of fish, but some foreigners call it the city of lions, because of our temples to the lion goddesses. | But why do you think the goddesses like this city in the first place? Because of all the fish we got here, ya dingdong! | The lions came to the fish, not the other way around, obviously!",
+    "fishshop": "There are a lot of cats here - we even have lions in the temple sometimes - so fishing is popular here. | People will buy fish for themselves, or to give to the cats as gifts or offerings. | We consider cats very important - they kill dangerous snakes and protect our Pharaohs.",
+    "fruitboy1": "Fruit! Get your fruit here! We got pomegranates, we got melons, we got dates, figs, grapes, olives, plums! | I even have apples - those fruits the Hyksos brought with them! | What, you don't know the Hyksos? Back in the day, they invaded and started the Fifteenth Dynasty! | We're still not entirely sure where they came from, though. | Eventually Ahmose I, the first ruler of the Eighteenth Dynasty, drove off the last Hyksos pharoah and brought Egypt back under Egyptian control! | Being conquered must have sucked, but the Hyksos left a lot of great stuff behind, like new bronze-working techniques, horses, stronger bows and battle axes, and, of course, apples! | Don't ask why a random fruit merchant knows all this, I'm just trying to sell these apples, lady!",
+    "breadgirl": "You know what goes great with fish? Bread. You know what goes great with anything, actually? Bread. | Wait, are you a beekeeper? I can tell from how you look nothing like a beekeeper. | I'm trying to bake some more honey bread, but I'm fresh out of honey. Do you think you could spare a few jars? | ?breadLady",
+    "breadgirlGive": "Great! This much honey will last me quite a while! | Thank you, here's some wheat and a few loaves of bread!", 
+    "breadgirlDone": "Emmer wheat is especially hard to process into flour, but you can't argue with the end result of fresh-baked bread! | I've heard that the nobles put things like dates and coriander seeds in their breads to give them extra flavor.", 
+    "breadgirlB": "Hello again, beekeeper. Can you spare a few jars of honey? | ?breadLady", 
+    "breadgirlNo": "Darn. I guess I'll have to find some honey elsewhere.", 
+    "breadgirlLack": "Your generosity is appreciated, but you can't give me honey you don't have. | If you get four jars of honey, come back later and I'll gladly take them off your hands!",
+    "x": "" 
 };
 
 const choices = {
@@ -177,6 +188,31 @@ const choices = {
         { choice: "Nevermind", action: textHandler.EndDialog }
     ],
     
+    "?breadLady": [
+        {
+            choice: "Give 4 jars of honey.",
+            action: function() {
+                if(player.HasItem("honey", 4)) {
+                    player.RemoveHoney("any", 0, 4);
+                    player.AddItem("wheat", 10);
+                    player.AddItem("bread", 4);
+                    textHandler.MoveToNewText("breadgirlGive");
+                    land.target.text = "breadgirlDone";
+                } else {
+                    land.target.text = "breadgirlB";
+                    textHandler.MoveToNewText("breadgirlLack");
+                }
+            }
+        },
+        {
+            choice: "Do not give honey.",
+            action: function() {
+                land.target.text = "breadgirlB";
+                textHandler.MoveToNewText("breadgirlNo");
+            }
+        }
+    ],
+
     "?amenken1": [
         {
             choice: "Trade 10 beeswax.",

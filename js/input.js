@@ -6,9 +6,8 @@ let input = {
     BUTTONDELAY: 10, 
     FloorPoint: p => { p.x = Math.floor(p.x); p.y = Math.floor(p.y); },
     click: function(e) {
-        if(player.options.ignoreMouse === 1) { return; }
-        const p = input.getMousePos(e); console.log(p);
-        if(game.currentInputHandler.click(p, true)) { return; }
+        e.preventDefault();
+        game.currentInputHandler.click();
     },
     rightclick: function(e) {
         e.preventDefault();
@@ -30,62 +29,6 @@ let input = {
         if(e.deltaY === 0) { return; }
         if(game.currentInputHandler.MouseWheel === undefined) { return; }
         game.currentInputHandler.MouseWheel(e.deltaY > 0);
-    },
-
-    VirtDirections: [0, 0, 0, 0], // UP LEFT DOWN RIGHT
-    GetKeyEvent: key => ({ key: key }),
-    ButtonPress: function(b) {
-        console.log(b);
-    },
-    ButtonRelease: function(b) {
-        if(b.btn === "dpad") {
-            const arr = [player.controls.up, player.controls.left, player.controls.down, player.controls.right];
-            for(let i = 0; i < 4; i++) {
-                if(input.VirtDirections[i] > 0) {
-                    const dS = (+new Date()) - input.VirtDirections[i];
-                    if(dS < 100) { input.keyPress(input.GetKeyEvent(arr[i])); }
-                    input.keyUp(input.GetKeyEvent(arr[i]));
-                    input.VirtDirections[i] = 0;
-                }
-            }
-        } else if(b.btn === "confirm") {
-            input.justPressed[player.controls.confirm] = 0;
-            input.keyPress(input.GetKeyEvent(player.controls.confirm));
-        } else if(b.btn === "cancel") {
-            input.justPressed[player.controls.cancel] = 0;
-            input.keyPress(input.GetKeyEvent(player.controls.cancel));
-        } else if(b.btn === "pause") {
-            input.justPressed[player.controls.pause] = 0;
-            input.keyPress(input.GetKeyEvent(player.controls.pause));
-        }
-    },
-    ButtonMove: function(b) {
-        if(b.btn === "dpad") {
-            if(b.y === 1) {
-                if(input.VirtDirections[2] === 0) { input.keyDown(input.GetKeyEvent(player.controls.down)); }
-                if(input.VirtDirections[0] > 0) { input.VirtDirections[0] = 0; input.keyUp(input.GetKeyEvent(player.controls.up)); }
-                input.VirtDirections[2] = +new Date();
-            } else if(b.y === -1) {
-                if(input.VirtDirections[0] === 0) { input.keyDown(input.GetKeyEvent(player.controls.up)); }
-                if(input.VirtDirections[2] > 0) { input.VirtDirections[2] = 0; input.keyUp(input.GetKeyEvent(player.controls.down)); }
-                input.VirtDirections[0] = +new Date();
-            } else {
-                if(input.VirtDirections[2] > 0) { input.VirtDirections[2] = 0; input.keyUp(input.GetKeyEvent(player.controls.down)); }
-                if(input.VirtDirections[0] > 0) { input.VirtDirections[0] = 0; input.keyUp(input.GetKeyEvent(player.controls.up)); }
-            }
-            if(b.x === 1) {
-                if(input.VirtDirections[3] === 0) { input.keyDown(input.GetKeyEvent(player.controls.right)); }
-                if(input.VirtDirections[1] > 0) { input.VirtDirections[1] = 0; input.keyUp(input.GetKeyEvent(player.controls.left)); }
-                input.VirtDirections[3] = +new Date();
-            } else if(b.x === -1) {
-                if(input.VirtDirections[1] === 0) { input.keyDown(input.GetKeyEvent(player.controls.left)); }
-                if(input.VirtDirections[3] > 0) { input.VirtDirections[3] = 0; input.keyUp(input.GetKeyEvent(player.controls.right)); }
-                input.VirtDirections[1] = +new Date();
-            } else {
-                if(input.VirtDirections[3] > 0) { input.VirtDirections[3] = 0; input.keyUp(input.GetKeyEvent(player.controls.right)); }
-                if(input.VirtDirections[1] > 0) { input.VirtDirections[1] = 0; input.keyUp(input.GetKeyEvent(player.controls.left)); }
-            }
-        }
     },
 
     justPressed: {}, keys: {}, mainKey: undefined,
@@ -186,8 +129,8 @@ let input = {
     SwitchControlType: function(newType) {
         player.options.controltype = newType;
         switch(newType) {
-            case 1: player.ResetSecondaries(); player.controls = player.gamepadcontrols; break;
-            case 0: player.controls = player.keyboardcontrols; break;
+            case 1: player.usingGamepad = true; player.controls = player.gamepadcontrols; break;
+            case 0: player.usingGamepad = false; player.controls = player.keyboardcontrols; break;
         }
     },
     gamepads: {}, gamepadQueryIdx: -1,

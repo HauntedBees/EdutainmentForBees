@@ -35,6 +35,7 @@ const sheetInfo = {
     "smoke": { w: 256, h: 256 }, // https://opengameart.org/content/smoke-aura
     "honeycomb": { w: 100, h: 54 }, // https://www.flickr.com/photos/30478819@N08/47933160963
     "justabox": { w: 120, h: 120 }, 
+    "horus": { w: 110, h: 80 }, 
 
     "templeWall": { w: 288, h: 704 },
     "templeStairL": { w: 66, h: 30 },
@@ -92,12 +93,14 @@ const gfx = {
             f(path, plen);
         }
     },
-    GetFont: () => "Orkney", //"Mariana",//player.options.font === 1 ? "OpenDyslexic" : "PressStart2P",
-    //GetFont: () => "Mariana", //"Mariana",//player.options.font === 1 ? "OpenDyslexic" : "PressStart2P",
-    //GetFont: () => "OpenDyslexic", //"Mariana",//player.options.font === 1 ? "OpenDyslexic" : "PressStart2P",
-    GetBlack: () => (player.IsMonochrome() ? "#081820" : "#000000"),
-    GetWhite: () => (player.IsMonochrome() ? "#E0F8D0" : "#FFFFFF"),
-    GetLightBlue: () => (player.IsMonochrome() ? "#E0F8D0" : "#8B8CDE"),
+    GetFont: function() { 
+        switch(player.font) {
+            case 0: return "Orkney";
+            case 1: return "Mariana";
+            case 2: return "NewAthenaUnicode";
+            case 3: return "OpenDyslexic";
+        }
+    },
 
     DrawBG: function(sheetpath, x, layer) {
         const sheet = gfx.spritesheets[sheetpath];
@@ -125,7 +128,7 @@ const gfx = {
         const fontInfo = fontMults[gfx.GetFont()];
         ctx.font = size + "px " + gfx.GetFont();
         y += size * fontInfo.top;
-        ctx.fillStyle = (color || gfx.GetBlack());
+        ctx.fillStyle = (color || "#000000");
         if(centerText) { ctx.textAlign = "center"; }
         ctx.fillText(t, x, y);
         if(centerText) { ctx.textAlign = "start"; }
@@ -162,7 +165,7 @@ const gfx = {
             row = ts[i0];
         }
         y += size * fontInfo.top;
-        ctx.fillStyle = (color || gfx.GetBlack());
+        ctx.fillStyle = (color || "#000000");
         for(let i = i0 + 1; i < ts.length; i++) {
             if(ts[i] === "|") {
                 ctx.fillText(row, x, (y + dy));
@@ -195,14 +198,8 @@ const gfx = {
             gfx.ClearLayer(key);
         }
     },
-
     GetFontSize: function(size, justNum) {
         size = size || 22;
-        switch(player.options.fontSize) {
-            case 1: size += 10; break;
-            case 2: size += 20; break;
-        }
-        if(gfx.GetFont() === "OpenDyslexic") { size += 2; }
         return justNum === true ? size : size + "px ";
     }
 };

@@ -35,6 +35,10 @@ const boat = {
         boat.InitialDraw();
         boat.animIdx = setInterval(boat.Animate, 30);
     },
+    PartialSetup: function() {
+        boat.InitialDraw();
+        boat.animIdx = setInterval(boat.Animate, 30);
+    },
     InitialDraw: function(isRowing) {
         gfx.ClearAllLayers();
         gfx.DrawSprite("paint", 0, 0, 0, 0, "paintbaby", 1, true);
@@ -312,7 +316,11 @@ const boat = {
             boat.InitialDraw();
         }
     },
-    keyPress: function(key, shift) { 
+    keyPress: function(key) {
+        if(key === player.controls.pause && !boat.selectingLocation && !boat.inDialogue) {
+            optionsMenu.Show();
+            return;
+        }
         if(key === player.controls.confirm) {
             boat.click();
             return;

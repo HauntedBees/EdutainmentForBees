@@ -47,11 +47,17 @@ const things = {
 
     /* --- PEOPLE --- */
     "biff": { type: "person", sprite: "pers2tiny", dir: 1, name: "Amenken", text: "amenken1" },
-    "fishboy": { type: "person", sprite: "peopleMisc", sx: 0, noDir: true, name: "Nenwef", text: "fishboy" },
-    "slappy": { type: "person", sprite: "slappy", anim: "slappy", dir: 0, name: "Ahmose", text: "fishboy" },
     "boff": { type: "person", sprite: "farmboy", anim: "regular", dir: 0, name: "Parennefer", text: "amenken1" },
-    "shop1": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "fishboy" },
-    "shop2": { type: "person", sprite: "shopkeeps", sx: 2, dir: 0, name: "Tener", text: "fishboy" },
+    // Taremu
+    "fishboy": { type: "person", sprite: "peopleMisc", sx: 0, noDir: true, name: "Nenwef", text: "fishboy" },
+    "shop1": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "fishshop" },
+    "shop2": { type: "person", sprite: "shopkeeps", sx: 2, dir: 0, name: "Tener", text: "breadgirl" },
+    "slappy1": { type: "person", sprite: "slappy", anim: "slappy", dir: 0, name: "Ahmose", text: "fruitboy1" },
+    
+    /* --- SHOP STUFF --- */
+    "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
+    "boxBread": { type: "bg", sprite: "justabox", sx: 1, background: true },
+    "boxFruit": { type: "bg", sprite: "justabox", sx: 2, background: true },
 
     /* --- GODS --- */
     "bastet": { type: "bg", sprite: "peopleMisc", sx: 1, y: -400 },

@@ -19,13 +19,18 @@ const seasonHandler = {
             const me = seasonHandler.seasonBlobs[i];
             const projectedSpot = (me.spot + Math.floor(projection / me.speed)) % positions.length;
             const mePos = positions[projectedSpot];
-            const gradient = ctx.createRadialGradient(mePos[1], mePos[2], me.radius, mePos[1], mePos[2], me.radius * 7);
-            gradient.addColorStop(0, "#00FF00FF");
-            gradient.addColorStop(1, "#00FF0000");
-            ctx.fillStyle = gradient;
-            //ctx.fillStyle = "#444444";
+            let radiusMult = 7;
+            if(player.colorblind) {
+                ctx.fillStyle = "#444444";
+                radiusMult = 5.5;
+            } else {
+                const gradient = ctx.createRadialGradient(mePos[1], mePos[2], me.radius, mePos[1], mePos[2], me.radius * 7);
+                gradient.addColorStop(0, "#00FF00FF");
+                gradient.addColorStop(1, "#00FF0000");
+                ctx.fillStyle = gradient;
+            }
             ctx.beginPath();
-            ctx.arc(mePos[1], mePos[2], me.radius * 7, 0, seasonHandler.twoPi);
+            ctx.arc(mePos[1], mePos[2], me.radius * radiusMult, 0, seasonHandler.twoPi);
             ctx.fill();
         }
     },

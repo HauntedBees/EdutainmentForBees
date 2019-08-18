@@ -39,6 +39,13 @@ const game = {
         game.currentInputHandler = handler;
         game.currentInputHandler.Setup(arg);
     },
+    PartialSwitchTo: function(handler) {
+        clearInterval(game.currentInputHandler.animIdx);
+        clearInterval(game.currentInputHandler.gameIdx);
+        gfx.ClearAllLayers();
+        game.currentInputHandler = handler;
+        game.currentInputHandler.PartialSetup();
+    },
 
     initListeners: function() {
         if(game.type !== 2) {
@@ -69,6 +76,7 @@ const game = {
 Sources:
 http://hieroglyphs.net/cgi/dictionary_lookup_free.pl
 https://www.britannica.com/place/Nile-River/Plant-and-animal-life
+https://en.wikipedia.org/wiki/Hyksos
 
 https://www.ancient.eu/amun/
 https://en.wikipedia.org/wiki/Lettuce#History

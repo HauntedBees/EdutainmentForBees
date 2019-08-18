@@ -6,7 +6,14 @@ const textHandler = {
         gfx.DrawBG("pappy", 0, "menuA");
         gfx.tempSpeaker = "";
         this.speaker = speaker;
-        if(key === "cat") { key += Math.floor(Math.random() * 10) }
+        if(key === "cat") {
+            if(!player.easterEggs.catDog && Math.random() < 0.02) {
+                player.easterEggs.catDog = true;
+                key = "dog";
+            } else {
+                key += Math.floor(Math.random() * 10);
+            }
+        }
         if(arg !== undefined) {
             if(secondArg !== undefined) {
                 this.currentText = texts[key].replace("@arg", arg).replace("@arg2", secondArg).split(" ");
@@ -71,9 +78,55 @@ const textHandler = {
         }
 
         const myY = y - 20 * yShift - yShift * 50 * player.fontSize;
-        gfx.DrawSprite("buttons", 0, 0, x, myY, "menuA", player.fontSize, true);
-        gfx.DrawText((primary ? player.controls.confirm: player.controls.cancel).toUpperCase(), x + (25 * player.fontSize), myY, true, "#FFFFFF", "menutext", textHandler.HUDfontSize * player.fontSize);
+        const info = textHandler.GetDisplayInfo(primary ? player.controls.confirm: player.controls.cancel);
+        gfx.DrawSprite("buttons", info.sx, info.sy, x, myY, "menuA", player.fontSize, true);
+        gfx.DrawText(info.text, x + (25 * player.fontSize), myY, true, "#FFFFFF", "menutext", textHandler.HUDfontSize * player.fontSize);
         gfx.DrawText(text, x + (55 * player.fontSize), myY, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize);
+    },
+    GetDisplayInfo: function(btn, full, forceGamepad) {
+        btn = btn.toUpperCase();
+        const res = { sx: 0, sy: 0, text: btn };
+        if(forceGamepad === undefined ? player.usingGamepad : forceGamepad) {
+            switch(btn) {
+                case "GAMEPAD0": res.text = "A"; break;
+                case "GAMEPAD1": res.text = "B"; break;
+                case "GAMEPAD2": res.text = "X"; break;
+                case "GAMEPAD3": res.text = "Y"; break;
+                case "GAMEPAD4": res.text = "L"; res.sy = 1; break;
+                case "GAMEPAD5": res.text = "R"; res.sx = 1; res.sy = 1; break;
+                case "GAMEPAD6": res.text = "L2"; res.sy = 1; break;
+                case "GAMEPAD7": res.text = "R2"; res.sx = 1; res.sy = 1; break;
+                case "GAMEPAD8": res.text = "<"; break;
+                case "GAMEPAD9": res.text = ">"; break;
+                case "GAMEPAD10": res.text = "L"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPAD11": res.text = "R"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPAD12": res.text = "^"; res.sy = 2; break;
+                case "GAMEPAD13": res.text = "v"; res.sy = 2; break;
+                case "GAMEPAD14": res.text = "<"; res.sy = 2; break;
+                case "GAMEPAD15": res.text = ">"; res.sy = 2; break;
+                case "GAMEPADA0": res.text = "L<"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPADA1": res.text = "L^"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPADA2": res.text = "R<"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPADA3": res.text = "R^"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPADA4": res.text = "L>"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPADA5": res.text = "Lv"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPADA6": res.text = "R>"; res.sx = 1; res.sy = 2; break;
+                case "GAMEPADA7": res.text = "Rv"; res.sx = 1; res.sy = 2; break;
+            }
+        } else if(player.usingMouse && (btn === player.controls.confirm || btn === player.controls.cancel)) {
+            res.text = "";
+            res.sx = 2;
+            if(btn === player.controls.confirm) {
+                res.sy = player.swapMouseClicks ? 1 : 2;
+            } else {
+                res.sy = player.swapMouseClicks ? 2 : 1;
+            }
+        } else {
+            res.sx = 1;
+            if(btn === " ") { res.text = full ? "Space Bar" : "spc"; }
+            if(btn === "ENTER") { res.text = full ? "Enter" : "rtn"; }
+        }
+        return res;
     },
     GetTimeString: function(seconds) {
         if(seconds < 60) {

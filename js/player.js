@@ -1,5 +1,12 @@
 let player = {
-    fontSize: 1,
+    font: 0, fontSize: 1, colorblind: false, 
+    usingGamepad: false, usingMouse: false, 
+    controls: { up: "w", left: "a", down: "s", right: "d", confirm: " ", cancel: "x", pause: "Enter" },
+    keyboardcontrols: { up: "w", left: "a", down: "s", right: "d", confirm: " ", cancel: "x", pause: "Enter" },
+    gamepadcontrols: { defaultMovement: true, up: "Gamepad12", left: "Gamepad14", down: "Gamepad13", right: "Gamepad15", 
+                       up2: "GamepadA1", left2: "GamepadA0", down2: "GamepadA5", right2: "GamepadA4", confirm: "Gamepad0", cancel: "Gamepad1", pause: "Gamepad9" },
+    swapMouseClicks: false, 
+
     inventory: {
         "full beehive": 5,
         "empty beehive": 0,
@@ -7,6 +14,9 @@ let player = {
     }, 
     honeys: [], revealedFunFacts: [],
     nectarCache: {}, currentDay: 1,
+    easterEggs: {
+        catDog: false
+    },
     AddItem: function(item, amount) {
         amount = amount || 1;
         if(player.inventory[item] === undefined) {
@@ -56,11 +66,6 @@ let player = {
             }
         }
     },
-
-    controls: { up: "w", left: "a", down: "s", right: "d", up2: "", left2: "", down2: "", right2: "", confirm: "z", cancel: "x", pause: "Enter" },
-    keyboardcontrols: { up: "w", left: "a", down: "s", right: "d", up2: "", left2: "", down2: "", right2: "", confirm: "z", cancel: "x", pause: "Enter" },
-    gamepadcontrols: { up: "Gamepad12", left: "Gamepad14", down: "Gamepad13", right: "Gamepad15", up2: "GamepadA1", left2: "GamepadA0", down2: "GamepadA5", right2: "GamepadA4", confirm: "Gamepad0", cancel: "Gamepad1", pause: "Gamepad9" },
-
     monies: 1000, playTime: 0, visitedMaps: [], openedChests: [],
     clearedEntities: [], achievements: [], failedEntities: [], 
     questsCleared: [], activeQuests: {},
