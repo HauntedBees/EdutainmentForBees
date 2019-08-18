@@ -20,13 +20,13 @@ const things = {
     "pomegranate": { type: "beeable", sprite: "plantsBig", rawsx: 2, sx: 3, name: "Pomegranate Shrub", textRange: 2, beeY: -200, beeRadius: 50 },
     "bluelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 1, name: "Blue Lotus", textRange: 2, foreground: true },
     "whitelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 2, name: "White Lotus", textRange: 3, foreground: true },
+    "chamomile": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 5, name: "Chamomile", textRange: 1, beeY: -60 },
+    "chrysanthemum": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 4, name: "Crown Daisy", textRange: 1, foreground: true }, // untested
     
     "fig": { type: "observable" }, // fig wasps
     "garlic": { type: "observable" }, // BAD FOR BEES!!!
     "lettuce": { type: "observable" }, // to fuck good
     "melon": { type: "beeable" },
-    "chrysanthemum": { type: "beeable" },
-    "chamomile": { type: "beeable" },
     "cornflower": { type: "beeable" }, // Centaurea depressa, imported
     "redpoppy": { type: "beeable" }, // Papaver rhoeas, imported
     "acacia": { type: "beeable" },
@@ -65,18 +65,21 @@ const things = {
     "boxFruit": { type: "bg", sprite: "justabox", sx: 2, background: true },
 
     /* --- GODS --- */
-    "bastet": { type: "bg", sprite: "peopleMisc", sx: 1, y: -400 },
+    "bastet": { type: "bg", sprite: "peopleMisc", sx: 1, y: -300 },
     "bastetAltar": { type: "observable", sprite: "altar", name: "Bastet", text: "bastet", textAlt: "offeringPleased",
                         isGod: true, pronoun: "her", want: "beeswax", amount: 30, sxAlt: 1 },
-    "sekhmet": { type: "bg", sprite: "peopleMisc", sx: 2, y: -400 },
+    "sekhmet": { type: "bg", sprite: "peopleMisc", sx: 2, y: -300 },
     "sekhmetAltar": { type: "observable", sprite: "altar", name: "Sekhmet", text: "sekhmet", textAlt: "offeringPleased",
                         isGod: true, pronoun: "her", want: "beer", amount: 5, wantDisplay: "jugs of beer", sxAlt: 2 },
-    "maahes": { type: "bg", sprite: "peopleMisc", sx: 3, y: -400 },
+    "maahes": { type: "bg", sprite: "peopleMisc", sx: 3, y: -300 },
     "maahesAltar": { type: "observable", sprite: "altar", name: "Maahes", text: "maahes", textAlt: "offeringPleased",
                         isGod: true, pronoun: "his", want: "honey", honeyType: "whitelotus", amount: 10, wantDisplay: "combs of white lotus honey", sxAlt: 3 },
-    "ptah": { type: "bg", sprite: "peopleMisc", sy: 1, y: -400 },
+    "ptah": { type: "bg", sprite: "peopleMisc", sy: 1, y: -300 },
     "ptahAltar": { type: "observable", sprite: "altar", name: "Ptah", text: "ptah", textAlt: "offeringPleased",
-                        isGod: true, pronoun: "his", want: "honey", honeyType: "bluelotus", amount: 50, wantDisplay: "combs of white lotus honey", sxAlt: 3 }
+                        isGod: true, pronoun: "his", want: "honey", honeyType: "bluelotus", amount: 50, wantDisplay: "combs of white lotus honey", sxAlt: 3 },
+    "sobek": { type: "bg", sprite: "peopleMiscBig", y: -200 },
+    "sobekAltar": { type: "observable", sprite: "altar", name: "Sobek", text: "sobek", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "his", want: "milk", amount: 10, wantDisplay: "jugs of milk", sxAlt: 2 },
 };
 
 const movements = {

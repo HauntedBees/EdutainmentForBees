@@ -1,7 +1,7 @@
 const positions = [ // name, x, y, distance from previous
     ["Taremu", 495, 155, 2], // Taremu (Land of Fish) near Heliopolis  Leontopolis
     ["Memphis", 475, 180, 1], 
-    ["Crocodilopolis", 445, 214, 2], // Shedet
+    ["Shedet", 445, 214, 2], // Crocodilopolis
     ["Herakleopolis", 455, 245, 1], 
     ["Hermopolis", 475, 285, 2], 
     ["Abydos", 515, 325, 3], 

@@ -12,6 +12,9 @@ const GetPlaceEntities = function(place, modern) {
             if(entity.sxAlt !== undefined) { entity.sx = entity.sxAlt; }
             if(entity.syAlt !== undefined) { entity.sy = entity.syAlt; }
         }
+        if(obj.y !== undefined) {
+            entity.y = (entity.y || 0) + obj.y;
+        }
         if(obj.x <= 600) {
             alert("object " + obj.id + " needs an X value higher than 600!");
         }
@@ -90,14 +93,34 @@ const places = {
             { x: 5200, id: "cat2" },
             { x: 5600, id: "cat4" },
             { x: 6000, id: "cat6" },
-            { x: 5500, id: "ptah" }, { x: 5500, id: "ptahAltar" },
+            { x: 5500, id: "ptah" }, { x: 5500, id: "ptahAltar" }
         ];
         AddTemple(res, 2000, 3);
         AddTemple(res, 4500, 5);
         for(let x = 0; x < 8; x++) { res.push({ x: 690 + x * (90 + x), id: "bluelotus" }); }
+        for(let x = 0; x < 4; x++) { res.push({ x: 1000 + x * (42 + x), id: "flax" }); }
         return res;
     }(),  
-    "Crocodilopolis": [],  
+    "Shedet": function() {
+        const res = [
+            { x: 3500, id: "sobek" }, { x: 3500, id: "sobekAltar" },
+            { x: 2450, id: "puddle" },
+            { x: 2550, id: "puddle" },
+            { x: 4500, id: "puddle" },
+            { x: 4600, id: "puddle" },
+            { x: 4800, id: "puddle" },
+            { x: 4650, id: "puddle" },
+            { x: 4550, id: "puddle" },
+            { x: 4700, id: "puddle" },
+            { x: 4750, id: "puddle" },
+            { x: 4850, id: "puddle" },
+
+        ];
+        AddTemple(res, 3000, 4);
+        for(let x = 0; x < 8; x++) { res.push({ x: 800 + x * (40 + x), y: Math.floor(30 * Math.random()), id: "chamomile" }); }
+        for(let x = 0; x < 12; x++) { res.push({ x: 1220 + x * (50 + x), id: "barley" }); }
+        return res;
+    }(),
     "Herakleopolis": [],  
     "Hermopolis": [],  
     "Abydos": [],  

@@ -5,6 +5,7 @@ const sheetInfo = {
     "farmboy": { w: 196, h: 255 },
     "pers2tiny": { w: 150, h: 195 },
     "peopleMisc": { w: 200, h: 260 },
+    "peopleMiscBig": { w: 200, h: 345 },
     "slappy": { w: 200, h: 260 },
     "shopkeeps": { w: 150, h: 200 },
     "cat1": { w: 100, h: 75 },

@@ -39,9 +39,9 @@ const texts = {
     "factMemphis0": "Memphis was the capital of Egypt during the age of the Old Kingdom, but remained an important city throughout Egyptian history until Muslim rule began in the 7th century AD.",
     "factMemphis1": "Ptah, the god of architects and craftsmen, was honored in the Hut-ka-Ptah temple in Memphis. This temple's Greek name - Aigyptos - may be the orgin of the name \"Egypt.\"",
     "factMemphis2": "During the New Kingdom, Memphis was an education center for princes and other nobility.",
-    "factCrocodilopolis0": "Crocodilopolis", 
-    "factCrocodilopolis1": "", 
-    "factCrocodilopolis2": "", 
+    "factShedet0": "The Greeks called Shedet \"Krokodilopolis\" due to the prominent cult of Sobek, the crocodile god.", 
+    "factShedet1": "During the Roman occupation of Egypt, many mummy portraits were painted in Shedet. | These portraits were painted on boards attached to mummies, and depicted the faces of those who were mummified.", 
+    "factShedet2": "Shedet is still a populated city today, now known as Faiyum. Many large bazaars, baths, and mosques can be found here.", 
     "factHerakleopolis0": "Herakleopolis", 
     "factHerakleopolis1": "", 
     "factHerakleopolis2": "", 
@@ -127,6 +127,7 @@ const texts = {
     "maahes": "Maahes was a lion-headed god of war and son of the god Ptah and either Bastet or Sekhmet, depending on the mythology. | It was said that as the sun god Ra went on his nightly voyages, Maahes would fight off Apep, the serpent god of chaos. | The duality of chaos against order was an important part of Ancient Egyptian beliefs; one could not exist without the other. | Chaos was called Isfet and order was called Ma'at. The dead needed to be purified of Isfet before they could be reborn in the afterlife.", 
     "sekhmet": "Sekhmet was a lioness goddess of healing. She was also the fiercest hunter in Ancient Egypt. | The sun god Ra sent her to punish mankind for failing to uphold order, but Sekhmet became overcome with bloodlust and took things too far. | Sekhmet refused to end her rampage, so the other gods spilled a mix of beer and pomegranate juice in Sekhmet's path. | Sekhmet, thinking it was blood, drank it up, and eventually passed out from the alcohol.", 
     "ptah": "Ptah is the guardian of Memphis, a creator god who created the universe by thinking it and giving it life with his words. | He is the god of craftsmen, carpentry, and builders. He is married to the lioness god Sekhmet, and with her he had his son, Nefertum, the a beautiful man made from a lotus flower.", 
+    "sobek": "holy crap lois it's sobek",
 
     // Crops
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
@@ -155,6 +156,8 @@ const texts = {
     "whitelotus0": "The white lotus, also known as the tiger lotus, was considered a symbol of creation in Ancient Egypt. | Even now, the white lotus is revered in Egypt, where it is the national flower.", 
     "whitelotus1": "White lotuses were grown in ponds and marshes in Ancient Egypt, and were even buried in the tomb of Ramesses II. | White lotus growing is one of the earliest examples of ornamental gardening.", 
     "whitelotus2": "The number 1,000 in Ancient Egyptian numerals was represented by the hieroglyph for the white lotus.", 
+    "chrysanthemum0": "Flower collars were often made for mummies starting in the New Kingdom. Flowers like crysanthemums and acacias were used for these arrangements.", 
+    "chamomile0": "During the 18th Dynasty, nobility wore large glazed ceramic collars, often styled into the shapes of flowers like chamomile and lotus flowers.",
 
     // Travelling
     "goToPlace": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey. | ?sail",
