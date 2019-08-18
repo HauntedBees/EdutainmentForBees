@@ -7,8 +7,10 @@ const GetPlaceEntities = function(place, modern) {
     for(let i = 0; i < placeObj.length; i++) {
         const obj = placeObj[i];
         const entity = GetCopy(obj.id, obj.x);
-        if(player.clearedChievos.indexOf[obj.id]) {
+        if(player.clearedChievos.indexOf(obj.id) >= 0) {
             entity.text = entity.textAlt;
+            if(entity.sxAlt !== undefined) { entity.sx = entity.sxAlt; }
+            if(entity.syAlt !== undefined) { entity.sy = entity.syAlt; }
         }
         if(obj.x <= 600) {
             alert("object " + obj.id + " needs an X value higher than 600!");

@@ -61,11 +61,14 @@ const things = {
 
     /* --- GODS --- */
     "bastet": { type: "bg", sprite: "peopleMisc", sx: 1, y: -400 },
-    "bastetAltar": { type: "observable", sprite: "altar", name: "Bastet", text: "bastet" },
+    "bastetAltar": { type: "observable", sprite: "altar", name: "Bastet", text: "bastet", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "her", want: "beeswax", amount: 30, sxAlt: 1 },
     "sekhmet": { type: "bg", sprite: "peopleMisc", sx: 2, y: -400 },
-    "sekhmetAltar": { type: "observable", sprite: "altar", name: "Sekhmet", text: "sekhmet" },
+    "sekhmetAltar": { type: "observable", sprite: "altar", name: "Sekhmet", text: "sekhmet", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "her", want: "beer", amount: 5, wantDisplay: "jugs of beer", sxAlt: 2 },
     "maahes": { type: "bg", sprite: "peopleMisc", sx: 3, y: -400 },
-    "maahesAltar": { type: "observable", sprite: "altar", name: "Maahes", text: "maahes" }
+    "maahesAltar": { type: "observable", sprite: "altar", name: "Maahes", text: "maahes", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "his", want: "honey", honeyType: "whitelotus", amount: 10, wantDisplay: "combs of white lotus honey", sxAlt: 3 }
 };
 
 const movements = {

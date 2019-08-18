@@ -1,12 +1,13 @@
 const land = {
     animIdx: 0, gameIdx: 0, modernTimes: false, freeMovement: true, cutscene: { active: false }, 
-    yPos: 780, btnY: 444, xOffset: 500, maxX: 7678,
+    yPos: 780, btnY: 444, xOffset: 500, maxX: 7678, currentLocation: "", 
     playerX: 0, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), 
     entities: [], target: null, flowering: false, 
     inDialogue: false, inChoice: false,
     sawDropoff: false, sawGet: false, 
     bgMoved: true, templeRanges: [], // max x ~= 7678
     Setup: function(location, inSeason) {
+        land.currentLocation = location;
         land.modernTimes = location.indexOf("Modern") === 0;
         land.animIdx = setInterval(land.Animate, 30);
         land.gameIdx = setInterval(land.RunGame, 100);
@@ -228,7 +229,9 @@ const land = {
         } else if(land.target.type === "observable") {
             gfx.ClearLayers(["menuA", "menutext"]);
             land.DrawEntitiesAndGetTarget();
-            if(land.target.textRange) {
+            if(land.target.text === "offeringPleased") {
+                textHandler.ShowText(land.target.name, land.target.text, land.target.name);
+            } else if(land.target.textRange) {
                 const id = land.target.id + Math.floor(Math.random() * land.target.textRange);
                 textHandler.ShowText("Protagonny", id);
             } else {

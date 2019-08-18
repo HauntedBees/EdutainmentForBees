@@ -16,7 +16,7 @@ const boat = {
     selectingLocation: true, currentPos: 6, nextPos: 6, waterIdx: 0, 
     inDialogue: false, inChoice: false, isRowing: false, 
     isSmoking: false, smonkAnim: null, honeyCache: [], daysTravelled: 0, 
-    playerX: 500, playerDir: 0, bees: [], 
+    playerX: 500, playerDir: 0, bees: [], target: {}, 
     playerAnim: animHelpers.GetPlayerAnim(), rowAnim: animHelpers.GetAnim("row"), 
     Setup: function(justSailed) {
         boat.selectingLocation = false;

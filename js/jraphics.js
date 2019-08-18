@@ -39,7 +39,7 @@ const sheetInfo = {
     "templeWall": { w: 288, h: 704 },
     "templeStairL": { w: 66, h: 30 },
     "templeStairR": { w: 66, h: 30 },
-    "altar": { w: 96, h: 92 },
+    "altar": { w: 100, h: 120 },
     "map": { w: 1024, h: 896 }, // https://en.wikipedia.org/wiki/File:Egypt_1450_BC.svg https://pixabay.com/photos/paper-old-texture-parchment-1074131/
     "hive": { w: 110, h: 109 },
     "ladder": { w: 121, h: 204 }

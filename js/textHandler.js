@@ -1,10 +1,11 @@
 const textHandler = {
     fontSize: 50, HUDfontSize: 25, 
     currentText: [], remainder: 0, speaker: "",
-    currentChoice: null, 
+    currentChoice: null, currentKey: "", 
     ShowText: function(speaker, key, arg, secondArg) {
         gfx.DrawBG("pappy", 0, "menuA");
         gfx.tempSpeaker = "";
+        this.currentKey = key;
         this.speaker = speaker;
         if(key === "cat") {
             if(!player.easterEggs.catDog && Math.random() < 0.02) {
@@ -38,10 +39,10 @@ const textHandler = {
         const choiceMade = textHandler.currentChoice[primary ? 0 : 1];
         choiceMade.action();
     },
-    MoveToNewText: function(text) {
+    MoveToNewText: function(text, arg, secondArg) {
         gfx.ClearLayers(["menuA", "menutext"]);
         game.currentInputHandler.inChoice = false;
-        textHandler.ShowText(textHandler.speaker, text);
+        textHandler.ShowText(textHandler.speaker, text, arg, secondArg);
     },
     EndDialog: function() { 
         gfx.ClearLayers(["menuA", "menutext"]);
@@ -51,8 +52,13 @@ const textHandler = {
     Advance: function() {
         gfx.ClearLayer("menutext");
         if(this.remainder < 0) {
-            gfx.ClearLayer("menuA");
-            game.currentInputHandler.inDialogue = false;
+            if(game.currentInputHandler.target.isGod === true && this.currentKey.indexOf("offering") !== 0) {
+                const targ = game.currentInputHandler.target;
+                textHandler.MoveToNewText("offering", targ.amount + " " + (targ.wantDisplay || targ.want), targ.pronoun);
+            } else {
+                gfx.ClearLayer("menuA");
+                game.currentInputHandler.inDialogue = false;
+            }
         } else {
             const prefix = this.currentText[this.remainder][0];
             if(prefix === "~") {

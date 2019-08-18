@@ -32,63 +32,6 @@ const texts = {
         "The plants aren't flowering here in Thebes yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very for your help. | ~start8"
     ].join(" | "),
 
-    // Pollinating plants
-    "nobees": "I don't have any bees with me right now.",
-    "nohives": "I don't have any empty beehives with me right now. I'll need to empty one of my full ones out, or trade for a new one.",
-    "beelease": "I have released the bees on this @arg. I can come back later to collect them. The longer they're here, the more nectar they'll collect!",
-    "beesTooSoon": "The bees are back in their hive, but they didn't have enough time to collect any nectar!",
-    "beesCollected": "The bees are back in their hive, and they got some nectar, too!",
-
-    // Cats
-    "cat0": "Mao.",
-    "cat1": "Muwaaaoo.",
-    "cat2": "Mew mew mew. Meaow.",
-    "cat3": "Prrrrrr. Prrrrrr.",
-    "cat4": "Mew? Mao!",
-    "cat5": "Vrrrrrrrrrrrr...",
-    "cat6": "Miu!",
-    "cat7": "Mao mao mao!",
-    "cat8": "Myaoooo!",
-    "cat9": "Snff-chu! Chu! Chu! Chu! Chu! Chu! | @She keeps sneezing. Poor kitty. | Chu! Chu! Snff! Meu?",
-    "dog": "Bark bark! | @Wait... bark? | Yeah, I barked. What're you gonna do about it? Nobody will believe you! | @Did you just TALK!? | Mew?",
-
-    // Gods
-    "bastet": "Bastet was a goddess originally celebrated as a lioness warrior of the sun, but eventually became the protector cat goddess. | Her parents were Ra the sun god and the goddess Isis, and with the craftsman god Ptah, she birthed Maahes the lion warrior.",
-    "maahes": "Maahes was a lion-headed god of war and son of the god Ptah and either Bastet or Sekhmet, depending on the mythology. | It was said that as the sun god Ra went on his nightly voyages, Maahes would fight off Apep, the serpent god of chaos. | The duality of chaos against order was an important part of Ancient Egyptian beliefs; one could not exist without the other. | Chaos was called Isfet and order was called Ma'at. The dead needed to be purified of Isfet before they could be reborn in the afterlife.", 
-    "sekhmet": "Sekhmet was a lioness goddess of healing. She was also the fiercest hunter in Ancient Egypt. | Some said that the desert was created from her breath, and other stories told that Ra created her when his eye looked upon the earth. | With her husband Ptah, the craftsmang god, she birthed Maahes the lion warrior.", 
-
-    // Crops
-    "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
-            "!Some early English texts mentioned \"corn\" in Egypt, but back then, the word \"corn\" was just a word to describe any grain, like wheat.",
-            "!Once Europeans travelled to the Americas and discovered maize, the word started referring just to that specific crop.",
-            "But, it could be possible... some mummies have been found to have traces of tobacco on them, another plant that only grew in the New World.",
-            "There have been some arguments that Ancient Egyptians travelled to the Americas before the Europeans did, but they've yet to gain mainstream acceptance.",
-            "So right now, the claim that corn grew in Ancient Egypt doesn't seem to have much evidence to support it, this is just a hallucination.",
-            "But hey, kids, consider becoming a historian or archaeologist! Maybe YOU can be the one to discover something big like Ancient Egyptian corn, or Atlantis!",
-            "!This game and its developers do not endorse any fringe historical theories and are not responsible for any of its players becoming historians and, thus, huge nerds."
-    ].join(" | "),
-    "wheat0": "Ancient Egyptians used wheat to make bread. | During the New Kingdom, loaves were grown in many different shapes and sizes in large cylinder-shaped clay ovens. | They even made breads shaped like animals and people. How fun!",
-    "wheat1": "Most breads in Ancient Egypt were made with emmer wheat, which was a very difficult wheat to work with. | Usually the edible part of the wheat is separated from their outer casings through threshing - beating the grains with a flail on a flat surface. | The outer shells of emmer wheat don't come off through threshing, though, so more elaborate methods had to be used.",
-    "barley0": "Ancient Egyptians used barley to create some breads, but it was mainly used to create beer. | Beer was a very important part of the Egyptian diet, and was consumed daily. | Ancient Egyptian beer had a texture like gruel and was an important source of protein and vitamins.",
-    "papyrus0": "The Papyrus reed has been used to make a paper-like material in Egypt for over 5000 years. The plant's abundance across the Nile river made it a very good writing material. | Ancient Egyptians made ink by mixing powdered minerals with water, and wrote with reed brushes.", 
-    "papyrus1": "Papyrus is very stable in dry climates like Egypt's, but Egyptians had to make sure they were kept out of humid conditions, or they might grow moldy.", 
-    "papyrus2": "In addition to paper, papyrus reeds can be used to create baskets, shoes, and boats.", 
-    "date0": "Ancient Egyptians used the fruits from the date tree as food and for making date wine. | Date fruits also contain a very sweet syrup called date honey, which is used extensively in North African and Middle Eastern cooking.", 
-    "date1": "Date palms are considered very important in many Middle Eastern religions. | Palm trees are viewed as symbols of prosperity in Judaism and Christianity, and dates are recommended food for pregnant women in Islam.", 
-    "flax0": "Flax is a very versatile crop, used for its oil, as a food, and primarily as a fiber. | Textiles made from flax fibers are called linen and are used for bed sheets, clothes, and towels, among other things. | In Ancient Egypt linen was used to wrap up mummies and was worn by priests, as flax was a symbol of purity.",
-    "flax1": "Ancient Egyptian temples had flowering flax painted on their walls, and Egyptian linen was used heavily in trade with Phoenicians and Romans.", 
-    "pomegranate0": "Pomegranates were first found in the New Kingdom of Ancient Egypt, with one discovered in the tomb of Pharoah Hatshepsut's butler. | Hatshepsut, who ruled from 1478 to 1458 BC, is the second known female pharoah, the first being Sobekneferu, whose short reign only lasted from 1806 to 1802 BC.",
-    "pomegranate1": "The pomegranate shrub was one of the first trees to be domesticated in the eastern Mediterranean region, but its origin is in the region extending from Iran to northern India.", 
-    "bluelotus0": "Tutankhamun's mummy was covered with blue lotus flowers. These flowers were frequently associated with dancing and spiritual rites. | It was important to Ancient Egyptian mythology, and it was believed that the sun god Ra emerged from a lotus flower in the primordial waters.",
-    "bluelotus1": "The blue lotus has been used in perfumes and for medicinal purposes, as it has mild sedative properties when eaten.",
-    "whitelotus0": "The white lotus, also known as the tiger lotus, was considered a symbol of creation in Ancient Egypt. | Even now, the white lotus is revered in Egypt, where it is the national flower.", 
-    "whitelotus1": "White lotuses were grown in ponds and marshes in Ancient Egypt, and were even buried in the tomb of Ramesses II. | White lotus growing is one of the earliest examples of ornamental gardening.", 
-    "whitelotus2": "The number 1,000 in Ancient Egyptian numerals was represented by the heiroglyph for the white lotus.", 
-
-    // Travelling
-    "goToPlace": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey. | ?sail",
-    "goToPlaceNo": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey, but the plants there will not be flowering when you arrive. | ?sail",
-
     // Specific Place Fun Facts
     "factTaremu0": "Taremu got its Greek name (Leontopolis, the city of lions) due to its temples dedicated to the lion gods Bastet, Sekhmet, and Maahes.", 
     "factTaremu1": "During the twenty-third Dynasty, Taremu was a district capital of Lower Egypt.", 
@@ -125,35 +68,96 @@ const texts = {
     "factNapata2": "", 
     // Misc Fun Facts
     "factMisc0": "Lettuce was first grown in Egypt as early as 2680 BC. It was the sacred plant of Min, a god of reproduction. Egyptians would carry lettuce at his festivals, as it was thought to give him reproductive energy.", 
-    "factMisc1": "", 
-    "factMisc2": "", 
-    "factMisc3": "", 
-    "factMisc4": "", 
-    "factMisc5": "", 
-    "factMisc6": "", 
-    "factMisc7": "", 
-    "factMisc8": "", 
-    "factMisc9": "", 
-    "factMisc10": "", 
-    "factMisc11": "", 
-    "factMisc12": "", 
-    "factMisc13": "", 
-    "factMisc14": "", 
-    "factMisc15": "", 
-    "factMisc16": "", 
-    "factMisc17": "", 
-    "factMisc18": "", 
-    "factMisc19": "", 
-    "factMisc20": "", 
-    "factMisc21": "", 
-    "factMisc22": "", 
-    "factMisc23": "", 
-    "factMisc24": "", 
-    "factMisc25": "", 
-    "factMisc26": "", 
-    "factMisc27": "", 
-    "factMisc28": "", 
-    "factMisc29": "", 
+    "factMisc1": "a", 
+    "factMisc2": "b", 
+    "factMisc3": "c", 
+    "factMisc4": "d", 
+    "factMisc5": "e", 
+    "factMisc6": "f", 
+    "factMisc7": "g", 
+    "factMisc8": "h", 
+    "factMisc9": "i", 
+    "factMisc10": "j", 
+    "factMisc11": "k", 
+    "factMisc12": "l", 
+    "factMisc13": "m", 
+    "factMisc14": "n", 
+    "factMisc15": "o", 
+    "factMisc16": "p", 
+    "factMisc17": "q", 
+    "factMisc18": "r", 
+    "factMisc19": "s", 
+    "factMisc20": "t", 
+    "factMisc21": "u", 
+    "factMisc22": "v", 
+    "factMisc23": "w", 
+    "factMisc24": "x", 
+    "factMisc25": "y", 
+    "factMisc26": "z", 
+    "factMisc27": "1", 
+    "factMisc28": "2", 
+    "factMisc29": "3", 
+
+    // Pollinating plants
+    "nobees": "I don't have any bees with me right now.",
+    "nohives": "I don't have any empty beehives with me right now. I'll need to empty one of my full ones out, or trade for a new one.",
+    "beelease": "I have released the bees on this @arg. I can come back later to collect them. The longer they're here, the more nectar they'll collect!",
+    "beesTooSoon": "The bees are back in their hive, but they didn't have enough time to collect any nectar!",
+    "beesCollected": "The bees are back in their hive, and they got some nectar, too!",
+
+    // Cats
+    "cat0": "Mao.",
+    "cat1": "Muwaaaoo.",
+    "cat2": "Mew mew mew. Meaow.",
+    "cat3": "Prrrrrr. Prrrrrr.",
+    "cat4": "Mew? Mao!",
+    "cat5": "Vrrrrrrrrrrrr...",
+    "cat6": "Miu!",
+    "cat7": "Mao mao mao!",
+    "cat8": "Myaoooo!",
+    "cat9": "Snff-chu! Chu! Chu! Chu! Chu! Chu! | @She keeps sneezing. Poor kitty. | Chu! Chu! Snff! Meu?",
+    "dog": "Bark bark! | @Wait... bark? | Yeah, I barked. What're you gonna do about it? Nobody will believe you! | @Did you just TALK!? | Mew?",
+
+    // Gods
+    "bastet": "Bastet was a goddess originally celebrated as a lioness warrior of the sun, but eventually became the protector cat goddess. | Her parents were Ra the sun god and the goddess Isis, and with the craftsman god Ptah, she birthed Maahes the lion warrior.",
+    "maahes": "Maahes was a lion-headed god of war and son of the god Ptah and either Bastet or Sekhmet, depending on the mythology. | It was said that as the sun god Ra went on his nightly voyages, Maahes would fight off Apep, the serpent god of chaos. | The duality of chaos against order was an important part of Ancient Egyptian beliefs; one could not exist without the other. | Chaos was called Isfet and order was called Ma'at. The dead needed to be purified of Isfet before they could be reborn in the afterlife.", 
+    "sekhmet": "Sekhmet was a lioness goddess of healing. She was also the fiercest hunter in Ancient Egypt. | The sun god Ra sent her to punish mankind for failing to uphold order, but Sekhmet became overcome with bloodlust and took things too far. | Sekhmet refused to end her rampage, so the other gods spilled a mix of beer and pomegranate juice in Sekhmet's path. | Sekhmet, thinking it was blood, drank it up, and eventually passed out from the alcohol.", 
+    "offering": "A feeling in my gut tells me to offer @arg to @arg2 altar. | ?offer", // arg = thing, arg2 = pronoun
+    "offeringNotToday": "I can always offer some other time.",
+    "offeringNotEnough": "I don't have enough to offer right now... I should come back later.",
+    "offeringPleased": "@arg seems pleased with my offering.", 
+
+    // Crops
+    "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
+            "!Some early English texts mentioned \"corn\" in Egypt, but back then, the word \"corn\" was just a word to describe any grain, like wheat.",
+            "!Once Europeans travelled to the Americas and discovered maize, the word started referring just to that specific crop.",
+            "But, it could be possible... some mummies have been found to have traces of tobacco on them, another plant that only grew in the New World.",
+            "There have been some arguments that Ancient Egyptians travelled to the Americas before the Europeans did, but they've yet to gain mainstream acceptance.",
+            "So right now, the claim that corn grew in Ancient Egypt doesn't seem to have much evidence to support it, this is just a hallucination.",
+            "But hey, kids, consider becoming a historian or archaeologist! Maybe YOU can be the one to discover something big like Ancient Egyptian corn, or Atlantis!",
+            "!This game and its developers do not endorse any fringe historical theories and are not responsible for any of its players becoming historians and, thus, huge nerds."
+    ].join(" | "),
+    "wheat0": "Ancient Egyptians used wheat to make bread. | During the New Kingdom, loaves were grown in many different shapes and sizes in large cylinder-shaped clay ovens. | They even made breads shaped like animals and people. How fun!",
+    "wheat1": "Most breads in Ancient Egypt were made with emmer wheat, which was a very difficult wheat to work with. | Usually the edible part of the wheat is separated from their outer casings through threshing - beating the grains with a flail on a flat surface. | The outer shells of emmer wheat don't come off through threshing, though, so more elaborate methods had to be used.",
+    "barley0": "Ancient Egyptians used barley to create some breads, but it was mainly used to create beer. | Beer was a very important part of the Egyptian diet, and was consumed daily. | Ancient Egyptian beer had a texture like gruel and was an important source of protein and vitamins.",
+    "papyrus0": "The Papyrus reed has been used to make a paper-like material in Egypt for over 5000 years. The plant's abundance across the Nile river made it a very good writing material. | Ancient Egyptians made ink by mixing powdered minerals with water, and wrote with reed brushes.", 
+    "papyrus1": "Papyrus is very stable in dry climates like Egypt's, but Egyptians had to make sure they were kept out of humid conditions, or they might grow moldy.", 
+    "papyrus2": "In addition to paper, papyrus reeds can be used to create baskets, shoes, and boats.", 
+    "date0": "Ancient Egyptians used the fruits from the date tree as food and for making date wine. | Date fruits also contain a very sweet syrup called date honey, which is used extensively in North African and Middle Eastern cooking.", 
+    "date1": "Date palms are considered very important in many Middle Eastern religions. | Palm trees are viewed as symbols of prosperity in Judaism and Christianity, and dates are recommended food for pregnant women in Islam.", 
+    "flax0": "Flax is a very versatile crop, used for its oil, as a food, and primarily as a fiber. | Textiles made from flax fibers are called linen and are used for bed sheets, clothes, and towels, among other things. | In Ancient Egypt linen was used to wrap up mummies and was worn by priests, as flax was a symbol of purity.",
+    "flax1": "Ancient Egyptian temples had flowering flax painted on their walls, and Egyptian linen was used heavily in trade with Phoenicians and Romans.", 
+    "pomegranate0": "Pomegranates were first found in the New Kingdom of Ancient Egypt, with one discovered in the tomb of Pharoah Hatshepsut's butler. | Hatshepsut, who ruled from 1478 to 1458 BC, is the second known female pharoah, the first being Sobekneferu, whose short reign only lasted from 1806 to 1802 BC.",
+    "pomegranate1": "The pomegranate shrub was one of the first trees to be domesticated in the eastern Mediterranean region, but its origin is in the region extending from Iran to northern India.", 
+    "bluelotus0": "Tutankhamun's mummy was covered with blue lotus flowers. These flowers were frequently associated with dancing and spiritual rites. | It was important to Ancient Egyptian mythology, and it was believed that the sun god Ra emerged from a lotus flower in the primordial waters.",
+    "bluelotus1": "The blue lotus has been used in perfumes and for medicinal purposes, as it has mild sedative properties when eaten.",
+    "whitelotus0": "The white lotus, also known as the tiger lotus, was considered a symbol of creation in Ancient Egypt. | Even now, the white lotus is revered in Egypt, where it is the national flower.", 
+    "whitelotus1": "White lotuses were grown in ponds and marshes in Ancient Egypt, and were even buried in the tomb of Ramesses II. | White lotus growing is one of the earliest examples of ornamental gardening.", 
+    "whitelotus2": "The number 1,000 in Ancient Egyptian numerals was represented by the heiroglyph for the white lotus.", 
+
+    // Travelling
+    "goToPlace": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey. | ?sail",
+    "goToPlaceNo": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey, but the plants there will not be flowering when you arrive. | ?sail",
 
     // Beehives
     "noIncense": "I don't have any incense. If I just reach into a beehive now, I'll get a lot of nasty stings! | But if I light some incense, the smoke will calm the bees enough for me to get the honeycombs! | I should find someone who will give me some incense in a trade.", 
@@ -186,6 +190,41 @@ const choices = {
     "?sail": [
         { choice: "Set Sail", action: boat.SetSailForAdventure },
         { choice: "Nevermind", action: textHandler.EndDialog }
+    ],
+    "?offer": [
+        { 
+            choice: "Make Offering",
+            action: function() {
+                const targ = land.target;
+                if(targ === undefined || targ.want === undefined) { land.inDialogue = false; return; } // this shouldn't happen lol
+                if(targ.want === "honey") {
+                    if(player.HasHoney(targ.honeyType, 0, 5)) {
+                        player.RemoveHoney(targ.honeyType, 0, targ.amount);
+                        textHandler.MoveToNewText("offeringPleased", targ.name);
+                        player.ClearChievo(land.currentLocation, targ.id);
+                        targ.text = "offeringPleased";
+                        if(targ.sxAlt !== undefined) { targ.sx = targ.sxAlt; }
+                        if(targ.syAlt !== undefined) { targ.sy = targ.syAlt; }
+                    } else {
+                        textHandler.MoveToNewText("offeringNotEnough");
+                    }
+                } else {
+                    if(player.HasItem(targ.want, targ.amount)) {
+                        player.RemoveItem(targ.want, targ.amount);
+                        textHandler.MoveToNewText("offeringPleased", targ.name);
+                        player.ClearChievo(land.currentLocation, targ.id);
+                        targ.text = "offeringPleased";
+                        if(targ.sxAlt !== undefined) { targ.sx = targ.sxAlt; }
+                        if(targ.syAlt !== undefined) { targ.sy = targ.syAlt; }
+                    } else {
+                        textHandler.MoveToNewText("offeringNotEnough");
+                    }
+                }
+            }
+        }, {
+            choice: "No Offering",
+            action: function() { textHandler.MoveToNewText("offeringNotToday"); }
+        }
     ],
     "?breadLady": [
         {
