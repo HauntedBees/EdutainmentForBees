@@ -104,6 +104,7 @@ const places = {
     "Shedet": function() {
         const res = [
             { x: 3500, id: "sobek" }, { x: 3500, id: "sobekAltar" },
+            { x: 3900, id: "sobekpriest"},
             { x: 2450, id: "puddle" },
             { x: 2550, id: "puddle" },
             { x: 4500, id: "puddle" },

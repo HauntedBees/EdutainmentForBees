@@ -58,7 +58,9 @@ const things = {
     "student2": { type: "person", sprite: "peopleMisc", sx: 2, sy: 1, noDir: true, name: "Neferhotep", text: "student2" },
     "teacher": { type: "person", sprite: "peopleMisc", sx: 0, sy: 2, dir: 0, name: "Bebi", text: "teacher" },
     "biff": { type: "person", sprite: "pers2tiny", anim: "regular", dir: 1, name: "Amenken", text: "amenken1", textAlt: "amenken2", movement: "hume1" },
-    
+    // Shedet
+    "sobekpriest": { type: "person", sprite: "peopleMisc", sx: 2, sy: 2, dir: 0, name: "Huy", text: "teacher" },
+
     /* --- SHOP STUFF --- */
     "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
     "boxBread": { type: "bg", sprite: "justabox", sx: 1, background: true },

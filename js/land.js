@@ -278,7 +278,7 @@ const land = {
             land.rightclick(true);
             return;
         }
-        if(land.cutscene.active) { return; }
+        if(land.cutscene.active || land.inDialogue) { return; }
         if(key === player.controls.right) {
             if(land.playerDir === 1) { 
                 land.playerX += land.modernTimes ? 3 : 5;

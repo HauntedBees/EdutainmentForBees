@@ -110,6 +110,7 @@ http://www.touregypt.net/featurestories/flowers.htm
 https://academic.oup.com/jn/article/131/3/951S/4687053#111851571
 https://beeaware.org.au/pollination/pollinator-reliant-crops/onions/
 https://www.onions-usa.org/all-about-onions/history-of-onions
+https://www.ancient.eu/article/1026/clergy-priests--priestesses-in-ancient-egypt/
 
 http://pcela.rs/Egyptian_Beekeeping_1.htm
 https://egyptmanchester.wordpress.com/2012/08/10/beekeeping-in-ancient-egypt-and-today/
