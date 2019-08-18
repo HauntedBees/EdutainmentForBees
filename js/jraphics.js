@@ -117,15 +117,20 @@ const gfx = {
     DrawImage: function(ctx, image, srcX, srcY, srcW, srcH, dstX, dstY, dstW, dstH) {
         ctx.drawImage(image, srcX, srcY, srcW, srcH, dstX, dstY, dstW, dstH);  
     },
-    DrawText: function(t, x, y, centerText, color, layer, size) {
+    DrawText: function(t, x, y, centerText, color, layer, size, drawBackground) {
         layer = layer || "menutext";
         const ctx = gfx.ctx[layer];
         size = gfx.GetFontSize(size, true);
         const fontInfo = fontMults[gfx.GetFont()];
         ctx.font = size + "px " + gfx.GetFont();
         y += size * fontInfo.top;
-        ctx.fillStyle = (color || "#000000");
         if(centerText) { ctx.textAlign = "center"; }
+        if(drawBackground) {
+            const textWidth = ctx.measureText(t).width;
+            ctx.fillStyle = "#FFFFFFCC";
+            ctx.fillRect(x - Math.ceil(size * 0.2), y - Math.ceil(size * 1.03), textWidth + Math.ceil(size * 0.4), Math.ceil(size * 1.43));
+        }
+        ctx.fillStyle = (color || "#000000");
         ctx.fillText(t, x, y);
         if(centerText) { ctx.textAlign = "start"; }
     },

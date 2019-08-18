@@ -1,5 +1,6 @@
 const land = {
     animIdx: 0, gameIdx: 0, modernTimes: false, freeMovement: true, cutscene: { active: false }, 
+    yPos: 780, btnY: 444, xOffset: 500, maxX: 7678,
     playerX: 0, playerDir: 1, playerAnim: animHelpers.GetPlayerAnim(), 
     entities: [], target: null, flowering: false, 
     inDialogue: false, inChoice: false,

@@ -81,7 +81,7 @@ const textHandler = {
         const info = textHandler.GetDisplayInfo(primary ? player.controls.confirm: player.controls.cancel);
         gfx.DrawSprite("buttons", info.sx, info.sy, x, myY, "menuA", player.fontSize, true);
         gfx.DrawText(info.text, x + (25 * player.fontSize), myY, true, "#FFFFFF", "menutext", textHandler.HUDfontSize * player.fontSize);
-        gfx.DrawText(text, x + (55 * player.fontSize), myY, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize);
+        gfx.DrawText(text, x + (55 * player.fontSize), myY, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize, true);
     },
     GetDisplayInfo: function(btn, full, forceGamepad) {
         btn = btn.toUpperCase();
