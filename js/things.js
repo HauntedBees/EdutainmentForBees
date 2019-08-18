@@ -44,15 +44,20 @@ const things = {
     "cat3": { type: "bg", sprite: "cat2", anim: "cat", dir: 1, movement: "cat2" },
     "cat4": { type: "person", sprite: "cat4", anim: "cat", dir: 1, movement: "cat3", name: "Cat", text: "cat" },
     "cat5": { type: "bg", sprite: "cat5", anim: "cat", dir: 1, movement: "cat4" },
+    "cat6": { type: "bg", sprite: "cat6", anim: "cat", dir: 1, movement: "cat1" },
 
     /* --- PEOPLE --- */
-    "biff": { type: "person", sprite: "pers2tiny", dir: 1, name: "Amenken", text: "amenken1" },
     "boff": { type: "person", sprite: "farmboy", anim: "regular", dir: 0, name: "Parennefer", text: "amenken1" },
     // Taremu
     "fishboy": { type: "person", sprite: "peopleMisc", sx: 0, noDir: true, name: "Nenwef", text: "fishboy" },
     "shop1": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "fishshop" },
     "shop2": { type: "person", sprite: "shopkeeps", sx: 2, dir: 0, name: "Tener", text: "breadgirl", textAlt: "breadgirlDone" },
     "slappy1": { type: "person", sprite: "slappy", anim: "slappy", dir: 0, name: "Ahmose", text: "fruitboy1" },
+    // Memphis
+    "student1": { type: "person", sprite: "peopleMisc", sx: 1, sy: 1, noDir: true, name: "Kawab", text: "student1" },
+    "student2": { type: "person", sprite: "peopleMisc", sx: 2, sy: 1, noDir: true, name: "Neferhotep", text: "student2" },
+    "teacher": { type: "person", sprite: "peopleMisc", sx: 0, sy: 2, dir: 0, name: "Bebi", text: "teacher" },
+    "biff": { type: "person", sprite: "pers2tiny", anim: "regular", dir: 1, name: "Amenken", text: "amenken1", textAlt: "amenken2", movement: "hume1" },
     
     /* --- SHOP STUFF --- */
     "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
@@ -68,10 +73,14 @@ const things = {
                         isGod: true, pronoun: "her", want: "beer", amount: 5, wantDisplay: "jugs of beer", sxAlt: 2 },
     "maahes": { type: "bg", sprite: "peopleMisc", sx: 3, y: -400 },
     "maahesAltar": { type: "observable", sprite: "altar", name: "Maahes", text: "maahes", textAlt: "offeringPleased",
-                        isGod: true, pronoun: "his", want: "honey", honeyType: "whitelotus", amount: 10, wantDisplay: "combs of white lotus honey", sxAlt: 3 }
+                        isGod: true, pronoun: "his", want: "honey", honeyType: "whitelotus", amount: 10, wantDisplay: "combs of white lotus honey", sxAlt: 3 },
+    "ptah": { type: "bg", sprite: "peopleMisc", sy: 1, y: -400 },
+    "ptahAltar": { type: "observable", sprite: "altar", name: "Ptah", text: "ptah", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "his", want: "honey", honeyType: "bluelotus", amount: 50, wantDisplay: "combs of white lotus honey", sxAlt: 3 }
 };
 
 const movements = {
+    "hume1": function(me) { commonMovements.cat(me, 15, 30, 50, 0); },
     "cat1": function(me) { commonMovements.cat(me, 7, 20, 50, 0); },
     "cat2": function(me) { commonMovements.cat(me, 6, 45, 30, 2); },
     "cat3": function(me) { commonMovements.cat(me, 7, 30, 65, 0); },

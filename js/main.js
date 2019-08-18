@@ -65,7 +65,7 @@ const game = {
     sheetsLoaded: function() {
         game.initListeners();
         game.currentInputHandler = land;
-        game.currentInputHandler.Setup("Taremu", true);
+        game.currentInputHandler.Setup("Memphis", true);
         //game.currentInputHandler.Setup("Testbench", true);
         //game.currentInputHandler.Setup("CutsceneThebes");
         //game.currentInputHandler.Setup("ModernCoffin");
@@ -77,6 +77,7 @@ Sources:
 http://hieroglyphs.net/cgi/dictionary_lookup_free.pl
 https://www.britannica.com/place/Nile-River/Plant-and-animal-life
 https://en.wikipedia.org/wiki/Hyksos
+http://www.legendsandchronicles.com/ancient-civilizations/ancient-egypt/ancient-egyptian-education/
 
 https://www.ancient.eu/amun/
 https://en.wikipedia.org/wiki/Lettuce#History

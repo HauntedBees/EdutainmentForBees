@@ -19,7 +19,8 @@ let player = {
     beedFlowers: [], 
     clearedChievos: [], 
     chievos: {
-        "Taremu": ["shop2", "bastetAltar", "sekhmetAltar", "maahesAltar"]
+        "Taremu": ["shop2", "bastetAltar", "sekhmetAltar", "maahesAltar"],
+        "Memphis": ["biff", "ptahAltar"]
     },
     ClearChievo: function(place, id) {
         player.clearedChievos.push(id);

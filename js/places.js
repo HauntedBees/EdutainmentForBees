@@ -27,6 +27,7 @@ const maxX = {
     "ModernCoffin": 2290,
     "CutsceneThebes": 5800,
     "Taremu": 5565,
+    "Memphis": 5180,
 };
 function AddTemple(arr, x, w) {
     arr.push({ x: x, id: "templeL" });
@@ -75,7 +76,27 @@ const places = {
         for(let x = 0; x < 9; x++) { res.push({ x: 1220 + x * (80 + Math.round(15 * Math.random())), id: "wheat" }); }
         return res;
     }(),  
-    "Memphis": [],  
+    "Memphis": function() {
+        const res = [
+            { x: 2200, id: "student1" },
+            { x: 2500, id: "student2" },
+            { x: 2800, id: "teacher" },
+            { x: 3250, id: "pomegranate" },
+            { x: 3650, id: "date" },
+            { x: 4050, id: "pomegranate" },
+            { x: 3900, id: "biff" },
+            { x: 4800, id: "cat3" },
+            { x: 4900, id: "cat5" },
+            { x: 5200, id: "cat2" },
+            { x: 5600, id: "cat4" },
+            { x: 6000, id: "cat6" },
+            { x: 5500, id: "ptah" }, { x: 5500, id: "ptahAltar" },
+        ];
+        AddTemple(res, 2000, 3);
+        AddTemple(res, 4500, 5);
+        for(let x = 0; x < 8; x++) { res.push({ x: 690 + x * (90 + x), id: "bluelotus" }); }
+        return res;
+    }(),  
     "Crocodilopolis": [],  
     "Herakleopolis": [],  
     "Hermopolis": [],  

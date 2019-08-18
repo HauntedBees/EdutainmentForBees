@@ -4,7 +4,7 @@ const texts = {
     "intro1": "Judging from the condition of the tomb and the design, this seems like a tomb from the New Kingdom. | The New Kingdom lasted almost 500 years and spanned three dynasties. | The famous pharaoh Tutankhamun reigned during the 18th dynasty, and his tomb was rediscovered back in 1922!", 
     "intro2": "Oh! What's that up ahead?",
     "intro3": "A sarcophagus! Jackpot! | Maybe this is the tomb of a pharaoh or some other important historical figure! I can't lift this thing open on my own, so I'll have to go back and get some help. | Hm, what's this? | ~start1", 
-    "intro4": "This is jar has some heiroglyphs on it... some sort of insect... | Ah! | This is a jar full of honey! | That's right, Northern Africans were collecting honey from bees 9,000 years ago! | And Ancient Egyptians were domesticating them since before the 20th century BC! | This honey still looks as fresh as it must have been back then; due to its chemistry, honey can be preserved for tens to hundreds of years! | ...Maybe even thousands? | ~start2",
+    "intro4": "This is jar has some hieroglyphs on it... some sort of insect... | Ah! | This is a jar full of honey! | That's right, Northern Africans were collecting honey from bees 9,000 years ago! | And Ancient Egyptians were domesticating them since before the 20th century BC! | This honey still looks as fresh as it must have been back then; due to its chemistry, honey can be preserved for tens to hundreds of years! | ...Maybe even thousands? | ~start2",
     "intro5": "Ugh... what happened? | ~start4",
     "intro6": "Where am I? | ~start5",
     "intro7": [
@@ -35,7 +35,7 @@ const texts = {
     // Specific Place Fun Facts
     "factTaremu0": "Taremu got its Greek name (Leontopolis, the city of lions) due to its temples dedicated to the lion gods Bastet, Sekhmet, and Maahes.", 
     "factTaremu1": "During the twenty-third Dynasty, Taremu was a district capital of Lower Egypt.", 
-    "factTaremu2": "A Jewish temple was built in Taremu by the priest Onias IV in the second century BC. This temple operated for three centuries, until it was eventually closed during after the Jewish War started.", 
+    "factTaremu2": "A Jewish temple was built in Leontopolis by the priest Onias IV in the second century BC. This temple operated for three centuries, until it was eventually closed during after the Jewish War started.", 
     "factMemphis0": "Memphis was the capital of Egypt during the age of the Old Kingdom, but remained an important city throughout Egyptian history until Muslim rule began in the 7th century AD.",
     "factMemphis1": "Ptah, the god of architects and craftsmen, was honored in the Hut-ka-Ptah temple in Memphis. This temple's Greek name - Aigyptos - may be the orgin of the name \"Egypt.\"",
     "factMemphis2": "During the New Kingdom, Memphis was an education center for princes and other nobility.",
@@ -119,13 +119,14 @@ const texts = {
     "dog": "Bark bark! | @Wait... bark? | Yeah, I barked. What're you gonna do about it? Nobody will believe you! | @Did you just TALK!? | Mew?",
 
     // Gods
-    "bastet": "Bastet was a goddess originally celebrated as a lioness warrior of the sun, but eventually became the protector cat goddess. | Her parents were Ra the sun god and the goddess Isis, and with the craftsman god Ptah, she birthed Maahes the lion warrior.",
-    "maahes": "Maahes was a lion-headed god of war and son of the god Ptah and either Bastet or Sekhmet, depending on the mythology. | It was said that as the sun god Ra went on his nightly voyages, Maahes would fight off Apep, the serpent god of chaos. | The duality of chaos against order was an important part of Ancient Egyptian beliefs; one could not exist without the other. | Chaos was called Isfet and order was called Ma'at. The dead needed to be purified of Isfet before they could be reborn in the afterlife.", 
-    "sekhmet": "Sekhmet was a lioness goddess of healing. She was also the fiercest hunter in Ancient Egypt. | The sun god Ra sent her to punish mankind for failing to uphold order, but Sekhmet became overcome with bloodlust and took things too far. | Sekhmet refused to end her rampage, so the other gods spilled a mix of beer and pomegranate juice in Sekhmet's path. | Sekhmet, thinking it was blood, drank it up, and eventually passed out from the alcohol.", 
     "offering": "A feeling in my gut tells me to offer @arg to @arg2 altar. | ?offer", // arg = thing, arg2 = pronoun
     "offeringNotToday": "I can always offer some other time.",
     "offeringNotEnough": "I don't have enough to offer right now... I should come back later.",
     "offeringPleased": "@arg seems pleased with my offering.", 
+    "bastet": "Bastet was a goddess originally celebrated as a lioness warrior of the sun, but eventually became the protector cat goddess. | Her parents were Ra the sun god and the goddess Isis, and with the craftsman god Ptah, she birthed Maahes the lion warrior.",
+    "maahes": "Maahes was a lion-headed god of war and son of the god Ptah and either Bastet or Sekhmet, depending on the mythology. | It was said that as the sun god Ra went on his nightly voyages, Maahes would fight off Apep, the serpent god of chaos. | The duality of chaos against order was an important part of Ancient Egyptian beliefs; one could not exist without the other. | Chaos was called Isfet and order was called Ma'at. The dead needed to be purified of Isfet before they could be reborn in the afterlife.", 
+    "sekhmet": "Sekhmet was a lioness goddess of healing. She was also the fiercest hunter in Ancient Egypt. | The sun god Ra sent her to punish mankind for failing to uphold order, but Sekhmet became overcome with bloodlust and took things too far. | Sekhmet refused to end her rampage, so the other gods spilled a mix of beer and pomegranate juice in Sekhmet's path. | Sekhmet, thinking it was blood, drank it up, and eventually passed out from the alcohol.", 
+    "ptah": "Ptah is the guardian of Memphis, a creator god who created the universe by thinking it and giving it life with his words. | He is the god of craftsmen, carpentry, and builders. He is married to the lioness god Sekhmet, and with her he had his son, Nefertum, the a beautiful man made from a lotus flower.", 
 
     // Crops
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
@@ -153,7 +154,7 @@ const texts = {
     "bluelotus1": "The blue lotus has been used in perfumes and for medicinal purposes, as it has mild sedative properties when eaten.",
     "whitelotus0": "The white lotus, also known as the tiger lotus, was considered a symbol of creation in Ancient Egypt. | Even now, the white lotus is revered in Egypt, where it is the national flower.", 
     "whitelotus1": "White lotuses were grown in ponds and marshes in Ancient Egypt, and were even buried in the tomb of Ramesses II. | White lotus growing is one of the earliest examples of ornamental gardening.", 
-    "whitelotus2": "The number 1,000 in Ancient Egyptian numerals was represented by the heiroglyph for the white lotus.", 
+    "whitelotus2": "The number 1,000 in Ancient Egyptian numerals was represented by the hieroglyph for the white lotus.", 
 
     // Travelling
     "goToPlace": "It will take @arg days to sail to @arg2, giving your bees plenty of time to produce honey. | ?sail",
@@ -165,14 +166,6 @@ const texts = {
     "noNectar": "The bees have not collected any nectar yet. | Bees help pollinate plants when they fly from flower to flower collecting nectar. As they're lapping up nectar, pollen from the flower sticks to them. | Flower pollen contains male gametes, which can fertilize other flowers when bees land on them. | Once a flower's ovule has been fertilized by a bee with pollen on it, seeds can be formed, so the plant can reproduce. | I should release some bees around some plants so they can collect some nectar.", 
     "smonk": "Bee-autiful! I collected enough honeycomb to get me @arg jars of honey and @arg2 beeswax!",
 
-    // People
-    "amenken1": "Ah! Are you a beekeeper? Perhaps you can help me! | My master's boat has sprung a leak, and I need some beeswax to seal it up! | Can you provide me with 10 beeswax? I can give you 2 gold for it! | ?amenken1",
-    "amenkenNo": "I guess I'll have to find some beeswax elsewhere.",
-    "amenkenLack": "Oh, it seems you don't have enough beeswax. That's okay, I'll check with the other beekeepers.",
-    "amenkenGive": "Great! Thank you! This will help out a lot! | !In Ancient Egypt, beeswax was used for many things, like making candles, medicine, and sealants (things that keep water out)!",
-    "amenken1b": "Can you provide me with 10 beeswax? I can give you 2 gold for it! | ?amenken1",
-    "amenken2": "Thanks for that beeswax! It will surely come in handy!",
-
     // People - Taremu
     "fishboy": "Taremu is the land of fish, but some foreigners call it the city of lions, because of our temples to the lion goddesses. | But why do you think the goddesses like this city in the first place? Because of all the fish we got here, ya dingdong! | The lions came to the fish, not the other way around, obviously!",
     "fishshop": "There are a lot of cats here - we even have lions in the temple sometimes - so fishing is popular here. | People will buy fish for themselves, or to give to the cats as gifts or offerings. | We consider cats very important - they kill dangerous snakes and protect our Pharaohs.",
@@ -183,7 +176,20 @@ const texts = {
     "breadgirlB": "Hello again, beekeeper. Can you spare a few jars of honey? | ?breadLady", 
     "breadgirlNo": "Darn. I guess I'll have to find some honey elsewhere.", 
     "breadgirlLack": "Your generosity is appreciated, but you can't give me honey you don't have. | If you get four jars of honey, come back later and I'll gladly take them off your hands!",
-    "x": "" 
+    
+    // People - Memphis
+    "student1": "I don't like writing - words are too long! Like the blessing \"ankh, wedja, seneb\" (life, prosperity, health) is three whole words! | We need to find some way to shorten things... maybe make that \"anwese.\" | Just one hieroglyph for all three! I think I'm on to something here. Maybe some day things like that will catch on.",
+    "student2": "Noblemen and royalty like me need to go to fancy schools so we can be \"educated\" and \"worldly.\" What a load of junk! | I don't need to know things to be pharoah! The gods will just tell me what to do! | I hope some day the standards are lowered so that ANYONE can be a leader! Even people who hate reading and thinking like me!",
+    "teacher": "This educational centre was set up for nobility and royal princes. | To be successful, the younger generation needs to know things like mathematics, history, ethics, medicine, and music! | Some boys are sent off to schools like this as young as eight years old! | Girls, however, get their educations at home, learning things like sewing and cooking from their mothers.",
+    "amenken1": "Ah! Are you a beekeeper? Perhaps you can help me! | My master's boat has sprung a leak, and I need some beeswax to seal it up! | Can you provide me with 10 beeswax? I can give you 2 gold for it! | ?amenken1",
+    "amenkenNo": "I guess I'll have to find some beeswax elsewhere.",
+    "amenkenLack": "Oh, it seems you don't have enough beeswax. That's okay, I'll check with the other beekeepers.",
+    "amenkenGive": "Great! Thank you! This will help out a lot! | !In Ancient Egypt, beeswax was used for many things, like making candles, medicine, and sealants (things that keep water out)!",
+    "amenken1b": "Can you provide me with 10 beeswax? I can give you 2 gold for it! | ?amenken1",
+    "amenken2": "Thanks for that beeswax! It will surely come in handy!",
+    "x": "",
+    "y": "",
+    "z": ""
 };
 
 const choices = {
@@ -260,6 +266,7 @@ const choices = {
                     player.AddItem("gold", 2);
                     textHandler.MoveToNewText("amenkenGive");
                     land.target.text = "amenken2";
+                    player.ClearChievo("Memphis", "biff");
                 } else {
                     land.target.text = "amenken1b";
                     textHandler.MoveToNewText("amenkenLack");
