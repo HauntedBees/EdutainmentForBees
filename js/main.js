@@ -78,6 +78,8 @@ http://hieroglyphs.net/cgi/dictionary_lookup_free.pl
 https://www.britannica.com/place/Nile-River/Plant-and-animal-life
 https://en.wikipedia.org/wiki/Hyksos
 http://www.legendsandchronicles.com/ancient-civilizations/ancient-egypt/ancient-egyptian-education/
+https://www.aldokkan.com/geography/fayum.htm
+https://fayoumegypt.com/obelisk-of-senusret-i/
 
 https://www.ancient.eu/amun/
 https://en.wikipedia.org/wiki/Lettuce#History
@@ -111,6 +113,7 @@ https://academic.oup.com/jn/article/131/3/951S/4687053#111851571
 https://beeaware.org.au/pollination/pollinator-reliant-crops/onions/
 https://www.onions-usa.org/all-about-onions/history-of-onions
 https://www.ancient.eu/article/1026/clergy-priests--priestesses-in-ancient-egypt/
+https://ancientstandard.com/2007/07/02/come-to-crocodilopolis-no-we-are-not-making-this-up-3000-%e2%80%93-30-bc/
 
 http://pcela.rs/Egyptian_Beekeeping_1.htm
 https://egyptmanchester.wordpress.com/2012/08/10/beekeeping-in-ancient-egypt-and-today/

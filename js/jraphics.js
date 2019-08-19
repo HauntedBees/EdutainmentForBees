@@ -43,7 +43,9 @@ const sheetInfo = {
     "altar": { w: 100, h: 120 },
     "map": { w: 1024, h: 896 }, // https://en.wikipedia.org/wiki/File:Egypt_1450_BC.svg https://pixabay.com/photos/paper-old-texture-parchment-1074131/
     "hive": { w: 110, h: 109 },
-    "ladder": { w: 121, h: 204 }
+    "ladder": { w: 121, h: 204 },
+    "crocodil": { w: 273, h: 100 },
+    "obelisk": { w: 168, h: 589 }
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers
 for(let i = 0; i <= 3; i++) { sheetInfo["bgM" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/classical-ruin-tiles-0

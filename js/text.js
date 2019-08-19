@@ -127,7 +127,7 @@ const texts = {
     "maahes": "Maahes was a lion-headed god of war and son of the god Ptah and either Bastet or Sekhmet, depending on the mythology. | It was said that as the sun god Ra went on his nightly voyages, Maahes would fight off Apep, the serpent god of chaos. | The duality of chaos against order was an important part of Ancient Egyptian beliefs; one could not exist without the other. | Chaos was called Isfet and order was called Ma'at. The dead needed to be purified of Isfet before they could be reborn in the afterlife.", 
     "sekhmet": "Sekhmet was a lioness goddess of healing. She was also the fiercest hunter in Ancient Egypt. | The sun god Ra sent her to punish mankind for failing to uphold order, but Sekhmet became overcome with bloodlust and took things too far. | Sekhmet refused to end her rampage, so the other gods spilled a mix of beer and pomegranate juice in Sekhmet's path. | Sekhmet, thinking it was blood, drank it up, and eventually passed out from the alcohol.", 
     "ptah": "Ptah is the guardian of Memphis, a creator god who created the universe by thinking it and giving it life with his words. | He is the god of craftsmen, carpentry, and builders. He is married to the lioness god Sekhmet, and with her he had his son, Nefertum, the a beautiful man made from a lotus flower.", 
-    "sobek": "holy crap lois it's sobek",
+    "sobek": "Sobek, the crocodile god of power and fertility. Like crocodiles, he was an aggressive deity. | At his temple in Shedet, priests kept and cared for a royal crocodile they dubbed the Petsuchos - the son of Sobek. | This Petsuchos was worshipped as a manifestation of Sobek, and when it died, it was mummified and a new son of Sobek was found.",
 
     // Crops
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
@@ -188,11 +188,24 @@ const texts = {
     "amenkenNo": "I guess I'll have to find some beeswax elsewhere.",
     "amenkenLack": "Oh, it seems you don't have enough beeswax. That's okay, I'll check with the other beekeepers.",
     "amenkenGive": "Great! Thank you! This will help out a lot! | !In Ancient Egypt, beeswax was used for many things, like making candles, medicine, and sealants (things that keep water out)!",
-    "amenken1b": "Can you provide me with 10 beeswax? I can give you 2 gold for it! | ?amenken1",
+    "amenken1b": "Can you provide me with 10 beeswax? I can give you 3 gold for it! | ?amenken1",
     "amenken2": "Thanks for that beeswax! It will surely come in handy!",
-    "x": "",
-    "y": "",
-    "z": ""
+
+    // People - Shedet
+    "sobekpriest": "Praise Sobek, the crocodile god who protects us from the dangers of the Nile! | You look like the Sobek-loving sort, given that you are a human, and all humans should love Sobek! | @Sobek's got quite the fanbase here, huh? | Of course, Shedet is home to Sobek's temple, and also a bunch of crocodiles! | You should obviously give something to Sobek himself at the altar over there, but if you're an EXTRA good person, you might be inclined to feed some of the local crocodiles, too! | Just toss those bad boys some fish, and maybe something good will happen if you do!",
+    "crocodil": "aaAAaaAaaa | ~croc",
+    "crocodil2": "@It looks like it wants some food. | ?croc",
+    "crocodilB": "aaAAAaaaAaa | ?croc",
+    "crocodilNo": "aaa! aaaAA! :(",
+    "crocodilLack": "@I don't have that much fish. I should get some more fish and come back later.",
+    "crocodilWon": "aaemmmmmmmmm | ~croc2",
+    "incenseshop": "Oy oy! A beekeeper, you are! It's obvious from the way you walk. | @The way I walk? | Yes, you walk nothing like a beekeeper! But you must need some incense, yes? | Incense produces smoke, which can be used to calm bees down, allowing beekeepers to retrieve their honey without getting stung! I'll give you 5 sticks of incense for one piece of gold. What do you say? | ?incenseShop",
+    "incenseshopNo": "Your loss! If you change your mind, come back later!", 
+    "incenseshopb": "?incenseShop", 
+    "incenseshopLack": "Hey hey! You don't have any gold! If you want free incense, become a god! Otherwise, pay up!", 
+    "incenseshopBuy": "Pleasure doing business with you, ma'am! Come again whenever you need more incense!", 
+    "obelisk": "This obelisk - a stone pillar - was set up by Senusret I during the 12th Dynasty to celebrate his 30th year as Pharaoh. | To this day, it still stands as the oldest standing obelisk in Egypt.", 
+    "": ""
 };
 
 const choices = {
@@ -259,14 +272,34 @@ const choices = {
             }
         }
     ],
-
+    "?croc": [
+        {
+            choice: "Give 5 fish.",
+            action: function() {
+                if(player.HasItem("fish", 5)) {
+                    player.RemoveItem("fish", 5);
+                    textHandler.MoveToNewText("crocodilWon");
+                    player.ClearChievo("Shedet", "crocodil");
+                } else {
+                    land.target.text = "crocodilB";
+                    textHandler.MoveToNewText("crocodilLack");
+                }
+            }
+        }, {
+            choice: "Do not give fish.",
+            action: function() {
+                land.target.text = "crocodilB";
+                textHandler.MoveToNewText("crocodilNo");
+            }
+        }
+    ],
     "?amenken1": [
         {
             choice: "Trade 10 beeswax.",
             action: function() {
                 if(player.HasItem("beeswax", 10)) {
                     player.RemoveItem("beeswax", 10);
-                    player.AddItem("gold", 2);
+                    player.AddItem("gold", 3);
                     textHandler.MoveToNewText("amenkenGive");
                     land.target.text = "amenken2";
                     player.ClearChievo("Memphis", "biff");
@@ -281,6 +314,29 @@ const choices = {
             action: function() {
                 land.target.text = "amenken1b";
                 textHandler.MoveToNewText("amenkenNo");
+            }
+        }
+    ],
+    "?incenseShop": [
+        {
+            choice: "Buy 5 incense for 1 gold.",
+            action: function() {
+                if(player.HasItem("gold", 1)) {
+                    player.RemoveItem("gold", 1);
+                    player.AddItem("incense", 5);
+                    textHandler.MoveToNewText("incenseshopBuy");
+                    land.target.text = "incenseshopb";
+                } else {
+                    land.target.text = "incenseshopb";
+                    textHandler.MoveToNewText("incenseshopLack");
+                }
+            }
+        },
+        {
+            choice: "Don't buy incense.",
+            action: function() {
+                land.target.text = "incenseshopb";
+                textHandler.MoveToNewText("incenseshopNo");
             }
         }
     ]
@@ -465,6 +521,75 @@ const cutscenes = {
                     const meIndex = land.entities.findIndex(e => e.id === "tutServant");
                     land.entities.splice(meIndex, 1);
                     land.entities.push({ type: "boat", sprite: "", x: 400 });
+                }
+            }
+        };
+    },
+    "~croc": function() {
+        land.inDialogue = false;
+        const croc = land.entities.filter(e => e.id === "crocodil")[0];
+        land.cutscene = {
+            active: true, state: 0, iter: 0, keepPlayer: true, 
+            Process: function() {
+                if(this.state === 0) {
+                    if(++this.iter === 5) {
+                        croc.sy = 1;
+                        this.iter = 0;
+                        this.state = 1;
+                    }
+                } else if(this.state === 1) {
+                    if(++this.iter === 5) {
+                        croc.sy = 2;
+                        this.iter = 0;
+                        this.state = 2;
+                    }
+                } else if(this.state === 2) {
+                    if(++this.iter === 5) {
+                        this.active = false;
+                        textHandler.ShowText("Crocodile", "crocodil2");
+                    }
+                }
+            }
+        };
+    },
+    "~croc2": function() {
+        land.inDialogue = false;
+        const croc = land.entities.filter(e => e.id === "crocodil")[0];
+        land.cutscene = {
+            active: true, state: 0, iter: 0, keepPlayer: true, 
+            Process: function() {
+                if(this.state === 0) {
+                    if(++this.iter === 5) {
+                        croc.sy = 1;
+                        this.iter = 0;
+                        this.state = 1;
+                    }
+                } else if(this.state === 1) {
+                    if(++this.iter === 5) {
+                        croc.sy = 0;
+                        this.iter = 0;
+                        this.state = 2;
+                    }
+                } else if(this.state === 2) {
+                    if(++this.iter === 5) {
+                        croc.anim = animHelpers.GetAnim("croc");
+                        croc.anim.ForceMove();
+                        croc.y = 0;
+                        this.state = 3;
+                        this.iter = 0;
+                    }
+                } else if(this.state === 3) {
+                    croc.x += 2;
+                    croc.y += (this.iter % 15 === 0) ? 1 : 0;
+                    if(++this.iter > 200) {
+                        this.active = false;
+                        const meIndex = land.entities.findIndex(e => e.id === "crocodil");
+                        land.entities.splice(meIndex, 1);
+                        const meIndex2 = land.entities.findIndex(e => e.id === "crocodilI");
+                        land.entities.splice(meIndex2, 1);
+                        maxX["Shedet"] = 5000;
+                        land.maxX = 5000;
+                    }
                 }
             }
         };

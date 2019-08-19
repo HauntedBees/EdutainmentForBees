@@ -138,6 +138,9 @@ const land = {
         }
         if(land.cutscene.active) {
             land.cutscene.Process();
+            if(land.cutscene.keepPlayer === true) {
+                gfx.DrawSprite2(land.modernTimes ? "playerModern" : "player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.GetYPos(land.playerX + land.xOffset), "characters");
+            }
         } else {
             gfx.DrawSprite2(land.modernTimes ? "playerModern" : "player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.GetYPos(land.playerX + land.xOffset), "characters");
         }

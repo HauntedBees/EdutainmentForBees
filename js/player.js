@@ -21,7 +21,7 @@ let player = {
     chievos: {
         "Taremu": ["shop2", "bastetAltar", "sekhmetAltar", "maahesAltar"],
         "Memphis": ["biff", "ptahAltar"],
-        "Shedet": ["sobekAltar"]
+        "Shedet": ["sobekAltar", "crocodil"]
     },
     ClearChievo: function(place, id) {
         player.clearedChievos.push(id);

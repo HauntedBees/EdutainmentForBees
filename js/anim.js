@@ -34,6 +34,8 @@ const animHelpers = {
     GetAnim: function(name) {
         if(name === "cat") {
             return new Animation(4, [0, 0], [[1, 0], [0, 1], [1, 1], [0, 2], [1, 2], [0, 3], [1, 3], [0, 4], [1, 4], [0, 5]]);
+        } else if(name === "croc") {
+            return new Animation(0, [0, 0], [[0, 0], [0, 3]], 1);
         } else if(name === "row") {
             return new Animation(0, [0, 0], [[1, 0], [0, 1], [1, 1], [0, 0]], 3);
         } else if(name === "smonk") {

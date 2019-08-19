@@ -46,7 +46,7 @@ const things = {
     "cat5": { type: "bg", sprite: "cat5", anim: "cat", dir: 1, movement: "cat4" },
     "cat6": { type: "bg", sprite: "cat6", anim: "cat", dir: 1, movement: "cat1" },
 
-    /* --- PEOPLE --- */
+    /* --- REGIONAL --- */
     "boff": { type: "person", sprite: "farmboy", anim: "regular", dir: 0, name: "Parennefer", text: "amenken1" },
     // Taremu
     "fishboy": { type: "person", sprite: "peopleMisc", sx: 0, noDir: true, name: "Nenwef", text: "fishboy" },
@@ -59,12 +59,17 @@ const things = {
     "teacher": { type: "person", sprite: "peopleMisc", sx: 0, sy: 2, dir: 0, name: "Bebi", text: "teacher" },
     "biff": { type: "person", sprite: "pers2tiny", anim: "regular", dir: 1, name: "Amenken", text: "amenken1", textAlt: "amenken2", movement: "hume1" },
     // Shedet
-    "sobekpriest": { type: "person", sprite: "peopleMisc", sx: 2, sy: 2, dir: 0, name: "Huy", text: "teacher" },
+    "sobekpriest": { type: "person", sprite: "peopleMisc", sx: 2, sy: 2, dir: 0, name: "Huy", text: "sobekpriest" },
+    "crocodil": { type: "bg", sprite: "crocodil", dir: 0 },
+    "crocodilI": { type: "person", sprite: "", name: "Crocodile", text: "crocodil" },
+    "incenseVendor": { type: "person", sprite: "shopkeeps", sy: 1, dir: 0, name: "Senisonbe", text: "incenseshop" },
+    "obelisk": { type: "observable", sprite: "obelisk", name: "Obelisk", text: "obelisk" }, 
 
     /* --- SHOP STUFF --- */
     "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
     "boxBread": { type: "bg", sprite: "justabox", sx: 1, background: true },
     "boxFruit": { type: "bg", sprite: "justabox", sx: 2, background: true },
+    "boxIncense": { type: "bg", sprite: "justabox", sx: 1, sy: 1, background: true },
 
     /* --- GODS --- */
     "bastet": { type: "bg", sprite: "peopleMisc", sx: 1, y: -300 },
