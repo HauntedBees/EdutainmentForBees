@@ -31,7 +31,8 @@ const maxX = {
     "CutsceneThebes": 5800,
     "Taremu": 5565,
     "Memphis": 5180,
-    "Shedet": 3735
+    "Shedet": 3735,
+    "Abdju": 6130
 };
 function AddTemple(arr, x, w) {
     arr.push({ x: x, id: "templeL" });
@@ -129,16 +130,36 @@ const places = {
         for(let x = 0; x < 8; x++) { res.push({ x: 5000 + x * (62 + x), y: Math.floor(5 * Math.random()), id: "chrysanthemum" }); }
         return res;
     }(),
-    "Herakleopolis": [],  
-    "Hermopolis": [],  
-    "Abydos": [],  
+    //"Herakleopolis": [],  
+    //"Hermopolis": [],  
+    "Abdju": function() {
+        const res = [
+            { x: 3800, id: "tomb" },
+            { x: 3810, id: "tombKhasekhem" },
+            { x: 4500, id: "tomb" },
+            { x: 4510, id: "tombPeribsen" },
+            { x: 5200, id: "tomb" },
+            { x: 5210, id: "tombQaa" },
+            { x: 5900, id: "tomb" },
+            { x: 5910, id: "tombSemerkhet" },
+            { x: 6600, id: "tomb" },
+            { x: 6610, id: "tombKa" },
+            { x: 1790, id: "boxGold" },
+            { x: 1900, id: "slappy2" },
+            { x: 2400, id: "isis" }, { x: 2400, id: "isisAltar" },
+            { x: 2700, id: "osiris" }, { x: 2700, id: "osirisAltar" }
+        ];
+        AddTemple(res, 2050, 3);
+        for(let x = 0; x < 5; x++) { res.push({ x: 3090 + x * (90 + x), y: Math.floor(5 * Math.random()), id: "flax" }); }
+        return res;
+    }(),  
     "Thebes": [ // https://en.wikipedia.org/wiki/Amenhotep_III
         { x: 1100, id: "date" },
         { x: 1400, id: "biff" }
     ],
-    "Kom Ombo": [],  
+    //"Kom Ombo": [],  
     "Elephantine": [],  
-    "Abu Simbel": [],  
+    //"Abu Simbel": [],  
     "Napata": [], // https://en.wikipedia.org/wiki/Merymose
     "Testbench": [
         { x: 700, id: "bluelotus" },

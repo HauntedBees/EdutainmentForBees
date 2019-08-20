@@ -126,8 +126,10 @@ const texts = {
     "bastet": "Bastet was a goddess originally celebrated as a lioness warrior of the sun, but eventually became the protector cat goddess. | Her parents were Ra the sun god and the goddess Isis, and with the craftsman god Ptah, she birthed Maahes the lion warrior.",
     "maahes": "Maahes was a lion-headed god of war and son of the god Ptah and either Bastet or Sekhmet, depending on the mythology. | It was said that as the sun god Ra went on his nightly voyages, Maahes would fight off Apep, the serpent god of chaos. | The duality of chaos against order was an important part of Ancient Egyptian beliefs; one could not exist without the other. | Chaos was called Isfet and order was called Ma'at. The dead needed to be purified of Isfet before they could be reborn in the afterlife.", 
     "sekhmet": "Sekhmet was a lioness goddess of healing. She was also the fiercest hunter in Ancient Egypt. | The sun god Ra sent her to punish mankind for failing to uphold order, but Sekhmet became overcome with bloodlust and took things too far. | Sekhmet refused to end her rampage, so the other gods spilled a mix of beer and pomegranate juice in Sekhmet's path. | Sekhmet, thinking it was blood, drank it up, and eventually passed out from the alcohol.", 
-    "ptah": "Ptah is the guardian of Memphis, a creator god who created the universe by thinking it and giving it life with his words. | He is the god of craftsmen, carpentry, and builders. He is married to the lioness god Sekhmet, and with her he had his son, Nefertum, the a beautiful man made from a lotus flower.", 
-    "sobek": "Sobek, the crocodile god of power and fertility. Like crocodiles, he was an aggressive deity. | At his temple in Shedet, priests kept and cared for a royal crocodile they dubbed the Petsuchos - the son of Sobek. | This Petsuchos was worshipped as a manifestation of Sobek, and when it died, it was mummified and a new son of Sobek was found.",
+    "ptah": "Ptah was the guardian of Memphis, a creator god who created the universe by thinking it and giving it life with his words. | He is the god of craftsmen, carpentry, and builders. He is married to the lioness god Sekhmet, and with her he had his son, Nefertum, the a beautiful man made from a lotus flower.", 
+    "sobek": "Sobek: the crocodile god of power and fertility. Like crocodiles, he was an aggressive deity. | At his temple in Shedet, priests kept and cared for a royal crocodile they dubbed the Petsuchos - the son of Sobek. | This Petsuchos was worshipped as a manifestation of Sobek, and when it died, it was mummified and a new son of Sobek was found.",
+    "osiris": "Osiris was an important god in Ancient Egyptian mythology; a god of fertility and of the afterlife. | His brother Set killed him and cut him into pieces, and when his wife Isis found him, she wrapped up the pieces, hence his mummy wrap. | He then became the judge and ruler of the underworld, while is son Horus avenged him by fighting Set and becoming the new ruler of Egypt.",
+    "isis": "Isis - the wife of the divine king Osiris, who helped the dead move on to the afterlife and was considered the divine mother of the Pharaoh. | Her magical powers exceeded those of all other gods, and she became one of the most widely worshipped dieties in the first millennium BC.",
 
     // Crops
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
@@ -169,7 +171,7 @@ const texts = {
     "noNectar": "The bees have not collected any nectar yet. | Bees help pollinate plants when they fly from flower to flower collecting nectar. As they're lapping up nectar, pollen from the flower sticks to them. | Flower pollen contains male gametes, which can fertilize other flowers when bees land on them. | Once a flower's ovule has been fertilized by a bee with pollen on it, seeds can be formed, so the plant can reproduce. | I should release some bees around some plants so they can collect some nectar.", 
     "smonk": "Bee-autiful! I collected enough honeycomb to get me @arg jars of honey and @arg2 beeswax!",
 
-    // People - Taremu
+    // Regional - Taremu
     "fishboy": "Taremu is the land of fish, but some foreigners call it the city of lions, because of our temples to the lion goddesses. | But why do you think the goddesses like this city in the first place? Because of all the fish we got here, ya dingdong! | The lions came to the fish, not the other way around, obviously!",
     "fishshop": "There are a lot of cats here - we even have lions in the temple sometimes - so fishing is popular here. | People will buy fish for themselves, or to give to the cats as gifts or offerings. | We consider cats very important - they kill dangerous snakes and protect our Pharaohs.",
     "fruitboy1": "Fruit! Get your fruit here! We got pomegranates, we got melons, we got dates, figs, grapes, olives, plums! | I even have apples - those fruits the Hyksos brought with them! | What, you don't know the Hyksos? Back in the day, they invaded and started the Fifteenth Dynasty! | We're still not entirely sure where they came from, though. | Eventually Ahmose I, the first ruler of the Eighteenth Dynasty, drove off the last Hyksos pharoah and brought Egypt back under Egyptian control! | Being conquered must have sucked, but the Hyksos left a lot of great stuff behind, like new bronze-working techniques, horses, stronger bows and battle axes, and, of course, apples! | Don't ask why a random fruit merchant knows all this, I'm just trying to sell these apples, lady!",
@@ -180,7 +182,7 @@ const texts = {
     "breadgirlNo": "Darn. I guess I'll have to find some honey elsewhere.", 
     "breadgirlLack": "Your generosity is appreciated, but you can't give me honey you don't have. | If you get four jars of honey, come back later and I'll gladly take them off your hands!",
     
-    // People - Memphis
+    // Regional - Memphis
     "student1": "I don't like writing - words are too long! Like the blessing \"ankh, wedja, seneb\" (life, prosperity, health) is three whole words! | We need to find some way to shorten things... maybe make that \"anwese.\" | Just one hieroglyph for all three! I think I'm on to something here. Maybe some day things like that will catch on.",
     "student2": "Noblemen and royalty like me need to go to fancy schools so we can be \"educated\" and \"worldly.\" What a load of junk! | I don't need to know things to be pharoah! The gods will just tell me what to do! | I hope some day the standards are lowered so that ANYONE can be a leader! Even people who hate reading and thinking like me!",
     "teacher": "This educational centre was set up for nobility and royal princes. | To be successful, the younger generation needs to know things like mathematics, history, ethics, medicine, and music! | Some boys are sent off to schools like this as young as eight years old! | Girls, however, get their educations at home, learning things like sewing and cooking from their mothers.",
@@ -191,7 +193,7 @@ const texts = {
     "amenken1b": "Can you provide me with 10 beeswax? I can give you 3 gold for it! | ?amenken1",
     "amenken2": "Thanks for that beeswax! It will surely come in handy!",
 
-    // People - Shedet
+    // Regional - Shedet
     "sobekpriest": "Praise Sobek, the crocodile god who protects us from the dangers of the Nile! | You look like the Sobek-loving sort, given that you are a human, and all humans should love Sobek! | @Sobek's got quite the fanbase here, huh? | Of course, Shedet is home to Sobek's temple, and also a bunch of crocodiles! | You should obviously give something to Sobek himself at the altar over there, but if you're an EXTRA good person, you might be inclined to feed some of the local crocodiles, too! | Just toss those bad boys some fish, and maybe something good will happen if you do!",
     "crocodil": "aaAAaaAaaa | ~croc",
     "crocodil2": "@It looks like it wants some food. | ?croc",
@@ -205,6 +207,19 @@ const texts = {
     "incenseshopLack": "Hey hey! You don't have any gold! If you want free incense, become a god! Otherwise, pay up!", 
     "incenseshopBuy": "Pleasure doing business with you, ma'am! Come again whenever you need more incense!", 
     "obelisk": "This obelisk - a stone pillar - was set up by Senusret I during the 12th Dynasty to celebrate his 30th year as Pharaoh. | To this day, it still stands as the oldest standing obelisk in Egypt.", 
+
+    // Regional - Abdju
+    "tombKhasekhem": "Khasekhemwy was the last pharoah of Egypt's Second Dynasty in the early 2600's BC. | Not much is known about him, but his tomb was excavated in 1901, revealing several chambers, a burial chamber made with limestone blocks, and an elaborate golden scepter. | He built a mudbrick fort known as Shunet El Zebib, which is actively being preserved and researched to this day.",
+    "tombPeribsen": "Peribsen was a pharaoh of the Second Dynasty, some time in the 2700's BC. | Unlike other pharaohs, his patron diety was Set - a god of chaos who killed his brother Osiris - instead of the usual Horus - Osiris's son who avenged his father's death. | In his tomb, archaeologists discovered a Mehen game board. | The game Mehen - named after a snake diety - was a game played on a board shaped like a coiled snake.",
+    "tombQaa": "Qa'a reigned for 33 years at the end of the 30th century BC as the last pharaoh of the First Dynasty of Ancient Egypt. | It is believed that after he died, a war began between royal houses over who would take over the throne.",
+    "tombSemerkhet": "Semerkhet was a pharoah of the First Dynasty. It was said by the historian and priest Manetho that some calamity occurred during his reign. | Historians have found mention of a \"Destruction of Egypt\" mentioned in the Palermo Stone, which documented his reign.",
+    "tombKa": "Before the First Dynasty of Ancient Egypt, there was the Predynastic Period, which spanned from around 6000 BC to 3000 BC. | After the unification of Upper and Lower Egypt, the First Dynasty began. | One of the pharaohs of the Predynastic Period was a ruler whose name is not agreed upon yet. | Some read his name as \"Ka,\" and others read it as \"Sekhen.\" | Not much is known about his reign, but along with Narmer and Scorpion II, he is one of the more heavily documented Predynastic pharaohs.",
+    "goldboy": "Hey hey, if you're going to make an offering to the goddess Isis, you better have some gold ready! | Isis protects the royal throne, and you know the pharaohs love their shiny gold! | Hey hey, you seem like you might have a lot of honey on you. I can tell from how you don't look like a beekeeper! | There's nothing sweeter than honey, except the woman I want to marry, so I need some honey to get that honey, if you know what I mean. | @I really don't. | Hey hey, honey isn't just for sweetening foods, lady! | Honey is used to stop infections, pay taxes, give tribute to the gods, embalm mummies, and, of course, it's used in marriage proposals! | I wrote up a marriage contract: \"I take thee to wife... and promise to deliver to thee yearly twelve jars of honey.\" | Pretty sweet deal, huh? Heh, good one, me! | But I think I bit off more than I could chew with that, so I can't propse to her until I actually HAVE some honey! | So, whattaya say? Honey for Gold? Twelve jars for twelve gold! | ?honeyGold",
+    "goldboyB": "Hey hey, honey for gold. Deal of a lifetime. Twelve honey jars for twelve gold. Do it for love! | ?honeyGold",
+    "goldboyNo": "Hey hey, that really stings. Buzz off if you're going to be like that!",
+    "goldboyLack": "Hey hey, I'm loving the enthusiasm. The world needs more helpful people like you. | But it looks like you're just as lacking in honey as I am. | If you get 12 jars of honey, come back and talk to me!",
+    "goldboyBuy": "Hey hey, you're a real hero, you know that? | Now I've got enough honey to offer my sweetie for @arg! | I want this marriage to last much longer than that, though, so if you get more honey, you know where to find me!",
+    "goldboyBuy5": "Hey hey, you've given me five years worth of honey now! | I'm not set for life yet, but I'm definitely covered for the honeymoon stage of my marriage! | However, with that marriage contract, I guess it'll ALWAYS be a honeymoon stage... | Either way, I'll gladly accept any more honey you have, but for now I want to thank you again for your help! | Here's a few jugs of milk as Bonus Thanks! You know, milk and honey and all that. | Use it wisely! By drinking it, probably.",
     "": ""
 };
 
@@ -337,6 +352,36 @@ const choices = {
             action: function() {
                 land.target.text = "incenseshopb";
                 textHandler.MoveToNewText("incenseshopNo");
+            }
+        }
+    ],
+    "?honeyGold": [
+        {
+            choice: "Trade 12 honey for 12 gold.",
+            action: function() {
+                if(player.HasItem("honey", 12)) {
+                    player.RemoveHoney("any", 0, 12);
+                    player.AddItem("gold", 12);
+                    player.easterEggs.honeyBoy += 1;
+                    if(player.easterEggs.honeyBoy === 5) {
+                        player.ClearChievo("Abdju", "slappy2");
+                        player.AddItem("milk", 5);
+                        textHandler.MoveToNewText("goldboyBuy5");
+                    } else {
+                        textHandler.MoveToNewText("goldboyBuy", player.easterEggs.honeyBoy + (player.easterEggs.honeyBoy === 1 ? " year" : " years"));
+                    }
+                    land.target.text = "goldboyB";
+                } else {
+                    land.target.text = "goldboyB";
+                    textHandler.MoveToNewText("goldboyLack");
+                }
+            }
+        },
+        {
+            choice: "Don't trade.",
+            action: function() {
+                land.target.text = "goldboyB";
+                textHandler.MoveToNewText("goldboyNo");
             }
         }
     ]

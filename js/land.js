@@ -34,7 +34,7 @@ const land = {
         land.sawGet = false;
         land.flowering = inSeason || false;
         land.cutscene = { active: false };
-        land.maxX = maxX[location] || 7678;
+        land.maxX = maxX[location] || 6130;
         if(autoPlays[location] !== undefined) {
             land.Animate();
             autoPlays[location]();

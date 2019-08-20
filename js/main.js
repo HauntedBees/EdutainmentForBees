@@ -80,6 +80,17 @@ https://en.wikipedia.org/wiki/Hyksos
 http://www.legendsandchronicles.com/ancient-civilizations/ancient-egypt/ancient-egyptian-education/
 https://www.aldokkan.com/geography/fayum.htm
 https://fayoumegypt.com/obelisk-of-senusret-i/
+https://en.wikipedia.org/wiki/Abydos,_Egypt
+https://www.britannica.com/topic/Osiris-Egyptian-god
+
+https://en.wikipedia.org/wiki/Umm_El_Qa%27ab
+http://www.touregypt.net/featurestories/khasekhem.htm
+https://en.wikipedia.org/wiki/Seth-Peribsen
+https://en.wikipedia.org/wiki/Mehen_(game)
+https://en.wikipedia.org/wiki/Qa%27a
+https://en.wikipedia.org/wiki/Semerkhet
+https://en.wikipedia.org/wiki/Ka_(pharaoh)
+https://en.wikipedia.org/wiki/Prehistoric_Egypt
 
 https://www.ancient.eu/amun/
 https://en.wikipedia.org/wiki/Lettuce#History

@@ -7,6 +7,7 @@ const sheetInfo = {
     "peopleMisc": { w: 200, h: 260 },
     "peopleMiscBig": { w: 200, h: 345 },
     "slappy": { w: 200, h: 260 },
+    "slappy2": { w: 200, h: 260 },
     "shopkeeps": { w: 150, h: 200 },
     "cat1": { w: 100, h: 75 },
     "cat2": { w: 100, h: 75 },
@@ -45,7 +46,9 @@ const sheetInfo = {
     "hive": { w: 110, h: 109 },
     "ladder": { w: 121, h: 204 },
     "crocodil": { w: 273, h: 100 },
-    "obelisk": { w: 168, h: 589 }
+    "obelisk": { w: 168, h: 589 },
+    "tomb": { w: 541, h: 471 },
+    "tombGlyph": { w: 100, h: 140 }
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers
 for(let i = 0; i <= 3; i++) { sheetInfo["bgM" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/classical-ruin-tiles-0

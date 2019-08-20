@@ -14,14 +14,15 @@ let player = {
     honeys: [], revealedFunFacts: [],
     nectarCache: {}, currentDay: 1,
     easterEggs: {
-        catDog: false
+        catDog: false, honeyBoy: 0, 
     },
     beedFlowers: [], 
     clearedChievos: [], 
     chievos: {
         "Taremu": ["shop2", "bastetAltar", "sekhmetAltar", "maahesAltar"],
         "Memphis": ["biff", "ptahAltar"],
-        "Shedet": ["sobekAltar", "crocodil"]
+        "Shedet": ["sobekAltar", "crocodil"],
+        "Abdju": ["osirisAltar", "isisAltar", "slappy2"]
     },
     ClearChievo: function(place, id) {
         player.clearedChievos.push(id);
