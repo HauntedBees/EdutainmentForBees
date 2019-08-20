@@ -24,15 +24,16 @@ const GetPlaceEntities = function(place, modern) {
 };
 const autoPlays = {
     "ModernCoffin": function() { textHandler.ShowText("Protagonny", "intro0"); },
-    "CutsceneThebes": function() { cutscenes["~start3"](); }
+    "CutsceneWaset": function() { cutscenes["~start3"](); }
 };
 const maxX = {
     "ModernCoffin": 2290,
-    "CutsceneThebes": 5800,
+    "CutsceneWaset": 5800,
     "Taremu": 5565,
     "Memphis": 5180,
     "Shedet": 3735,
-    "Abdju": 6130
+    "Abdju": 6130,
+    "Waset": 5790 // 6140
 };
 function AddTemple(arr, x, w) {
     arr.push({ x: x, id: "templeL" });
@@ -51,7 +52,7 @@ const places = {
         { x: 2800, id: "coffin"},
         { x: 2670, id: "beejar"}
     ],
-    "CutsceneThebes": [
+    "CutsceneWaset": [
         { x: 350, id: "beejar"},
         { x: 250, id: "helpser" },
         { x: 6500, id: "amenhotep" },
@@ -158,10 +159,25 @@ const places = {
         for(let x = 0; x < 4; x++) { res.push({ x: 1200 + x * (96 + x), y: Math.floor(5 * Math.random()), id: "melon" }); }
         return res;
     }(),  
-    "Thebes": [ // https://en.wikipedia.org/wiki/Amenhotep_III
-        { x: 1100, id: "date" },
-        { x: 1400, id: "biff" }
-    ],
+    "Waset": function() { // https://en.wikipedia.org/wiki/Amenhotep_III
+        const res = [
+            { x: 700, id: "lettuce" },
+            { x: 800, id: "lettuce" },
+            { x: 900, id: "lettuce" },
+            { x: 1100, id: "date" },
+            { x: 1400, id: "date" },
+            { x: 2500, id: "amun" }, { x: 2500, id: "amunAltar" },
+            { x: 2800, id: "khonsu" }, { x: 2800, id: "khonsuAltar" },
+            { x: 3100, id: "mut" }, { x: 3100, id: "mutAltar" },
+            { x: 6400, id: "guard" },
+            { x: 6800, id: "amenhotep" },
+            { x: 1800, id: "boxFish" },
+            { x: 1900, id: "shop3" }
+        ];
+        AddTemple(res, 2000, 5);
+        AddTemple(res, 6400, 3);
+        return res;
+    }(),
     //"Kom Ombo": [],  
     "Elephantine": [],  
     //"Abu Simbel": [],  
@@ -176,6 +192,6 @@ const places = {
         { x: 1300, id: "date" },
         { x: 1400, id: "flax" },
         { x: 1500, id: "pomegranate" },
-        { x: 1600, id: "boff" }
+        { x: 1600, id: "biff" }
     ]
 };

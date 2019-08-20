@@ -5,7 +5,7 @@ const positions = [ // name, x, y, distance from previous
     //["Herakleopolis", 455, 245, 1], 
     //["Hermopolis", 475, 285, 2], 
     ["Abdju", 515, 325, 6], // Abydos (formerly 3)
-    ["Thebes", 535, 360, 3],
+    ["Waset", 535, 360, 3], // Thebes
     //["Kom Ombo", 545, 410, 3], // Nubt, also near Syene
     ["Elephantine", 535, 440, 4], // formerly 1
     //["Abu Simbel", 485, 490, 4], 

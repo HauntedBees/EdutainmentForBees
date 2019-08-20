@@ -10,7 +10,7 @@ const texts = {
     "intro7": [
         "@Why does everything look so... painty? | @Who are you? | I am Intef. I found you here unconscious next to this jar of honey.",
         "@Honey...? That's right! I was in the tomb... you aren't with my excavation crew. Are you a villager? | You're not from around here, are you?",
-        "@Where is here? | You're in Thebes, and just a short walk away from our great pharaoh Amenhotep the Magnificent's throne! | @Amenhotep... this must be a bad dream. Amenhotep III ruled Egypt in the 14th century BC!",
+        "@Where is here? | You're in Waset, and just a short walk away from our great pharaoh Amenhotep the Magnificent's throne! | @Amenhotep... this must be a bad dream. Amenhotep III ruled Egypt in the 14th century BC!",
         "I don't know what any of those words mean. Are you a beekeeper? That's a pretty big jar of honey for someone to be carrying around. | @Uh, sure. I'm a beekeeper, kid.",
         "Very strange! Usually the oil in hair attracts bees, so beekeepers shave their heads! | Female beekeepers aren't very common, either. You must be a very good beekeeper!",
         "@Yep, that's me. Very special beekeeper. That's why I was just collapsed on the ground with a jar of honey right by the Nile river.",
@@ -29,7 +29,7 @@ const texts = {
         "Then, when those flowers have been pollinated, they ride off to the next area that needs pollinating. | @Yes, of course. That is a thing I knew. | The raft is equipped with 5 beehives, already full of bees, and a supply crate.",
         "Inside the supply crate is a smoker and some sticks of incense. | @That sounds lovely! I love the smell of incense! | The incense isn't for you! After putting the incense in the smoker and lighting it, you can aim the smoke at the beehives. | Beekeepers use smoke to calm bees before removing the honeycomb from their hives. | If the bees aren't calmed first, trying to remove the honey will result in a lot of nasty stings.",
         "But, you're a real beekeeper, so you knew all of that, of course. Right? | @Absolutely. One hundred percent. | What is a \"percent?\" | @Uh, it's a beekeeper thing. You wouldn't understand. | Ah, of course! Well, everything is ready here for you now, so I'll be off.",
-        "The plants aren't flowering here in Thebes yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very for your help. | ~start8"
+        "The plants aren't flowering here in Waset yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very for your help. | ~start8"
     ].join(" | "),
 
     // Specific Place Fun Facts
@@ -51,9 +51,9 @@ const texts = {
     "factAbdju0": "Abdju, or Abydos as it was called by the Greeks, is one of Ancient Egypt's oldest cities.", 
     "factAbdju1": "The memorial temple of Menmaatre Seti I - a pharaoh of the 19th Dynasty - is located in Abdju. | In his temple is the famous Abydos King List, which lists 76 Ancient Egyptian kings in order of their reign.", 
     "factAbdju2": "The Temple of Seti I in Abdju is the source of a conspiracy theory about helicopter hieroglyphs. | Some of the markings on the wall resemble helicopters or spaceships, but the reality is far less exciting. | Carved stones were re-used - the written stones were filled with plaster and re-carved into - and over time some of this plaster faded away. | Because of this, two hieroglyphs appeared on top of each other, leading to unexpected shapes. | As cool as it is to imagine ancient aliens giving the Ancient Egyptians their technology, the reality is that sometimes ancient civilizations are smart and good at doing things. | It's very important to remember that brilliant people were coming up with great ideas all around the world since the beginning of humanity, and that calling any amazing innovations from the past \"alien technology\" dismisses the real ingenuity of our ancestors.", 
-    "factThebes0": "Thebes", 
-    "factThebes1": "", 
-    "factThebes2": "", 
+    "factWaset0": "Waset", 
+    "factWaset1": "", 
+    "factWaset2": "", 
     /*"factKom Ombo0": "Kom Ombo", 
     "factKom Ombo1": "", 
     "factKom Ombo2": "", */
@@ -130,6 +130,9 @@ const texts = {
     "sobek": "Sobek: the crocodile god of power and fertility. Like crocodiles, he was an aggressive deity. | At his temple in Shedet, priests kept and cared for a royal crocodile they dubbed the Petsuchos - the son of Sobek. | This Petsuchos was worshipped as a manifestation of Sobek, and when it died, it was mummified and a new son of Sobek was found.",
     "osiris": "Osiris was an important god in Ancient Egyptian mythology; a god of fertility and of the afterlife. | His brother Set killed him and cut him into pieces, and when his wife Isis found him, she wrapped up the pieces, hence his mummy wrap. | He then became the judge and ruler of the underworld, while is son Horus avenged him by fighting Set and becoming the new ruler of Egypt.",
     "isis": "Isis - the wife of the divine king Osiris, who helped the dead move on to the afterlife and was considered the divine mother of the Pharaoh. | Her magical powers exceeded those of all other gods, and she became one of the most widely worshipped dieties in the first millennium BC.",
+    "amun": "Amun was the patron deity of Thebes, after replacing its former deity Montu - the falcon god of war. | In the 16th century BC he fused with the sun god Ra and became Amun-Ra. | As Amun-Ra he became the King of Gods and, with Osiris, became the most well known Egyptian god. | As a champion of the poor, he rose in prominence as Thebes became the capital of Egypt. | His Greek equivalent was Zeus, the Greek god of thunder and the king of gods on Mount Olympus.", 
+    "mut": "The Ancient Egyptian word for mother was also the name of the mother goddess Mut. | Along with her husband Amun and her son Khonsu, they formed the triad of Thebes - or Waset as the city was known in Egyptian. | Prior to the rise of the New Kingdom, Amun's wives were the goddesses Amaunet and Wosret, but they were displaced by Mut. | The Pharaoh and priestesse would perform daily rituals to Mut, as she grew to be the most important goddess in Egypt.", 
+    "khonsu": "Khonsu, son of Amun and Mut, was the god of the moon who watched over those who traveled at night. | In one of Ancient Egypt's creation myths, Khonsu was the great snake that fertilized the Cosmic Egg to create the world. | He was known as a great healer, a reputation that spread outside of Egypt.", 
 
     // Crops
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
@@ -224,6 +227,15 @@ const texts = {
     "goldboyLack": "Hey hey, I'm loving the enthusiasm. The world needs more helpful people like you. | But it looks like you're just as lacking in honey as I am. | If you get 12 jars of honey, come back and talk to me!",
     "goldboyBuy": "Hey hey, you're a real hero, you know that? | Now I've got enough honey to offer my sweetie for @arg! | I want this marriage to last much longer than that, though, so if you get more honey, you know where to find me!",
     "goldboyBuy5": "Hey hey, you've given me five years worth of honey now! | I'm not set for life yet, but I'm definitely covered for the honeymoon stage of my marriage! | However, with that marriage contract, I guess it'll ALWAYS be a honeymoon stage... | Either way, I'll gladly accept any more honey you have, but for now I want to thank you again for your help! | Here's a few jugs of milk as Bonus Thanks! You know, milk and honey and all that. | Use it wisely! By drinking it, probably.",
+    
+    // Regional - Waset
+    "guardingPharaoh": "Halt! The pharaoh is not seeing visitors right now. | @But I've got some honey for him. I'm the beekeeper you-- | You? A beekeeper? You look nothing like a beekeeper, don't make me laugh! | If you wish to seek an audience with the pharaoh, you must prove that you are worthy. | @How can I do that? | I'll be listening to the gods for an answer. It might be wise to get on the good side of some of them if you want to see the pharaoh!", 
+    "fishSeller": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
     "": ""
 };
 
@@ -465,7 +477,7 @@ const cutscenes = {
                     gfx.DrawSprite2("playerScene1", [1, 2], land.xOffset - 100, land.yPos, "characters");
                     gfx.DrawSprite2("playerScene1", [2, 2], land.xOffset + 100, land.yPos, "characters");
                 } else {
-                    game.SwitchTo(land, "CutsceneThebes");
+                    game.SwitchTo(land, "CutsceneWaset");
                 }
             }
         };

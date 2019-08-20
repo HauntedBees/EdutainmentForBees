@@ -7,12 +7,13 @@ const things = {
     "helpser": { type: "bg", sprite: "pers2tiny", anim: "helpser", dir: 1 },
     "amenhotep": { type: "bg", sprite: "amenhotep", dir: 0 },
     "amenhotepTalk": { type: "person", sprite: "", dir: 0, name: "Amenhotep III", text: "intro8" },
-    "tutServant": { type: "person", sprite: "pers2tiny", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },
+    "tutServant": { type: "person", sprite: "pers2", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },
 
     /* --- PLANTS --- */
     "wheat": { type: "observable", sprite: "plants", sx: 3, rawsx: 1, name: "Wheat", textRange: 2 },
     "barley": { type: "observable", sprite: "plants", sx: 4, rawsx: 0, name: "Barley", textRange: 1 },
     "papyrus": { type: "observable", sprite: "plants", sx: 5, rawsx: 1, name: "Papyrus", textRange: 3 },
+    "lettuce": { type: "observable", sprite: "plantsSmall", rawsx: 0, rawsy: 0, sx: 0, sy: 1, name: "Lettuce", textRange: 2 },
 
     "flax": { type: "beeable", sprite: "plants", sx: 1, rawsx: 0, sy: 1, name: "Flax", textRange: 2, beeY: -120 },
     "date": { type: "beeable", sprite: "plantsBig", rawsx: 0, sx: 1, name: "Date Palm", textRange: 2, beeY: -280, beeRadius: 75 },
@@ -23,7 +24,6 @@ const things = {
     "chrysanthemum": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 4, name: "Crown Daisy", textRange: 1, foreground: true },
     "melon": { type: "beeable", sprite: "plantsSmall", rawsx: 1, rawsy: 1, sx: 2, sy: 1, name: "Melon", textRange: 2, foreground: true },
     
-    "lettuce": { type: "observable", sprite: "plantsSmall", rawsx: 0, rawsy: 0, sx: 0, sy: 1, name: "Lettuce", textRange: 2 }, // not yet used
     "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1 }, // not yet used
     "garlic": { type: "observable" }, // BAD FOR BEES!!! not yet used or drawn
     "acacia": { type: "beeable" }, // not yet used or drawn
@@ -44,7 +44,6 @@ const things = {
     "cat6": { type: "bg", sprite: "cat6", anim: "cat", dir: 1, movement: "cat1" },
 
     /* --- REGIONAL --- */
-    "boff": { type: "person", sprite: "farmboy", anim: "regular", dir: 0, name: "Parennefer", text: "amenken1" },
     // Taremu
     "fishboy": { type: "person", sprite: "peopleMisc", sx: 0, noDir: true, name: "Nenwef", text: "fishboy" },
     "shop1": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "fishshop" },
@@ -69,6 +68,12 @@ const things = {
     "tombSemerkhet": { type: "observable", sprite: "tombGlyph", sx: 3, name: "Semerkhet's Tomb", text: "tombSemerkhet", y: -290 },
     "tombKa": { type: "observable", sprite: "tombGlyph", sx: 4, name: "Ka's Tomb", text: "tombKa", y: -290 },
     "slappy2": { type: "person", sprite: "slappy2", anim: "slappy", dir: 0, name: "Ipy", text: "goldboy" },
+    // Waset
+    "shop3": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Mahu", text: "fishSeller" },
+    "shop4": { type: "person", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0, name: "Parennefer", text: "something" },
+    "shop5": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Hentmereb", text: "something" },
+    "guard": { type: "person", sprite: "pers2", anim: "helpser", dir: 0, name: "Setka", text: "guardingPharaoh" },
+
 
     /* --- SHOP STUFF --- */
     "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
@@ -76,6 +81,9 @@ const things = {
     "boxFruit": { type: "bg", sprite: "justabox", sx: 2, background: true },
     "boxIncense": { type: "bg", sprite: "justabox", sx: 1, sy: 1, background: true },
     "boxGold": { type: "bg", sprite: "justabox", sx: 2, sy: 1, background: true },
+    "boxBeer": { type: "bg", sprite: "justabox", sx: 0, sy: 2, background: true },
+    "boxMilk": { type: "bg", sprite: "justabox", sx: 1, sy: 2, background: true },
+    "boxLinen": { type: "bg", sprite: "justabox", sx: 2, sy: 2, background: true },
 
     /* --- GODS --- */
     "bastet": { type: "bg", sprite: "peopleMisc", sx: 1, y: -300 },
@@ -89,7 +97,7 @@ const things = {
                         isGod: true, pronoun: "his", want: "honey", honeyType: "whitelotus", amount: 10, wantDisplay: "combs of white lotus honey", sxAlt: 3 },
     "ptah": { type: "bg", sprite: "peopleMisc", sy: 1, y: -300 },
     "ptahAltar": { type: "observable", sprite: "altar", name: "Ptah", text: "ptah", textAlt: "offeringPleased",
-                        isGod: true, pronoun: "his", want: "honey", honeyType: "bluelotus", amount: 50, wantDisplay: "combs of white lotus honey", sxAlt: 3 },
+                        isGod: true, pronoun: "his", want: "honey", honeyType: "bluelotus", amount: 50, wantDisplay: "combs of blue lotus honey", sxAlt: 3 },
     "sobek": { type: "bg", sprite: "peopleMiscBig", y: -200 },
     "sobekAltar": { type: "observable", sprite: "altar", name: "Sobek", text: "sobek", textAlt: "offeringPleased",
                         isGod: true, pronoun: "his", want: "milk", amount: 10, wantDisplay: "jugs of milk", sxAlt: 2 },
@@ -99,6 +107,15 @@ const things = {
     "isis": { type: "bg", sprite: "peopleMiscBig", sx: 1, y: -200 },
     "isisAltar": { type: "observable", sprite: "altar", name: "Isis", text: "isis", textAlt: "offeringPleased",
                         isGod: true, pronoun: "her", want: "gold", amount: 30, sxAlt: 5 },
+    "amun": { type: "bg", sprite: "peopleMiscBig", sx: 3, y: -200 },
+    "amunAltar": { type: "observable", sprite: "altar", name: "Amun-Ra", text: "amun", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "his", want: "oil", amount: 5, wantDisplay: "jars of scented oil", sxAlt: 2 },
+    "mut": { type: "bg", sprite: "peopleMiscBig", sy: 1, y: -200 },
+    "mutAltar": { type: "observable", sprite: "altar", name: "Mut", text: "mut", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "her", want: "bread", amount: 10, wantDisplay: "loaves of bread", sxAlt: 1 },
+    "khonsu": { type: "bg", sprite: "peopleMiscBig", sx: 1, sy: 1, y: -200 },
+    "khonsuAltar": { type: "observable", sprite: "altar", name: "Khonsu", text: "khonsu", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "his", want: "honey", honeyType: "any", wantDisplay: "combs of honey", amount: 20, sxAlt: 3 },
 };
 
 const movements = {
