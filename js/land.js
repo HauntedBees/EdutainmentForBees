@@ -73,8 +73,10 @@ const land = {
         land.target = null;
         gfx.ClearLayers(["menuA", "menuC", "menutext"]);
         land.waterIdx = (land.waterIdx + 0.5) % 1920;
-        gfx.DrawSprite("water", 0, 0, -250 - land.playerX, 735, "menuC", 1, true);
-        gfx.DrawSprite("shore2", 0, 0, 205 - land.playerX, 775, "menuC", 1, true);
+        if(!land.modernTimes) {
+            gfx.DrawSprite("water", 0, 0, -250 - land.playerX, 735, "menuC", 1, true);
+            gfx.DrawSprite("shore2", 0, 0, 205 - land.playerX, 775, "menuC", 1, true);
+        }
         land.target = land.DrawEntitiesAndGetTarget();
         if(land.target !== null && !land.cutscene.active) {
             switch(land.target.type) {

@@ -15,7 +15,7 @@ const GetPlaceEntities = function(place, modern) {
         if(obj.y !== undefined) {
             entity.y = (entity.y || 0) + obj.y;
         }
-        if(obj.x <= 600) {
+        if(obj.x <= 600) { // TODO: remove me eventually
             alert("object " + obj.id + " needs an X value higher than 600!");
         }
         entities.push(entity);
@@ -179,7 +179,19 @@ const places = {
         return res;
     }(),
     //"Kom Ombo": [],  
-    "Elephantine": [],  
+    "Yabu": function() {
+        const res = [
+            { x: 5500, id: "puddle" },
+            { x: 5600, id: "puddle" },
+            { x: 5800, id: "puddle" },
+            { x: 5650, id: "puddle" },
+            { x: 5550, id: "puddle" },
+            { x: 5700, id: "puddle" },
+            { x: 5750, id: "puddle" },
+            { x: 5850, id: "puddle" }
+        ];
+        return res;
+    }(), // Elephantine 
     //"Abu Simbel": [],  
     "Napata": [], // https://en.wikipedia.org/wiki/Merymose
     "Testbench": [

@@ -116,6 +116,15 @@ const things = {
     "khonsu": { type: "bg", sprite: "peopleMiscBig", sx: 1, sy: 1, y: -200 },
     "khonsuAltar": { type: "observable", sprite: "altar", name: "Khonsu", text: "khonsu", textAlt: "offeringPleased",
                         isGod: true, pronoun: "his", want: "honey", honeyType: "any", wantDisplay: "combs of honey", amount: 20, sxAlt: 3 },
+    "khnum": { type: "bg", sprite: "peopleMiscBig", sx: 2, sy: 1, y: -200 },
+    "khnumAltar": { type: "observable", sprite: "altar", name: "Khnum", text: "khnum", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "his", want: "TODO", amount: 5, wantDisplay: "TODO", sxAlt: 2 },
+    "anuket": { type: "bg", sprite: "peopleMiscBig", sx: 3, sy: 1, y: -200 },
+    "anuketAltar": { type: "observable", sprite: "altar", name: "Anuket", text: "anuket", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "her", want: "TODO", amount: 10, wantDisplay: "TODO", sxAlt: 1 },
+    "satis": { type: "bg", sprite: "peopleMiscBig", sx: 0, sy: 2, y: -200 },
+    "satisAltar": { type: "observable", sprite: "altar", name: "Satis", text: "satis", textAlt: "offeringPleased",
+                        isGod: true, pronoun: "her", want: "TODO", honeyType: "TODO", wantDisplay: "TODO", amount: 20, sxAlt: 3 }
 };
 
 const movements = {

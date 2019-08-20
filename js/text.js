@@ -18,7 +18,7 @@ const texts = {
         "Follow me, I'll explain the situation to Amenhotep and he'll know what to do! | @Wait I don't think that's necessary-- | ~start6"
     ].join(" | "),
     "intro8": ["Is this the beekeeper you were telling me about, Intef? | Intef: Yes, your highness. | Greetings, traveller. I have been told that you were robbed of your beekeeping tools, yes?",
-        "@(It's probably easier to just say yes to that than to try explaining what actually happened.) | Yup! Er, I mean, that is correct, your highness. | I tried some of the honey Intef brought; it seems like you know your way around a beehive!",
+        "@(It's probably easier to just say yes to that than to try explaining what actually happened.) | @Yup! Er, I mean, that is correct, your highness. | I tried some of the honey Intef brought; it seems like you know your way around a beehive!",
         "I've sent one of my servants to gather what he could to help you. | It may not be much, but it will certainly be enough to get you back on your feet. | @You have my eternal gratitude, your highness.",
         "No need for that! This is the least I can do after you were attacked inside my very city. | However, I certainly will not turn down any offerings of honey the next time you're in the area, ha ha!",
         "Head back to the Nile, my servant will be waiting for you there. | ~start7"
@@ -57,9 +57,9 @@ const texts = {
     /*"factKom Ombo0": "Kom Ombo", 
     "factKom Ombo1": "", 
     "factKom Ombo2": "", */
-    "factElephantine0": "Elephantine", 
-    "factElephantine1": "", 
-    "factElephantine2": "", 
+    "factYabu0": "Yabu", 
+    "factYabu1": "", 
+    "factYabu2": "", 
     /*"factAbu Simbel0": "Abu Simbel", 
     "factAbu Simbel1": "", 
     "factAbu Simbel2": "", */
@@ -133,6 +133,9 @@ const texts = {
     "amun": "Amun was the patron deity of Thebes, after replacing its former deity Montu - the falcon god of war. | In the 16th century BC he fused with the sun god Ra and became Amun-Ra. | As Amun-Ra he became the King of Gods and, with Osiris, became the most well known Egyptian god. | As a champion of the poor, he rose in prominence as Thebes became the capital of Egypt. | His Greek equivalent was Zeus, the Greek god of thunder and the king of gods on Mount Olympus.", 
     "mut": "The Ancient Egyptian word for mother was also the name of the mother goddess Mut. | Along with her husband Amun and her son Khonsu, they formed the triad of Thebes - or Waset as the city was known in Egyptian. | Prior to the rise of the New Kingdom, Amun's wives were the goddesses Amaunet and Wosret, but they were displaced by Mut. | The Pharaoh and priestesse would perform daily rituals to Mut, as she grew to be the most important goddess in Egypt.", 
     "khonsu": "Khonsu, son of Amun and Mut, was the god of the moon who watched over those who traveled at night. | In one of Ancient Egypt's creation myths, Khonsu was the great snake that fertilized the Cosmic Egg to create the world. | He was known as a great healer, a reputation that spread outside of Egypt.", 
+    "khnum": "",
+    "anuket": "",
+    "satis": "",
 
     // Crops
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
@@ -230,7 +233,9 @@ const texts = {
     
     // Regional - Waset
     "guardingPharaoh": "Halt! The pharaoh is not seeing visitors right now. | @But I've got some honey for him. I'm the beekeeper you-- | You? A beekeeper? You look nothing like a beekeeper, don't make me laugh! | If you wish to seek an audience with the pharaoh, you must prove that you are worthy. | @How can I do that? | I'll be listening to the gods for an answer. It might be wise to get on the good side of some of them if you want to see the pharaoh!", 
-    "fishSeller": "",
+    "fishSeller": "hi i got fishies",
+
+    // Regional - Yabu
     "": "",
     "": "",
     "": "",
@@ -564,7 +569,7 @@ const cutscenes = {
     "~start7": function() {
         land.inDialogue = false;
         land.target.type = "bg";
-        land.entities.push({ type: "bg", sprite: "boat", dir: 0, x: 50, y: 75 });
+        land.entities.push({ type: "bg", sprite: "boatboat", dir: 0, x: 50, y: 75 });
         // TODO: push the mid-walk thought processese
         land.entities.push(GetCopy("tutServant", 450));
     },
