@@ -147,10 +147,15 @@ const places = {
             { x: 1790, id: "boxGold" },
             { x: 1900, id: "slappy2" },
             { x: 2400, id: "isis" }, { x: 2400, id: "isisAltar" },
-            { x: 2700, id: "osiris" }, { x: 2700, id: "osirisAltar" }
+            { x: 2700, id: "osiris" }, { x: 2700, id: "osirisAltar" },
+            { x: 4150, id: "papyrus" },
+            { x: 4855, id: "papyrus" },
+            { x: 5555, id: "papyrus" },
+            { x: 6255, id: "papyrus" }
         ];
         AddTemple(res, 2050, 3);
         for(let x = 0; x < 5; x++) { res.push({ x: 3090 + x * (90 + x), y: Math.floor(5 * Math.random()), id: "flax" }); }
+        for(let x = 0; x < 4; x++) { res.push({ x: 1200 + x * (96 + x), y: Math.floor(5 * Math.random()), id: "melon" }); }
         return res;
     }(),  
     "Thebes": [ // https://en.wikipedia.org/wiki/Amenhotep_III

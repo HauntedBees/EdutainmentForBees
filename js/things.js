@@ -10,10 +10,9 @@ const things = {
     "tutServant": { type: "person", sprite: "pers2tiny", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },
 
     /* --- PLANTS --- */
-    "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1 }, // not yet used
     "wheat": { type: "observable", sprite: "plants", sx: 3, rawsx: 1, name: "Wheat", textRange: 2 },
     "barley": { type: "observable", sprite: "plants", sx: 4, rawsx: 0, name: "Barley", textRange: 1 },
-    "papyrus": { type: "observable", sprite: "plants", sx: 5, rawsx: 1, name: "Papyrus", textRange: 3 }, // not yet used
+    "papyrus": { type: "observable", sprite: "plants", sx: 5, rawsx: 1, name: "Papyrus", textRange: 3 },
 
     "flax": { type: "beeable", sprite: "plants", sx: 1, rawsx: 0, sy: 1, name: "Flax", textRange: 2, beeY: -120 },
     "date": { type: "beeable", sprite: "plantsBig", rawsx: 0, sx: 1, name: "Date Palm", textRange: 2, beeY: -280, beeRadius: 75 },
@@ -22,16 +21,13 @@ const things = {
     "whitelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 2, name: "White Lotus", textRange: 3, foreground: true },
     "chamomile": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 5, name: "Chamomile", textRange: 1, beeY: -60 },
     "chrysanthemum": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 4, name: "Crown Daisy", textRange: 1, foreground: true },
+    "melon": { type: "beeable", sprite: "plantsSmall", rawsx: 1, rawsy: 1, sx: 2, sy: 1, name: "Melon", textRange: 2, foreground: true },
     
-    "fig": { type: "observable" }, // fig wasps
-    "garlic": { type: "observable" }, // BAD FOR BEES!!!
-    "lettuce": { type: "observable" }, // to fuck good
-    "melon": { type: "beeable" }, // not yet used
-    "cornflower": { type: "beeable" }, // Centaurea depressa, imported
-    "redpoppy": { type: "beeable" }, // Papaver rhoeas, imported
-    "acacia": { type: "beeable" }, // not yet used
-    "onion": { type: "beeable" }, // not yet used
-    "lettuce": { type: "beeable" }, // not yet used
+    "lettuce": { type: "observable", sprite: "plantsSmall", rawsx: 0, rawsy: 0, sx: 0, sy: 1, name: "Lettuce", textRange: 2 }, // not yet used
+    "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1 }, // not yet used
+    "garlic": { type: "observable" }, // BAD FOR BEES!!! not yet used or drawn
+    "acacia": { type: "beeable" }, // not yet used or drawn
+    "onion": { type: "beeable" }, // not yet used or drawn
 
     /* --- MISC --- */
     "puddle": { type: "bg", sprite: "puddle", foreground: true, y: 15 },

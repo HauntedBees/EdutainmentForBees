@@ -92,6 +92,9 @@ https://en.wikipedia.org/wiki/Semerkhet
 https://en.wikipedia.org/wiki/Ka_(pharaoh)
 https://en.wikipedia.org/wiki/Prehistoric_Egypt
 
+http://beadcollector.net/cgi-bin/anyboard.cgi?fvp=/openforum/&cmd=get&cG=6323239383&zu=3632323838&v=2&gV=0&p=
+https://www.nationalgeographic.com/news/2015/08/150821-watermelon-fruit-history-agriculture/
+
 https://www.ancient.eu/amun/
 https://en.wikipedia.org/wiki/Lettuce#History
 https://en.wikipedia.org/wiki/Memphis,_Egypt
