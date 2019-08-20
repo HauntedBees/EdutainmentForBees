@@ -102,7 +102,7 @@ const boat = {
             gfx.DrawText(cursor[0], cursor[1] + 30, cursor[2] - textHandler.HUDfontSize * player.fontSize * 2.2, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize * 1.5);
             let nextText = "Current Location";
             const dist = boat.GetDistance(boat.currentPos, boat.nextPos);
-            if(boat.currentPos !== boat.nextPos) { nextText = dist + " days away"; }
+            if(boat.currentPos !== boat.nextPos) { nextText = dist + " day" + (dist === 1 ? "" : "s") + " away"; }
             seasonHandler.DrawSeasons(dist);
             gfx.DrawText(nextText, cursor[1] + 30, cursor[2], false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize);
             if(seasonHandler.IsInSeason(dist, boat.nextPos)) {
@@ -268,9 +268,9 @@ const boat = {
                 const dist = boat.GetDistance(boat.currentPos, boat.nextPos);
                 boat.daysTravelled = dist;
                 if(seasonHandler.IsInSeason(dist, boat.nextPos)) {
-                    textHandler.ShowText("", "goToPlace", dist, positions[boat.nextPos][0]);
+                    textHandler.ShowText("", "goToPlace", dist + " day" + (dist === 1 ? "" : "s"), positions[boat.nextPos][0]);
                 } else {
-                    textHandler.ShowText("", "goToPlaceNo", dist, positions[boat.nextPos][0]);
+                    textHandler.ShowText("", "goToPlaceNo", dist + " day" + (dist === 1 ? "" : "s"), positions[boat.nextPos][0]);
                 }
             }
         } else {
