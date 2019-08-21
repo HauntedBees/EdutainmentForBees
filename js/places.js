@@ -35,7 +35,8 @@ const maxX = {
     "Shedet": 3735,
     "Abdju": 6130,
     "Waset": 5790, // 6140
-    "Yabu": 5170
+    "Yabu": 5170,
+    "Napata": 3800
 };
 function AddTemple(arr, x, w) {
     arr.push({ x: x, id: "templeL" });
@@ -210,7 +211,24 @@ const places = {
         return res;
     }(), // Elephantine 
     //"Abu Simbel": [],  
-    "Napata": [], // https://en.wikipedia.org/wiki/Merymose
+    "Napata": function() {
+        const res = [
+            { x: 1700, id: "napataguard" },
+            { x: 1900, id: "date" },
+            { x: 2100, id: "pomegranate" },
+            { x: 2300, id: "napataman" },
+            { x: 2650, id: "oven" },
+            { x: 2850, id: "juicer" },
+            { x: 3050, id: "spreader" },
+            { x: 3250, id: "infuser" },
+            { x: 3500, id: "napatawoman" },
+            { x: 4200, id: "napatachild" }
+        ];
+        AddTemple(res, 2500, 3);
+        for(let x = 0; x < 8; x++) { res.push({ x: 700 + x * (96 + x), y: Math.floor(5 * Math.random()), id: x % 2 === 0 ? "chamomile" : "chrysanthemum" }); }
+        for(let x = 0; x < 6; x++) { res.push({ x: 3800 + x * (90 + x), y: Math.floor(5 * Math.random()), id: "papyrus" }); }
+        return res;
+    }(), // https://en.wikipedia.org/wiki/Merymose
     "Testbench": [
         { x: 700, id: "bluelotus" },
         { x: 800, id: "whitelotus" },

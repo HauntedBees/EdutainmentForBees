@@ -24,7 +24,8 @@ let player = {
         "Shedet": ["sobekAltar", "crocodil"],
         "Abdju": ["osirisAltar", "isisAltar", "slappy2"],
         "Waset": ["amunAltar", "mutAltar", "khonsuAltar"],
-        "Yabu": ["khnumAltar", "anuketAltar", "satisAltar"]
+        "Yabu": ["khnumAltar", "anuketAltar", "satisAltar"],
+        "Napata": ["napatawoman"]
     },
     ClearChievo: function(place, id) {
         player.clearedChievos.push(id);

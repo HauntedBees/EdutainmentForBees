@@ -247,6 +247,24 @@ const texts = {
     "clay": "Looks like a nice amount of clay is building up here by the shore. | ~clayGrab",
     "gotClay": "I grabbed 5 pieces of clay.",
     "noClay": "I think I've grabbed enough for now.",
+
+    // Regional - Napata
+    "merymose": "Greetings! I am Merymose, the Viceroy of Kush, serving under our pharaoh Amenhotep III! Welcome to Napata! | @What is Kush? | The Kingdom of Kush was a Nubian kingdom that conquered much of Egypt before the 18th Dynasty. | However, after Ahmose I reclaimed Egypt for the Egyptians and founded the 18th Dynasty, we conquered them right back! | Now this kingdom is a colony of Egypt that I'm in charge of, and I report directly to the pharaoh himself! | This city, Napata, was founded by Thutmose III around a hundred years ago, and is now the center of Kush! | I hope you enjoy your time here!", 
+    "napataman": "Hello, welcome to Napata. You're free to use any of our equipment here. | We have an oven that can make bread from grains, and a juicer that can turn fruits into juice. | The spreader can turn flax and papyrus into linen and parchment, and the oil infuser can make scented oils with flowers. | I hope they're helpful to you!",
+    "napatawoman": "Hello! You wouldn't by any chance happen to have any lettuce, would you? | @Lettuce? | It's, ahem, for my husband. It's said that lettuce is good for your, uh, stamina. | The god Min is said to eat lots of lettuce to give him energy. | @Isn't Min the god with the huge-- | The huge flail, yes, to emphasize his and the Pharaoh's authority. I want my husband to be more assertive like him. | So, do you have any lettuce? Ten heads would be great. | ?hornyWife",
+    "napatawomanb": "So, do you have ten heads of lettuce to spare? | ?hornyWife",
+    "napatawomanNo": "Well, if you change your mind, let me know.",
+    "napatawomanLack": "Oh, it looks like you don't have enough lettuce right now. If you get some, come back as soon as you can!",
+    "napatawomanGive": "Oh thank you! This will certainly help with my husband's stamina! So he can, uh, work harder. At his work job. | Here, take some gold as thanks! It's not much, but I need to show my appreciation somehow!",
+    "napatawoman2": "Hello~! So good to see you~! | Why am I in such a good mood, you ask? Oh, no reason~!",
+    "napatachild": "Woah, are you a beekeeper? You sure don't look like one, that's how I knew! | Bees are really important to the environment! | Sometimes when I'm out walking around, I look at flowers and see the bees flying around on them! | I don't understand it all yet, but it seems like those flowers really need bees to keep growing! | It sure would be unfortunate if bad things were to happen to bees in the future! | !It is indeed unfortunate. You should do what you can to help save the bees! | !You can donate to organizations dedicated to addressing bee population declines and climate change, or even start growing bee-friendly flowers in your yard to attract bees! | !Ask your parents if you can start your own flower garden, or talk to your teacher about having a local beekeeper come into class to show and tell! | !Maybe they'll even give the class some free honey!",
+    // Regional - Napata - Makers
+    "makerNeedMore": "I'll need at least @arg to make this.",
+    "makerSuccess": "I just turned @arg into @arg2!",
+    "makerWater": "I scooped up two jugs of water from the infuser's reservoir.",
+    "": "",
+    "": "",
+    "": "",
     "": "",
     "": ""
 };
@@ -437,6 +455,31 @@ const choices = {
             action: function() {
                 land.target.text = "goldboyB";
                 textHandler.MoveToNewText("goldboyNo");
+            }
+        }
+    ],
+    "?hornyWife": [
+        {
+            choice: "Give 10 lettuce.",
+            action: function() {
+                if(player.HasItem("lettuce", 10)) {
+                    player.RemoveItem("lettuce", 10);
+                    player.AddItem("gold", 5);
+                    textHandler.MoveToNewText("napatawomanGive");
+                    land.target.text = "napatawoman2";
+                    player.ClearChievo("Napata", "napatawoman");
+                    land.target.hasValue = false;
+                } else {
+                    land.target.text = "napatawomanb";
+                    textHandler.MoveToNewText("napatawomanLack");
+                }
+            }
+        },
+        {
+            choice: "Do not give lettuce.",
+            action: function() {
+                land.target.text = "napatawomanb";
+                textHandler.MoveToNewText("napatawomanNo");
             }
         }
     ]

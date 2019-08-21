@@ -48,18 +48,18 @@ const things = {
     // Taremu
     "fishboy": { type: "person", sprite: "peopleMisc", sx: 0, noDir: true, name: "Nenwef", text: "fishboy" },
     "shop1": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "fishshop" },
-    "shop2": { type: "person", sprite: "shopkeeps", sx: 2, dir: 0, name: "Tener", text: "breadgirl", textAlt: "breadgirlDone", hasValue: true, },
+    "shop2": { type: "person", sprite: "shopkeeps", sx: 2, dir: 0, name: "Tener", text: "breadgirl", textAlt: "breadgirlDone", hasValue: true },
     "slappy1": { type: "person", sprite: "slappy", anim: "slappy", dir: 0, name: "Ahmose", text: "fruitboy1" },
     // Memphis
     "student1": { type: "person", sprite: "peopleMisc", sx: 1, sy: 1, noDir: true, name: "Kawab", text: "student1" },
     "student2": { type: "person", sprite: "peopleMisc", sx: 2, sy: 1, noDir: true, name: "Neferhotep", text: "student2" },
     "teacher": { type: "person", sprite: "peopleMisc", sx: 0, sy: 2, dir: 0, name: "Bebi", text: "teacher" },
-    "biff": { type: "person", sprite: "pers2tiny", anim: "regular", dir: 1, name: "Amenken", text: "amenken1", textAlt: "amenken2", movement: "hume1", hasValue: true, },
+    "biff": { type: "person", sprite: "pers2tiny", anim: "regular", dir: 1, name: "Amenken", text: "amenken1", textAlt: "amenken2", movement: "hume1", hasValue: true },
     // Shedet
     "sobekpriest": { type: "person", sprite: "peopleMisc", sx: 2, sy: 2, dir: 0, name: "Huy", text: "sobekpriest" },
     "crocodil": { type: "bg", sprite: "crocodil", dir: 0 },
-    "crocodilI": { type: "person", sprite: "", name: "Crocodile", text: "crocodil", hasValue: true, },
-    "incenseVendor": { type: "person", sprite: "shopkeeps", sy: 1, dir: 0, name: "Senisonbe", text: "incenseshop", hasValue: true, },
+    "crocodilI": { type: "person", sprite: "", name: "Crocodile", text: "crocodil", hasValue: true },
+    "incenseVendor": { type: "person", sprite: "shopkeeps", sy: 1, dir: 0, name: "Senisonbe", text: "incenseshop", hasValue: true },
     "obelisk": { type: "observable", sprite: "obelisk", name: "Obelisk", text: "obelisk" }, 
     // Abdju
     "tomb": { type: "bg", sprite: "tomb", dir: 0 },
@@ -68,17 +68,30 @@ const things = {
     "tombQaa": { type: "observable", sprite: "tombGlyph", sx: 2, name: "Qa'a's Tomb", text: "tombQaa", y: -290 },
     "tombSemerkhet": { type: "observable", sprite: "tombGlyph", sx: 3, name: "Semerkhet's Tomb", text: "tombSemerkhet", y: -290 },
     "tombKa": { type: "observable", sprite: "tombGlyph", sx: 4, name: "Ka's Tomb", text: "tombKa", y: -290 },
-    "slappy2": { type: "person", sprite: "slappy2", anim: "slappy", dir: 0, name: "Ipy", text: "goldboy", hasValue: true, },
+    "slappy2": { type: "person", sprite: "slappy2", anim: "slappy", dir: 0, name: "Ipy", text: "goldboy", hasValue: true },
     // Waset
-    //"shop3": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Mahu", text: "fishSeller", hasValue: true, },
-    //"shop4": { type: "person", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0, name: "Parennefer", text: "something", hasValue: true, },
+    //"shop3": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Mahu", text: "fishSeller", hasValue: true },
+    //"shop4": { type: "person", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0, name: "Parennefer", text: "something", hasValue: true },
     "guard": { type: "person", sprite: "pers2", anim: "helpser", dir: 0, name: "Setka", text: "guardingPharaoh" },
     // Yabu
     "nilometer": { type: "observable", sprite: "nilometer", name: "Nilometer", text: "nilometer" },
     "cow": { type: "bg", sprite: "cow" },
-    "shop5": { type: "person", sprite: "shopkeeps", sx: 2, sy: 2, dir: 0, name: "Hentmereb", text: "milky", hasValue: true, },
+    "shop5": { type: "person", sprite: "shopkeeps", sx: 2, sy: 2, dir: 0, name: "Hentmereb", text: "milky", hasValue: true },
     "worker": { type: "person", sprite: "worker", noDir: true, name: "Kenamon", text: "worker" },
-    "clay": { type: "observable", sprite: "", name: "Clay Deposit", text: "clay", claysGrabbed: 0, hasValue: true, }, 
+    "clay": { type: "observable", sprite: "", name: "Clay Deposit", text: "clay", claysGrabbed: 0, hasValue: true }, 
+    // Napata
+    "napataguard": { type: "person", sprite: "pers2", anim: "regular", dir: 0, name: "Merymose", text: "merymose" },
+    "napataman": { type: "person", sprite: "peopleMisc", sx: 0, sy: 3, dir: 0, name: "Har", text: "napataman" },
+    "napatawoman": { type: "person", sprite: "peopleMisc", sx: 2, sy: 3, dir: 0, name: "Tabiry", text: "napatawoman", textAlt: "napatawoman2", hasValue: true },
+    "napatachild": { type: "person", sprite: "littlelad", anim: "regular", dir: 1, name: "Khaliut", text: "napatachild", movement: "hume1" },
+    "oven": { type: "maker", sprite: "altar", name: "Oven", sx: 0, sy: 1, text: "oven", hasValue: true, 
+        primary: "Make Wheat Bread", secondary: "Make Barley Bread" },
+    "juicer": { type: "maker", sprite: "altar", name: "Juicer", sx: 1, sy: 1, text: "juicer", hasValue: true, 
+        primary: "Make Pomegranate Juice", secondary: "Make Date Honey" },
+    "spreader": { type: "maker", sprite: "justabox", sx: 2, sy: 2, name: "Spreader", text: "spreader", hasValue: true, 
+        primary: "Make Linen", secondary: "Make Parchment" },
+    "infuser": { type: "maker", sprite: "altar", name: "Infuser", sx: 2, sy: 1, text: "infuser", hasValue: true, 
+        primary: "Make Scented Oil", secondary: "Collect Water" },
 
     /* --- SHOP STUFF --- */
     "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
