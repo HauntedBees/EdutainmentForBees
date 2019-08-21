@@ -1,7 +1,7 @@
 const optionsMenu = {
     lastHandler: null, selY: 0, animIdx: 0, horusFrame: 0, 
     changingControls: false, controlY: false, remappingState: -1, 
-    offStates: ["Off", "Off", "Off", "Off", "Still Off", "Still Off", "Still Off", "No, Seriously", "Cut It Out", "Off", "On - Just Kidding", "Off"], offIdx: 0, 
+    offStates: ["Off", "Off", "Off", "Still Off", "Still Off", "Still Off", "No, Seriously", "Cut It Out", "Off", "On - Just Kidding", "Off"], offIdx: 0, 
     Show: function() {
         optionsMenu.lastHandler = game.currentInputHandler;
         optionsMenu.animIdx = setInterval(optionsMenu.Animate, 60);
@@ -250,7 +250,7 @@ const optionsMenu = {
         } else if(optionsMenu.selY === 2) { // colorblind
             player.colorblind = !player.colorblind;
         } else if(optionsMenu.selY === 3) { // gameplay off
-            if(optionsMenu.offIdx < 11) { optionsMenu.offIdx++; }
+            if(optionsMenu.offIdx < 10) { optionsMenu.offIdx++; }
         } else if(optionsMenu.selY === 4) { // change controls
             optionsMenu.changingControls = true;
         }
