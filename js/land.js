@@ -88,19 +88,19 @@ const land = {
                     if(!land.flowering) {
                         textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnY, 1);
                     } else if(land.target.hasBees) {
-                        textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(Math.floor(land.target.beeTime)) + ")", 525, land.btnY, 1);
+                        textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(Math.floor(land.target.beeTime)) + ")", 525, land.btnY, 1, false, true);
                     } else {
-                        textHandler.DrawButton(true, "Release Bees (" + land.target.name + ")", 525, land.btnY, 1);
+                        textHandler.DrawButton(true, "Release Bees (" + land.target.name + ")", 525, land.btnY, 1, false, true);
                     }
                     break;
                 case "observable":
-                    textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnY, 1);
+                    textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnY, 1, false, land.target.hasValue);
                     break;
                 case "person":
-                    textHandler.DrawButton(true, "Talk (" + land.target.name + ")", 525, land.btnY, 1);
+                    textHandler.DrawButton(true, "Talk (" + land.target.name + ")", 525, land.btnY, 1, false, land.target.hasValue);
                     break;
                 case "boat":
-                    textHandler.DrawButton(true, "Board Ship", 525, land.btnY, 1);
+                    textHandler.DrawButton(true, "Board Ship", 525, land.btnY, 1, false, land.target.hasValue);
                     break;
             }
         }

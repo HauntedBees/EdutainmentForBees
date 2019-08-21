@@ -9,6 +9,7 @@ const GetPlaceEntities = function(place, modern) {
         const entity = GetCopy(obj.id, obj.x);
         if(player.clearedChievos.indexOf(obj.id) >= 0) {
             entity.text = entity.textAlt;
+            entity.hasValue = false;
             if(entity.sxAlt !== undefined) { entity.sx = entity.sxAlt; }
             if(entity.syAlt !== undefined) { entity.sy = entity.syAlt; }
         }

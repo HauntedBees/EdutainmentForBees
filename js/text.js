@@ -267,6 +267,7 @@ const choices = {
                         textHandler.MoveToNewText("offeringPleased", targ.name);
                         player.ClearChievo(land.currentLocation, targ.id);
                         targ.text = "offeringPleased";
+                        targ.hasValue = false;
                         if(targ.sxAlt !== undefined) { targ.sx = targ.sxAlt; }
                         if(targ.syAlt !== undefined) { targ.sy = targ.syAlt; }
                     } else {
@@ -278,6 +279,7 @@ const choices = {
                         textHandler.MoveToNewText("offeringPleased", targ.name);
                         player.ClearChievo(land.currentLocation, targ.id);
                         targ.text = "offeringPleased";
+                        targ.hasValue = false;
                         if(targ.sxAlt !== undefined) { targ.sx = targ.sxAlt; }
                         if(targ.syAlt !== undefined) { targ.sy = targ.syAlt; }
                     } else {
@@ -300,6 +302,7 @@ const choices = {
                     player.AddItem("bread", 4);
                     textHandler.MoveToNewText("breadgirlGive");
                     land.target.text = "breadgirlDone";
+                    land.target.hasValue = false;
                     player.ClearChievo("Taremu", "shop2");
                 } else {
                     land.target.text = "breadgirlB";
@@ -345,6 +348,7 @@ const choices = {
                     textHandler.MoveToNewText("amenkenGive");
                     land.target.text = "amenken2";
                     player.ClearChievo("Memphis", "biff");
+                    land.target.hasValue = false;
                 } else {
                     land.target.text = "amenken1b";
                     textHandler.MoveToNewText("amenkenLack");

@@ -53,7 +53,8 @@ const sheetInfo = {
     "tombGlyph": { w: 100, h: 140 },
     "nilometer": { w: 62, h: 343 },
     "cow": { w: 339, h: 277 },
-    "worker": { w: 218, h: 120 }
+    "worker": { w: 218, h: 120 },
+    "valuemark": { w: 100, h: 100 }
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers
 for(let i = 0; i <= 3; i++) { sheetInfo["bgM" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/classical-ruin-tiles-0

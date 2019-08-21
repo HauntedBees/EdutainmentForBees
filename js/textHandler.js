@@ -73,7 +73,7 @@ const textHandler = {
             }
         }
     },
-    DrawButton: function(primary, text, x, y, yShift, forceLeft) {
+    DrawButton: function(primary, text, x, y, yShift, forceLeft, addValueMarker) {
         yShift = yShift || 0;
 
         if(forceLeft !== true) {
@@ -88,6 +88,10 @@ const textHandler = {
         gfx.DrawSprite("buttons", info.sx, info.sy, x, myY, "menuA", player.fontSize, true);
         gfx.DrawText(info.text, x + (25 * player.fontSize), myY, true, "#FFFFFF", "menutext", textHandler.HUDfontSize * player.fontSize);
         gfx.DrawText(text, x + (55 * player.fontSize), myY, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize, true);
+
+        if(addValueMarker === true) {
+            gfx.DrawSprite("valuemark", 0, 0, x - 40, myY + 5, "menuA", player.fontSize * 0.4, true);
+        }
     },
     GetDisplayInfo: function(btn, full, forceGamepad) {
         btn = btn.toUpperCase();
