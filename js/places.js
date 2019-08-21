@@ -134,8 +134,6 @@ const places = {
         for(let x = 0; x < 8; x++) { res.push({ x: 5000 + x * (62 + x), y: Math.floor(5 * Math.random()), id: "chrysanthemum" }); }
         return res;
     }(),
-    //"Herakleopolis": [],  
-    //"Hermopolis": [],  
     "Abdju": function() {
         const res = [
             { x: 3800, id: "tomb" },
@@ -181,7 +179,6 @@ const places = {
         AddTemple(res, 6400, 3);
         return res;
     }(),
-    //"Kom Ombo": [],  
     "Yabu": function() {
         const res = [
             { x: 1000, id: "nilometer" },
@@ -210,7 +207,6 @@ const places = {
         for(let x = 0; x < 8; x++) { res.push({ x: 1200 + x * (80 + x), y: Math.floor(5 * Math.random()), id: "lettuce" }); }
         return res;
     }(), // Elephantine 
-    //"Abu Simbel": [],  
     "Napata": function() {
         const res = [
             { x: 1700, id: "napataguard" },

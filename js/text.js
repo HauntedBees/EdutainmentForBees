@@ -42,27 +42,15 @@ const texts = {
     "factShedet0": "The Greeks called Shedet \"Krokodilopolis\" due to the prominent cult of Sobek, the crocodile god.", 
     "factShedet1": "During the Roman occupation of Egypt, many mummy portraits were painted in Shedet. | These portraits were painted on boards attached to mummies, and depicted the faces of those who were mummified.", 
     "factShedet2": "Shedet is still a populated city today, now known as Faiyum. Many large bazaars, baths, and mosques can be found here.", 
-    /*"factHerakleopolis0": "Herakleopolis", 
-    "factHerakleopolis1": "", 
-    "factHerakleopolis2": "", 
-    "factHermopolis0": "Hermopolis", 
-    "factHermopolis1": "", 
-    "factHermopolis2": "", */
     "factAbdju0": "Abdju, or Abydos as it was called by the Greeks, is one of Ancient Egypt's oldest cities.", 
     "factAbdju1": "The memorial temple of Menmaatre Seti I - a pharaoh of the 19th Dynasty - is located in Abdju. | In his temple is the famous Abydos King List, which lists 76 Ancient Egyptian kings in order of their reign.", 
     "factAbdju2": "The Temple of Seti I in Abdju is the source of a conspiracy theory about helicopter hieroglyphs. | Some of the markings on the wall resemble helicopters or spaceships, but the reality is far less exciting. | Carved stones were re-used - the written stones were filled with plaster and re-carved into - and over time some of this plaster faded away. | Because of this, two hieroglyphs appeared on top of each other, leading to unexpected shapes. | As cool as it is to imagine ancient aliens giving the Ancient Egyptians their technology, the reality is that sometimes ancient civilizations are smart and good at doing things. | It's very important to remember that brilliant people were coming up with great ideas all around the world since the beginning of humanity, and that calling any amazing innovations from the past \"alien technology\" dismisses the real ingenuity of our ancestors.", 
     "factWaset0": "Waset", 
     "factWaset1": "", 
     "factWaset2": "", 
-    /*"factKom Ombo0": "Kom Ombo", 
-    "factKom Ombo1": "", 
-    "factKom Ombo2": "", */
     "factYabu0": "Yabu", 
     "factYabu1": "", 
     "factYabu2": "", 
-    /*"factAbu Simbel0": "Abu Simbel", 
-    "factAbu Simbel1": "", 
-    "factAbu Simbel2": "", */
     "factNapata0": "Napata", 
     "factNapata1": "", 
     "factNapata2": "", 
@@ -235,6 +223,11 @@ const texts = {
     // Regional - Waset
     "guardingPharaoh": "Halt! The pharaoh is not seeing visitors right now. | @But I've got some honey for him. I'm the beekeeper you-- | You? A beekeeper? You look nothing like a beekeeper, don't make me laugh! | If you wish to seek an audience with the pharaoh, you must prove that you are worthy. | @How can I do that? | I'll be listening to the gods for an answer. It might be wise to get on the good side of some of them if you want to see the pharaoh!", 
     "fishSeller": "hi i got fishies",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
+    "": "",
 
     // Regional - Yabu
     "nilometer": "Ah, a nilometer! These measure the water level of the Nile River. | Ancient Egyptians followed the three seasons - Akhet, Peret, and Shemu. | Akhet was the flooding season, where the Nile River would rise due to the annual monsoon in the Ethiopian Highlands. | Following that was Peret, the planting season, when farmers would plant their crops in the fertile land along the Nile. | Finally, Shemu was the harvesting season, when all the crops planted during Peret would be fully grown. | Nilometers were used to measure how much flooding occurred during Akhet, as the government would raise and lower taxes depending on the quality of the flood.",
@@ -261,12 +254,7 @@ const texts = {
     // Regional - Napata - Makers
     "makerNeedMore": "I'll need at least @arg to make this.",
     "makerSuccess": "I just turned @arg into @arg2!",
-    "makerWater": "I scooped up two jugs of water from the infuser's reservoir.",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
-    "": ""
+    "makerWater": "I scooped up two jugs of water from the infuser's reservoir."
 };
 
 const choices = {

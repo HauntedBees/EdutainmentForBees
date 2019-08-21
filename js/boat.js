@@ -1,18 +1,14 @@
 const positions = [ // name, x, y, distance from previous
-    ["Taremu", 495, 155, 2], // Taremu (Land of Fish) near Heliopolis  Leontopolis
+    ["Taremu", 495, 155, 2], // Taremu (Land of Fish), Leontopolis
     ["Memphis", 475, 180, 1], 
     ["Shedet", 445, 214, 2], // Crocodilopolis
-    //["Herakleopolis", 455, 245, 1], 
-    //["Hermopolis", 475, 285, 2], 
-    ["Abdju", 515, 325, 6], // Abydos (formerly 3)
-    ["Waset", 535, 360, 3], // Thebes
-    //["Kom Ombo", 545, 410, 3], // Nubt, also near Syene
-    ["Yabu", 535, 440, 4], // formerly 1
-    //["Abu Simbel", 485, 490, 4], 
-    ["Napata", 495, 650, 14] // formerly 10
+    ["Abdju", 515, 325, 6], // Abydos
+    ["Waset", 535, 360, 3], // Thebes (START)
+    ["Yabu", 535, 440, 4],
+    ["Napata", 495, 650, 14]
 ];
 const boat = {
-    animIdx: 0, freeMovement: true, yPos: 650, btnY: 350,//gameIdx: 0, 
+    animIdx: 0, freeMovement: true, yPos: 650, btnY: 350, 
     selectingLocation: true, currentPos: 4, nextPos: 4, waterIdx: 0, 
     inDialogue: false, inChoice: false, isRowing: false, 
     isSmoking: false, smonkAnim: null, honeyCache: [], daysTravelled: 0, 
