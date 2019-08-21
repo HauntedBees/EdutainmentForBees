@@ -138,6 +138,7 @@ const texts = {
     "satis": "Satis was a protective diety of the southern Egyptian border and was associated with the Nile's annual flooding. | She killed the enemies of the Pharoah with her arrows, and granted wishes to lovers due to her role as a fertility goddess. | It was said that she purified the bodies of deceased pharoahs with jars of sacred water from Elephantine.",
 
     // Crops
+    "harvest": "@I harvested @arg.",
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
             "!Some early English texts mentioned \"corn\" in Egypt, but back then, the word \"corn\" was just a word to describe any grain, like wheat.",
             "!Once Europeans travelled to the Americas and discovered maize, the word started referring just to that specific crop.",

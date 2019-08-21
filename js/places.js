@@ -173,8 +173,8 @@ const places = {
             { x: 3100, id: "mut" }, { x: 3100, id: "mutAltar" },
             { x: 6400, id: "guard" },
             { x: 6800, id: "amenhotep" },
-            { x: 1800, id: "boxFish" },
-            { x: 1900, id: "shop3" }
+            { x: 1800, id: "boxFish" }//,
+            //{ x: 1900, id: "shop3" }
         ];
         AddTemple(res, 2000, 5);
         AddTemple(res, 6400, 3);

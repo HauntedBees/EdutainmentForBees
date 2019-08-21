@@ -79,22 +79,27 @@ const land = {
         }
         land.target = land.DrawEntitiesAndGetTarget();
         if(land.target !== null && !land.cutscene.active) {
+            const dy = textHandler.HUDfontSize * player.fontSize * 2.5;
             switch(land.target.type) {
                 case "auto":
                     textHandler.ShowText(land.target.speaker, land.target.text);
                     land.target.type = "bg";
                     break;
                 case "beeable":
-                    if(!land.flowering) {
+                    if(!land.flowering || land.target.harvested === true) {
                         textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnY, 1);
                     } else if(land.target.hasBees) {
-                        textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(Math.floor(land.target.beeTime)) + ")", 525, land.btnY, 1, false, true);
+                        textHandler.DrawButton(true, "Collect Bees (" + textHandler.GetTimeString(Math.floor(land.target.beeTime)) + ")", 525, land.btnY, 1, false, land.target.beeTime >= 15);
                     } else {
                         textHandler.DrawButton(true, "Release Bees (" + land.target.name + ")", 525, land.btnY, 1, false, true);
+                        textHandler.DrawButton(false, "Harvest (" + land.target.name + ")", 555, land.btnY + dy, 1, false, true);
                     }
                     break;
                 case "observable":
                     textHandler.DrawButton(true, "Look (" + land.target.name + ")", 525, land.btnY, 1, false, land.target.hasValue);
+                    if(land.flowering && land.target.harvested !== true && land.target.harvestable === true) {
+                        textHandler.DrawButton(false, "Harvest (" + land.target.name + ")", 555, land.btnY + dy, 1, false, true);
+                    }
                     break;
                 case "person":
                     textHandler.DrawButton(true, "Talk (" + land.target.name + ")", 525, land.btnY, 1, false, land.target.hasValue);
@@ -113,15 +118,16 @@ const land = {
             if(e.anim !== undefined) {
                 gfx.DrawSprite2(e.sprite, e.anim.GetFrame(e.dir), e.x - land.playerX, land.GetYPos(e.x, e.y), "characters");
             } else if(e.sprite !== "") {
-                const sx = (!land.flowering && e.rawsx !== undefined) ? e.rawsx : ((e.sx !== undefined ? e.sx : 0) + (e.noDir === true ? 0 : (e.dir || 0)));
+                const sx = ((!land.flowering || e.harvested === true) && e.rawsx !== undefined) ? e.rawsx : ((e.sx !== undefined ? e.sx : 0) + (e.noDir === true ? 0 : (e.dir || 0)));
+                const sy = ((!land.flowering || e.harvested === true) && e.rawsy !== undefined) ? e.rawsy : (e.sy !== undefined ? e.sy : 0);
                 let layer = "characters";
                 if(e.foreground === true) { layer = "menuC" }
                 else if(e.background === true) { layer = "background2"; }
-                gfx.DrawSprite(e.sprite, sx, e.sy || 0, e.x - land.playerX,  land.GetYPos(e.x, e.y, e), layer);
+                gfx.DrawSprite(e.sprite, sx, sy, e.x - land.playerX, land.GetYPos(e.x, e.y, e), layer);
                 if(e.hasBees && e.bees !== undefined) {
                     for(let i = 0; i < e.bees.length; i++) {
                         const b = e.bees[i];
-                        gfx.DrawSprite("bee", 0, 0, e.x + b.x - land.playerX,  land.GetYPos(e.x, e.y) + b.y, e.foreground === true ? "menuC" : "characters", 0.5);
+                        gfx.DrawSprite("bee", 0, 0, e.x + b.x - land.playerX, land.GetYPos(e.x, e.y) + b.y, e.foreground === true ? "menuC" : "characters", 0.5);
                         switch(b.i) {
                             case 0: b.y--; break;
                             case 1: b.x++; break;
@@ -172,7 +178,7 @@ const land = {
         }
         if(land.cutscene.active || land.target === null) { return; }
         if(land.target.type === "beeable") {
-            if(!land.flowering) {
+            if(!land.flowering || land.target.harvested === true) {
                 gfx.ClearLayers(["menuA", "menutext"]);
                 land.DrawEntitiesAndGetTarget();
                 if(land.target.textRange) {
@@ -207,7 +213,7 @@ const land = {
                 } else {
                     textHandler.ShowText("", "nohives");
                 }
-            } else {
+            } else if(!land.target.harvested) {
                 if(player.HasItem("full beehive")) {
                     player.RemoveItem("full beehive");
                     player.AddItem("empty beehive");
@@ -267,6 +273,10 @@ const land = {
         if(land.inChoice) {
             textHandler.MakeChoice(false);
             return;
+        } else if(land.flowering && !land.target.hasBees && !land.target.harvested && land.target.harvestable && (land.target.type === "observable" || land.target.type === "beeable")) {
+            player.AddItem(land.target.id);
+            land.target.harvested = true;
+            textHandler.ShowText("", "harvest", land.target.name);
         }
     },
     keyPress: function(key) {

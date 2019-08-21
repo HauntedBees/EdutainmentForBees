@@ -149,7 +149,7 @@ const boat = {
                 } else if(boat.playerX <= 470) {
                     textHandler.DrawButton(true, "Check Storage", boat.playerX, boat.btnY, 1);
                 } else if(boat.playerX >= 620) {
-                    textHandler.DrawButton(true, "Smoke Hive", boat.playerX, boat.btnY, 1);
+                    textHandler.DrawButton(true, "Smoke Hive", boat.playerX, boat.btnY, 1, false, player.HasItem("incense") && boat.honeyCache.length > 0);
                 } else if(boat.playerX <= 590 && boat.playerX >= 520) {
                     textHandler.DrawButton(true, "Leave Ship", boat.playerX, boat.btnY, 1);
                 }

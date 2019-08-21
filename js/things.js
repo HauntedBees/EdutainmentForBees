@@ -10,24 +10,24 @@ const things = {
     "tutServant": { type: "person", sprite: "pers2", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },
 
     /* --- PLANTS --- */
-    "wheat": { type: "observable", sprite: "plants", sx: 3, rawsx: 1, name: "Wheat", textRange: 2 },
-    "barley": { type: "observable", sprite: "plants", sx: 4, rawsx: 0, name: "Barley", textRange: 1 },
-    "papyrus": { type: "observable", sprite: "plants", sx: 5, rawsx: 1, name: "Papyrus", textRange: 3 },
-    "lettuce": { type: "observable", sprite: "plantsSmall", rawsx: 0, rawsy: 0, sx: 0, sy: 1, name: "Lettuce", textRange: 2 },
+    "wheat": { type: "observable", sprite: "plants", sx: 3, rawsx: 1, name: "Wheat", textRange: 2, harvestable: true },
+    "barley": { type: "observable", sprite: "plants", sx: 4, rawsx: 0, name: "Barley", textRange: 1, harvestable: true },
+    "papyrus": { type: "observable", sprite: "plants", sx: 5, rawsx: 1, name: "Papyrus", textRange: 3, harvestable: true },
+    "lettuce": { type: "observable", sprite: "plantsSmall", rawsx: 0, rawsy: 0, sx: 0, sy: 1, name: "Lettuce", textRange: 2, harvestable: true },
 
-    "flax": { type: "beeable", sprite: "plants", sx: 1, rawsx: 0, sy: 1, name: "Flax", textRange: 2, beeY: -120 },
-    "date": { type: "beeable", sprite: "plantsBig", rawsx: 0, sx: 1, name: "Date Palm", textRange: 2, beeY: -280, beeRadius: 75 },
-    "pomegranate": { type: "beeable", sprite: "plantsBig", rawsx: 2, sx: 3, name: "Pomegranate Shrub", textRange: 2, beeY: -200, beeRadius: 50 },
-    "bluelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 1, name: "Blue Lotus", textRange: 2, foreground: true },
-    "whitelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 2, name: "White Lotus", textRange: 3, foreground: true },
-    "chamomile": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 5, name: "Chamomile", textRange: 1, beeY: -60 },
-    "chrysanthemum": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 4, name: "Crown Daisy", textRange: 1, foreground: true },
-    "melon": { type: "beeable", sprite: "plantsSmall", rawsx: 1, rawsy: 1, sx: 2, sy: 1, name: "Melon", textRange: 2, foreground: true },
+    "flax": { type: "beeable", sprite: "plants", sx: 1, rawsx: 0, sy: 1, name: "Flax", textRange: 2, beeY: -120, harvestable: true },
+    "date": { type: "beeable", sprite: "plantsBig", rawsx: 0, sx: 1, name: "Date Palm", textRange: 2, beeY: -280, beeRadius: 75, harvestable: true },
+    "pomegranate": { type: "beeable", sprite: "plantsBig", rawsx: 2, sx: 3, name: "Pomegranate Shrub", textRange: 2, beeY: -200, beeRadius: 50, harvestable: true },
+    "bluelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 1, name: "Blue Lotus", textRange: 2, foreground: true, harvestable: true },
+    "whitelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 2, name: "White Lotus", textRange: 3, foreground: true, harvestable: true },
+    "chamomile": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 5, name: "Chamomile", textRange: 1, beeY: -60, harvestable: true },
+    "chrysanthemum": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 4, name: "Crown Daisy", textRange: 1, foreground: true, harvestable: true },
+    "melon": { type: "beeable", sprite: "plantsSmall", rawsx: 1, rawsy: 1, sx: 2, sy: 1, name: "Melon", textRange: 2, foreground: true, harvestable: true },
     
-    "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1 }, // not yet used
-    "garlic": { type: "observable" }, // BAD FOR BEES!!! not yet used or drawn
-    "acacia": { type: "beeable" }, // not yet used or drawn
-    "onion": { type: "beeable" }, // not yet used or drawn
+    "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1, harvestable: true }, // not yet used
+    "garlic": { type: "observable", harvestable: true }, // BAD FOR BEES!!! not yet used or drawn
+    "acacia": { type: "beeable", harvestable: true }, // not yet used or drawn
+    "onion": { type: "beeable", harvestable: true }, // not yet used or drawn
 
     /* --- MISC --- */
     "puddle": { type: "bg", sprite: "puddle", foreground: true, y: 15 },
