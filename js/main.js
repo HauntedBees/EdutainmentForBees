@@ -6,10 +6,15 @@ const GetCopy = function(objKey, x) {
     return obj;
 }
 const game = {
-    numSaveSlots: 10, w: 1024, h: 896, tilew: 16, tileh: 14,
+    numSaveSlots: 10, w: 1024, h: 896, tilew: 16, tileh: 14, ldiv: null, 
     currentInputHandler: null, target: null, language: "en-us",
     canvasLayers: ["background", "background2", "characters", "foreground", "menuA", "menuB", "menuC", "menutext", "paintbaby"], 
+    SetLoadingText: function(t) {
+        game.ldiv.innerText = t;
+    },
     fullInit: function() {
+        game.ldiv = document.getElementById("loadingDiv");
+        game.SetLoadingText("Setting up canvases.")
         let canvasObj = {};
         for(let i = 0; i < game.canvasLayers.length; i++) {
             const name = game.canvasLayers[i];
@@ -19,7 +24,6 @@ const game = {
         for(const key in canvasObj) {
             contextObj[key] = canvasObj[key].getContext("2d");
         }
-        
         game.init(canvasObj, contextObj, game.w, game.h, 16, 14);
     },
     init: function(canvasObj, ctxObj, width, height, tilewidth, tileheight) {
@@ -29,6 +33,7 @@ const game = {
         gfx.canvasHeight = height;
         gfx.tileWidth = tilewidth;
         gfx.tileHeight = tileheight;
+        game.SetLoadingText("Loading art assets.");
         gfx.LoadSpriteSheets("img", sheetInfo, this.sheetsLoaded);
     },
 
@@ -63,12 +68,27 @@ const game = {
     },
     incrementTime: () => player.playTime++,
     sheetsLoaded: function() {
+        game.SetLoadingText("Initializing Listeners.");
         game.initListeners();
-        game.currentInputHandler = land;
-        game.currentInputHandler.Setup("Memphis", true);
+        game.SetLoadingText("> New Game <");
+        game.currentInputHandler = titleScreen;
+        //game.currentInputHandler = land;
+        //game.currentInputHandler.Setup("Waset", true);
         //game.currentInputHandler.Setup("Testbench", true);
-        //game.currentInputHandler.Setup("CutsceneThebes");
+        //game.currentInputHandler.Setup("CutsceneWaset");
         //game.currentInputHandler.Setup("ModernCoffin");
+    }
+};
+
+const titleScreen = {
+    mouseMove: function() { },
+    click: function() { titleScreen.NewGame(); },
+    rightclick: function() { titleScreen.NewGame(); },
+    keyPress: function() { titleScreen.NewGame(); },
+    NewGame: function() {
+        game.SetLoadingText("Here we go...!");
+        game.currentInputHandler = land;
+        game.currentInputHandler.Setup("Waset", true);
     }
 };
 

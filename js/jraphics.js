@@ -95,6 +95,7 @@ const gfx = {
                 img.onload = function() {
                     gfx.spritesheets[path] = this;
                     count += 1;
+                    game.SetLoadingText("Loading art assets (" + count + "/" + plen + ").");
                     if(count === len) { callback(); }
                 };
                 img.src = `${source}/${path}.png`;
