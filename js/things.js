@@ -33,6 +33,7 @@ const things = {
     "puddle": { type: "bg", sprite: "puddle", foreground: true, y: 15 },
     "templeL": { type: "bg", sprite: "templeStairL", background: true },
     "templeM": { type: "bg", sprite: "templeWall", background: true, isTemple: true },
+    "templeBR": { type: "bg", sprite: "templeIncomplete", background: true, isTemple: true },
     "templeR": { type: "bg", sprite: "templeStairR", background: true },
 
     /* --- CATS --- */
@@ -71,9 +72,13 @@ const things = {
     // Waset
     "shop3": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Mahu", text: "fishSeller" },
     "shop4": { type: "person", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0, name: "Parennefer", text: "something" },
-    "shop5": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Hentmereb", text: "something" },
     "guard": { type: "person", sprite: "pers2", anim: "helpser", dir: 0, name: "Setka", text: "guardingPharaoh" },
-
+    // Yabu
+    "nilometer": { type: "observable", sprite: "nilometer", name: "Nilometer", text: "nilometer" },
+    "cow": { type: "bg", sprite: "cow" },
+    "shop5": { type: "person", sprite: "shopkeeps", sx: 2, sy: 2, dir: 0, name: "Hentmereb", text: "milky" },
+    "worker": { type: "person", sprite: "worker", noDir: true, name: "Kenamon", text: "worker" },
+    "clay": { type: "observable", sprite: "", name: "Clay Deposit", text: "clay", claysGrabbed: 0 }, 
 
     /* --- SHOP STUFF --- */
     "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
@@ -118,13 +123,13 @@ const things = {
                         isGod: true, pronoun: "his", want: "honey", honeyType: "any", wantDisplay: "combs of honey", amount: 20, sxAlt: 3 },
     "khnum": { type: "bg", sprite: "peopleMiscBig", sx: 2, sy: 1, y: -200 },
     "khnumAltar": { type: "observable", sprite: "altar", name: "Khnum", text: "khnum", textAlt: "offeringPleased",
-                        isGod: true, pronoun: "his", want: "TODO", amount: 5, wantDisplay: "TODO", sxAlt: 2 },
+                        isGod: true, pronoun: "his", want: "clay", amount: 5, wantDisplay: "slabs of clay", sxAlt: 1 },
     "anuket": { type: "bg", sprite: "peopleMiscBig", sx: 3, sy: 1, y: -200 },
     "anuketAltar": { type: "observable", sprite: "altar", name: "Anuket", text: "anuket", textAlt: "offeringPleased",
-                        isGod: true, pronoun: "her", want: "TODO", amount: 10, wantDisplay: "TODO", sxAlt: 1 },
+                        isGod: true, pronoun: "her", want: "gold", amount: 10, sxAlt: 5 },
     "satis": { type: "bg", sprite: "peopleMiscBig", sx: 0, sy: 2, y: -200 },
     "satisAltar": { type: "observable", sprite: "altar", name: "Satis", text: "satis", textAlt: "offeringPleased",
-                        isGod: true, pronoun: "her", want: "TODO", honeyType: "TODO", wantDisplay: "TODO", amount: 20, sxAlt: 3 }
+                        isGod: true, pronoun: "her", want: "water", wantDisplay: "jugs of water", amount: 10, sxAlt: 2 }
 };
 
 const movements = {

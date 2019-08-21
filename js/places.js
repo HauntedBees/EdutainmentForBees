@@ -33,7 +33,8 @@ const maxX = {
     "Memphis": 5180,
     "Shedet": 3735,
     "Abdju": 6130,
-    "Waset": 5790 // 6140
+    "Waset": 5790, // 6140
+    "Yabu": 5170
 };
 function AddTemple(arr, x, w) {
     arr.push({ x: x, id: "templeL" });
@@ -181,15 +182,30 @@ const places = {
     //"Kom Ombo": [],  
     "Yabu": function() {
         const res = [
-            { x: 5500, id: "puddle" },
-            { x: 5600, id: "puddle" },
+            { x: 1000, id: "nilometer" },
+            { x: 2100, id: "cow" },
+            { x: 2250, id: "shop5" },
+            { x: 2350, id: "boxMilk" },
+            { x: 3220, id: "satis" }, { x: 3220, id: "satisAltar" },
+            { x: 3620, id: "khnum" }, { x: 3620, id: "khnumAltar" },
+            { x: 4020, id: "anuket" }, { x: 4020, id: "anuketAltar" },
+            { x: 5000, id: "templeL" },
+            { x: 5177, id: "templeBR" },
+            { x: 5200, id: "worker" },
+            { x: 5600, id: "clay" },
+            { x: 5900, id: "puddle" },
+            { x: 6000, id: "puddle" },
             { x: 5800, id: "puddle" },
-            { x: 5650, id: "puddle" },
-            { x: 5550, id: "puddle" },
+            { x: 6050, id: "puddle" },
+            { x: 5950, id: "puddle" },
             { x: 5700, id: "puddle" },
             { x: 5750, id: "puddle" },
+            { x: 6100, id: "puddle" },
+            { x: 6150, id: "puddle" },
             { x: 5850, id: "puddle" }
         ];
+        AddTemple(res, 3000, 4);
+        for(let x = 0; x < 8; x++) { res.push({ x: 1200 + x * (80 + x), y: Math.floor(5 * Math.random()), id: "lettuce" }); }
         return res;
     }(), // Elephantine 
     //"Abu Simbel": [],  

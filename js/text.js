@@ -133,9 +133,9 @@ const texts = {
     "amun": "Amun was the patron deity of Thebes, after replacing its former deity Montu - the falcon god of war. | In the 16th century BC he fused with the sun god Ra and became Amun-Ra. | As Amun-Ra he became the King of Gods and, with Osiris, became the most well known Egyptian god. | As a champion of the poor, he rose in prominence as Thebes became the capital of Egypt. | His Greek equivalent was Zeus, the Greek god of thunder and the king of gods on Mount Olympus.", 
     "mut": "The Ancient Egyptian word for mother was also the name of the mother goddess Mut. | Along with her husband Amun and her son Khonsu, they formed the triad of Thebes - or Waset as the city was known in Egyptian. | Prior to the rise of the New Kingdom, Amun's wives were the goddesses Amaunet and Wosret, but they were displaced by Mut. | The Pharaoh and priestesse would perform daily rituals to Mut, as she grew to be the most important goddess in Egypt.", 
     "khonsu": "Khonsu, son of Amun and Mut, was the god of the moon who watched over those who traveled at night. | In one of Ancient Egypt's creation myths, Khonsu was the great snake that fertilized the Cosmic Egg to create the world. | He was known as a great healer, a reputation that spread outside of Egypt.", 
-    "khnum": "",
-    "anuket": "",
-    "satis": "",
+    "khnum": "Khnum was the ram-headed god who was believed to be the source of the Nile River. | It was also believed that he created the bodies of human children out of clay at his pottery wheel, which he then inserted into mothers' wombs. | The \"Divine Potter\" had his cult centered on the island of Elephantine - or Yabu - which he shared with Anuket and Satis.",
+    "anuket": "Anuket was the goddess of Lower Nubia and the cataracts of the Nile. | Cataracts were shallow parts of the Nile River with many small rocks and boulders sticking out of the water. | During the start of the flooding season, Egyptians would celebrate the Festival of Anuket. | During this festival, people would throw their gold and precious items into the Nile to thank Anuket for the water and the crops that resulted from the fresh soil.",
+    "satis": "Satis was a protective diety of the southern Egyptian border and was associated with the Nile's annual flooding. | She killed the enemies of the Pharoah with her arrows, and granted wishes to lovers due to her role as a fertility goddess. | It was said that she purified the bodies of deceased pharoahs with jars of sacred water from Elephantine.",
 
     // Crops
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
@@ -236,10 +236,16 @@ const texts = {
     "fishSeller": "hi i got fishies",
 
     // Regional - Yabu
-    "": "",
-    "": "",
-    "": "",
-    "": "",
+    "nilometer": "Ah, a nilometer! These measure the water level of the Nile River. | Ancient Egyptians followed the three seasons - Akhet, Peret, and Shemu. | Akhet was the flooding season, where the Nile River would rise due to the annual monsoon in the Ethiopian Highlands. | Following that was Peret, the planting season, when farmers would plant their crops in the fertile land along the Nile. | Finally, Shemu was the harvesting season, when all the crops planted during Peret would be fully grown. | Nilometers were used to measure how much flooding occurred during Akhet, as the government would raise and lower taxes depending on the quality of the flood.",
+    "milky": "Have milk? | @What? | Sorry, I was trying out a new marketing pitch. I'm selling milk, is what I meant. | Three bottles of milk for two bottles of honey. It's a steal, probably. | ?milky",
+    "milkyb": "You got two honey jars? I got three milk jars. That's business, babe. Whattaya say? | ?milky",
+    "milkyBuy": "Thanks much! Enjoy the milk!",
+    "milkyLack": "Nice jugs! That's what I'd say if you actually had two jugs of honey, which you don't. | Come back when you have the honey and I'll give you some milk.",
+    "milkyNo": "No milk? Your loss. It's good for you, probably. Depending on who you ask. And depending on who paid them.",
+    "worker": "I'm in charge of building a temple to Amenhotep III, our pharaoh. | Temples are made of stone, and there's a quarry not far from here, so this is a good place to build one. | There's also a clay deposit in the water here, which people can use to make little statues for offerings.",
+    "clay": "Looks like a nice amount of clay is building up here by the shore. | ~clayGrab",
+    "gotClay": "I grabbed 5 pieces of clay.",
+    "noClay": "I think I've grabbed enough for now.",
     "": "",
     "": ""
 };
@@ -373,6 +379,29 @@ const choices = {
             action: function() {
                 land.target.text = "incenseshopb";
                 textHandler.MoveToNewText("incenseshopNo");
+            }
+        }
+    ],
+    "?milky": [
+        {
+            choice: "Buy 3 milk for 2 honey.",
+            action: function() {
+                if(player.HasItem("honey", 2)) {
+                    player.RemoveHoney("any", 0, 2);
+                    player.AddItem("milk", 3);
+                    textHandler.MoveToNewText("milkyBuy");
+                    land.target.text = "milkyb";
+                } else {
+                    land.target.text = "milkyb";
+                    textHandler.MoveToNewText("milkyLack");
+                }
+            }
+        },
+        {
+            choice: "Don't buy milk.",
+            action: function() {
+                land.target.text = "milkyb";
+                textHandler.MoveToNewText("milkyNo");
             }
         }
     ],
@@ -659,5 +688,13 @@ const cutscenes = {
                 }
             }
         };
+    },
+    "~clayGrab": function() {
+        if(land.target.claysGrabbed++ > 5) {
+            textHandler.MoveToNewText("noClay");
+        } else {
+            player.AddItem("clay", 5);
+            textHandler.MoveToNewText("gotClay");
+        }
     }
 };

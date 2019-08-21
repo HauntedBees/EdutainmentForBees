@@ -82,6 +82,8 @@ https://www.aldokkan.com/geography/fayum.htm
 https://fayoumegypt.com/obelisk-of-senusret-i/
 https://en.wikipedia.org/wiki/Abydos,_Egypt
 https://www.britannica.com/topic/Osiris-Egyptian-god
+https://en.wikipedia.org/wiki/Khnum
+https://en.wikipedia.org/wiki/Anuket
 
 https://en.wikipedia.org/wiki/Umm_El_Qa%27ab
 http://www.touregypt.net/featurestories/khasekhem.htm
