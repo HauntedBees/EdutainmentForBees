@@ -1,10 +1,12 @@
 const optionsMenu = {
     lastHandler: null, selY: 0, animIdx: 0, horusFrame: 0, 
     changingControls: false, controlY: false, remappingState: -1, 
+    offStates: ["Off", "Off", "Off", "Off", "Still Off", "Still Off", "Still Off", "No, Seriously", "Cut It Out", "Off", "On - Just Kidding", "Off"], offIdx: 0, 
     Show: function() {
         optionsMenu.lastHandler = game.currentInputHandler;
         optionsMenu.animIdx = setInterval(optionsMenu.Animate, 60);
         optionsMenu.selY = 0;
+        optionsMenu.offIdx = 0;
         optionsMenu.controlY = false;
         optionsMenu.changingControls = false;
         optionsMenu.remappingState = -1;
@@ -53,11 +55,12 @@ const optionsMenu = {
                 gfx.DrawSprite("horus", sx, sy, 862, 360, "menuA", 0.5);
             }
         } else {
-            let y = 250;
+            let y = 230;
             switch(optionsMenu.selY) {
-                case 1: y = 470; break;
-                case 2: y = 650; break;
-                case 3: y = 800; break;
+                case 1: y = 370; break;
+                case 2: y = 550; break;
+                case 3: y = 650; break;
+                case 4: y = 800; break;
             }
             gfx.DrawSprite("horus", sx, sy, 150, y, "menuA", 1);
             gfx.DrawSprite("horus", sx, sy, 874, y, "menuA", 1);
@@ -145,15 +148,17 @@ const optionsMenu = {
                 }
             }
         } else {
-            const headerFontSize = 50 * player.fontSize;
-            const optionFontSize = 40 * player.fontSize;
+            const headerFontSize = 40 * player.fontSize;
+            const optionFontSize = 30 * player.fontSize;
             gfx.DrawText("Options", 512, -20 * (player.fontSize * player.fontSize / 2), true, "#000000", "menutext", 60 * player.fontSize);
             gfx.DrawText("Font", 512, 100, true, "#000000", "menutext", headerFontSize);
-            gfx.DrawText(gfx.GetFont(), 512, 200, true, "#000000", "menutext", optionFontSize);
-            gfx.DrawText("Font Size", 512, 300, true, "#000000", "menutext", headerFontSize);
-            gfx.DrawText(player.fontSize + "x", 512, 400, true, "#000000", "menutext", optionFontSize);
-            gfx.DrawText("Colorblind", 512, 500, true, "#000000", "menutext", headerFontSize);
-            gfx.DrawText(player.colorblind ? "Yes" : "No", 512, 600, true, "#000000", "menutext", optionFontSize);
+            gfx.DrawText(gfx.GetFont(), 512, 175, true, "#000000", "menutext", optionFontSize);
+            gfx.DrawText("Font Size", 512, 250, true, "#000000", "menutext", headerFontSize);
+            gfx.DrawText(player.fontSize + "x", 512, 325, true, "#000000", "menutext", optionFontSize);
+            gfx.DrawText("Colorblind", 512, 400, true, "#000000", "menutext", headerFontSize);
+            gfx.DrawText(player.colorblind ? "Yes" : "No", 512, 475, true, "#000000", "menutext", optionFontSize);
+            gfx.DrawText("Gameplay", 512, 550, true, "#000000", "menutext", headerFontSize);
+            gfx.DrawText(optionsMenu.offStates[optionsMenu.offIdx], 512, 625, true, "#000000", "menutext", optionFontSize);
             gfx.DrawText("Change Controls", 512, 700, true, "#000000", "menutext", headerFontSize);
         }
     },
@@ -244,7 +249,9 @@ const optionsMenu = {
             }
         } else if(optionsMenu.selY === 2) { // colorblind
             player.colorblind = !player.colorblind;
-        } else if(optionsMenu.selY === 3) { // change controls
+        } else if(optionsMenu.selY === 3) { // gameplay off
+            if(optionsMenu.offIdx < 11) { optionsMenu.offIdx++; }
+        } else if(optionsMenu.selY === 4) { // change controls
             optionsMenu.changingControls = true;
         }
         optionsMenu.Draw();
@@ -271,7 +278,7 @@ const optionsMenu = {
         }
         if(key === player.controls.down) {
             if(optionsMenu.changingControls) { optionsMenu.controlY = !optionsMenu.controlY; }
-            else if(optionsMenu.selY < 3) { optionsMenu.selY++; }
+            else if(optionsMenu.selY < 4) { optionsMenu.selY++; }
         } else if(key === player.controls.up) {
             if(optionsMenu.changingControls) { optionsMenu.controlY = !optionsMenu.controlY; }
             else if(optionsMenu.selY > 0) { optionsMenu.selY--; }
