@@ -21,6 +21,8 @@ Development started on August 9, 2019. Development will end on or before August 
 
 **smoke.png** is modified from [Smoke Aura](https://opengameart.org/content/smoke-aura) by [Beast](https://opengameart.org/users/beast), which is licensed under the [CC0 Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/).
 
+**title.png** includes [Egyptian Pyramids](https://commons.wikimedia.org/wiki/File:Henry_A._Bacon_-_%27Egyptian_Pyramids%27,_watercolor_over_graphite,_1897.jpg) by Henry Bacon, which is in the Public Domain in the United States of America.
+
 The font [**Mariana**](https://www.fontspace.com/mariano-mart%C3%ADnez-vila/mariana) by [Mariano Martínez Vila](https://www.fontspace.com/mariano-mart%C3%ADnez-vila) is licensed under the Public Domain.
 
 The font [**OpenDyslexic**](https://opendyslexic.org/) by [Abbie Gonzalez](https://gumroad.com/antijingoist) is licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
