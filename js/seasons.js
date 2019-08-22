@@ -45,5 +45,11 @@ const seasonHandler = {
             if(d < meRadius) { return true; }
         }
         return false;
+    },
+    Advance: function(numDays) {
+        for(let i = 0; i < seasonHandler.seasonBlobs.length; i++) {
+            const me = seasonHandler.seasonBlobs[i];
+            me.spot = (me.spot + Math.floor(numDays / me.speed)) % positions.length;
+        }
     }
 };

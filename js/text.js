@@ -1,5 +1,5 @@
 const texts = {
-    // Opening Cutscene
+    /* #region Opening */
     "intro0": "I can't believe I've discovered a new Ancient Egyptian tomb! | I should probably go tell the others, but it wouldn't hurt if I explored on my own a little bit first, right?",
     "intro1": "Judging from the condition of the tomb and the design, this seems like a tomb from the New Kingdom. | The New Kingdom lasted almost 500 years and spanned three dynasties. | The famous pharaoh Tutankhamun reigned during the 18th dynasty, and his tomb was rediscovered back in 1922!", 
     "intro2": "Oh! What's that up ahead?",
@@ -31,7 +31,8 @@ const texts = {
         "But, you're a real beekeeper, so you knew all of that, of course. Right? | @Absolutely. One hundred percent. | What is a \"percent?\" | @Uh, it's a beekeeper thing. You wouldn't understand. | Ah, of course! Well, everything is ready here for you now, so I'll be off.",
         "The plants aren't flowering here in Waset yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very for your help. | ~start8"
     ].join(" | "),
-
+    /* #endregion */
+    /* #region Fun Facts */
     // Specific Place Fun Facts
     "factTaremu0": "Taremu got its Greek name (Leontopolis, the city of lions) due to its temples dedicated to the lion gods Bastet, Sekhmet, and Maahes.", 
     "factTaremu1": "During the twenty-third Dynasty, Taremu was a district capital of Lower Egypt.", 
@@ -85,15 +86,15 @@ const texts = {
     "factMisc27": "1", 
     "factMisc28": "2", 
     "factMisc29": "3", 
-
-    // Pollinating plants
+    /* #endregion */
+    /* #region Pollination */
     "nobees": "I don't have any bees with me right now.",
     "nohives": "I don't have any empty beehives with me right now. I'll need to empty one of my full ones out, or trade for a new one.",
     "beelease": "I have released the bees on this @arg. I can come back later to collect them. The longer they're here, the more nectar they'll collect!",
     "beesTooSoon": "The bees are back in their hive, but they didn't have enough time to collect any nectar!",
     "beesCollected": "The bees are back in their hive, and they got some nectar, too!",
-
-    // Cats
+    /* #endregion */
+    /* #region Cats */
     "cat0": "Mao.",
     "cat1": "Muwaaaoo.",
     "cat2": "Mew mew mew. Meaow.",
@@ -105,8 +106,8 @@ const texts = {
     "cat8": "Myaoooo!",
     "cat9": "Snff-chu! Chu! Chu! Chu! Chu! Chu! | @She keeps sneezing. Poor kitty. | Chu! Chu! Snff! Meu?",
     "dog": "Bark bark! | @Wait... bark? | Yeah, I barked. What're you gonna do about it? Nobody will believe you! | @Did you just TALK!? | Mew?",
-
-    // Gods
+    /* #endregion */
+    /* #region Gods */
     "offering": "A feeling in my gut tells me to offer @arg to @arg2 altar. | ?offer", // arg = thing, arg2 = pronoun
     "offeringNotToday": "I can always offer some other time.",
     "offeringNotEnough": "I don't have enough to offer right now... I should come back later.",
@@ -124,8 +125,8 @@ const texts = {
     "khnum": "Khnum was the ram-headed god who was believed to be the source of the Nile River. | It was also believed that he created the bodies of human children out of clay at his pottery wheel, which he then inserted into mothers' wombs. | The \"Divine Potter\" had his cult centered on the island of Elephantine - or Yabu - which he shared with Anuket and Satis.",
     "anuket": "Anuket was the goddess of Lower Nubia and the cataracts of the Nile. | Cataracts were shallow parts of the Nile River with many small rocks and boulders sticking out of the water. | During the start of the flooding season, Egyptians would celebrate the Festival of Anuket. | During this festival, people would throw their gold and precious items into the Nile to thank Anuket for the water and the crops that resulted from the fresh soil.",
     "satis": "Satis was a protective diety of the southern Egyptian border and was associated with the Nile's annual flooding. | She killed the enemies of the Pharoah with her arrows, and granted wishes to lovers due to her role as a fertility goddess. | It was said that she purified the bodies of deceased pharoahs with jars of sacred water from Elephantine.",
-
-    // Crops
+    /* #endregion */
+    /* #region Crops */
     "harvest": "@I harvested @arg.",
     "corn0": ["Corn in Ancient Egypt? That doesn't sound right. | !Corn, or maize, was first domesticated in Mexico over 6000 years ago.", 
             "!Some early English texts mentioned \"corn\" in Egypt, but back then, the word \"corn\" was just a word to describe any grain, like wheat.",
@@ -159,20 +160,19 @@ const texts = {
     "lettuce1": "Lettuce was offered to Min, the god of fertility. It was considered an aphrodisiac to help people reproduce.",  
     "melon0": "In Ancient Egypt, it was said that melons grew from the seeds of the chaos god Set, who spilled them while chasing Isis.", 
     "melon1": "Watermelons became popular in Ancient Egypt due to their water content. Melons can stay fresh for weeks or months if kept in a well shaded area.",
-
-    // Travelling
+    /* #endregion */
+    /* #region Travelling */
     "goToPlace": "It will take @arg to sail to @arg2, giving your bees plenty of time to produce honey. | ?sail",
     "goToPlaceNo": "It will take @arg to sail to @arg2, giving your bees plenty of time to produce honey, but the plants there will not be flowering when you arrive. | ?sail",
-
-    // Beehives
+    /* #endregion */
+    /* #region Beehives */
     "noIncense": "I don't have any incense. If I just reach into a beehive now, I'll get a lot of nasty stings! | But if I light some incense, the smoke will calm the bees enough for me to get the honeycombs! | I should find someone who will give me some incense in a trade.", 
     "noHoney": "The bees have not produced any honey yet. | Once bees have collected nectar from flowers by licking it up and storing it in a special stomach, they fly back to their hives and pass the nectar to another bee. | They will repeatedly pass the nectar from bee to bee until the partially digested nectar is ready to be stored in the honeycomb. After the nectar's chemical makeup has changed and it is stored in the honeycomb, bees will flap their wings like fans to help the water in the nectar evaporate. | After most of the water has evaporated, a bee will plug up the honeycomb with some liquid from their abdomen, which will harden into beeswax. | After that, the honeycomb can be opened to reveal the honey inside! | I should sail somewhere and give the bees some time to convert the nectar into honey.", 
     "noNectar": "The bees have not collected any nectar yet. | Bees help pollinate plants when they fly from flower to flower collecting nectar. As they're lapping up nectar, pollen from the flower sticks to them. | Flower pollen contains male gametes, which can fertilize other flowers when bees land on them. | Once a flower's ovule has been fertilized by a bee with pollen on it, seeds can be formed, so the plant can reproduce. | I should release some bees around some plants so they can collect some nectar.", 
     "smonk": "Bee-autiful! I collected enough honeycomb to get me @arg jars of honey and @arg2 beeswax!",
-
-    // Regional - Taremu
+    /* #endregion */
+    /* #region Taremu */
     "fishboy": "Taremu is the land of fish, but some foreigners call it the city of lions, because of our temples to the lion goddesses. | But why do you think the goddesses like this city in the first place? Because of all the fish we got here, ya dingdong! | The lions came to the fish, not the other way around, obviously!",
-    "fishshop": "There are a lot of cats here - we even have lions in the temple sometimes - so fishing is popular here. | People will buy fish for themselves, or to give to the cats as gifts or offerings. | We consider cats very important - they kill dangerous snakes and protect our Pharaohs.",
     "fruitboy1": "Fruit! Get your fruit here! We got pomegranates, we got melons, we got dates, figs, grapes, olives, plums! | I even have apples - those fruits the Hyksos brought with them! | What, you don't know the Hyksos? Back in the day, they invaded and started the Fifteenth Dynasty! | We're still not entirely sure where they came from, though. | Eventually Ahmose I, the first ruler of the Eighteenth Dynasty, drove off the last Hyksos pharoah and brought Egypt back under Egyptian control! | Being conquered must have sucked, but the Hyksos left a lot of great stuff behind, like new bronze-working techniques, horses, stronger bows and battle axes, and, of course, apples! | Don't ask why a random fruit merchant knows all this, I'm just trying to sell these apples, lady!",
     "breadgirl": "You know what goes great with fish? Bread. You know what goes great with anything, actually? Bread. | Wait, are you a beekeeper? I can tell from how you look nothing like a beekeeper. | I'm trying to bake some more honey bread, but I'm fresh out of honey. Do you think you could spare a few jars? | ?breadLady",
     "breadgirlGive": "Great! This much honey will last me quite a while! | Thank you, here's some wheat and a few loaves of bread!", 
@@ -180,8 +180,13 @@ const texts = {
     "breadgirlB": "Hello again, beekeeper. Can you spare a few jars of honey? | ?breadLady", 
     "breadgirlNo": "Darn. I guess I'll have to find some honey elsewhere.", 
     "breadgirlLack": "Your generosity is appreciated, but you can't give me honey you don't have. | If you get four jars of honey, come back later and I'll gladly take them off your hands!",
-    
-    // Regional - Memphis
+    "fishshop": "There are a lot of cats here - we even have lions in the temple sometimes - so fishing is popular here. | People will buy fish for themselves, or to give to the cats as gifts or offerings. | We consider cats very important - they kill dangerous snakes and protect our Pharaohs. | Anyway, want some fish? Five gold for two! | ?fishshop",
+    "fishshopb": "Want some fish? Two fish for five gold! | ?fishshop",
+    "fishshopLack": "Sorry, looks like you don't have enough gold! | You're a beekeeper, right? I'm sure somebody in Egypt is willing to trade honey some from gold.",
+    "fishshopNo": "No? Okay! Let me know if you change your mind!",
+    "fishshopBuy": "Pleasure doing business with you! Enjoy your fish!",
+    /* #endregion */
+    /* #region Memphis */
     "student1": "I don't like writing - words are too long! Like the blessing \"ankh, wedja, seneb\" (life, prosperity, health) is three whole words! | We need to find some way to shorten things... maybe make that \"anwese.\" | Just one hieroglyph for all three! I think I'm on to something here. Maybe some day things like that will catch on.",
     "student2": "Noblemen and royalty like me need to go to fancy schools so we can be \"educated\" and \"worldly.\" What a load of junk! | I don't need to know things to be pharoah! The gods will just tell me what to do! | I hope some day the standards are lowered so that ANYONE can be a leader! Even people who hate reading and thinking like me!",
     "teacher": "This educational centre was set up for nobility and royal princes. | To be successful, the younger generation needs to know things like mathematics, history, ethics, medicine, and music! | Some boys are sent off to schools like this as young as eight years old! | Girls, however, get their educations at home, learning things like sewing and cooking from their mothers.",
@@ -191,8 +196,8 @@ const texts = {
     "amenkenGive": "Great! Thank you! This will help out a lot! | !In Ancient Egypt, beeswax was used for many things, like making candles, medicine, and sealants (things that keep water out)!",
     "amenken1b": "Can you provide me with 10 beeswax? I can give you 3 gold for it! | ?amenken1",
     "amenken2": "Thanks for that beeswax! It will surely come in handy!",
-
-    // Regional - Shedet
+    /* #endregion */
+    /* #region Shedet */
     "sobekpriest": "Praise Sobek, the crocodile god who protects us from the dangers of the Nile! | You look like the Sobek-loving sort, given that you are a human, and all humans should love Sobek! | @Sobek's got quite the fanbase here, huh? | Of course, Shedet is home to Sobek's temple, and also a bunch of crocodiles! | You should obviously give something to Sobek himself at the altar over there, but if you're an EXTRA good person, you might be inclined to feed some of the local crocodiles, too! | Just toss those bad boys some fish, and maybe something good will happen if you do!",
     "crocodil": "aaAAaaAaaa | ~croc",
     "crocodil2": "@It looks like it wants some food. | ?croc",
@@ -206,8 +211,8 @@ const texts = {
     "incenseshopLack": "Hey hey! You don't have any gold! If you want free incense, become a god! Otherwise, pay up!", 
     "incenseshopBuy": "Pleasure doing business with you, ma'am! Come again whenever you need more incense!", 
     "obelisk": "This obelisk - a stone pillar - was set up by Senusret I during the 12th Dynasty to celebrate his 30th year as Pharaoh. | To this day, it still stands as the oldest standing obelisk in Egypt.", 
-
-    // Regional - Abdju
+    /* #endregion */
+    /* #region Abdju */
     "tombKhasekhem": "Khasekhemwy was the last pharoah of Egypt's Second Dynasty in the early 2600's BC. | Not much is known about him, but his tomb was excavated in 1901, revealing several chambers, a burial chamber made with limestone blocks, and an elaborate golden scepter. | He built a mudbrick fort known as Shunet El Zebib, which is actively being preserved and researched to this day.",
     "tombPeribsen": "Peribsen was a pharaoh of the Second Dynasty, some time in the 2700's BC. | Unlike other pharaohs, his patron diety was Set - a god of chaos who killed his brother Osiris - instead of the usual Horus - Osiris's son who avenged his father's death. | In his tomb, archaeologists discovered a Mehen game board. | The game Mehen - named after a snake diety - was a game played on a board shaped like a coiled snake.",
     "tombQaa": "Qa'a reigned for 33 years at the end of the 30th century BC as the last pharaoh of the First Dynasty of Ancient Egypt. | It is believed that after he died, a war began between royal houses over who would take over the throne.",
@@ -219,8 +224,8 @@ const texts = {
     "goldboyLack": "Hey hey, I'm loving the enthusiasm. The world needs more helpful people like you. | But it looks like you're just as lacking in honey as I am. | If you get 12 jars of honey, come back and talk to me!",
     "goldboyBuy": "Hey hey, you're a real hero, you know that? | Now I've got enough honey to offer my sweetie for @arg! | I want this marriage to last much longer than that, though, so if you get more honey, you know where to find me!",
     "goldboyBuy5": "Hey hey, you've given me five years worth of honey now! | I'm not set for life yet, but I'm definitely covered for the honeymoon stage of my marriage! | However, with that marriage contract, I guess it'll ALWAYS be a honeymoon stage... | Either way, I'll gladly accept any more honey you have, but for now I want to thank you again for your help! | Here's a few jugs of milk as Bonus Thanks! You know, milk and honey and all that. | Use it wisely! By drinking it, probably.",
-    
-    // Regional - Waset
+    /* #endregion */
+    /* #region Waset */
     "guardingPharaoh": "Halt! The pharaoh is not seeing visitors right now. | @But I've got some honey for him. I'm the beekeeper you-- | You? A beekeeper? You look nothing like a beekeeper, don't make me laugh! | If you wish to seek an audience with the pharaoh, you must prove that you are worthy. | @How can I do that? | I'll be listening to the gods for an answer. It might be wise to get on the good side of some of them if you want to see the pharaoh!", 
     "fishSeller": "hi i got fishies",
     "": "",
@@ -228,8 +233,8 @@ const texts = {
     "": "",
     "": "",
     "": "",
-
-    // Regional - Yabu
+    /* #endregion */
+    /* #region Yabu */
     "nilometer": "Ah, a nilometer! These measure the water level of the Nile River. | Ancient Egyptians followed the three seasons - Akhet, Peret, and Shemu. | Akhet was the flooding season, where the Nile River would rise due to the annual monsoon in the Ethiopian Highlands. | Following that was Peret, the planting season, when farmers would plant their crops in the fertile land along the Nile. | Finally, Shemu was the harvesting season, when all the crops planted during Peret would be fully grown. | Nilometers were used to measure how much flooding occurred during Akhet, as the government would raise and lower taxes depending on the quality of the flood.",
     "milky": "Have milk? | @What? | Sorry, I was trying out a new marketing pitch. I'm selling milk, is what I meant. | Three bottles of milk for two bottles of honey. It's a steal, probably. | ?milky",
     "milkyb": "You got two honey jars? I got three milk jars. That's business, babe. Whattaya say? | ?milky",
@@ -240,8 +245,8 @@ const texts = {
     "clay": "Looks like a nice amount of clay is building up here by the shore. | ~clayGrab",
     "gotClay": "I grabbed 5 pieces of clay.",
     "noClay": "I think I've grabbed enough for now.",
-
-    // Regional - Napata
+    /* #endregion */
+    /* #region Napata */
     "merymose": "Greetings! I am Merymose, the Viceroy of Kush, serving under our pharaoh Amenhotep III! Welcome to Napata! | @What is Kush? | The Kingdom of Kush was a Nubian kingdom that conquered much of Egypt before the 18th Dynasty. | However, after Ahmose I reclaimed Egypt for the Egyptians and founded the 18th Dynasty, we conquered them right back! | Now this kingdom is a colony of Egypt that I'm in charge of, and I report directly to the pharaoh himself! | This city, Napata, was founded by Thutmose III around a hundred years ago, and is now the center of Kush! | I hope you enjoy your time here!", 
     "napataman": "Hello, welcome to Napata. You're free to use any of our equipment here. | We have an oven that can make bread from grains, and a juicer that can turn fruits into juice. | The spreader can turn flax and papyrus into linen and parchment, and the oil infuser can make scented oils with flowers. | I hope they're helpful to you!",
     "napatawoman": "Hello! You wouldn't by any chance happen to have any lettuce, would you? | @Lettuce? | It's, ahem, for my husband. It's said that lettuce is good for your, uh, stamina. | The god Min is said to eat lots of lettuce to give him energy. | @Isn't Min the god with the huge-- | The huge flail, yes, to emphasize his and the Pharaoh's authority. I want my husband to be more assertive like him. | So, do you have any lettuce? Ten heads would be great. | ?hornyWife",
@@ -251,10 +256,10 @@ const texts = {
     "napatawomanGive": "Oh thank you! This will certainly help with my husband's stamina! So he can, uh, work harder. At his work job. | Here, take some gold as thanks! It's not much, but I need to show my appreciation somehow!",
     "napatawoman2": "Hello~! So good to see you~! | Why am I in such a good mood, you ask? Oh, no reason~!",
     "napatachild": "Woah, are you a beekeeper? You sure don't look like one, that's how I knew! | Bees are really important to the environment! | Sometimes when I'm out walking around, I look at flowers and see the bees flying around on them! | I don't understand it all yet, but it seems like those flowers really need bees to keep growing! | It sure would be unfortunate if bad things were to happen to bees in the future! | !It is indeed unfortunate. You should do what you can to help save the bees! | !You can donate to organizations dedicated to addressing bee population declines and climate change, or even start growing bee-friendly flowers in your yard to attract bees! | !Ask your parents if you can start your own flower garden, or talk to your teacher about having a local beekeeper come into class to show and tell! | !Maybe they'll even give the class some free honey!",
-    // Regional - Napata - Makers
     "makerNeedMore": "I'll need at least @arg to make this.",
     "makerSuccess": "I just turned @arg into @arg2!",
     "makerWater": "I scooped up two jugs of water from the infuser's reservoir."
+    /* #endregion */
 };
 
 const choices = {
@@ -390,6 +395,29 @@ const choices = {
             action: function() {
                 land.target.text = "incenseshopb";
                 textHandler.MoveToNewText("incenseshopNo");
+            }
+        }
+    ],
+    "?fishshop": [
+        {
+            choice: "Buy 2 fish for 5 gold.",
+            action: function() {
+                if(player.HasItem("gold", 5)) {
+                    player.RemoveItem("gold", 5);
+                    player.AddItem("fish", 2);
+                    textHandler.MoveToNewText("fishshopBuy");
+                    land.target.text = "fishshopb";
+                } else {
+                    land.target.text = "fishshopb";
+                    textHandler.MoveToNewText("fishshopLack");
+                }
+            }
+        },
+        {
+            choice: "Don't buy incense.",
+            action: function() {
+                land.target.text = "fishshopb";
+                textHandler.MoveToNewText("fishshopNo");
             }
         }
     ],

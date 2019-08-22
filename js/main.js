@@ -9,9 +9,7 @@ const game = {
     numSaveSlots: 10, w: 1024, h: 896, tilew: 16, tileh: 14, ldiv: null, 
     currentInputHandler: null, target: null, language: "en-us",
     canvasLayers: ["background", "background2", "characters", "foreground", "menuA", "menuB", "menuC", "menutext", "paintbaby"], 
-    SetLoadingText: function(t) {
-        game.ldiv.innerText = t;
-    },
+    SetLoadingText: function(t) { game.ldiv.innerText = t; },
     fullInit: function() {
         game.ldiv = document.getElementById("loadingDiv");
         game.SetLoadingText("Setting up canvases.")
@@ -37,12 +35,12 @@ const game = {
         gfx.LoadSpriteSheets("img", sheetInfo, this.sheetsLoaded);
     },
 
-    SwitchTo: function(handler, arg) {
+    SwitchTo: function(handler, arg, secondArg) {
         clearInterval(game.currentInputHandler.animIdx);
         clearInterval(game.currentInputHandler.gameIdx);
         gfx.ClearAllLayers();
         game.currentInputHandler = handler;
-        game.currentInputHandler.Setup(arg);
+        game.currentInputHandler.Setup(arg, secondArg);
     },
     PartialSwitchTo: function(handler) {
         clearInterval(game.currentInputHandler.animIdx);
@@ -72,6 +70,7 @@ const game = {
         game.initListeners();
         game.SetLoadingText("> New Game <");
         game.currentInputHandler = titleScreen;
+        titleScreen.NewGame();
         //game.currentInputHandler = land;
         //game.currentInputHandler.Setup("Waset", true);
         //game.currentInputHandler.Setup("Testbench", true);

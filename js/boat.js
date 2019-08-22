@@ -184,6 +184,7 @@ const boat = {
         boat.inDialogue = false;
         boat.inChoice = false;
         boat.selectingLocation = false;
+        seasonHandler.Advance(boat.GetDistance(boat.currentPos, boat.nextPos));
         boat.currentPos = boat.nextPos;
         const potentialFunFacts = [];
         const nextPosName = positions[boat.nextPos][0];
@@ -330,7 +331,7 @@ const boat = {
                     textHandler.ShowText("", "noIncense");
                 }
             } else if(boat.playerX <= 590 && boat.playerX >= 520) { // Leave
-                game.SwitchTo(land, positions[boat.currentPos][0]);
+                game.SwitchTo(land, positions[boat.currentPos][0], seasonHandler.IsInSeason(0, boat.currentPos));
             }
         }
     },

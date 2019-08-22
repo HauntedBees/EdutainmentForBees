@@ -1,5 +1,5 @@
 const things = {
-    /* --- OPENING --- */
+    /* #region OPENING --- */
     "prompt1": { type: "auto", speaker: "Protagonny", text: "intro1", sprite: "" },
     "prompt2": { type: "auto", speaker: "Protagonny", text: "intro2", sprite: "" },
     "coffin": { type: "observable", speaker: "Protagonny", sprite: "coffin", dir: 0, name: "Sarcophagus", text: "intro3" },
@@ -8,8 +8,8 @@ const things = {
     "amenhotep": { type: "bg", sprite: "amenhotep", dir: 0 },
     "amenhotepTalk": { type: "person", sprite: "", dir: 0, name: "Amenhotep III", text: "intro8" },
     "tutServant": { type: "person", sprite: "pers2", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },
-
-    /* --- PLANTS --- */
+    /* #endregion */
+    /* #region PLANTS */
     "wheat": { type: "observable", sprite: "plants", sx: 3, rawsx: 1, name: "Wheat", textRange: 2, harvestable: true },
     "barley": { type: "observable", sprite: "plants", sx: 4, rawsx: 0, name: "Barley", textRange: 1, harvestable: true },
     "papyrus": { type: "observable", sprite: "plants", sx: 5, rawsx: 1, name: "Papyrus", textRange: 3, harvestable: true },
@@ -28,26 +28,26 @@ const things = {
     "garlic": { type: "observable", harvestable: true }, // BAD FOR BEES!!! not yet used or drawn
     "acacia": { type: "beeable", harvestable: true }, // not yet used or drawn
     "onion": { type: "beeable", harvestable: true }, // not yet used or drawn
-
-    /* --- MISC --- */
+    /* #endregion */
+    /* #region MISC */
     "puddle": { type: "bg", sprite: "puddle", foreground: true, y: 15 },
     "templeL": { type: "bg", sprite: "templeStairL", background: true },
     "templeM": { type: "bg", sprite: "templeWall", background: true, isTemple: true },
     "templeBR": { type: "bg", sprite: "templeIncomplete", background: true, isTemple: true },
     "templeR": { type: "bg", sprite: "templeStairR", background: true },
-
-    /* --- CATS --- */
+    /* #endregion */
+    /* #region CATS */
     "cat1": { type: "person", sprite: "cat1", anim: "cat", dir: 1, name: "Cat", text: "cat" },
     "cat2": { type: "bg", sprite: "cat3", anim: "cat", dir: 1, movement: "cat1" },
     "cat3": { type: "bg", sprite: "cat2", anim: "cat", dir: 1, movement: "cat2" },
     "cat4": { type: "person", sprite: "cat4", anim: "cat", dir: 1, movement: "cat3", name: "Cat", text: "cat" },
     "cat5": { type: "bg", sprite: "cat5", anim: "cat", dir: 1, movement: "cat4" },
     "cat6": { type: "bg", sprite: "cat6", anim: "cat", dir: 1, movement: "cat1" },
-
-    /* --- REGIONAL --- */
+    /* #endregion */
+    /* #region REGIONAL */
     // Taremu
     "fishboy": { type: "person", sprite: "peopleMisc", sx: 0, noDir: true, name: "Nenwef", text: "fishboy" },
-    "shop1": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "fishshop" },
+    "shop1": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Dedu", text: "fishshop", hasValue: true },
     "shop2": { type: "person", sprite: "shopkeeps", sx: 2, dir: 0, name: "Tener", text: "breadgirl", textAlt: "breadgirlDone", hasValue: true },
     "slappy1": { type: "person", sprite: "slappy", anim: "slappy", dir: 0, name: "Ahmose", text: "fruitboy1" },
     // Memphis
@@ -70,6 +70,8 @@ const things = {
     "tombKa": { type: "observable", sprite: "tombGlyph", sx: 4, name: "Ka's Tomb", text: "tombKa", y: -290 },
     "slappy2": { type: "person", sprite: "slappy2", anim: "slappy", dir: 0, name: "Ipy", text: "goldboy", hasValue: true },
     // Waset
+    "shop3": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "something that isnt fish shop", hasValue: true },
+
     //"shop3": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Mahu", text: "fishSeller", hasValue: true },
     //"shop4": { type: "person", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0, name: "Parennefer", text: "something", hasValue: true },
     "guard": { type: "person", sprite: "pers2", anim: "helpser", dir: 0, name: "Setka", text: "guardingPharaoh" },
@@ -92,8 +94,8 @@ const things = {
         primary: "Make Linen", secondary: "Make Parchment" },
     "infuser": { type: "maker", sprite: "altar", name: "Infuser", sx: 2, sy: 1, text: "infuser", hasValue: true, 
         primary: "Make Scented Oil", secondary: "Collect Water" },
-
-    /* --- SHOP STUFF --- */
+    /* #endregion */
+    /* #region SHOP STUFF */
     "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
     "boxBread": { type: "bg", sprite: "justabox", sx: 1, background: true },
     "boxFruit": { type: "bg", sprite: "justabox", sx: 2, background: true },
@@ -102,8 +104,8 @@ const things = {
     "boxBeer": { type: "bg", sprite: "justabox", sx: 0, sy: 2, background: true },
     "boxMilk": { type: "bg", sprite: "justabox", sx: 1, sy: 2, background: true },
     "boxLinen": { type: "bg", sprite: "justabox", sx: 2, sy: 2, background: true },
-
-    /* --- GODS --- */
+    /* #endregion */
+    /* #region GODS */
     "bastet": { type: "bg", sprite: "peopleMisc", sx: 1, y: -300 },
     "bastetAltar": { type: "observable", sprite: "altar", name: "Bastet", text: "bastet", textAlt: "offeringPleased", hasValue: true,
                         isGod: true, pronoun: "her", want: "beeswax", amount: 30, sxAlt: 1 },
@@ -143,6 +145,7 @@ const things = {
     "satis": { type: "bg", sprite: "peopleMiscBig", sx: 0, sy: 2, y: -200 },
     "satisAltar": { type: "observable", sprite: "altar", name: "Satis", text: "satis", textAlt: "offeringPleased", hasValue: true, 
                         isGod: true, pronoun: "her", want: "water", wantDisplay: "jugs of water", amount: 10, sxAlt: 2 }
+    /* #endregion */
 };
 
 const movements = {
