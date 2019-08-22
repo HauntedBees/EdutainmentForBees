@@ -16,9 +16,14 @@ const GetPlaceEntities = function(place, modern) {
         if(obj.y !== undefined) {
             entity.y = (entity.y || 0) + obj.y;
         }
-        if(obj.x <= 600) { // TODO: remove me eventually
-            alert("object " + obj.id + " needs an X value higher than 600!");
+        if(entity.mustBee || (land.flowering === true && entity.type === "beeable" && Math.random() <= 0.05)) {
+            entity.hasBees = true;
+            entity.beeTime = Math.floor(Math.random() * 30);
+            land.InitializeBees(entity);
         }
+        /*if(obj.x <= 600) { // TODO: remove me eventually
+            alert("object " + obj.id + " needs an X value higher than 600!");
+        }*/
         entities.push(entity);
     }
     return entities;
@@ -160,22 +165,39 @@ const places = {
         for(let x = 0; x < 4; x++) { res.push({ x: 1200 + x * (96 + x), y: Math.floor(5 * Math.random()), id: "melon" }); }
         return res;
     }(),  
-    "Waset": function() { // https://en.wikipedia.org/wiki/Amenhotep_III
+    "Waset": function() {
         const res = [
-            { x: 700, id: "lettuce" },
-            { x: 800, id: "lettuce" },
-            { x: 900, id: "lettuce" },
+            { x: 700, id: "bluelotus" },
+            { x: 800, id: "whitelotus" },
+            { x: 900, id: "bluelotus" },
             { x: 1100, id: "date" },
             { x: 1400, id: "date" },
-            { x: 2500, id: "amun" }, { x: 2500, id: "amunAltar" },
-            { x: 2800, id: "khonsu" }, { x: 2800, id: "khonsuAltar" },
-            { x: 3100, id: "mut" }, { x: 3100, id: "mutAltar" },
+            { x: 3500, id: "amun" }, { x: 3500, id: "amunAltar" },
+            { x: 3800, id: "khonsu" }, { x: 3800, id: "khonsuAltar" },
+            { x: 4100, id: "mut" }, { x: 4100, id: "mutAltar" },
             { x: 6400, id: "guard" },
+            // TODO: all the amenhotep hijinks
             { x: 6800, id: "amenhotep" },
-            { x: 1800, id: "boxFish" }//,
-            //{ x: 1900, id: "shop3" }
+            { x: 1800, id: "boxBeer" },
+            { x: 1900, id: "shop3" },
+            { x: 2200, id: "lettuce" },
+            { x: 2400, id: "lettuce" },
+            { x: 2600, id: "lettuce" },
+            { x: 2800, id: "lettuce" },
+            { x: 2900, id: "farmboy" },
+            { x: 5200, id: "boxBees" },
+            { x: 5300, id: "hiveman" },
+            { x: 5800, id: "boxGold" },
+            { x: 5900, id: "shop4" },
+            { x: 5000, id: "theGoodBoy" },
+            { x: 2000, id: "cat2" },
+            { x: 2500, id: "cat3" },
+            { x: 4500, id: "cat5" },
+            { x: 6000, id: "cat6" },
+            { x: 4300, id: "cat1" },
+            { x: 1500, id: "cat4" }
         ];
-        AddTemple(res, 2000, 5);
+        AddTemple(res, 3000, 5);
         AddTemple(res, 6400, 3);
         return res;
     }(),
@@ -224,7 +246,7 @@ const places = {
         for(let x = 0; x < 8; x++) { res.push({ x: 700 + x * (96 + x), y: Math.floor(5 * Math.random()), id: x % 2 === 0 ? "chamomile" : "chrysanthemum" }); }
         for(let x = 0; x < 6; x++) { res.push({ x: 3800 + x * (90 + x), y: Math.floor(5 * Math.random()), id: "papyrus" }); }
         return res;
-    }(), // https://en.wikipedia.org/wiki/Merymose
+    }(),
     "Testbench": [
         { x: 700, id: "bluelotus" },
         { x: 800, id: "whitelotus" },

@@ -2,7 +2,7 @@ const sheetInfo = {
     "player": { w: 200, h: 260 },
     "playerModern": { w: 200, h: 260 },
     "playerScene1": { w: 200, h: 260 },
-    "farmboy": { w: 196, h: 255 },
+    "farmboy": { w: 200, h: 260 },
     "pers2": { w: 200, h: 260 },
     "littlelad": { w: 200, h: 260 },
     "pers2tiny": { w: 150, h: 195 },

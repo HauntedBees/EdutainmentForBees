@@ -1,5 +1,5 @@
 const things = {
-    /* #region OPENING --- */
+    /* #region OPENING */
     "prompt1": { type: "auto", speaker: "Protagonny", text: "intro1", sprite: "" },
     "prompt2": { type: "auto", speaker: "Protagonny", text: "intro2", sprite: "" },
     "coffin": { type: "observable", speaker: "Protagonny", sprite: "coffin", dir: 0, name: "Sarcophagus", text: "intro3" },
@@ -70,11 +70,12 @@ const things = {
     "tombKa": { type: "observable", sprite: "tombGlyph", sx: 4, name: "Ka's Tomb", text: "tombKa", y: -290 },
     "slappy2": { type: "person", sprite: "slappy2", anim: "slappy", dir: 0, name: "Ipy", text: "goldboy", hasValue: true },
     // Waset
-    "shop3": { type: "person", sprite: "shopkeeps", sx: 0, dir: 0, name: "Maia", text: "something that isnt fish shop", hasValue: true },
-
-    //"shop3": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Mahu", text: "fishSeller", hasValue: true },
-    //"shop4": { type: "person", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0, name: "Parennefer", text: "something", hasValue: true },
+    "hiveman": { type: "person", sprite: "peopleMisc", sy: 4, dir: 0, name: "Haremhab", text: "hiveworks", hasValue: true },
+    "shop3": { type: "person", sprite: "shopkeeps", dir: 0, name: "Maia", text: "beerLady", hasValue: true },
+    "farmboy": { type: "person", sprite: "farmboy", anim: "regular", dir: 1, name: "Kheruef", text: "farmboy", movement: "hume1" },
+    "shop4": { type: "person", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0, name: "Parennefer", text: "moneyman" },
     "guard": { type: "person", sprite: "pers2", anim: "helpser", dir: 0, name: "Setka", text: "guardingPharaoh" },
+    "theGoodBoy": { type: "person", sprite: "pers2tiny", anim: "helpser", dir: 1, name: "Intef", movement: "cat3", text: "theGoodBoy" },
     // Yabu
     "nilometer": { type: "observable", sprite: "nilometer", name: "Nilometer", text: "nilometer" },
     "cow": { type: "bg", sprite: "cow" },
@@ -96,6 +97,7 @@ const things = {
         primary: "Make Scented Oil", secondary: "Collect Water" },
     /* #endregion */
     /* #region SHOP STUFF */
+    "boxBees": { type: "bg", sprite: "justabox", background: true, mustBee: true, beeY: -20, beeRadius: 50 },
     "boxFish": { type: "bg", sprite: "justabox", sy: 1, background: true },
     "boxBread": { type: "bg", sprite: "justabox", sx: 1, background: true },
     "boxFruit": { type: "bg", sprite: "justabox", sx: 2, background: true },

@@ -227,11 +227,19 @@ const texts = {
     /* #endregion */
     /* #region Waset */
     "guardingPharaoh": "Halt! The pharaoh is not seeing visitors right now. | @But I've got some honey for him. I'm the beekeeper you-- | You? A beekeeper? You look nothing like a beekeeper, don't make me laugh! | If you wish to seek an audience with the pharaoh, you must prove that you are worthy. | @How can I do that? | I'll be listening to the gods for an answer. It might be wise to get on the good side of some of them if you want to see the pharaoh!", 
-    "fishSeller": "hi i got fishies",
-    "": "",
-    "": "",
-    "": "",
-    "": "",
+    "beerLady": "Hello! Want some beer? | @No thank you, it's too early in the day to be drinking. | What are you talking about? Beer is part of a balanced meal! It's very nutritious! | Some people even pay their workers in beer! And doctors recommend it, for your heart! | So whattaya say, one jug of beer for, hmm, one jug of date honey! | @Date honey? | Yeah, the syrup that comes from date fruits! Harvest some of the fruit from that tree over there to get some dates. | Once you have those, you'll have to find somewhere that can turn dates into date honey! | Not to spoil the fun, but I hear down south in Napata they've got some equipment for that. | I'd go myself, but, y'know, I'm running a beer stand here. | So, one beer for one date honey. | ?beerBuy",
+    "beerLadyb": "Whattaya say? Get me a jug of date honey from the equipment down in Napata and I'll give you one jug of beer. | ?beerBuy",
+    "beerLadyBuy": "Pleasure doing business with you!",
+    "beerLadyNo": "No? Well, I'll be here if you change your mind!",
+    "beerLadyLack": "You are lacking in date honey, ma'am. Please come back later when you have some. | Remember, I want date honey, not just dates, and not honey made from date nectar. The name's confusing, I know.",
+    "farmboy": "Welcome to Waset, the capital of Egypt, as decreed by the former pharaoh Ahmose I! | Our current pharaoh Amenhotep III has been working hard to make this city great, even funding a vast new temple to Amun! | This city is also a training hub for scribes and archivists for the royal archives, since our leaders do so much good that someone needs to write it down! | I hope you enjoy your stay here!",
+    "moneyman": "I love this great city, there are so many trading opportunities here! Would you like 4 gold? I'll give you it for just 5 gold! | @Uh, no thanks. | Your loss!",
+    "hiveworks": "Ah, a fellow beekeeper! You don't look it, but I can tell! Us beekeepers know! | Anyway, I can craft you some more beehives if you need them, but I'll need some supplies first. | Bring me 5 clay slabs and I'll get you a beehive, deal? | ?beehive",
+    "beehiveBuy": "Excellent! Enjoy your new beehive! | You can occasionally find some bees on flowering plants, so scoop 'em up when you see them!",
+    "beehiveb": "Hello! If you have five clay slabs I can make you a beehive! | ?beehive",
+    "beehiveLack": "Sorry, but I need clay to make you a beehive. | Beehives are long hollow cylinders made with reeds and branches and mud, but clay beehives are so much prettier!",
+    "beehiveNo": "Alright, well if you change your mind, just bring me some clay! | If you don't have any clay, you can probably find some in Yabu; there's a construction site there near a clay deposit!",
+    "theGoodBoy": "Hello! It's you again, the weird bee lady! | @Ah, you're the boy who found me by the river! Thank you again for your help! | Of course! It was the least I could do! Are you going to stay here long? | @I'm not sure... I don't exactly know how to get back home. | I'm sure the Pharaoh can help you! Give him some more of that honey and he'll probably take you home himself! | @Thanks for the tip.",
     "": "",
     /* #endregion */
     /* #region Yabu */
@@ -400,7 +408,7 @@ const choices = {
     ],
     "?fishshop": [
         {
-            choice: "Buy 2 fish for 5 gold.",
+            choice: "Trade 2 fish for 5 gold.",
             action: function() {
                 if(player.HasItem("gold", 5)) {
                     player.RemoveItem("gold", 5);
@@ -421,9 +429,32 @@ const choices = {
             }
         }
     ],
+    "?beerBuy": [
+        {
+            choice: "Trade date honey for beer.",
+            action: function() {
+                if(player.HasItem("date honey", 1)) {
+                    player.RemoveItem("date honey", 1);
+                    player.AddItem("beer", 1);
+                    textHandler.MoveToNewText("beerLadyBuy");
+                    land.target.text = "beerLadyb";
+                } else {
+                    land.target.text = "beerLadyb";
+                    textHandler.MoveToNewText("beerLadyLack");
+                }
+            }
+        },
+        {
+            choice: "Don't trade.",
+            action: function() {
+                land.target.text = "beerLadyb";
+                textHandler.MoveToNewText("beerLadyNo");
+            }
+        }
+    ],
     "?milky": [
         {
-            choice: "Buy 3 milk for 2 honey.",
+            choice: "Trade 2 honey for 3 milk.",
             action: function() {
                 if(player.HasItem("honey", 2)) {
                     player.RemoveHoney("any", 0, 2);
@@ -441,6 +472,29 @@ const choices = {
             action: function() {
                 land.target.text = "milkyb";
                 textHandler.MoveToNewText("milkyNo");
+            }
+        }
+    ],
+    "?beehive": [
+        {
+            choice: "Give him 2 clay for a beehive.",
+            action: function() {
+                if(player.HasItem("clay", 5)) {
+                    player.RemoveItem("clay", 5);
+                    player.AddItem("empty beehive", 1);
+                    textHandler.MoveToNewText("beehiveBuy");
+                    land.target.text = "beehiveb";
+                } else {
+                    land.target.text = "beehiveb";
+                    textHandler.MoveToNewText("beehiveLack");
+                }
+            }
+        },
+        {
+            choice: "Don't trade.",
+            action: function() {
+                land.target.text = "beehiveb";
+                textHandler.MoveToNewText("beehiveNo");
             }
         }
     ],

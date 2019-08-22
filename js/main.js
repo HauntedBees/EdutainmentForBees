@@ -103,6 +103,7 @@ https://en.wikipedia.org/wiki/Abydos,_Egypt
 https://www.britannica.com/topic/Osiris-Egyptian-god
 https://en.wikipedia.org/wiki/Khnum
 https://en.wikipedia.org/wiki/Anuket
+https://www.ancient.eu/article/1033/beer-in-ancient-egypt/
 
 https://en.wikipedia.org/wiki/Umm_El_Qa%27ab
 http://www.touregypt.net/featurestories/khasekhem.htm

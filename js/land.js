@@ -8,6 +8,7 @@ const land = {
     bgMoved: true, templeRanges: [], // max x ~= 7678
     Setup: function(location, inSeason) {
         land.currentLocation = location;
+        land.flowering = inSeason || false;
         land.modernTimes = location.indexOf("Modern") === 0;
         land.animIdx = setInterval(land.Animate, 30);
         land.gameIdx = setInterval(land.RunGame, 100);
@@ -32,7 +33,6 @@ const land = {
         land.playerDir = 1;
         land.sawDropoff = false;
         land.sawGet = false;
-        land.flowering = inSeason || false;
         land.cutscene = { active: false };
         land.maxX = maxX[location] || 6140;
         if(autoPlays[location] !== undefined) {
