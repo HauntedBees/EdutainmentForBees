@@ -80,7 +80,8 @@ const credits = {
         credits.DrawText("Cindy Eschenfelder", 5680, regularSize);
         credits.DrawText("Danielle Wogulis", 5780, regularSize);
         credits.DrawText("...and You!", 5900, regularSize);
-        credits.DrawText(decodeURIComponent("%C2%A9 2019 Sean Finch / Haunted Bees Productions"), 6100, regularSize, undefined, 400);
+        credits.DrawText("Thank you for Playing!", 6000, regularSize);
+        credits.DrawText(decodeURIComponent("%C2%A9 2019 Sean Finch / Haunted Bees Productions"), 6200, regularSize, undefined, 400);
     },
     DrawText: function(text, y, size, forceFont, lockY) {
         const myY = credits.startY + credits.drawY + y;
