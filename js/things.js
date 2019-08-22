@@ -1,5 +1,5 @@
 const things = {
-    /* #region OPENING */
+    /* #region OPENING and ENDING */
     "prompt1": { type: "auto", speaker: "Protagonny", text: "intro1", sprite: "" },
     "prompt2": { type: "auto", speaker: "Protagonny", text: "intro2", sprite: "" },
     "coffin": { type: "observable", speaker: "Protagonny", sprite: "coffin", dir: 0, name: "Sarcophagus", text: "intro3" },
@@ -8,6 +8,19 @@ const things = {
     "amenhotep": { type: "bg", sprite: "amenhotep", dir: 0 },
     "amenhotepTalk": { type: "person", sprite: "", dir: 0, name: "Amenhotep III", text: "intro8" },
     "tutServant": { type: "person", sprite: "pers2", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },
+    "bluelotusbg": { type: "bg", sprite: "plantsSmall", rawsx: 0, sx: 1, foreground: true },
+    "whitelotusbg": { type: "bg", sprite: "plantsSmall", rawsx: 0, sx: 2, foreground: true },
+    "datebg": { type: "bg", sprite: "plantsBig", rawsx: 0, sx: 1 },
+    "altarbg": { type: "bg", sprite: "altar" },
+    "lettucebg": { type: "bg", sprite: "plantsSmall", rawsx: 0, rawsy: 0, sx: 0, sy: 1 },
+    "hivemanbg": { type: "bg", sprite: "peopleMisc", sy: 4, dir: 0 },
+    "shop3bg": { type: "bg", sprite: "shopkeeps", dir: 0 },
+    "farmboybg": { type: "bg", sprite: "farmboy", anim: "regular", dir: 1, movement: "hume1" },
+    "shop4bg": { type: "bg", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0 },
+    "coffinEnd": { type: "bg", sprite: "coffin", dir: 0 },
+    "returnToSender": { type: "auto", speaker: "Archibald", text: "returnToSender", sprite: "" },
+    "archibald": { type: "bg", sprite: "sitBuddies", dir: 0 },
+    "sitProtag": { type: "bg", sprite: "sitBuddies", sx: 1, dir: 0 },
     /* #endregion */
     /* #region PLANTS */
     "wheat": { type: "observable", sprite: "plants", sx: 3, rawsx: 1, name: "Wheat", textRange: 2, harvestable: true },
@@ -74,8 +87,9 @@ const things = {
     "shop3": { type: "person", sprite: "shopkeeps", dir: 0, name: "Maia", text: "beerLady", hasValue: true },
     "farmboy": { type: "person", sprite: "farmboy", anim: "regular", dir: 1, name: "Kheruef", text: "farmboy", movement: "hume1" },
     "shop4": { type: "person", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0, name: "Parennefer", text: "moneyman" },
-    "guard": { type: "person", sprite: "pers2", anim: "helpser", dir: 0, name: "Setka", text: "guardingPharaoh" },
     "theGoodBoy": { type: "person", sprite: "pers2tiny", anim: "helpser", dir: 1, name: "Intef", movement: "cat3", text: "theGoodBoy" },
+    "guard": { type: "person", sprite: "pers2", anim: "helpser", dir: 0, name: "Setka", text: "guardingPharaoh", textAlt: "guardingPharaoh3" },
+    "amenhotepEnd": { type: "person", sprite: "", dir: 0, name: "Amenhotep III", text: "amenhotepEnd" },
     // Yabu
     "nilometer": { type: "observable", sprite: "nilometer", name: "Nilometer", text: "nilometer" },
     "cow": { type: "bg", sprite: "cow" },

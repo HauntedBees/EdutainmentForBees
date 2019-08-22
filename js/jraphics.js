@@ -55,7 +55,9 @@ const sheetInfo = {
     "nilometer": { w: 62, h: 343 },
     "cow": { w: 339, h: 277 },
     "worker": { w: 218, h: 120 },
-    "valuemark": { w: 100, h: 100 }
+    "valuemark": { w: 100, h: 100 },
+    "tent": { w: 1024, h: 896 },
+    "sitBuddies": { w: 150, h: 225 }
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers
 for(let i = 0; i <= 3; i++) { sheetInfo["bgM" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/classical-ruin-tiles-0
@@ -131,12 +133,13 @@ const gfx = {
     DrawImage: function(ctx, image, srcX, srcY, srcW, srcH, dstX, dstY, dstW, dstH) {
         ctx.drawImage(image, srcX, srcY, srcW, srcH, dstX, dstY, dstW, dstH);  
     },
-    DrawText: function(t, x, y, centerText, color, layer, size, drawBackground) {
+    DrawText: function(t, x, y, centerText, color, layer, size, drawBackground, forceFont) {
         layer = layer || "menutext";
         const ctx = gfx.ctx[layer];
         size = gfx.GetFontSize(size, true);
-        const fontInfo = fontMults[gfx.GetFont()];
-        ctx.font = size + "px " + gfx.GetFont();
+        const myCurrentFont = forceFont || gfx.GetFont();
+        const fontInfo = fontMults[myCurrentFont];
+        ctx.font = size + "px " + myCurrentFont;
         y += size * fontInfo.top;
         if(centerText) { ctx.textAlign = "center"; }
         if(drawBackground) {

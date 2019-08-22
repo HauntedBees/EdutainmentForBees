@@ -29,8 +29,8 @@ const land = {
         land.target = null;
         land.inDialogue = false;
         land.inChoice = false;
-        land.playerX = 0;
-        land.playerDir = 1;
+        land.playerX = location === "ModernCoffin2" ? 2150 : 0;
+        land.playerDir = location === "ModernCoffin2" ? 0 : 1;
         land.sawDropoff = false;
         land.sawGet = false;
         land.cutscene = { active: false };
@@ -59,7 +59,9 @@ const land = {
         if(land.bgMoved) {
             land.bgMoved = false;
             gfx.ClearLayer("background");
-            if(land.modernTimes) {
+            if(land.currentLocation === "ModernTent") {
+                gfx.DrawBG("tent", 0);
+            } else if(land.modernTimes) {
                 for(let i = 0; i <= 3; i++) {
                     gfx.DrawBG("bgM" + i, -land.playerX / (1 + 0.5 * (3 - i)));
                 }
@@ -81,6 +83,9 @@ const land = {
         if(land.target !== null && !land.cutscene.active) {
             const dy = textHandler.HUDfontSize * player.fontSize * 2.5;
             switch(land.target.type) {
+                case "endgame":
+                    textHandler.DrawButton(true, "Pray", 525, land.btnY, 1, false, true);
+                    break;
                 case "auto":
                     textHandler.ShowText(land.target.speaker, land.target.text);
                     land.target.type = "bg";
@@ -153,7 +158,7 @@ const land = {
             if(land.cutscene.keepPlayer === true) {
                 gfx.DrawSprite2(land.modernTimes ? "playerModern" : "player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.GetYPos(land.playerX + land.xOffset), "characters");
             }
-        } else {
+        } else if(land.currentLocation !== "ModernTent") {
             gfx.DrawSprite2(land.modernTimes ? "playerModern" : "player", land.playerAnim.GetFrame(land.playerDir), land.xOffset, land.GetYPos(land.playerX + land.xOffset), "characters");
         }
         return potentialTarget;
@@ -256,6 +261,8 @@ const land = {
             game.SwitchTo(boat);
         } else if(land.target.type === "maker") {
             land.ProcessMaker(true);
+        } else if(land.target.type === "endgame") {
+            textHandler.ShowText("???", "khonsuPray");
         }
     },
     InitializeBees: function(target) {

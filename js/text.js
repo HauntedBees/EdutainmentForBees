@@ -32,6 +32,28 @@ const texts = {
         "The plants aren't flowering here in Waset yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very for your help. | ~start8"
     ].join(" | "),
     /* #endregion */
+    /* #region Closing */
+    "amenhotepEnd": [
+        "What business have you with the ph--oooooh, you're that one beekeeper! The one with the good honey! | @That's me, your highness. I come bearing more gifts.",
+        "This is wonderful news! I was just getting low! But that look on your face tells me that you're not here just to give me a gift. | @Well, not exactly...",
+        "Speak your mind, beekeeper! What do you need from your pharaoh? | @See, that's the thing. You aren't actually my pharaoh; I'm not Egyptian, but I can't find my way back home.",
+        "This is sad news, you would make a wonderful Egyptian citizen, but I understand the desire to return to your homeland! | Where is the place you call home?",
+        "@Well, it's less of a \"where\" and more of a \"when.\" | I'm not sure I understand, but I will do everything I can to help you.",
+        "Khonsu is the god of the moon, and he watches over those who travel at night. His altar is just west of here, with Amun-Ra and Mut. | Go there and pray to him, and you will be shown the way home.",
+        "@Thank you, your highness. | Don't thank me, thank the gods! | ~end1"
+    ].join(" | "),
+    "khonsuPray": "@Well, here's the altar. I guess it's prayer time. | @Khonsu, please bring me back home. To the future. Bring me Back to the-- | AAAAAAAAAA AAA AAAAAA AAAAA!!!! | @Uh, I agree. | ~end2",
+    "wakeUp": "I'm back in the temple... the sarcophagus! | I need to tell the others about this!",
+    "returnToSender": "~end3",
+    "archiBald1": [
+        "So, you found an undiscovered sarcophagus in the tomb... | And instead of coming to get me, you ate the centuries-old honey next to it... | Then you passed out and hallucinated an Ancient Egypt adventure...",
+        "And now you think that hallucination is real and want to share the discoveries you made in it with the world. | Did I get all of that right? | @It WAS real! Honey doesn't make you hallucinate!", 
+        "Yes, well honey usually doesn't send you back in time, either, but here we are. | What you told me was indeed fascinating, but perhaps not for the reasons you'd want it to be.",
+        "You? A beekeeper? You don't look anything like a beekeeper! | Besides, back in Ancient Egypt, beekeeping was a man's job. | Perhaps archaeology is a man's job, too. We're less hallucinatey. | @But--",
+        "Get some sleep, darling, you've clearly had a very \"busy\" night. | If you still remember your daydreams in the morning, I'm sure the rest of the crew would love to have a laugh about them over breakfast. | ~end5"
+    ].join(" | "),
+    "archiBald2": "OUCH!!! | OUCH OUCH OUCH OUCH!! | What the devil was that?! | A bee sting?! How did a BEE get into this tent?! | At night time, even! Bees don't go out at night!! | ~end6",
+    /* #endregion */
     /* #region Fun Facts */
     // Specific Place Fun Facts
     "factTaremu0": "Taremu got its Greek name (Leontopolis, the city of lions) due to its temples dedicated to the lion gods Bastet, Sekhmet, and Maahes.", 
@@ -226,7 +248,6 @@ const texts = {
     "goldboyBuy5": "Hey hey, you've given me five years worth of honey now! | I'm not set for life yet, but I'm definitely covered for the honeymoon stage of my marriage! | However, with that marriage contract, I guess it'll ALWAYS be a honeymoon stage... | Either way, I'll gladly accept any more honey you have, but for now I want to thank you again for your help! | Here's a few jugs of milk as Bonus Thanks! You know, milk and honey and all that. | Use it wisely! By drinking it, probably.",
     /* #endregion */
     /* #region Waset */
-    "guardingPharaoh": "Halt! The pharaoh is not seeing visitors right now. | @But I've got some honey for him. I'm the beekeeper you-- | You? A beekeeper? You look nothing like a beekeeper, don't make me laugh! | If you wish to seek an audience with the pharaoh, you must prove that you are worthy. | @How can I do that? | I'll be listening to the gods for an answer. It might be wise to get on the good side of some of them if you want to see the pharaoh!", 
     "beerLady": "Hello! Want some beer? | @No thank you, it's too early in the day to be drinking. | What are you talking about? Beer is part of a balanced meal! It's very nutritious! | Some people even pay their workers in beer! And doctors recommend it, for your heart! | So whattaya say, one jug of beer for, hmm, one jug of date honey! | @Date honey? | Yeah, the syrup that comes from date fruits! Harvest some of the fruit from that tree over there to get some dates. | Once you have those, you'll have to find somewhere that can turn dates into date honey! | Not to spoil the fun, but I hear down south in Napata they've got some equipment for that. | I'd go myself, but, y'know, I'm running a beer stand here. | So, one beer for one date honey. | ?beerBuy",
     "beerLadyb": "Whattaya say? Get me a jug of date honey from the equipment down in Napata and I'll give you one jug of beer. | ?beerBuy",
     "beerLadyBuy": "Pleasure doing business with you!",
@@ -240,7 +261,10 @@ const texts = {
     "beehiveLack": "Sorry, but I need clay to make you a beehive. | Beehives are long hollow cylinders made with reeds and branches and mud, but clay beehives are so much prettier!",
     "beehiveNo": "Alright, well if you change your mind, just bring me some clay! | If you don't have any clay, you can probably find some in Yabu; there's a construction site there near a clay deposit!",
     "theGoodBoy": "Hello! It's you again, the weird bee lady! | @Ah, you're the boy who found me by the river! Thank you again for your help! | Of course! It was the least I could do! Are you going to stay here long? | @I'm not sure... I don't exactly know how to get back home. | I'm sure the Pharaoh can help you! Give him some more of that honey and he'll probably take you home himself! | @Thanks for the tip.",
-    "": "",
+    "guardingPharaoh": "Halt! The pharaoh is not seeing visitors right now. | @But I've got some honey for him. I'm the beekeeper you-- | You? A beekeeper? You look nothing like a beekeeper, don't make me laugh! | If you wish to seek an audience with the pharaoh, you must prove that you are worthy. | @How can I do that? | I'll be listening to the gods for an answer. It might be wise to get on the good side of some of them if you want to see the pharaoh! | ~altarCheck", 
+    "guardingPharaoh2": "If you wish to see the pharaoh, you must have the gods on your side. | @How do I get them to be on my side? | There are altars to the gods all over Egypt. Offer the right gifts to them and the gods will be pleased. | ~altarCheck",
+    "guardingPharaohYes": "Ah, you've earned the favor of many gods, I can sense it! | Very well, you may see the pharaoh.",
+    "guardingPharaohNo": "You have not yet earned the favor of enough gods. Keep going to altars and offering gifts to them. | Only then may you speak to the pharaoh.",
     /* #endregion */
     /* #region Yabu */
     "nilometer": "Ah, a nilometer! These measure the water level of the Nile River. | Ancient Egyptians followed the three seasons - Akhet, Peret, and Shemu. | Akhet was the flooding season, where the Nile River would rise due to the annual monsoon in the Ethiopian Highlands. | Following that was Peret, the planting season, when farmers would plant their crops in the fertile land along the Nile. | Finally, Shemu was the harvesting season, when all the crops planted during Peret would be fully grown. | Nilometers were used to measure how much flooding occurred during Akhet, as the government would raise and lower taxes depending on the quality of the flood.",
@@ -629,7 +653,7 @@ const cutscenes = {
                     gfx.DrawSprite2("playerScene1", [1, 2], land.xOffset - 100, land.yPos, "characters");
                     gfx.DrawSprite2("playerScene1", [2, 2], land.xOffset + 100, land.yPos, "characters");
                 } else {
-                    game.SwitchTo(land, "CutsceneWaset");
+                    game.SwitchTo(land, "CutsceneWaset", false);
                 }
             }
         };
@@ -813,6 +837,124 @@ const cutscenes = {
         } else {
             player.AddItem("clay", 5);
             textHandler.MoveToNewText("gotClay");
+        }
+    },
+    "~altarCheck": function() {
+        land.target.text = "guardingPharaoh2";
+        const altarsCleared = player.clearedChievos.filter(s=> s.indexOf("Altar") >= 0).length;
+        if(altarsCleared >= 5) {
+            textHandler.MoveToNewText("guardingPharaohYes");
+            player.ClearChievo("Waset", "guard");
+            maxX["Waset"] = 6140;
+            land.maxX = 6140;
+            land.target.type = "bg";
+        } else {
+            textHandler.MoveToNewText("guardingPharaohNo");
+        }
+    },
+    "~end1": function() {
+        land.inDialogue = false;
+        land.target.type = "bg";
+        const altar = land.entities.filter(s => s.id === "khonsuAltar")[0];
+        altar.type = "endgame";
+    },
+    "~end2" : function() {
+        land.inDialogue = false;
+        land.cutscene = {
+            active: true, state: 0, iter: 0, keepPlayer: true, 
+            Process: function() {
+                gfx.ClearLayer("menuB");
+                const ctx = gfx.ctx["menuB"];
+                if(this.state === 0) {
+                    const hex = this.iter.toString("16").toUpperCase();
+                    if(hex.length === 1) {
+                        ctx.fillStyle = "#FFFFFF0" + hex;
+                    } else {
+                        ctx.fillStyle = "#FFFFFF" + hex;
+                    }
+                    ctx.fillRect(0, 0, 1024, 896);
+                    this.iter += 5;
+                    if(this.iter >= 256) {
+                        this.state = 1;
+                        this.iter = 0;
+                    }
+                } else if(this.state === 1) {
+                    ctx.fillStyle = "#FFFFFFFF";
+                    ctx.fillRect(0, 0, 1024, 896);
+                    if(++this.iter >= 60) {
+                        this.state = 2;
+                        this.iter = 0;
+                    }                    
+                } else if(this.state === 2) {
+                    this.active = false;
+                    game.SwitchTo(land, "ModernCoffin2");
+                }
+            }
+        }
+    },
+    "~end3": function() {
+        game.SwitchTo(land, "ModernTent");
+    },
+    "~end4": function() {
+        textHandler.ShowText("Archibald", "archiBald1");
+    },
+    "~end5": function() {
+        land.inDialogue = false;
+        const britFuck = land.entities.filter(e => e.id === "archibald")[0];
+        land.cutscene = {
+            active: true, state: 0, iter: 0, 
+            Process: function() {
+                if(this.state === 0) {
+                    if(++this.iter >= 20) {
+                        this.state = 1;
+                        this.iter = 0;
+                    }
+                } else if(this.state === 1) {
+                    britFuck.sy = 1;
+                    if(++this.iter >= 2) {
+                        this.state = 2;
+                        this.iter = 0;
+                    }         
+                } else if(this.state === 2) {
+                    britFuck.sx = 1;
+                    if(++this.iter >= 2) {
+                        this.state = 3;
+                        this.iter = 0;
+                    }
+                } else if(this.state === 3) {
+                    this.active = false;
+                    textHandler.MoveToNewText("archiBald2");
+                }
+            }
+        }
+    },
+    "~end6": function() {
+        land.inDialogue = false;
+        const sitFriend = land.entities.filter(e => e.id === "sitProtag")[0];
+        land.cutscene = {
+            active: true, state: 0, iter: 0, 
+            Process: function() {
+                if(this.state === 0) {
+                    if(++this.iter >= 50) {
+                        this.state = 1;
+                        this.iter = 0;
+                    }
+                } else if(this.state === 1) {
+                    sitFriend.sx = 2;
+                    if(++this.iter >= 80) {
+                        this.state = 2;
+                        this.iter = 0;
+                    }         
+                } else if(this.state === 2) {
+                    sitFriend.sy = 1;
+                    if(++this.iter >= 200) {
+                        this.state = 3;
+                        this.iter = 0;
+                        this.active = false;
+                        game.SwitchTo(credits);
+                    }
+                }
+            }
         }
     }
 };

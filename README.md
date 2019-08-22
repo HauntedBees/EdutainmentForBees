@@ -5,7 +5,7 @@ Development started on August 9, 2019. Development will end on or before August 
 
 ## Credits
 
-**bg0-4.png**, **shore.png**, and **shore2.png** are modified from [Bevouliin Pyramid Free Game Background for Game Developers](https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers) by [Bevouliin](https://bevouliin.com/), licensed under the [CC0 Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/).
+**bg0-4.png**, **tent.png**, **shore.png**, and **shore2.png** are modified from [Bevouliin Pyramid Free Game Background for Game Developers](https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers) by [Bevouliin](https://bevouliin.com/), licensed under the [CC0 Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/).
 
 **bgM0-3.png**, **templeStairL.png**, **templeStairR.png**, and **templeWall.png** are modified from [Classical Ruin Tiles](https://opengameart.org/content/classical-ruin-tiles-0) by [Albert Manhattan](https://opengameart.org/users/albert-manhattan), licensed under the [CC BY 3.0 License](https://creativecommons.org/licenses/by/3.0/), which is in turn modified from [Classical Ruin Tiles](https://opengameart.org/content/classical-ruin-tiles) by [surt](https://opengameart.org/users/surt), licensed under the [CC BY 3.0 License](https://creativecommons.org/licenses/by/3.0/).
 
@@ -17,7 +17,7 @@ Development started on August 9, 2019. Development will end on or before August 
 
 **paint.png** is modified from [2011-02-11 Stucco paint texture](https://commons.wikimedia.org/wiki/File:2011-02-11_Stucco_paint_texture.jpg) by [Ildar Sagdejev](https://commons.wikimedia.org/wiki/User:Specious), which is licensed under the [CC BY-SA 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/).
 
-**pappy.png** is modified from [Parchment Papyrus Dirty Old Dirt](https://pixabay.com/illustrations/parchment-papyrus-dirty-old-dirt-880314/) by [Gerd Altmann](https://pixabay.com/users/geralt-9301/), which is licensed under the [Pixabay License](https://pixabay.com/service/license/).
+**pappy.png** and **tent.png** are modified from [Parchment Papyrus Dirty Old Dirt](https://pixabay.com/illustrations/parchment-papyrus-dirty-old-dirt-880314/) by [Gerd Altmann](https://pixabay.com/users/geralt-9301/), which is licensed under the [Pixabay License](https://pixabay.com/service/license/).
 
 **smoke.png** is modified from [Smoke Aura](https://opengameart.org/content/smoke-aura) by [Beast](https://opengameart.org/users/beast), which is licensed under the [CC0 Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/).
 
@@ -27,4 +27,4 @@ The font [**OpenDyslexic**](https://opendyslexic.org/) by [Abbie Gonzalez](https
 
 The Font [**New Athena Unicode**](https://www.fontsquirrel.com/fonts/new-athena-unicode) by the [Society for Classical Studies](https://classicalstudies.org/) is licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
 
-The font [**Ornkey**](https://www.behance.net/gallery/34855701/Orkney-Open-Source-Typeface) by [Samuel Oakes](http://oakes.co/), [Alfredo Marco Pradil](https://hanken.co/), and [Cristiano Sobral](https://www.behance.net/cssobral20f492/appreciated) is licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).
+The font [**Orkney**](https://www.behance.net/gallery/34855701/Orkney-Open-Source-Typeface) by [Samuel Oakes](http://oakes.co/), [Alfredo Marco Pradil](https://hanken.co/), and [Cristiano Sobral](https://www.behance.net/cssobral20f492/appreciated) is licensed under the [SIL Open Font License](https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&id=OFL).

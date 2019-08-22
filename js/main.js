@@ -80,6 +80,7 @@ const game = {
 };
 
 const titleScreen = {
+    Setup: function() { },
     mouseMove: function() { },
     click: function() { titleScreen.NewGame(); },
     rightclick: function() { titleScreen.NewGame(); },

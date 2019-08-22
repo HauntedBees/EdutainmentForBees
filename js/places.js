@@ -30,18 +30,21 @@ const GetPlaceEntities = function(place, modern) {
 };
 const autoPlays = {
     "ModernCoffin": function() { textHandler.ShowText("Protagonny", "intro0"); },
-    "CutsceneWaset": function() { cutscenes["~start3"](); }
+    "CutsceneWaset": function() { cutscenes["~start3"](); },
+    "ModernCoffin2": function() { textHandler.ShowText("Protagonny", "wakeUp"); },
+    "ModernTent": function() { cutscenes["~end4"](); },
 };
 const maxX = {
     "ModernCoffin": 2290,
     "CutsceneWaset": 5800,
     "Taremu": 5565,
     "Memphis": 5180,
-    "Shedet": 3735,
+    "Shedet": 3735, // 5000
     "Abdju": 6130,
     "Waset": 5790, // 6140
     "Yabu": 5170,
-    "Napata": 3800
+    "Napata": 3800,
+    "ModernCoffin2": 2290
 };
 function AddTemple(arr, x, w) {
     arr.push({ x: x, id: "templeL" });
@@ -60,12 +63,42 @@ const places = {
         { x: 2800, id: "coffin"},
         { x: 2670, id: "beejar"}
     ],
-    "CutsceneWaset": [
-        { x: 350, id: "beejar"},
-        { x: 250, id: "helpser" },
-        { x: 6500, id: "amenhotep" },
-        { x: 6400, id: "amenhotepTalk" }
-    ],
+    "CutsceneWaset": function() {
+        const res = [
+            { x: 350, id: "beejar"},
+            { x: 250, id: "helpser" },
+            { x: 6500, id: "amenhotep" },
+            { x: 6400, id: "amenhotepTalk" },
+            { x: 700, id: "bluelotusbg" },
+            { x: 800, id: "whitelotusbg" },
+            { x: 900, id: "bluelotusbg" },
+            { x: 1100, id: "datebg" },
+            { x: 1400, id: "datebg" },
+            { x: 3500, id: "amun" }, { x: 3500, id: "altarbg" },
+            { x: 3800, id: "khonsu" }, { x: 3800, id: "altarbg" },
+            { x: 4100, id: "mut" }, { x: 4100, id: "altarbg" },
+            { x: 1800, id: "boxBeer" },
+            { x: 1900, id: "shop3bg" },
+            { x: 2200, id: "lettucebg" },
+            { x: 2400, id: "lettucebg" },
+            { x: 2600, id: "lettucebg" },
+            { x: 2800, id: "lettucebg" },
+            { x: 2900, id: "farmboybg" },
+            { x: 5200, id: "boxBees" },
+            { x: 5300, id: "hivemanbg" },
+            { x: 5800, id: "boxGold" },
+            { x: 5900, id: "shop4bg" },
+            { x: 2000, id: "cat2" },
+            { x: 2500, id: "cat3" },
+            { x: 4500, id: "cat5" },
+            { x: 6000, id: "cat6" },
+            { x: 4300, id: "cat1" },
+            { x: 1500, id: "cat4" }
+        ];
+        AddTemple(res, 3000, 5);
+        AddTemple(res, 6400, 3);
+        return res;
+    }(),
     "Taremu": function() {
         const res = [
             { x: 2150, id: "cat1" },
@@ -176,7 +209,7 @@ const places = {
             { x: 3800, id: "khonsu" }, { x: 3800, id: "khonsuAltar" },
             { x: 4100, id: "mut" }, { x: 4100, id: "mutAltar" },
             { x: 6400, id: "guard" },
-            // TODO: all the amenhotep hijinks
+            { x: 6600, id: "amenhotepEnd" },
             { x: 6800, id: "amenhotep" },
             { x: 1800, id: "boxBeer" },
             { x: 1900, id: "shop3" },
@@ -247,6 +280,14 @@ const places = {
         for(let x = 0; x < 6; x++) { res.push({ x: 3800 + x * (90 + x), y: Math.floor(5 * Math.random()), id: "papyrus" }); }
         return res;
     }(),
+    "ModernCoffin2": [
+        { x: 2800, id: "coffinEnd" },
+        { x: 0, id: "returnToSender"}
+    ],
+    "ModernTent": [
+        { x: 346, id: "archibald" },
+        { x: 650, id: "sitProtag" }
+    ],
     "Testbench": [
         { x: 700, id: "bluelotus" },
         { x: 800, id: "whitelotus" },

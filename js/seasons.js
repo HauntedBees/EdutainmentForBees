@@ -8,8 +8,8 @@ const seasonHandler = {
     currentTime: 0, twoPi: 2 * Math.PI, 
     seasonBlobs: [
         { spot: 1, speed: 1, radius: 7 },
-        { spot: 8, speed: 3, radius: 3 },
-        { spot: 10, speed: 6, radius: 20 },
+        { spot: 2, speed: 3, radius: 3 },
+        { spot: 6, speed: 6, radius: 20 },
         { spot: 5, speed: 4, radius: 10 }
     ], 
     DrawSeasons: function(projection) {

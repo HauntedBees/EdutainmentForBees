@@ -52,7 +52,7 @@ const textHandler = {
     Advance: function() {
         gfx.ClearLayer("menutext");
         if(this.remainder < 0) {
-            if((game.currentInputHandler.target !== null && game.currentInputHandler.target.isGod === true) && this.currentKey.indexOf("offering") !== 0) {
+            if(!land.modernTimes && (game.currentInputHandler.target !== null && game.currentInputHandler.target.isGod === true) && this.currentKey.indexOf("offering") !== 0) {
                 const targ = game.currentInputHandler.target;
                 textHandler.MoveToNewText("offering", targ.amount + " " + (targ.wantDisplay || targ.want), targ.pronoun);
             } else {

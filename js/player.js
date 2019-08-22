@@ -23,7 +23,7 @@ let player = {
         "Memphis": ["biff", "ptahAltar"],
         "Shedet": ["sobekAltar", "crocodil"],
         "Abdju": ["osirisAltar", "isisAltar", "slappy2"],
-        "Waset": ["amunAltar", "mutAltar", "khonsuAltar"], // TODO
+        "Waset": ["amunAltar", "mutAltar", "khonsuAltar", "guard"], 
         "Yabu": ["khnumAltar", "anuketAltar", "satisAltar"],
         "Napata": ["napatawoman"]
     },
