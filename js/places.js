@@ -168,12 +168,12 @@ const places = {
             { x: 4700, id: "puddle" },
             { x: 4750, id: "puddle" },
             { x: 4850, id: "puddle" },
-
+            { x: 5432, id: "corn" }
         ];
         AddTemple(res, 3000, 4);
         for(let x = 0; x < 8; x++) { res.push({ x: 800 + x * (40 + x), y: Math.floor(30 * Math.random()), id: "chamomile" }); }
         for(let x = 0; x < 6; x++) { res.push({ x: 1220 + x * (50 + x), id: "barley" }); }
-        for(let x = 0; x < 8; x++) { res.push({ x: 5000 + x * (62 + x), y: Math.floor(5 * Math.random()), id: "chrysanthemum" }); }
+        for(let x = 0; x < 6; x++) { res.push({ x: 5000 + x * (62 + x), y: Math.floor(5 * Math.random()), id: "chrysanthemum" }); }
         return res;
     }(),
     "Abdju": function() {

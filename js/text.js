@@ -145,7 +145,7 @@ const texts = {
             "!Once Europeans travelled to the Americas and discovered maize, the word started referring just to that specific crop.",
             "But, it could be possible... some mummies have been found to have traces of tobacco on them, another plant that only grew in the New World.",
             "There have been some arguments that Ancient Egyptians travelled to the Americas before the Europeans did, but they've yet to gain mainstream acceptance.",
-            "So right now, the claim that corn grew in Ancient Egypt doesn't seem to have much evidence to support it, this is just a hallucination.",
+            "So right now, the claim that corn grew in Ancient Egypt doesn't seem to have much evidence to support it; this must be something else.",
             "But hey, kids, consider becoming a historian or archaeologist! Maybe YOU can be the one to discover something big like Ancient Egyptian corn, or Atlantis!",
             "!This game and its developers do not endorse any fringe historical theories and are not responsible for any of its players becoming historians and, thus, huge nerds."
     ].join(" | "),
