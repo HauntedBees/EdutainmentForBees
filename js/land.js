@@ -111,7 +111,11 @@ const land = {
                     }
                     break;
                 case "person":
-                    textHandler.DrawButton(true, "Talk (" + land.target.name + ")", 525, land.btnY, 1, false, land.target.hasValue);
+                    if(land.target.name === "Cat") {
+                        textHandler.DrawButton(true, "Pet Cat", 525, land.btnY, 1, false, land.target.hasValue);
+                    } else {
+                        textHandler.DrawButton(true, "Talk (" + land.target.name + ")", 525, land.btnY, 1, false, land.target.hasValue);
+                    }
                     break;
                 case "boat":
                     textHandler.DrawButton(true, "Board Ship", 525, land.btnY, 1, false, land.target.hasValue);
