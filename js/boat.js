@@ -198,7 +198,7 @@ const boat = {
                 potentialFunFacts.push(entryName);
             }
         }
-        for(let i = 0; i < 30; i++) {
+        for(let i = 0; i < 20; i++) {
             const entryName = "factMisc" + i;
             if(player.revealedFunFacts.indexOf(entryName) < 0) { potentialFunFacts.push(entryName); }
         }

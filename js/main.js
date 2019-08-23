@@ -105,7 +105,10 @@ https://www.britannica.com/topic/Osiris-Egyptian-god
 https://en.wikipedia.org/wiki/Khnum
 https://en.wikipedia.org/wiki/Anuket
 https://www.ancient.eu/article/1033/beer-in-ancient-egypt/
-
+https://en.wikipedia.org/wiki/Opet_Festival
+https://en.wikipedia.org/wiki/Ancient_Egypt
+https://www.ancient.eu/egypt/
+https://www.history.com/news/11-things-you-may-not-know-about-ancient-egypt
 https://en.wikipedia.org/wiki/Umm_El_Qa%27ab
 http://www.touregypt.net/featurestories/khasekhem.htm
 https://en.wikipedia.org/wiki/Seth-Peribsen
