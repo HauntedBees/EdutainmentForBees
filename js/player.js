@@ -14,7 +14,7 @@ let player = {
     honeys: [], revealedFunFacts: [],
     nectarCache: {}, currentDay: 1,
     easterEggs: {
-        catDog: false, honeyBoy: 0, 
+        catDog: false, honeyBoy: 0, melonCount: 0, 
     },
     beedFlowers: [], 
     clearedChievos: [], 
@@ -25,7 +25,7 @@ let player = {
         "Abdju": ["osirisAltar", "isisAltar", "slappy2"],
         "Waset": ["amunAltar", "mutAltar", "khonsuAltar", "guard"], 
         "Yabu": ["khnumAltar", "anuketAltar", "satisAltar"],
-        "Napata": ["napatawoman"]
+        "Napata": ["napatawoman", "melongirl"]
     },
     ClearChievo: function(place, id) {
         player.clearedChievos.push(id);

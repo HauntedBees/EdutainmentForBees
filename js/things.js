@@ -34,7 +34,7 @@ const things = {
     "bluelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 1, name: "Blue Lotus", textRange: 2, foreground: true, harvestable: true },
     "whitelotus": { type: "beeable", sprite: "plantsSmall", rawsx: 0, sx: 2, name: "White Lotus", textRange: 3, foreground: true, harvestable: true },
     "chamomile": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 5, name: "Chamomile", textRange: 1, beeY: -60, harvestable: true },
-    "chrysanthemum": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 4, name: "Crown Daisy", textRange: 1, foreground: true, harvestable: true },
+    "chrysanthemum": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 4, name: "Crown Daisy", textRange: 1, beeY: -55, foreground: true, harvestable: true },
     "melon": { type: "beeable", sprite: "plantsSmall", rawsx: 1, rawsy: 1, sx: 2, sy: 1, name: "Melon", textRange: 2, foreground: true, harvestable: true },
     
     "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1, harvestable: true }, // not yet used
@@ -102,6 +102,7 @@ const things = {
     "napataman": { type: "person", sprite: "peopleMisc", sx: 0, sy: 3, dir: 0, name: "Har", text: "napataman" },
     "napatawoman": { type: "person", sprite: "peopleMisc", sx: 2, sy: 3, dir: 0, name: "Tabiry", text: "napatawoman", textAlt: "napatawoman2", hasValue: true },
     "napatachild": { type: "person", sprite: "littlelad", anim: "regular", dir: 1, name: "Khaliut", text: "napatachild", movement: "hume1" },
+    "melongirl": { type: "person", sprite: "melongirl", noDir: 0, name: "Kasmut", text: "melongirl", textAlt: "melongirlc" },
     "oven": { type: "maker", sprite: "altar", name: "Oven", sx: 0, sy: 1, text: "oven", hasValue: true, 
         primary: "Make Wheat Bread", secondary: "Make Barley Bread" },
     "juicer": { type: "maker", sprite: "altar", name: "Juicer", sx: 1, sy: 1, text: "juicer", hasValue: true, 

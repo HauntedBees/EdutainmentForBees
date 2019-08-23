@@ -58,7 +58,8 @@ const sheetInfo = {
     "valuemark": { w: 100, h: 100 },
     "tent": { w: 1024, h: 896 },
     "sitBuddies": { w: 150, h: 225 },
-    "rummer": { w: 222, h: 124 }
+    "rummer": { w: 222, h: 124 },
+    "melongirl": { w: 150, h: 300 }
 };
 for(let i = 0; i <= 4; i++) { sheetInfo["bg" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/bevouliin-pyramid-free-game-background-for-game-developers
 for(let i = 0; i <= 3; i++) { sheetInfo["bgM" + i] = { w: 3584, h: 896 }; } // https://opengameart.org/content/classical-ruin-tiles-0

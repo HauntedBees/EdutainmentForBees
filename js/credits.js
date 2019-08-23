@@ -110,8 +110,8 @@ const credits = {
             const numAltars = player.clearedChievos.filter(s=> s.indexOf("Altar") >= 0).length;
             credits.DrawText("Altars Offered: " + numAltars + "/13", 300, headingSize);
             maxScore += 13;
-            credits.DrawText("People Helped: " + (player.clearedChievos.length - numAltars) + "/6", 400, headingSize);
-            score += player.clearedChievos.length; maxScore += 6;
+            credits.DrawText("People Helped: " + (player.clearedChievos.length - numAltars) + "/7", 400, headingSize);
+            score += player.clearedChievos.length; maxScore += 7;
             credits.DrawText("Days Taken: " + player.currentDay, 500, headingSize);
             const completion = Math.round(1000 * score/maxScore) / 10;
             credits.DrawText("Completion: " + completion + "%", 650, headingSize);

@@ -268,7 +268,7 @@ const texts = {
     "gotClay": "I grabbed 5 pieces of clay.",
     "noClay": "I think I've grabbed enough for now.",
     "drunkworker": "Hey, I'm pretty hungry. And thirsty. At the same time. | You know what can fix that hunger thirst, or - as I call it - hurst? Or maybe thunger... hmm. | Well, either way, the answer was \"beer.\" Our Egyptian beer is thick and full of nutrients! | I've got a bunch of scented oils I don't need, so if you bring me some beer, I'll trade you for some oil. | ?oilbeer",
-    "drunkworkerb": "Got any beer? I'll trade you scented oil for some.",
+    "drunkworkerb": "Got any beer? I'll trade you scented oil for some. | ?oilbeer",
     "drunkworkerBuy": "Thanks, pal. | GLUG GLUG GLUG GLUG | That hit the spot. Nutritious AND alcoholic!",
     "drunkworkerLack": "Sorry, but I don't think trading zero beer for zero oil would be very beneficial to either of us. | Yeah, that's right, I understand the concept of zero. All of us Egyptians do. | A lot of cultures don't understand zero yet, but give em a few more years and they'll figure it out.",
     "drunkworkerNo": "Alright. Well, I ain't going anywhere, so if you change your mind, let me know.",
@@ -285,7 +285,14 @@ const texts = {
     "napatachild": "Woah, are you a beekeeper? You sure don't look like one, that's how I knew! | Bees are really important to the environment! | Sometimes when I'm out walking around, I look at flowers and see the bees flying around on them! | I don't understand it all yet, but it seems like those flowers really need bees to keep growing! | It sure would be unfortunate if bad things were to happen to bees in the future! | !It is indeed unfortunate. You should do what you can to help save the bees! | !You can donate to organizations dedicated to addressing bee population declines and climate change, or even start growing bee-friendly flowers in your yard to attract bees! | !Ask your parents if you can start your own flower garden, or talk to your teacher about having a local beekeeper come into class to show and tell! | !Maybe they'll even give the class some free honey!",
     "makerNeedMore": "I'll need at least @arg to make this.",
     "makerSuccess": "I just turned @arg into @arg2!",
-    "makerWater": "I scooped up two jugs of water from the infuser's reservoir."
+    "makerWater": "I scooped up two jugs of water from the infuser's reservoir.",
+    "melongirl": "We don't get many melons down here, but melons are good. | They last a long time in the shade and they're full of refreshing water. | Bring me as many melons as you can, you won't regret it. | ?melon",
+    "melongirlb": "Got any melons? | ?melon", 
+    "melongirlc": "Thanks for the melons.", 
+    "melongirlNo": "You're a coward.", 
+    "melongirlLack": "Sadly, you don't have any melons. We share a common problem. | You should fix your lack-of-melon problem so you can come back and fix my lack-of-melon problem.", 
+    "melongirlBuy": "You're a blessing from the gods themselves. But I certainly won't turn down more melons.", 
+    "melongirlWon": "I don't think I can hold any more melons. You truly are a hero among heroes. | As thanks for your kindness, you can have all of my gold. | @This is 1000 gold pieces! | I really like melons, okay?", 
     /* #endregion */
 };
 
@@ -594,7 +601,39 @@ const choices = {
                 textHandler.MoveToNewText("napatawomanNo");
             }
         }
-    ]
+    ],
+    "?melon": [
+        {
+            choice: "Give her a melon.",
+            action: function() {
+                if(player.HasItem("melon", 1)) {
+                    player.RemoveItem("melon", 1);
+                    player.easterEggs.melonCount += 1;
+                    land.target.sx = player.easterEggs.melonCount % 4;
+                    land.target.sy = Math.floor(player.easterEggs.melonCount / 4);
+                    if(player.easterEggs.melonCount === 7) {
+                        player.ClearChievo("Napata", "melongirl");
+                        player.AddItem("gold", 1000);
+                        textHandler.MoveToNewText("melongirlWon");
+                        land.target.text = "melongirlc";
+                    } else {
+                        textHandler.MoveToNewText("melongirlBuy");
+                        land.target.text = "melongirlb";
+                    }
+                } else {
+                    land.target.text = "melongirlb";
+                    textHandler.MoveToNewText("melongirlLack");
+                }
+            }
+        },
+        {
+            choice: "Don't give her a melon.",
+            action: function() {
+                land.target.text = "melongirlb";
+                textHandler.MoveToNewText("melongirlNo");
+            }
+        }
+    ],
 };
 
 const cutscenes = {
@@ -992,7 +1031,7 @@ const displayNames = {
     "flax": "bushel of flax",
     "papyrus": "reed of papyrus",
     "lettuce": "head of lettuce",
-    "gold": "bar of gold",
+    "gold": "piece of gold",
     "incense": "stick of incense",
     "beer": "jug of beer",
     "milk": "jug of milk",
@@ -1014,7 +1053,7 @@ const pluralDisplayNames = {
     "flax": "bushels of flax",
     "papyrus": "reeds of papyrus",
     "lettuce": "heads of lettuce",
-    "gold": "bars of gold",
+    "gold": "pieces of gold",
     "incense": "sticks of incense",
     "fish": "fishes",
     "beer": "jugs of beer",

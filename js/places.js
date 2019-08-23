@@ -16,6 +16,10 @@ const GetPlaceEntities = function(place, modern) {
         if(obj.y !== undefined) {
             entity.y = (entity.y || 0) + obj.y;
         }
+        if(obj.id === "melongirl") {
+            entity.sx = player.easterEggs.melonCount % 4;
+            entity.sy = Math.floor(player.easterEggs.melonCount / 4);
+        }
         if(entity.mustBee || (land.flowering === true && entity.type === "beeable" && Math.random() <= 0.05)) {
             entity.hasBees = true;
             entity.beeTime = Math.floor(Math.random() * 30);
@@ -245,6 +249,7 @@ const places = {
             { x: 4020, id: "anuket" }, { x: 4020, id: "anuketAltar" },
             { x: 5000, id: "templeL" },
             { x: 5177, id: "templeBR" },
+            { x: 4900, id: "worker2" },
             { x: 5200, id: "worker" },
             { x: 5600, id: "clay" },
             { x: 5900, id: "puddle" },
@@ -273,11 +278,12 @@ const places = {
             { x: 3050, id: "spreader" },
             { x: 3250, id: "infuser" },
             { x: 3500, id: "napatawoman" },
-            { x: 4200, id: "napatachild" }
+            { x: 4200, id: "napatachild" },
+            { x: 4400, id: "melongirl" }
         ];
         AddTemple(res, 2500, 3);
         for(let x = 0; x < 8; x++) { res.push({ x: 700 + x * (96 + x), y: Math.floor(5 * Math.random()), id: x % 2 === 0 ? "chamomile" : "chrysanthemum" }); }
-        for(let x = 0; x < 6; x++) { res.push({ x: 3800 + x * (90 + x), y: Math.floor(5 * Math.random()), id: "papyrus" }); }
+        for(let x = 0; x < 5; x++) { res.push({ x: 3800 + x * (90 + x), y: Math.floor(5 * Math.random()), id: "papyrus" }); }
         return res;
     }(),
     "ModernCoffin2": [
