@@ -20,7 +20,7 @@ let player = {
     clearedChievos: [], 
     chievos: {
         "Taremu": ["shop2", "bastetAltar", "sekhmetAltar", "maahesAltar"],
-        "Memphis": ["biff", "ptahAltar"],
+        "Memphis": ["biff", "ptahAltar", "teacher"],
         "Shedet": ["sobekAltar", "crocodil"],
         "Abdju": ["osirisAltar", "isisAltar", "slappy2"],
         "Waset": ["amunAltar", "mutAltar", "khonsuAltar", "guard"], 

@@ -66,7 +66,7 @@ const things = {
     // Memphis
     "student1": { type: "person", sprite: "peopleMisc", sx: 1, sy: 1, noDir: true, name: "Kawab", text: "student1" },
     "student2": { type: "person", sprite: "peopleMisc", sx: 2, sy: 1, noDir: true, name: "Neferhotep", text: "student2" },
-    "teacher": { type: "person", sprite: "peopleMisc", sx: 0, sy: 2, dir: 0, name: "Bebi", text: "teacher" },
+    "teacher": { type: "person", sprite: "peopleMisc", sx: 0, sy: 2, dir: 0, name: "Bebi", text: "teacher", textAlt: "teacherc", hasValue: true },
     "biff": { type: "person", sprite: "pers2tiny", anim: "regular", dir: 1, name: "Amenken", text: "amenken1", textAlt: "amenken2", movement: "hume1", hasValue: true },
     // Shedet
     "sobekpriest": { type: "person", sprite: "peopleMisc", sx: 2, sy: 2, dir: 0, name: "Huy", text: "sobekpriest" },
@@ -95,14 +95,14 @@ const things = {
     "cow": { type: "bg", sprite: "cow" },
     "shop5": { type: "person", sprite: "shopkeeps", sx: 2, sy: 2, dir: 0, name: "Hentmereb", text: "milky", hasValue: true },
     "worker": { type: "person", sprite: "worker", noDir: true, name: "Kenamon", text: "worker" },
-    "worker2": { type: "person", sprite: "rummer", dir: 0, name: "Anen", text: "drunkworker" },
+    "worker2": { type: "person", sprite: "rummer", dir: 0, name: "Anen", text: "drunkworker", hasValue: true },
     "clay": { type: "observable", sprite: "", name: "Clay Deposit", text: "clay", claysGrabbed: 0, hasValue: true }, 
     // Napata
     "napataguard": { type: "person", sprite: "pers2", anim: "regular", dir: 0, name: "Merymose", text: "merymose" },
     "napataman": { type: "person", sprite: "peopleMisc", sx: 0, sy: 3, dir: 0, name: "Har", text: "napataman" },
     "napatawoman": { type: "person", sprite: "peopleMisc", sx: 2, sy: 3, dir: 0, name: "Tabiry", text: "napatawoman", textAlt: "napatawoman2", hasValue: true },
     "napatachild": { type: "person", sprite: "littlelad", anim: "regular", dir: 1, name: "Khaliut", text: "napatachild", movement: "hume1" },
-    "melongirl": { type: "person", sprite: "melongirl", noDir: 0, name: "Kasmut", text: "melongirl", textAlt: "melongirlc" },
+    "melongirl": { type: "person", sprite: "melongirl", noDir: 0, name: "Kasmut", text: "melongirl", textAlt: "melongirlc", hasValue: true },
     "oven": { type: "maker", sprite: "altar", name: "Oven", sx: 0, sy: 1, text: "oven", hasValue: true, 
         primary: "Make Wheat Bread", secondary: "Make Barley Bread" },
     "juicer": { type: "maker", sprite: "altar", name: "Juicer", sx: 1, sy: 1, text: "juicer", hasValue: true, 
