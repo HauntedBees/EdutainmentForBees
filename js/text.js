@@ -197,6 +197,7 @@ const texts = {
     "fishshopLack": "Sorry, looks like you don't have enough gold! | You're a beekeeper, right? I'm sure somebody in Egypt is willing to trade honey some from gold.",
     "fishshopNo": "No? Okay! Let me know if you change your mind!",
     "fishshopBuy": "Pleasure doing business with you! Enjoy your fish!",
+    "vase": "Oops. | ~vase",
     /* #endregion */
     /* #region Memphis */
     "mummy": "Hey. | @Are you a mummy!? | I mean, I'm mummified, but I'm not dead or anything. | I was just testing out the mummification process to see how it feels. | This linen kind of gives me a bit of a wedgie. | @Great.",
@@ -1044,6 +1045,10 @@ const cutscenes = {
                 }
             }
         }
+    },
+    "~vase": function() {
+        land.entities.filter(e => e.id === "vase")[0].sx = 1;
+        land.inDialogue = false;
     }
 };
 

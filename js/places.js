@@ -120,7 +120,9 @@ const places = {
             { x: 5000, id: "slappy1" },
             { x: 5090, id: "boxFruit" },
             { x: 5500, id: "boxBread" },
-            { x: 5600, id: "shop2" }
+            { x: 5600, id: "shop2" },
+            { x: 2945, id: "vase" },
+            { x: 3050, id: "vaseBreak" }
         ];
         AddTemple(res, 3000, 4);
         for(let x = 0; x < 6; x++) { res.push({ x: 700 + x * (65 + x), id: "whitelotus" }); }

@@ -63,6 +63,8 @@ const things = {
     "shop1": { type: "person", sprite: "shopkeeps", sx: 2, sy: 1, dir: 0, name: "Dedu", text: "fishshop", hasValue: true },
     "shop2": { type: "person", sprite: "shopkeeps", sx: 2, dir: 0, name: "Tener", text: "breadgirl", textAlt: "breadgirlDone", hasValue: true },
     "slappy1": { type: "person", sprite: "slappy", anim: "slappy", dir: 0, name: "Ahmose", text: "fruitboy1" },
+    "vase": { type: "bg", sprite: "vase" },
+    "vaseBreak": { type: "auto", sprite: "", speaker: "Cori", text: "vase" },
     // Memphis
     "student1": { type: "person", sprite: "peopleMisc", sx: 1, sy: 1, noDir: true, name: "Kawab", text: "student1" },
     "student2": { type: "person", sprite: "peopleMisc", sx: 2, sy: 1, noDir: true, name: "Neferhotep", text: "student2" },
