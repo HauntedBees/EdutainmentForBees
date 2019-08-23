@@ -31,6 +31,7 @@ let player = {
         player.clearedChievos.push(id);
         const idx = player.chievos[place].indexOf(id);
         player.chievos[place].splice(idx, 1);
+        game.SaveGame();
     },
     AddItem: function(item, amount) {
         amount = amount || 1;
@@ -39,6 +40,7 @@ let player = {
         } else {
             player.inventory[item] += amount;
         }
+        game.SaveGame();
     },
     HasItem: function(item, amount) {
         amount = amount || 1;
@@ -52,6 +54,7 @@ let player = {
         } else {
             player.inventory[item] -= amount;
         }
+        game.SaveGame();
     },
     AddHoney: function(honey) {
         player.honeys.push(honey);

@@ -7,7 +7,7 @@ const GetCopy = function(objKey, x) {
 }
 const game = {
     numSaveSlots: 10, w: 1024, h: 896, ldiv: null, 
-    currentInputHandler: null, target: null, 
+    currentInputHandler: null, target: null, hasSave: false, 
     canvasLayers: ["background", "background2", "characters", "foreground", "menuA", "menuB", "menuC", "menutext", "paintbaby"], 
     SetLoadingText: function(t) { game.ldiv.innerText = t; },
     fullInit: function() {
@@ -66,17 +66,62 @@ const game = {
     sheetsLoaded: function() {
         game.SetLoadingText("Initializing Listeners.");
         game.initListeners();
-        game.SetLoadingText("> New Game <");
+        game.hasSave = localStorage.getItem("flowering") !== null;
+        if(game.hasSave) {
+            game.SetLoadingText("> Continue <");
+        } else {
+            game.SetLoadingText("> New Game <");
+        }
         game.currentInputHandler = titleScreen;
+    },
+    SaveGame: function() {
+        localStorage.setItem("player", JSON.stringify(player));
+        localStorage.setItem("maxX", JSON.stringify(maxX));
+        localStorage.setItem("flowering", JSON.stringify(land.flowering));
+        localStorage.setItem("currentPos", JSON.stringify(boat.currentPos));
+        localStorage.setItem("honeyCache", JSON.stringify(boat.honeyCache));
+    },
+    LoadGame: function() {
+        game.SetLoadingText("Loading your progress!");
+        const savePlayer = localStorage.getItem("player");
+        if(savePlayer === null) { return; }
+        Object.assign(player, JSON.parse(savePlayer));
+        maxX = JSON.parse(localStorage.getItem("maxX"));
+        land.flowering = JSON.parse(localStorage.getItem("flowering"));
+        boat.currentPos = JSON.parse(localStorage.getItem("currentPos"));
+        boat.nextPos = boat.currentPos;
+        boat.honeyCache = JSON.parse(localStorage.getItem("honeyCache"));
+        game.currentInputHandler = boat;
+        game.currentInputHandler.Setup();
+        
     }
 };
 
 const titleScreen = {
-    Setup: function() { },
+    topOption: true, 
+    Setup: function() { titleScreen.topOption = true; },
     mouseMove: function() { },
-    click: function() { titleScreen.NewGame(); },
-    rightclick: function() { titleScreen.NewGame(); },
-    keyPress: function() { titleScreen.NewGame(); },
+    click: function() {
+        if(game.hasSave && titleScreen.topOption) {
+            game.LoadGame();
+        } else {
+            titleScreen.NewGame();
+        }
+    },
+    rightclick: function() { },
+    keyPress: function(key) {
+        if(game.hasSave && [player.controls.up, player.controls.down, player.controls.left, player.controls.right].indexOf(key) >= 0) {
+            titleScreen.topOption = !titleScreen.topOption;
+            game.SetLoadingText(titleScreen.topOption ? "> Continue <" : "> New Game <");
+        }
+        if(key === player.controls.confirm || key === player.controls.pause) {
+            if(game.hasSave && titleScreen.topOption) {
+                game.LoadGame();
+            } else {
+                titleScreen.NewGame();
+            }
+        }
+    },
     NewGame: function() {
         game.SetLoadingText("Here we go...!");
         game.currentInputHandler = land;

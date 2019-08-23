@@ -316,6 +316,7 @@ const boat = {
                     textHandler.ShowText("", "noIncense");
                 }
             } else if(boat.playerX <= 590 && boat.playerX >= 520) { // Leave
+                game.SaveGame();
                 game.SwitchTo(land, positions[boat.currentPos][0], seasonHandler.IsInSeason(0, boat.currentPos));
             }
         }

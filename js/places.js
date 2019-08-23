@@ -38,7 +38,7 @@ const autoPlays = {
     "ModernCoffin2": function() { textHandler.ShowText("Cori", "wakeUp"); },
     "ModernTent": function() { cutscenes["~end4"](); },
 };
-const maxX = {
+let maxX = {
     "ModernCoffin": 2290,
     "CutsceneWaset": 5800,
     "Taremu": 5565,

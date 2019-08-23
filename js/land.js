@@ -262,6 +262,7 @@ const land = {
                 textHandler.ShowText("Cori", land.target.text);
             }
         } else if(land.target.type === "boat") {
+            game.SaveGame();
             game.SwitchTo(boat);
         } else if(land.target.type === "maker") {
             land.ProcessMaker(true);
