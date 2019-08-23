@@ -958,3 +958,76 @@ const cutscenes = {
         }
     }
 };
+
+const displayNames = {
+    "honey": "comb of honey",
+    "bluelotus": "blue lotus",
+    "whitelotus": "white lotus",
+    "bread": "loaf of bread",
+    "pomegranate juice": "jug of pomegranate juice",
+    "date honey": "jug of date honey",
+    "linen": "sheet of linen",
+    "parchment": "sheet of parchment",
+    "water": "jug of water",
+    "wheat": "bushel of wheat",
+    "barley": "bushel of barley",
+    "flax": "bushel of flax",
+    "papyrus": "reed of papyrus",
+    "lettuce": "head of lettuce",
+    "gold": "bar of gold",
+    "incense": "stick of incense",
+    "beer": "jug of beer",
+    "milk": "jug of milk",
+    "clay": "slab of clay",
+    "beeswax": "chunk of beeswax"
+};
+const pluralDisplayNames = {
+    "honey": "combs of honey",
+    "bluelotus": "blue lotuses",
+    "whitelotus": "white lotuses",
+    "bread": "loaves of bread",
+    "pomegranate juice": "jugs of pomegranate juice",
+    "date honey": "jugs of date honey",
+    "linen": "sheets of linen",
+    "parchment": "sheets of parchment",
+    "water": "jugs of water",
+    "wheat": "bushels of wheat",
+    "barley": "bushels of barley",
+    "flax": "bushels of flax",
+    "papyrus": "reeds of papyrus",
+    "lettuce": "heads of lettuce",
+    "gold": "bars of gold",
+    "incense": "sticks of incense",
+    "fish": "fishes",
+    "beer": "jugs of beer",
+    "milk": "jugs of milk",
+    "clay": "slabs of clay",
+    "beeswax": "chunks of beeswax"
+};
+function SetInventoryString() {
+    texts["inventory"] = "I have ";
+    const things = [];
+    for(const key in player.inventory) {
+        const count = player.inventory[key];
+        if(count > 1) {
+            things.push(count + " " + (pluralDisplayNames[key] || (key + "s")));
+        } else if(count === 1) {
+            things.push("1 " + (displayNames[key] || key));
+        }
+    }
+    if(things.length === 0) {
+        texts["inventory"] += "nothing."
+    } else {
+        texts["inventory"] += things.join(", ") + ".";
+        if(player.honeys.length > 0) {
+            texts["inventory"] += " | Types of Honey: ";
+            const honeys = [];
+            const ranks = ["F", "D", "C", "B", "A", "S"];
+            for(let i = 0; i < player.honeys.length; i++) {
+                const h = player.honeys[i];
+                honeys.push((displayNames[h.type] || h.type) + " (" + ranks[h.grade] + "-Rank)");
+            }
+            texts["inventory"] += honeys.join(", ") + ".";
+        }
+    }
+}

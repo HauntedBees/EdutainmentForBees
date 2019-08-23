@@ -123,6 +123,8 @@ https://en.wikipedia.org/wiki/Lettuce#History
 https://en.wikipedia.org/wiki/Memphis,_Egypt
 
 http://www.virtualkemet.com/market/index.htm
+http://virtualkemet.com/perankh/namesmale.htm
+http://virtualkemet.com/perankh/namesfemale.htm
 
 https://en.wikipedia.org/wiki/Leontopolis
 https://ancientegyptonline.co.uk/maahes/

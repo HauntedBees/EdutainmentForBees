@@ -276,22 +276,7 @@ const boat = {
                 boat.InitialDraw();
             } else if(boat.playerX <= 480) { // Storage
                 gfx.ClearLayers(["menuA", "menutext"]);
-                texts["inventory"] = "I have ";
-                const things = [];
-                for(const key in player.inventory) {
-                    const count = player.inventory[key];
-                    if(count > 0) {
-                        things.push(count + " " + key);
-                    }
-                }
-                if(player.honeys.length > 0) {
-                    things.push(player.honeys.length + " honey");
-                }
-                if(things.length === 0) {
-                    texts["inventory"] += "nothing."
-                } else {
-                    texts["inventory"] += things.join(", ") + ".";
-                }
+                SetInventoryString();
                 textHandler.ShowText("", "inventory");
             } else if(boat.playerX >= 620) { // Smoke
                 if(player.HasItem("incense")) {

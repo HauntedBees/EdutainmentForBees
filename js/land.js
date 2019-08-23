@@ -286,7 +286,9 @@ const land = {
         if(land.inChoice) {
             textHandler.MakeChoice(false);
             return;
-        } else if(land.flowering && !land.target.hasBees && !land.target.harvested && land.target.harvestable && (land.target.type === "observable" || land.target.type === "beeable")) {
+        }
+        if(land.inDialogue) { return; }
+        if(land.flowering && !land.target.hasBees && !land.target.harvested && land.target.harvestable && (land.target.type === "observable" || land.target.type === "beeable")) {
             player.AddItem(land.target.id);
             land.target.harvested = true;
             textHandler.ShowText("", "harvest", land.target.name);
