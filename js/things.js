@@ -66,6 +66,7 @@ const things = {
     // Memphis
     "student1": { type: "person", sprite: "peopleMisc", sx: 1, sy: 1, noDir: true, name: "Kawab", text: "student1" },
     "student2": { type: "person", sprite: "peopleMisc", sx: 2, sy: 1, noDir: true, name: "Neferhotep", text: "student2" },
+    "mummy": { type: "person", sprite: "mummy", dir: 0, name: "Mummy", text: "mummy", anim: "regular", movement: "hume1" },
     "teacher": { type: "person", sprite: "peopleMisc", sx: 0, sy: 2, dir: 0, name: "Bebi", text: "teacher", textAlt: "teacherc", hasValue: true },
     "biff": { type: "person", sprite: "pers2tiny", anim: "regular", dir: 1, name: "Amenken", text: "amenken1", textAlt: "amenken2", movement: "hume1", hasValue: true },
     // Shedet

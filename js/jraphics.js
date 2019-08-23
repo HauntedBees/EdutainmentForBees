@@ -4,6 +4,7 @@ const sheetInfo = {
     "playerScene1": { w: 200, h: 260 },
     "farmboy": { w: 200, h: 260 },
     "pers2": { w: 200, h: 260 },
+    "mummy": { w: 200, h: 260 },
     "littlelad": { w: 200, h: 260 },
     "pers2tiny": { w: 150, h: 195 },
     "peopleMisc": { w: 200, h: 260 },

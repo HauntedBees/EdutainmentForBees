@@ -129,6 +129,7 @@ const places = {
     }(),  
     "Memphis": function() {
         const res = [
+            { x: 2000, id: "mummy" },
             { x: 2200, id: "student1" },
             { x: 2500, id: "student2" },
             { x: 2800, id: "teacher" },
