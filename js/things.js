@@ -95,6 +95,7 @@ const things = {
     "cow": { type: "bg", sprite: "cow" },
     "shop5": { type: "person", sprite: "shopkeeps", sx: 2, sy: 2, dir: 0, name: "Hentmereb", text: "milky", hasValue: true },
     "worker": { type: "person", sprite: "worker", noDir: true, name: "Kenamon", text: "worker" },
+    "worker2": { type: "person", sprite: "rummer", dir: 0, name: "Anen", text: "drunkworker" },
     "clay": { type: "observable", sprite: "", name: "Clay Deposit", text: "clay", claysGrabbed: 0, hasValue: true }, 
     // Napata
     "napataguard": { type: "person", sprite: "pers2", anim: "regular", dir: 0, name: "Merymose", text: "merymose" },

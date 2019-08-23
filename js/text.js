@@ -267,6 +267,11 @@ const texts = {
     "clay": "Looks like a nice amount of clay is building up here by the shore. | ~clayGrab",
     "gotClay": "I grabbed 5 pieces of clay.",
     "noClay": "I think I've grabbed enough for now.",
+    "drunkworker": "Hey, I'm pretty hungry. And thirsty. At the same time. | You know what can fix that hunger thirst, or - as I call it - hurst? Or maybe thunger... hmm. | Well, either way, the answer was \"beer.\" Our Egyptian beer is thick and full of nutrients! | I've got a bunch of scented oils I don't need, so if you bring me some beer, I'll trade you for some oil. | ?oilbeer",
+    "drunkworkerb": "Got any beer? I'll trade you scented oil for some.",
+    "drunkworkerBuy": "Thanks, pal. | GLUG GLUG GLUG GLUG | That hit the spot. Nutritious AND alcoholic!",
+    "drunkworkerLack": "Sorry, but I don't think trading zero beer for zero oil would be very beneficial to either of us. | Yeah, that's right, I understand the concept of zero. All of us Egyptians do. | A lot of cultures don't understand zero yet, but give em a few more years and they'll figure it out.",
+    "drunkworkerNo": "Alright. Well, I ain't going anywhere, so if you change your mind, let me know.",
     /* #endregion */
     /* #region Napata */
     "merymose": "Greetings! I am Merymose, the Viceroy of Kush, serving under our pharaoh Amenhotep III! Welcome to Napata! | @What is Kush? | The Kingdom of Kush was a Nubian kingdom that conquered much of Egypt before the 18th Dynasty. | However, after Ahmose I reclaimed Egypt for the Egyptians and founded the 18th Dynasty, we conquered them right back! | Now this kingdom is a colony of Egypt that I'm in charge of, and I report directly to the pharaoh himself! | This city, Napata, was founded by Thutmose III around a hundred years ago, and is now the center of Kush! | I hope you enjoy your time here!", 
@@ -440,6 +445,29 @@ const choices = {
             action: function() {
                 land.target.text = "fishshopb";
                 textHandler.MoveToNewText("fishshopNo");
+            }
+        }
+    ],
+    "?oilbeer": [
+        {
+            choice: "Trade a beer for a scented oil.",
+            action: function() {
+                if(player.HasItem("beer", 1)) {
+                    player.RemoveItem("beer", 1);
+                    player.AddItem("scented oil", 1);
+                    textHandler.MoveToNewText("drunkworkerBuy");
+                    land.target.text = "drunkworkerb";
+                } else {
+                    land.target.text = "drunkworkerb";
+                    textHandler.MoveToNewText("drunkworkerLack");
+                }
+            }
+        },
+        {
+            choice: "Don't trade.",
+            action: function() {
+                land.target.text = "drunkworkerb";
+                textHandler.MoveToNewText("drunkworkerNo");
             }
         }
     ],
