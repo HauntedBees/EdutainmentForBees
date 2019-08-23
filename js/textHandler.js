@@ -33,6 +33,7 @@ const textHandler = {
             game.currentInputHandler.inChoice = true;
         } else {
             this.remainder = gfx.DrawWrappedText(this.speaker, this.currentText, 0, 20, 0, 984, "#000000", "menutext", this.fontSize * player.fontSize, 200);
+            textHandler.DrawButton(true, "", 974, 280, 0, true, false, true);
         }
     },
     MakeChoice: function(primary) {
@@ -70,10 +71,11 @@ const textHandler = {
                 game.currentInputHandler.inChoice = true;
             } else {
                 this.remainder = gfx.DrawWrappedText(this.speaker, this.currentText, this.remainder, 20, 0, 984, "#000000", "menutext", this.fontSize * player.fontSize, 200);
+                textHandler.DrawButton(true, "", 974, 280, 0, true, false, true);
             }
         }
     },
-    DrawButton: function(primary, text, x, y, yShift, forceLeft, addValueMarker) {
+    DrawButton: function(primary, text, x, y, yShift, forceLeft, addValueMarker, justButton) {
         yShift = yShift || 0;
 
         if(forceLeft !== true) {
@@ -85,10 +87,11 @@ const textHandler = {
 
         const myY = y - 20 * yShift - yShift * 50 * player.fontSize;
         const info = textHandler.GetDisplayInfo(primary ? player.controls.confirm: player.controls.cancel);
-        gfx.DrawSprite("buttons", info.sx, info.sy, x, myY, "menuA", player.fontSize, true);
+        gfx.DrawSprite("buttons", info.sx, info.sy, x, myY, justButton ? "menutext" : "menuA", player.fontSize, true);
         gfx.DrawText(info.text, x + (25 * player.fontSize), myY, true, "#FFFFFF", "menutext", textHandler.HUDfontSize * player.fontSize);
-        gfx.DrawText(text, x + (55 * player.fontSize), myY, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize, true);
-
+        if(!justButton) {
+            gfx.DrawText(text, x + (55 * player.fontSize), myY, false, "#000000", "menutext", textHandler.HUDfontSize * player.fontSize, true);
+        }
         if(addValueMarker === true) {
             gfx.DrawSprite("valuemark", 0, 0, x - 40, myY + 5, "menuA", player.fontSize * 0.4, true);
         }

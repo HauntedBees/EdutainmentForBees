@@ -90,7 +90,6 @@ const fontMults = {
 const gfx = {
     canvas: [],  ctx: [],
     canvasHeight: 0, canvasWidth: 0,
-    tileWidth: 0, tileHeight: 0, scale: 4,
     spritesheets: [],
     LoadSpriteSheets: function(source, paths, callback) {
         count = 0; source = source || "img";

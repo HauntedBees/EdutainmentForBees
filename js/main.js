@@ -6,8 +6,8 @@ const GetCopy = function(objKey, x) {
     return obj;
 }
 const game = {
-    numSaveSlots: 10, w: 1024, h: 896, tilew: 16, tileh: 14, ldiv: null, 
-    currentInputHandler: null, target: null, language: "en-us",
+    numSaveSlots: 10, w: 1024, h: 896, ldiv: null, 
+    currentInputHandler: null, target: null, 
     canvasLayers: ["background", "background2", "characters", "foreground", "menuA", "menuB", "menuC", "menutext", "paintbaby"], 
     SetLoadingText: function(t) { game.ldiv.innerText = t; },
     fullInit: function() {
@@ -22,15 +22,13 @@ const game = {
         for(const key in canvasObj) {
             contextObj[key] = canvasObj[key].getContext("2d");
         }
-        game.init(canvasObj, contextObj, game.w, game.h, 16, 14);
+        game.init(canvasObj, contextObj, game.w, game.h);
     },
-    init: function(canvasObj, ctxObj, width, height, tilewidth, tileheight) {
+    init: function(canvasObj, ctxObj, width, height) {
         gfx.canvas = canvasObj;
         gfx.ctx = ctxObj;
         gfx.canvasWidth = width;
         gfx.canvasHeight = height;
-        gfx.tileWidth = tilewidth;
-        gfx.tileHeight = tileheight;
         game.SetLoadingText("Loading art assets.");
         gfx.LoadSpriteSheets("img", sheetInfo, this.sheetsLoaded);
     },
@@ -70,12 +68,6 @@ const game = {
         game.initListeners();
         game.SetLoadingText("> New Game <");
         game.currentInputHandler = titleScreen;
-        titleScreen.NewGame();
-        //game.currentInputHandler = land;
-        //game.currentInputHandler.Setup("Waset", true);
-        //game.currentInputHandler.Setup("Testbench", true);
-        //game.currentInputHandler.Setup("CutsceneWaset");
-        //game.currentInputHandler.Setup("ModernCoffin");
     }
 };
 
@@ -88,7 +80,7 @@ const titleScreen = {
     NewGame: function() {
         game.SetLoadingText("Here we go...!");
         game.currentInputHandler = land;
-        game.currentInputHandler.Setup("Waset", true);
+        game.currentInputHandler.Setup("ModernCoffin");
     }
 };
 

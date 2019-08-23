@@ -20,9 +20,7 @@ let input = {
     },
     getMousePos: function(e) {
         const rect = gfx.canvas["menutext"].getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        return { x: Math.floor(x / 16) / gfx.scale, y: Math.floor(y / 16) / gfx.scale, rawX: x / gfx.scale, rawY: y / gfx.scale };
+        return { x: e.clientX - rect.left, y: e.clientY - rect.top };
     },
     onWheel: function(e) {
         if(player.options.ignoreMouse === 1) { return; }
