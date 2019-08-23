@@ -169,7 +169,7 @@ const gfx = {
             gfx.DrawSpeakerBorder(ctx, row, x, y + fontInfo.borderTop * size, ddy);
             row +=  ": " + ts[i0].substring(1);
         } else if(ts[i0][0] === "@") {
-            gfx.tempSpeaker = "Protagonny";
+            gfx.tempSpeaker = "Cori";
             row = gfx.tempSpeaker;
             gfx.DrawSpeakerBorder(ctx, row, x, y + fontInfo.borderTop * size, ddy);
             row +=  ": " + ts[i0].substring(1);

@@ -192,7 +192,7 @@ const land = {
                 land.DrawEntitiesAndGetTarget();
                 if(land.target.textRange) {
                     const id = land.target.id + Math.floor(Math.random() * land.target.textRange);
-                    textHandler.ShowText("Protagonny", id);
+                    textHandler.ShowText("Cori", id);
                 } else {
                     textHandler.ShowText(land.target.speaker, land.target.text);
                 }
@@ -253,9 +253,9 @@ const land = {
                 textHandler.ShowText(land.target.name, land.target.text, land.target.name);
             } else if(land.target.textRange) {
                 const id = land.target.id + Math.floor(Math.random() * land.target.textRange);
-                textHandler.ShowText("Protagonny", id);
+                textHandler.ShowText("Cori", id);
             } else {
-                textHandler.ShowText("Protagonny", land.target.text);
+                textHandler.ShowText("Cori", land.target.text);
             }
         } else if(land.target.type === "boat") {
             game.SwitchTo(boat);
@@ -337,55 +337,55 @@ const land = {
                 if(player.HasItem("wheat", 5)) {
                     player.RemoveItem("wheat", 5);
                     player.AddItem("bread", 1);
-                    textHandler.ShowText("Protagonny", "makerSuccess", "5 wheat", "a loaf of bread");
-                } else { textHandler.ShowText("Protagonny", "makerNeedMore", "5 wheat"); }
+                    textHandler.ShowText("Cori", "makerSuccess", "5 wheat", "a loaf of bread");
+                } else { textHandler.ShowText("Cori", "makerNeedMore", "5 wheat"); }
                 break;
             case "Make Barley Bread":
                 if(player.HasItem("barley", 5)) {
                     player.RemoveItem("barley", 5);
                     player.AddItem("bread", 1);
-                    textHandler.ShowText("Protagonny", "makerSuccess", "5 barley", "a loaf of bread");
-                } else { textHandler.ShowText("Protagonny", "makerNeedMore", "5 barley"); }
+                    textHandler.ShowText("Cori", "makerSuccess", "5 barley", "a loaf of bread");
+                } else { textHandler.ShowText("Cori", "makerNeedMore", "5 barley"); }
                 break;
             case "Make Pomegranate Juice":
                 if(player.HasItem("pomegranate", 2)) {
                     player.RemoveItem("pomegranate", 2);
                     player.AddItem("pomegranate juice", 1);
-                    textHandler.ShowText("Protagonny", "makerSuccess", "2 pomegranates", "a jug of pomegranate juice");
-                } else { textHandler.ShowText("Protagonny", "makerNeedMore", "2 pomegranates"); }
+                    textHandler.ShowText("Cori", "makerSuccess", "2 pomegranates", "a jug of pomegranate juice");
+                } else { textHandler.ShowText("Cori", "makerNeedMore", "2 pomegranates"); }
                 break;
             case "Make Date Honey":
                 if(player.HasItem("date", 2)) {
                     player.RemoveItem("date", 2);
                     player.AddItem("date honey", 1);
-                    textHandler.ShowText("Protagonny", "makerSuccess", "2 dates", "a jug of date honey");
-                } else { textHandler.ShowText("Protagonny", "makerNeedMore", "2 dates"); }
+                    textHandler.ShowText("Cori", "makerSuccess", "2 dates", "a jug of date honey");
+                } else { textHandler.ShowText("Cori", "makerNeedMore", "2 dates"); }
                 break;
             case "Make Linen":
                 if(player.HasItem("flax", 3)) {
                     player.RemoveItem("flax", 3);
                     player.AddItem("linen", 1);
-                    textHandler.ShowText("Protagonny", "makerSuccess", "3 flax", "a sheet of linen");
-                } else { textHandler.ShowText("Protagonny", "makerNeedMore", "3 flax"); }
+                    textHandler.ShowText("Cori", "makerSuccess", "3 flax", "a sheet of linen");
+                } else { textHandler.ShowText("Cori", "makerNeedMore", "3 flax"); }
                 break;
             case "Make Parchment":
                 if(player.HasItem("papyrus", 3)) {
                     player.RemoveItem("papyrus", 3);
                     player.AddItem("parchment", 1);
-                    textHandler.ShowText("Protagonny", "makerSuccess", "3 papyrus", "a sheet of parchment");
-                } else { textHandler.ShowText("Protagonny", "makerNeedMore", "3 papyrus"); }
+                    textHandler.ShowText("Cori", "makerSuccess", "3 papyrus", "a sheet of parchment");
+                } else { textHandler.ShowText("Cori", "makerNeedMore", "3 papyrus"); }
                 break;
             case "Make Scented Oil":
                 if(player.HasItem("chamomile", 1) && player.HasItem("chrysanthemum", 1)) {
                     player.RemoveItem("chamomile", 1);
                     player.RemoveItem("chrysanthemum", 1);
                     player.AddItem("scented oil", 1);
-                    textHandler.ShowText("Protagonny", "makerSuccess", "a Crown Daisy and a Chamomile Flower", "a bottle of scented oil");
-                } else { textHandler.ShowText("Protagonny", "makerNeedMore", "a Crown Daisy and a Chamomile Flower"); }
+                    textHandler.ShowText("Cori", "makerSuccess", "a Crown Daisy and a Chamomile Flower", "a bottle of scented oil");
+                } else { textHandler.ShowText("Cori", "makerNeedMore", "a Crown Daisy and a Chamomile Flower"); }
                 break;
             case "Collect Water":
                 player.AddItem("water", 2);
-                textHandler.ShowText("Protagonny", "makerWater");
+                textHandler.ShowText("Cori", "makerWater");
                 break;
         }
     }

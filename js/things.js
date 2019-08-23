@@ -1,8 +1,8 @@
 const things = {
     /* #region OPENING and ENDING */
-    "prompt1": { type: "auto", speaker: "Protagonny", text: "intro1", sprite: "" },
-    "prompt2": { type: "auto", speaker: "Protagonny", text: "intro2", sprite: "" },
-    "coffin": { type: "observable", speaker: "Protagonny", sprite: "coffin", dir: 0, name: "Sarcophagus", text: "intro3" },
+    "prompt1": { type: "auto", speaker: "Cori", text: "intro1", sprite: "" },
+    "prompt2": { type: "auto", speaker: "Cori", text: "intro2", sprite: "" },
+    "coffin": { type: "observable", speaker: "Cori", sprite: "coffin", dir: 0, name: "Sarcophagus", text: "intro3" },
     "beejar": { type: "bg", sprite: "beejar", dir: 0 },
     "helpser": { type: "bg", sprite: "pers2tiny", anim: "helpser", dir: 1 },
     "amenhotep": { type: "bg", sprite: "amenhotep", dir: 0 },
@@ -18,7 +18,7 @@ const things = {
     "farmboybg": { type: "bg", sprite: "farmboy", anim: "regular", dir: 1, movement: "hume1" },
     "shop4bg": { type: "bg", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0 },
     "coffinEnd": { type: "bg", sprite: "coffin", dir: 0 },
-    "returnToSender": { type: "auto", speaker: "Protagonny", text: "returnToSender", sprite: "" },
+    "returnToSender": { type: "auto", speaker: "Cori", text: "returnToSender", sprite: "" },
     "archibald": { type: "bg", sprite: "sitBuddies", dir: 0 },
     "sitProtag": { type: "bg", sprite: "sitBuddies", sx: 1, dir: 0 },
     /* #endregion */

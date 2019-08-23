@@ -697,7 +697,7 @@ const cutscenes = {
                     }
                 } else if(this.state === 2) {
                     gfx.DrawSprite2("playerScene1", this.frames[this.frame], land.xOffset, land.yPos, "characters");
-                    textHandler.ShowText("Protagonny", "intro4");
+                    textHandler.ShowText("Cori", "intro4");
                     this.state = 3;
                 } else {
                     gfx.DrawSprite2("playerScene1", this.frames[this.frame], land.xOffset, land.yPos, "characters");
@@ -753,7 +753,7 @@ const cutscenes = {
             }
         };
         land.Animate();
-        textHandler.ShowText("Protagonny", "intro5");
+        textHandler.ShowText("Cori", "intro5");
     },
     "~start4": function() {
         land.inDialogue = false;
@@ -764,7 +764,7 @@ const cutscenes = {
             }
         };
         land.Animate();
-        textHandler.ShowText("Protagonny", "intro6");
+        textHandler.ShowText("Cori", "intro6");
     },
     "~start5": function() {
         land.inDialogue = false;

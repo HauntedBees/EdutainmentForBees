@@ -33,9 +33,9 @@ const GetPlaceEntities = function(place, modern) {
     return entities;
 };
 const autoPlays = {
-    "ModernCoffin": function() { textHandler.ShowText("Protagonny", "intro0"); },
+    "ModernCoffin": function() { textHandler.ShowText("Cori", "intro0"); },
     "CutsceneWaset": function() { cutscenes["~start3"](); },
-    "ModernCoffin2": function() { textHandler.ShowText("Protagonny", "wakeUp"); },
+    "ModernCoffin2": function() { textHandler.ShowText("Cori", "wakeUp"); },
     "ModernTent": function() { cutscenes["~end4"](); },
 };
 const maxX = {
