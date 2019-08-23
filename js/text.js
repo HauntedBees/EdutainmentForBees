@@ -44,7 +44,7 @@ const texts = {
     ].join(" | "),
     "khonsuPray": "@Well, here's the altar. I guess it's prayer time. | @Khonsu, please bring me back home. To the future. Bring me Back to the-- | AAAAAAAAAA AAA AAAAAA AAAAA!!!! | @Uh, I agree. | ~end2",
     "wakeUp": "I'm back in the temple... the sarcophagus! | I need to tell the others about this!",
-    "returnToSender": "~end3",
+    "returnToSender": "Everyone's going to be amazed when they find out what happened to me down here! | ~end3",
     "archiBald1": [
         "So, you found an undiscovered sarcophagus in the tomb... | And instead of coming to get me, you ate the centuries-old honey next to it... | Then you passed out and hallucinated an Ancient Egypt adventure...",
         "And now you think that hallucination is real and want to share the discoveries you made in it with the world. | Did I get all of that right? | @It WAS real! Honey doesn't make you hallucinate!", 

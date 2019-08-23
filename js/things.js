@@ -18,7 +18,7 @@ const things = {
     "farmboybg": { type: "bg", sprite: "farmboy", anim: "regular", dir: 1, movement: "hume1" },
     "shop4bg": { type: "bg", sprite: "shopkeeps", sx: 0, sy: 2, dir: 0 },
     "coffinEnd": { type: "bg", sprite: "coffin", dir: 0 },
-    "returnToSender": { type: "auto", speaker: "Archibald", text: "returnToSender", sprite: "" },
+    "returnToSender": { type: "auto", speaker: "Protagonny", text: "returnToSender", sprite: "" },
     "archibald": { type: "bg", sprite: "sitBuddies", dir: 0 },
     "sitProtag": { type: "bg", sprite: "sitBuddies", sx: 1, dir: 0 },
     /* #endregion */

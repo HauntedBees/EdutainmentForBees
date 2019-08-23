@@ -282,7 +282,7 @@ const places = {
     }(),
     "ModernCoffin2": [
         { x: 2800, id: "coffinEnd" },
-        { x: 0, id: "returnToSender"}
+        { x: 450, id: "returnToSender"}
     ],
     "ModernTent": [
         { x: 346, id: "archibald" },
