@@ -27,6 +27,7 @@ const things = {
     "barley": { type: "observable", sprite: "plants", sx: 4, rawsx: 0, name: "Barley", textRange: 1, harvestable: true },
     "papyrus": { type: "observable", sprite: "plants", sx: 5, rawsx: 1, name: "Papyrus", textRange: 3, harvestable: true },
     "lettuce": { type: "observable", sprite: "plantsSmall", rawsx: 0, rawsy: 0, sx: 0, sy: 1, name: "Lettuce", textRange: 2, harvestable: true },
+    "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1, harvestable: true },
 
     "flax": { type: "beeable", sprite: "plants", sx: 1, rawsx: 0, sy: 1, name: "Flax", textRange: 2, beeY: -120, harvestable: true },
     "date": { type: "beeable", sprite: "plantsBig", rawsx: 0, sx: 1, name: "Date Palm", textRange: 2, beeY: -280, beeRadius: 75, harvestable: true },
@@ -36,11 +37,6 @@ const things = {
     "chamomile": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 5, name: "Chamomile", textRange: 1, beeY: -60, harvestable: true },
     "chrysanthemum": { type: "beeable", sprite: "plantsSmall", rawsx: 3, sx: 4, name: "Crown Daisy", textRange: 1, beeY: -55, foreground: true, harvestable: true },
     "melon": { type: "beeable", sprite: "plantsSmall", rawsx: 1, rawsy: 1, sx: 2, sy: 1, name: "Melon", textRange: 2, foreground: true, harvestable: true },
-    
-    "corn": { type: "observable", sprite: "plants", sx: 2, rawsx: 0, name: "Corn", textRange: 1, harvestable: true }, // not yet used
-    "garlic": { type: "observable", harvestable: true }, // BAD FOR BEES!!! not yet used or drawn
-    "acacia": { type: "beeable", harvestable: true }, // not yet used or drawn
-    "onion": { type: "beeable", harvestable: true }, // not yet used or drawn
     /* #endregion */
     /* #region MISC */
     "puddle": { type: "bg", sprite: "puddle", foreground: true, y: 15 },
