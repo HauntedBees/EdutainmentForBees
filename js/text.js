@@ -31,6 +31,8 @@ const texts = {
         "But, you're a real beekeeper, so you knew all of that, of course. Right? | @Absolutely. One hundred percent. | What is a \"percent?\" | @Uh, it's a beekeeper thing. You wouldn't understand. | Ah, of course! Well, everything is ready here for you now, so I'll be off.",
         "The plants aren't flowering here in Waset yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very much for your help. | ~start8"
     ].join(" | "),
+    "introThought1": "This is no dream... I can't believe I'm in Ancient Egypt! That honey must have had magic powers. | Are magic powers even real? I guess I can't argue otherwise now!",
+    "introThought2": "This city is amazing... it's hard to believe that thousands of years ago, we had societies just as big and bustling as we do now!",
     /* #endregion */
     /* #region Closing */
     "amenhotepEnd": [
@@ -831,7 +833,8 @@ const cutscenes = {
         land.inDialogue = false;
         land.target.type = "bg";
         land.entities.push({ type: "bg", sprite: "boatboat", dir: 0, x: 50, y: 75 });
-        // TODO: push the mid-walk thought processese
+        land.entities.push(GetCopy("introThought1", 4444));
+        land.entities.push(GetCopy("introThought2", 2222));
         land.entities.push(GetCopy("tutServant", 450));
     },
     "~start8": function() {
@@ -1031,19 +1034,20 @@ const cutscenes = {
             active: true, state: 0, iter: 0, 
             Process: function() {
                 if(this.state === 0) {
-                    if(++this.iter >= 50) {
+                    if(++this.iter >= 30) {
                         this.state = 1;
                         this.iter = 0;
                     }
+                    if(this.iter === 25) { game.endSound.play(); }
                 } else if(this.state === 1) {
                     sitFriend.sx = 2;
-                    if(++this.iter >= 80) {
+                    if(++this.iter >= 40) {
                         this.state = 2;
                         this.iter = 0;
                     }         
                 } else if(this.state === 2) {
                     sitFriend.sy = 1;
-                    if(++this.iter >= 200) {
+                    if(++this.iter >= 150) {
                         this.state = 3;
                         this.iter = 0;
                         this.active = false;

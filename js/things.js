@@ -5,6 +5,8 @@ const things = {
     "coffin": { type: "observable", speaker: "Cori", sprite: "coffin", dir: 0, name: "Sarcophagus", text: "intro3" },
     "beejar": { type: "bg", sprite: "beejar", dir: 0 },
     "helpser": { type: "bg", sprite: "pers2tiny", anim: "helpser", dir: 1 },
+    "introThought1": { type: "auto", speaker: "Cori", text: "introThought1", sprite: "" },
+    "introThought2": { type: "auto", speaker: "Cori", text: "introThought2", sprite: "" },
     "amenhotep": { type: "bg", sprite: "amenhotep", dir: 0 },
     "amenhotepTalk": { type: "person", sprite: "", dir: 0, name: "Amenhotep III", text: "intro8" },
     "tutServant": { type: "person", sprite: "pers2", anim: "helpser", dir: 1, name: "Setka", text: "intro9" },

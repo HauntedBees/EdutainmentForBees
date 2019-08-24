@@ -59,31 +59,35 @@ const credits = {
         credits.DrawText("Egyptian Pyramids", 3820, regularSize);
         credits.DrawText("by Henry Bacon", 3890, bySize);
         credits.DrawText("Public Domain in the USA", 3960, bySize);
-        credits.DrawText("Mariana Font", 4060, regularSize, "Mariana");
-        credits.DrawText(decodeURIComponent("by Mariano Mart%C3%ADnez Vila"), 4130, bySize, "Mariana");
-        credits.DrawText("Public Domain License", 4200, bySize, "Mariana");
-        credits.DrawText("OpenDyslexic Font", 4300, regularSize, "OpenDyslexic");
-        credits.DrawText("by Abbie Gonzalez", 4370, bySize, "OpenDyslexic");
-        credits.DrawText("SIL Open Font License", 4440, bySize, "OpenDyslexic");
-        credits.DrawText("New Athena Unicode Font", 4540, regularSize, "NewAthenaUnicode");
-        credits.DrawText("by the Society for Classical Studies", 4610, bySize, "NewAthenaUnicode");
-        credits.DrawText("SIL Open Font License", 4680, bySize, "NewAthenaUnicode");
-        credits.DrawText("Orkney Font", 4780, regularSize, "Orkney");
-        credits.DrawText("by Cristiano Sobral", 4850, bySize, "Orkney");
-        credits.DrawText("SIL Open Font License", 4920, bySize, "Orkney");
-        credits.DrawText("Made for the", 5020, headingSize);
-        credits.DrawText("August 2019 Summer Slow Jam", 5120, regularSize);
-        credits.DrawText("by the Portland Indie Game Squad", 5180, regularSize);
-        credits.DrawText("Special Thanks", 5310, headingSize);
-        credits.DrawText("The Reading Books Club", 5410, regularSize);
-        credits.DrawText("The MklaDiscord Gang", 5510, regularSize);
-        credits.DrawText("Laura Billard", 5610, regularSize);
-        credits.DrawText("Sheila Pollard", 5710, regularSize);
-        credits.DrawText("Nadia Wakabayashi", 5810, regularSize);
-        credits.DrawText("Cindy Eschenfelder", 5910, regularSize);
-        credits.DrawText("Danielle Wogulis", 6010, regularSize);
-        credits.DrawText("...and You!", 6150, regularSize);
-        credits.DrawText("Thank you for Playing!", 6300, regularSize);
+        credits.DrawText("Flight of the Bumblebee", 4060, regularSize);
+        credits.DrawText("by the US Army Band", 4130, bySize);
+        credits.DrawText("Public Domain in the USA", 4200, bySize);
+
+        credits.DrawText("Mariana Font", 4300, regularSize, "Mariana");
+        credits.DrawText(decodeURIComponent("by Mariano Mart%C3%ADnez Vila"), 4370, bySize, "Mariana");
+        credits.DrawText("Public Domain License", 4440, bySize, "Mariana");
+        credits.DrawText("OpenDyslexic Font", 4540, regularSize, "OpenDyslexic");
+        credits.DrawText("by Abbie Gonzalez", 4610, bySize, "OpenDyslexic");
+        credits.DrawText("SIL Open Font License", 4680, bySize, "OpenDyslexic");
+        credits.DrawText("New Athena Unicode Font", 4780, regularSize, "NewAthenaUnicode");
+        credits.DrawText("by the Society for Classical Studies", 4850, bySize, "NewAthenaUnicode");
+        credits.DrawText("SIL Open Font License", 4920, bySize, "NewAthenaUnicode");
+        credits.DrawText("Orkney Font", 5020, regularSize, "Orkney");
+        credits.DrawText("by Cristiano Sobral", 5090, bySize, "Orkney");
+        credits.DrawText("SIL Open Font License", 5160, bySize, "Orkney");
+        credits.DrawText("Made for the", 5260, headingSize);
+        credits.DrawText("August 2019 Summer Slow Jam", 5360, regularSize);
+        credits.DrawText("by the Portland Indie Game Squad", 5420, regularSize);
+        credits.DrawText("Special Thanks", 5500, headingSize);
+        credits.DrawText("The Reading Books Club", 5600, regularSize);
+        credits.DrawText("The MklaDiscord Gang", 5700, regularSize);
+        credits.DrawText("Laura Billard", 5800, regularSize);
+        credits.DrawText("Sheila Pollard", 5900, regularSize);
+        credits.DrawText("Nadia Wakabayashi", 6000, regularSize);
+        credits.DrawText("Cindy Eschenfelder", 6100, regularSize);
+        credits.DrawText("Danielle Wogulis", 6200, regularSize);
+        credits.DrawText("...and You!", 6300, regularSize);
+        credits.DrawText("Thank you for Playing!", 6400, regularSize);
         credits.DrawText(decodeURIComponent("%C2%A9 2019 Sean Finch / Haunted Bees Productions"), 6500, regularSize, undefined, 400);
     },
     DrawText: function(text, y, size, forceFont, lockY) {
@@ -97,6 +101,8 @@ const credits = {
     Action: function() {
         if(credits.showScore) {
             if(credits.countdownToAllowAdvancement > 0) { return; }
+            game.endSound.pause();
+            game.endSound.currentTime = 0;
             game.SwitchTo(titleScreen);
         } else if(credits.drawY <= -7500) {
             credits.showScore = true;

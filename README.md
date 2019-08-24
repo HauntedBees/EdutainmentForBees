@@ -1,7 +1,7 @@
 # Edutainment, For Bees!
 An Ancient History themed Edutainment game for "[Summer Slow Jams August 2019: Edutainment Games](https://itch.io/jam/ssjedutainment)."
 
-Development started on August 9, 2019. Development will end on or before August 23, 2019.
+Development started on August 9, 2019. Development completed on August 23, 2019.
 
 ## Credits
 
@@ -22,6 +22,8 @@ Development started on August 9, 2019. Development will end on or before August 
 **smoke.png** is modified from [Smoke Aura](https://opengameart.org/content/smoke-aura) by [Beast](https://opengameart.org/users/beast), which is licensed under the [CC0 Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/).
 
 **title.png** includes [Egyptian Pyramids](https://commons.wikimedia.org/wiki/File:Henry_A._Bacon_-_%27Egyptian_Pyramids%27,_watercolor_over_graphite,_1897.jpg) by Henry Bacon, which is in the Public Domain in the United States of America.
+
+**bumby.mp3** is [Flight of the Bumblebee](https://commons.wikimedia.org/wiki/File:Rimsky-Korsakov_-_flight_of_the_bumblebee.oga) by Nikolai Riminsky-Korsakov, performed by The United States Army Band, which is in the Public Domain in the United States of America.
 
 The font [**Mariana**](https://www.fontspace.com/mariano-mart%C3%ADnez-vila/mariana) by [Mariano Martínez Vila](https://www.fontspace.com/mariano-mart%C3%ADnez-vila) is licensed under the Public Domain.
 

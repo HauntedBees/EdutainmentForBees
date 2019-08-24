@@ -25,9 +25,6 @@ const GetPlaceEntities = function(place, modern) {
             entity.beeTime = Math.floor(Math.random() * 30);
             land.InitializeBees(entity);
         }
-        /*if(obj.x <= 600) { // TODO: remove me eventually
-            alert("object " + obj.id + " needs an X value higher than 600!");
-        }*/
         entities.push(entity);
     }
     return entities;

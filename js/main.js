@@ -6,7 +6,7 @@ const GetCopy = function(objKey, x) {
     return obj;
 }
 const game = {
-    numSaveSlots: 10, w: 1024, h: 896, ldiv: null, 
+    numSaveSlots: 10, w: 1024, h: 896, ldiv: null, endSound: null, 
     currentInputHandler: null, target: null, hasSave: false, 
     canvasLayers: ["background", "background2", "characters", "foreground", "menuA", "menuB", "menuC", "menutext", "paintbaby"], 
     SetLoadingText: function(t) { game.ldiv.innerText = t; },
@@ -30,6 +30,7 @@ const game = {
         gfx.canvasWidth = width;
         gfx.canvasHeight = height;
         game.SetLoadingText("Loading art assets.");
+        game.endSound = new Audio("styles/bumby.mp3");
         gfx.LoadSpriteSheets("img", sheetInfo, this.sheetsLoaded);
     },
 
