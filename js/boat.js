@@ -224,13 +224,22 @@ const boat = {
                     if(player.nectarCache[nectar] >= 200 && Math.random() > 0.8) {
                         player.nectarCache[nectar] -= 200;
                         boat.honeyCache.push({ type: nectar, grade: 6 });
+                        boat.honeyCache.push({ type: nectar, grade: 6 });
+                        boat.honeyCache.push({ type: nectar, grade: 6 });
+                        boat.honeyCache.push({ type: nectar, grade: 6 });
+                        boat.honeyCache.push({ type: nectar, grade: 6 });
+                        boat.honeyCache.push({ type: nectar, grade: 6 });
+                        boat.honeyCache.push({ type: nectar, grade: 6 });
+                        boat.honeyCache.push({ type: nectar, grade: 6 });
                         maxHoneys -= 2;
-                        beeswaxCount += Math.ceil(5 * Math.random());
+                        beeswaxCount += Math.ceil(3 * Math.random());
                     } else if(player.nectarCache[nectar] >= amount) {
                         player.nectarCache[nectar] -= amount;
-                        boat.honeyCache.push({ type: nectar, grade: 3 + Math.round(amount / 10) });
+                        boat.honeyCache.push({ type: nectar, grade: 3 });
+                        boat.honeyCache.push({ type: nectar, grade: 3 });
+                        boat.honeyCache.push({ type: nectar, grade: 3 });
                         maxHoneys--;
-                        beeswaxCount += Math.ceil(3 * Math.random());
+                        beeswaxCount += Math.ceil(2 * Math.random());
                     } else {
                         if(player.nectarCache[nectar] >= 15) {
                             boat.honeyCache.push({ type: nectar, grade: 3 });
