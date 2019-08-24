@@ -113,8 +113,17 @@ const credits = {
             credits.DrawText("People Helped: " + (player.clearedChievos.length - numAltars) + "/8", 400, headingSize);
             score += player.clearedChievos.length; maxScore += 8;
             credits.DrawText("Days Taken: " + player.currentDay, 500, headingSize);
+            const seconds = player.playTime % 60;
+            let minutes = Math.floor(player.playTime / 60);
+            let hours = 0;
+            if(minutes >= 60) {
+                hours = Math.floor(minutes / 60);
+                minutes = minutes % 60;
+            }
+            const playTimeStr = (hours > 0 ? (hours + "h") : "") + minutes + "m" + seconds + "s";
+            credits.DrawText("Playtime: " + playTimeStr, 600, headingSize);
             const completion = Math.round(1000 * score/maxScore) / 10;
-            credits.DrawText("Completion: " + completion + "%", 650, headingSize);
+            credits.DrawText("Completion: " + completion + "%", 750, headingSize);
             credits.countdownToAllowAdvancement = 100;
         } else {
             credits.drawSpeed = Math.min(credits.drawSpeed + 1, 30);
