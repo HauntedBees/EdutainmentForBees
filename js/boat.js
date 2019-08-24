@@ -181,6 +181,7 @@ const boat = {
         return distance;
     },
     SetSailForAdventure: function() {
+        input.clearAllKeys();
         boat.inDialogue = false;
         boat.inChoice = false;
         boat.selectingLocation = false;
@@ -282,6 +283,7 @@ const boat = {
         } else {
             if(boat.playerX <= 320) { // Sail
                 boat.selectingLocation = true;
+                input.clearAllKeys();
                 boat.InitialDraw();
             } else if(boat.playerX <= 480) { // Storage
                 gfx.ClearLayers(["menuA", "menutext"]);
