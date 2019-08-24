@@ -349,7 +349,7 @@ const choices = {
         {
             choice: "Give 4 jars of honey.",
             action: function() {
-                if(player.HasItem("honey", 4)) {
+                if(player.HasHoney("any", 0, 4)) {
                     player.RemoveHoney("any", 0, 4);
                     player.AddItem("wheat", 10);
                     player.AddItem("bread", 4);
@@ -512,7 +512,7 @@ const choices = {
         {
             choice: "Trade 2 honey for 3 milk.",
             action: function() {
-                if(player.HasItem("honey", 2)) {
+                if(player.HasHoney("any", 0, 2)) {
                     player.RemoveHoney("any", 0, 2);
                     player.AddItem("milk", 3);
                     textHandler.MoveToNewText("milkyBuy");
@@ -558,7 +558,7 @@ const choices = {
         {
             choice: "Trade 12 honey for 12 gold.",
             action: function() {
-                if(player.HasItem("honey", 12)) {
+                if(player.HasHoney("any", 0, 12)) {
                     player.RemoveHoney("any", 0, 12);
                     player.AddItem("gold", 12);
                     player.easterEggs.honeyBoy += 1;
