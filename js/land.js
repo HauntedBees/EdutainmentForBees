@@ -84,7 +84,7 @@ const land = {
             const dy = textHandler.HUDfontSize * player.fontSize * 2.5;
             switch(land.target.type) {
                 case "endgame":
-                    textHandler.DrawButton(true, "Pray", 525, land.btnY, 1, false, true);
+                    textHandler.DrawButton(true, "Pray (Khonsu)", 525, land.btnY, 1, false, true);
                     break;
                 case "auto":
                     textHandler.ShowText(land.target.speaker, land.target.text);

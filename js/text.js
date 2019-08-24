@@ -944,8 +944,14 @@ const cutscenes = {
     "~end1": function() {
         land.inDialogue = false;
         land.target.type = "bg";
-        const altar = land.entities.filter(s => s.id === "khonsuAltar")[0];
-        altar.type = "endgame";
+        for(let i = 0; i < land.entities.length; i++) {
+            const e = land.entities[i];
+            if(e.id === "khonsuAltar") {
+                e.type = "endgame";
+            } else {
+                e.type = "bg"; 
+            }
+        }
     },
     "~end2" : function() {
         land.inDialogue = false;

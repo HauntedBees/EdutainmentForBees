@@ -216,7 +216,7 @@ const places = {
             { x: 3800, id: "khonsu" }, { x: 3800, id: "khonsuAltar" },
             { x: 4100, id: "mut" }, { x: 4100, id: "mutAltar" },
             { x: 6400, id: "guard" },
-            { x: 6600, id: "amenhotepEnd" },
+            { x: 6700, id: "amenhotepEnd" },
             { x: 6800, id: "amenhotep" },
             { x: 1800, id: "boxBeer" },
             { x: 1900, id: "shop3" },
