@@ -91,8 +91,8 @@ const land = {
                     land.target.type = "bg";
                     break;
                 case "maker":
-                    textHandler.DrawButton(true, land.target.primary, 525, land.btnY, 1, false, true);
-                    textHandler.DrawButton(false, land.target.secondary, 555, land.btnY + dy, 1, false, true);
+                    textHandler.DrawButton(true, land.target.primary, 525, land.btnY, 1, false, land.CanUseMaker(true));
+                    textHandler.DrawButton(false, land.target.secondary, 555, land.btnY + dy, 1, false, land.CanUseMaker(false));
                     break;
                 case "beeable":
                     if(!land.flowering || land.target.harvested === true) {
@@ -334,6 +334,19 @@ const land = {
             if(land.playerX < 0) { land.playerX = 0; }
         } else { player.usingMouse = false; }
         land.bgMoved = true;
+    },
+    CanUseMaker: function(primary) {
+        const option = primary ? land.target.primary : land.target.secondary;
+        switch(option) {
+            case "Make Wheat Bread": return player.HasItem("wheat", 5);
+            case "Make Barley Bread": return player.HasItem("barley", 5);
+            case "Make Pomegranate Juice": return player.HasItem("pomegranate", 2);
+            case "Make Date Honey": return player.HasItem("date", 2);
+            case "Make Linen": return player.HasItem("flax", 3);
+            case "Make Parchment": return player.HasItem("papyrus", 3);
+            case "Make Scented Oil": return player.HasItem("chamomile", 1) && player.HasItem("chrysanthemum", 1);
+            case "Collect Water": return true;
+        }
     },
     ProcessMaker: function(primary) {
         const option = primary ? land.target.primary : land.target.secondary;
