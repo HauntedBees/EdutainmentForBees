@@ -1,0 +1,16 @@
+uglifyjs ^
+        js/credits.js ^
+        js/options.js ^
+        js/anim.js ^
+        js/seasons.js ^
+        js/boat.js ^
+        js/textHandler.js ^
+        js/text.js ^
+        js/input.js ^
+        js/player.js ^
+        js/places.js ^
+        js/things.js ^
+        js/jraphics.js ^
+        js/land.js ^
+        js/main.js ^
+-o js/minified.js
