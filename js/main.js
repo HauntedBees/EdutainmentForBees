@@ -80,6 +80,7 @@ const game = {
         localStorage.setItem("flowering", JSON.stringify(land.flowering));
         localStorage.setItem("currentPos", JSON.stringify(boat.currentPos));
         localStorage.setItem("honeyCache", JSON.stringify(boat.honeyCache));
+        localStorage.setItem("seasonBlobs", JSON.stringify(seasonHandler.seasonBlobs));
     },
     LoadGame: function() {
         game.SetLoadingText("Loading your progress!");
@@ -91,6 +92,7 @@ const game = {
         boat.currentPos = JSON.parse(localStorage.getItem("currentPos"));
         boat.nextPos = boat.currentPos;
         boat.honeyCache = JSON.parse(localStorage.getItem("honeyCache"));
+        seasonHandler.seasonBlobs = JSON.parse(localStorage.getItem("seasonBlobs"));
         game.currentInputHandler = boat;
         game.currentInputHandler.Setup();
     }
@@ -98,7 +100,15 @@ const game = {
 
 const titleScreen = {
     topOption: true, 
-    Setup: function() { titleScreen.topOption = true; },
+    Setup: function() {
+        titleScreen.topOption = true;
+        game.hasSave = localStorage.getItem("flowering") !== null;
+        if(game.hasSave) {
+            game.SetLoadingText("> Continue <");
+        } else {
+            game.SetLoadingText("> New Game <");
+        }
+    },
     mouseMove: function() { },
     click: function() {
         if(game.hasSave && titleScreen.topOption) {

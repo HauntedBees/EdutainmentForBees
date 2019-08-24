@@ -20,7 +20,7 @@ const GetPlaceEntities = function(place, modern) {
             entity.sx = player.easterEggs.melonCount % 4;
             entity.sy = Math.floor(player.easterEggs.melonCount / 4);
         }
-        if(entity.mustBee || (land.flowering === true && entity.type === "beeable" && Math.random() <= 0.05)) {
+        if(entity.mustBee || (land.flowering === true && entity.type === "beeable" && Math.random() <= 0.15)) {
             entity.hasBees = true;
             entity.beeTime = Math.floor(Math.random() * 30);
             land.InitializeBees(entity);

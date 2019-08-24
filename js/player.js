@@ -58,16 +58,14 @@ let player = {
     },
     AddHoney: function(honey) {
         player.honeys.push(honey);
-        player.AddItem("honey", 1);
     },
     HasHoney: function(type, grade, amount) {
         amount = amount || 1;
-        if(type === "any" && grade === 0) { return player.HasItem("honey", amount); }
+        if(type === "any" && grade === 0) { return player.honeys.length >= amount; }
         return player.honeys.filter(e => (type === "any" || e.type === type) && e.grade >= grade).length >= amount;
     },
     RemoveHoney: function(type, grade, amount) {
         amount = amount || 1;
-        player.RemoveItem("honey", amount);
         if(type === "any" && grade === 0) {
             for(let i = 0; i < amount; i++) {
                 player.honeys.pop();

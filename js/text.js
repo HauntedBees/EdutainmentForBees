@@ -4,7 +4,7 @@ const texts = {
     "intro1": "Judging from the condition of the tomb and the design, this seems like a tomb from the New Kingdom. | The New Kingdom lasted almost 500 years and spanned three dynasties. | The famous pharaoh Tutankhamun reigned during the 18th dynasty, and his tomb was rediscovered back in 1922!", 
     "intro2": "Oh! What's that up ahead?",
     "intro3": "A sarcophagus! Jackpot! | Maybe this is the tomb of a pharaoh or some other important historical figure! I can't lift this thing open on my own, so I'll have to go back and get some help. | Hm, what's this? | ~start1", 
-    "intro4": "This is jar has some hieroglyphs on it... some sort of insect... | Ah! | This is a jar full of honey! | That's right, Northern Africans were collecting honey from bees 9,000 years ago! | And Ancient Egyptians were domesticating them since before the 20th century BC! | This honey still looks as fresh as it must have been back then; due to its chemistry, honey can be preserved for tens to hundreds of years! | ...Maybe even thousands? | ~start2",
+    "intro4": "This jar has some hieroglyphs on it... some sort of insect... | Ah! | This is a jar full of honey! | That's right, Northern Africans were collecting honey from bees 9,000 years ago! | And Ancient Egyptians were domesticating them since before the 20th century BC! | This honey still looks as fresh as it must have been back then; due to its chemistry, honey can be preserved for tens to hundreds of years! | ...Maybe even thousands? | ~start2",
     "intro5": "Ugh... what happened? | ~start4",
     "intro6": "Where am I? | ~start5",
     "intro7": [
@@ -29,7 +29,7 @@ const texts = {
         "Then, when those flowers have been pollinated, they ride off to the next area that needs pollinating. | @Yes, of course. That is a thing I knew. | The raft is equipped with 5 beehives, already full of bees, and a supply crate.",
         "Inside the supply crate is a smoker and some sticks of incense. | @That sounds lovely! I love the smell of incense! | The incense isn't for you! After putting the incense in the smoker and lighting it, you can aim the smoke at the beehives. | Beekeepers use smoke to calm bees before removing the honeycomb from their hives. | If the bees aren't calmed first, trying to remove the honey will result in a lot of nasty stings.",
         "But, you're a real beekeeper, so you knew all of that, of course. Right? | @Absolutely. One hundred percent. | What is a \"percent?\" | @Uh, it's a beekeeper thing. You wouldn't understand. | Ah, of course! Well, everything is ready here for you now, so I'll be off.",
-        "The plants aren't flowering here in Waset yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very for your help. | ~start8"
+        "The plants aren't flowering here in Waset yet, but if you come back later I'm sure we'll have some nice plants ready for you. | When you pick a destination on the raft, you'll be able to see which areas are ready to be pollinated. | @Thank you very much for your help. | ~start8"
     ].join(" | "),
     /* #endregion */
     /* #region Closing */
@@ -135,8 +135,8 @@ const texts = {
     "mut": "The Ancient Egyptian word for mother was also the name of the mother goddess Mut. | Along with her husband Amun and her son Khonsu, they formed the triad of Thebes - or Waset as the city was known in Egyptian. | Prior to the rise of the New Kingdom, Amun's wives were the goddesses Amaunet and Wosret, but they were displaced by Mut. | The Pharaoh and priestesse would perform daily rituals to Mut, as she grew to be the most important goddess in Egypt.", 
     "khonsu": "Khonsu, son of Amun and Mut, was the god of the moon who watched over those who traveled at night. | In one of Ancient Egypt's creation myths, Khonsu was the great snake that fertilized the Cosmic Egg to create the world. | He was known as a great healer, a reputation that spread outside of Egypt.", 
     "khnum": "Khnum was the ram-headed god who was believed to be the source of the Nile River. | It was also believed that he created the bodies of human children out of clay at his pottery wheel, which he then inserted into mothers' wombs. | The \"Divine Potter\" had his cult centered on the island of Elephantine - or Yabu - which he shared with Anuket and Satis.",
-    "anuket": "Anuket was the goddess of Lower Nubia and the cataracts of the Nile. | Cataracts were shallow parts of the Nile River with many small rocks and boulders sticking out of the water. | During the start of the flooding season, Egyptians would celebrate the Festival of Anuket. | During this festival, people would throw their gold and precious items into the Nile to thank Anuket for the water and the crops that resulted from the fresh soil.",
-    "satis": "Satis was a protective diety of the southern Egyptian border and was associated with the Nile's annual flooding. | She killed the enemies of the Pharoah with her arrows, and granted wishes to lovers due to her role as a fertility goddess. | It was said that she purified the bodies of deceased pharoahs with jars of sacred water from Elephantine.",
+    "anuket": "Anuket was the goddess of Lower Nubia and the cataracts of the Nile. | Cataracts are shallow parts of the Nile River with many small rocks and boulders sticking out of the water. | During the start of the flooding season, Egyptians would celebrate the Festival of Anuket. | During this festival, people would throw their gold and precious items into the Nile to thank Anuket for the water and the crops that resulted from the fresh soil.",
+    "satis": "Satis was a protective deity of the southern Egyptian border and was associated with the Nile's annual flooding. | She killed the enemies of the Pharoah with her arrows, and granted wishes to lovers due to her role as a fertility goddess. | It was said that she purified the bodies of deceased pharoahs with jars of sacred water from Elephantine.",
     /* #endregion */
     /* #region Crops */
     "harvest": "@I harvested @arg.",
@@ -207,7 +207,7 @@ const texts = {
     "teacherb": "Do you happen to have ten pieces of parchment to spare? | ?teacher", 
     "teacherNo": "Oh well. Some should be delivered soon, but it would be nice to have some more now.", 
     "teacherLack": "Thank you, but it seems that you don't have ten parchment to give.", 
-    "teacherGive": "Wonderful, thank you! Now, as promised, here is some secret knowledge! | Are you ready? | ... | ... | I sleep with my pants on because I'm afraid that Set - the god of chaos - will slap my butt while I'm asleep.", 
+    "teacherGive": "Wonderful, thank you! Now, as promised, here is some secret knowledge! | Are you ready? | ... | ...... | I sleep with my pants on because I'm afraid that Set - the god of chaos - will slap my butt while I'm asleep.", 
     "teacherc": "Thank you again for the parchment. It's important my students have all the resources they need to succeed.", 
     "amenken1": "Ah! Are you a beekeeper? Perhaps you can help me! | My master's boat has sprung a leak, and I need some beeswax to seal it up! | Can you provide me with 10 beeswax? I can give you 3 gold for it! | ?amenken1",
     "amenkenNo": "I guess I'll have to find some beeswax elsewhere.",
@@ -233,7 +233,7 @@ const texts = {
     /* #endregion */
     /* #region Abdju */
     "tombKhasekhem": "Khasekhemwy was the last pharoah of Egypt's Second Dynasty in the early 2600's BC. | Not much is known about him, but his tomb was excavated in 1901, revealing several chambers, a burial chamber made with limestone blocks, and an elaborate golden scepter. | He built a mudbrick fort known as Shunet El Zebib, which is actively being preserved and researched to this day.",
-    "tombPeribsen": "Peribsen was a pharaoh of the Second Dynasty, some time in the 2700's BC. | Unlike other pharaohs, his patron diety was Set - a god of chaos who killed his brother Osiris - instead of the usual Horus - Osiris's son who avenged his father's death. | In his tomb, archaeologists discovered a Mehen game board. | The game Mehen - named after a snake diety - was a game played on a board shaped like a coiled snake.",
+    "tombPeribsen": "Peribsen was a pharaoh of the Second Dynasty, some time in the 2700's BC. | Unlike other pharaohs, his patron deity was Set - a god of chaos who killed his brother Osiris. Usually pharaohs chose Horus - Osiris's son who avenged his father's death - as their patron deity. | In his tomb, archaeologists discovered a Mehen game board. | The game Mehen - named after a snake deity - was a game played on a board shaped like a coiled snake.",
     "tombQaa": "Qa'a reigned for 33 years at the end of the 30th century BC as the last pharaoh of the First Dynasty of Ancient Egypt. | It is believed that after he died, a war began between royal houses over who would take over the throne.",
     "tombSemerkhet": "Semerkhet was a pharoah of the First Dynasty. It was said by the historian and priest Manetho that some calamity occurred during his reign. | Historians have found mention of a \"Destruction of Egypt\" mentioned in the Palermo Stone, which documented his reign.",
     "tombKa": "Before the First Dynasty of Ancient Egypt, there was the Predynastic Period, which spanned from around 6000 BC to 3000 BC. | After the unification of Upper and Lower Egypt, the First Dynasty began. | One of the pharaohs of the Predynastic Period was a ruler whose name is not agreed upon yet. | Some read his name as \"Ka,\" and others read it as \"Sekhen.\" | Not much is known about his reign, but along with Narmer and Scorpion II, he is one of the more heavily documented Predynastic pharaohs.",
@@ -252,14 +252,15 @@ const texts = {
     "beerLadyLack": "You are lacking in date honey, ma'am. Please come back later when you have some. | Remember, I want date honey, not just dates, and not honey made from date nectar. The name's confusing, I know.",
     "farmboy": "Welcome to Waset, the capital of Egypt, as decreed by the former pharaoh Ahmose I! | Our current pharaoh Amenhotep III has been working hard to make this city great, even funding a vast new temple to Amun! | This city is also a training hub for scribes and archivists for the royal archives, since our leaders do so much good that someone needs to write it down! | I hope you enjoy your stay here!",
     "moneyman": "I love this great city, there are so many trading opportunities here! Would you like 4 gold? I'll give you it for just 5 gold! | @Uh, no thanks. | Your loss!",
-    "hiveworks": "Ah, a fellow beekeeper! You don't look it, but I can tell! Us beekeepers know! | Anyway, I can craft you some more beehives if you need them, but I'll need some supplies first. | Bring me 5 clay slabs and I'll get you a beehive, deal? | ?beehive",
+    "hiveworks": "Ah, a fellow beekeeper! You don't look it, but I can tell! Us beekeepers know! | Anyway, I can craft you some more beehives if you need them, but I'll need some supplies first. | Bring me 3 clay slabs and I'll get you a beehive, deal? | ?beehive",
     "beehiveBuy": "Excellent! Enjoy your new beehive! | You can occasionally find some bees on flowering plants, so scoop 'em up when you see them!",
-    "beehiveb": "Hello! If you have five clay slabs I can make you a beehive! | ?beehive",
+    "beehiveb": "Hello! If you have three clay slabs I can make you a beehive! | ?beehive",
     "beehiveLack": "Sorry, but I need clay to make you a beehive. | Beehives are long hollow cylinders made with reeds and branches and mud, but clay beehives are so much prettier!",
     "beehiveNo": "Alright, well if you change your mind, just bring me some clay! | If you don't have any clay, you can probably find some in Yabu; there's a construction site there near a clay deposit!",
     "theGoodBoy": "Hello! It's you again, the weird bee lady! | @Ah, you're the boy who found me by the river! Thank you again for your help! | Of course! It was the least I could do! Are you going to stay here long? | @I'm not sure... I don't exactly know how to get back home. | I'm sure the Pharaoh can help you! Give him some more of that honey and he'll probably take you home himself! | @Thanks for the tip.",
     "guardingPharaoh": "Halt! The pharaoh is not seeing visitors right now. | @But I've got some honey for him. I'm the beekeeper you-- | You? A beekeeper? You look nothing like a beekeeper, don't make me laugh! | If you wish to seek an audience with the pharaoh, you must prove that you are worthy. | @How can I do that? | I'll be listening to the gods for an answer. It might be wise to get on the good side of some of them if you want to see the pharaoh! | ~altarCheck", 
     "guardingPharaoh2": "If you wish to see the pharaoh, you must have the gods on your side. | @How do I get them to be on my side? | There are altars to the gods all over Egypt. Offer the right gifts to them and the gods will be pleased. | ~altarCheck",
+    "guardingPharaoh3": "You may speak to Amenhotep III, but I still don't believe that you're a beekeeper.",
     "guardingPharaohYes": "Ah, you've earned the favor of many gods, I can sense it! | Very well, you may see the pharaoh.",
     "guardingPharaohNo": "You have not yet earned the favor of enough gods. Keep going to altars and offering gifts to them. | Only then may you speak to the pharaoh.",
     /* #endregion */
@@ -533,10 +534,10 @@ const choices = {
     ],
     "?beehive": [
         {
-            choice: "Give him 2 clay for a beehive.",
+            choice: "Give him 3 clay for a beehive.",
             action: function() {
-                if(player.HasItem("clay", 5)) {
-                    player.RemoveItem("clay", 5);
+                if(player.HasItem("clay", 3)) {
+                    player.RemoveItem("clay", 3);
                     player.AddItem("empty beehive", 1);
                     textHandler.MoveToNewText("beehiveBuy");
                     land.target.text = "beehiveb";
