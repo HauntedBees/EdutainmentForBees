@@ -1058,6 +1058,10 @@ const cutscenes = {
     }
 };
 
+const honeyDisplayNames = {
+    "bluelotus": "blue lotus",
+    "whitelotus": "white lotus"
+};
 const displayNames = {
     "honey": "comb of honey",
     "bluelotus": "blue lotus",
@@ -1114,19 +1118,28 @@ function SetInventoryString() {
             things.push("1 " + (displayNames[key] || key));
         }
     }
+    things.sort((a, b) => (parseInt(b.split(" ")[0]) - parseInt(a.split(" ")[0])));
+    if(player.honeys.length > 0) { things.push("and " + player.honeys.length + " honey"); }
     if(things.length === 0) {
         texts["inventory"] += "nothing."
     } else {
         texts["inventory"] += things.join(", ") + ".";
         if(player.honeys.length > 0) {
             texts["inventory"] += " | Types of Honey: ";
-            const honeys = [];
-            const ranks = ["F", "D", "C", "B", "A", "S"];
+            const honeys = {};
             for(let i = 0; i < player.honeys.length; i++) {
                 const h = player.honeys[i];
-                honeys.push((displayNames[h.type] || h.type) + " (" + ranks[h.grade] + "-Rank)");
+                if(honeys[h.type] === undefined) {
+                    honeys[h.type] = 1;
+                } else {
+                    honeys[h.type] += 1;
+                }
             }
-            texts["inventory"] += honeys.join(", ") + ".";
+            const honeyStrs = [];
+            for(const key in honeys) {
+                honeyStrs.push((honeyDisplayNames[key] || key) + " (" + honeys[key] + ")");
+            }
+            texts["inventory"] += honeyStrs.join(", ") + ".";
         }
     }
 }
